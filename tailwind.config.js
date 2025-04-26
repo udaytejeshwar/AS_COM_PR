@@ -1,0 +1,102 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#2A3138',
+          50: '#E7E9EB',
+          100: '#CED3D8',
+          200: '#9BA6B1',
+          300: '#68798A',
+          400: '#3E4955',
+          500: '#2A3138',
+          600: '#242A30',
+          700: '#1E2328',
+          800: '#181C21',
+          900: '#121619',
+        },
+        'accent-blue': {
+          DEFAULT: '#1E88E5',
+          50: '#E3F2FD',
+          100: '#BBDEFB',
+          200: '#90CAF9',
+          300: '#64B5F6',
+          400: '#42A5F5',
+          500: '#1E88E5',
+          600: '#1976D2',
+          700: '#1565C0',
+          800: '#0D47A1',
+          900: '#0A3880',
+        },
+        success: {
+          DEFAULT: '#10B981',
+          50: '#ECFDF5',
+          100: '#D1FAE5',
+          200: '#A7F3D0',
+          300: '#6EE7B7',
+          400: '#34D399',
+          500: '#10B981',
+          600: '#059669',
+          700: '#047857',
+          800: '#065F46',
+          900: '#064E3B',
+        },
+        warning: {
+          DEFAULT: '#F59E0B',
+          50: '#FFFBEB',
+          100: '#FEF3C7',
+          200: '#FDE68A',
+          300: '#FCD34D',
+          400: '#FBBF24',
+          500: '#F59E0B',
+          600: '#D97706',
+          700: '#B45309',
+          800: '#92400E',
+          900: '#78350F',
+        },
+        error: {
+          DEFAULT: '#EF4444',
+          50: '#FEF2F2',
+          100: '#FEE2E2',
+          200: '#FECACA',
+          300: '#FCA5A5',
+          400: '#F87171',
+          500: '#EF4444',
+          600: '#DC2626',
+          700: '#B91C1C',
+          800: '#991B1B',
+          900: '#7F1D1D',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+      spacing: {
+        '128': '32rem',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-in-out',
+        'slide-in': 'slideIn 0.5s ease-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideIn: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+      },
+      zIndex: {
+        '60': '60',
+        '70': '70',
+      },
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
+};
