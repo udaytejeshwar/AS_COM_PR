@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import DownloadBrochure from '../components/shared/DownloadBrochure';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -56,13 +57,16 @@ const ContactPage = () => {
         ></div>
         
         <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-slide-in">
-              Contact Us
-            </h1>
-            <p className="text-xl mb-8 text-gray-200 max-w-2xl">
-              Get in touch with our team for expert support, product inquiries, or technical assistance.
-            </p>
+          <div className="flex justify-between items-start max-w-3xl">
+            <div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-slide-in">
+                Contact Us
+              </h1>
+              <p className="text-xl mb-8 text-gray-200 max-w-2xl">
+                Get in touch with our team for expert support, product inquiries, or technical assistance.
+              </p>
+            </div>
+            <DownloadBrochure />
           </div>
         </div>
       </section>

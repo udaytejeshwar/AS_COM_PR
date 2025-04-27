@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Award, PenTool as Tool, Settings } from 'lucide-react';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
+import DownloadBrochure from '../components/shared/DownloadBrochure';
 
 const HomePage = () => {
   return (
@@ -39,6 +40,7 @@ const HomePage = () => {
               >
                 Contact Sales
               </Link>
+              <DownloadBrochure />
             </div>
           </div>
         </div>
