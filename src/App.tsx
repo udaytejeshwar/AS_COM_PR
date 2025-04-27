@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import PremiumLinePage from './pages/PremiumLinePage';
+import AccessoriesPage from './pages/AccessoriesPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import QuotePage from './pages/QuotePage';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/premium" element={<PremiumLinePage />} />
+        <Route path="/accessories" element={<AccessoriesPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/quote" element={<QuotePage />} />

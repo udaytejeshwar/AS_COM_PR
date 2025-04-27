@@ -16,16 +16,17 @@ const Header = () => {
   };
 
   const toggleDropdown = (dropdown: string) => {
-  if (dropdown === 'products' || dropdown === 'applications') {
-    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
-    setActiveSubDropdown(null); // Close any sub-dropdown when switching main
-  } else {
-    setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
-  }
-};
+    if (dropdown === 'products' || dropdown === 'applications') {
+      setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+      setActiveSubDropdown(null); // Close any sub-dropdown when switching main
+    } else {
+      setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
+    }
+  };
+
   const toggleSubDropdown = (dropdown: string) => {
-  setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
-};
+    setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -170,6 +171,10 @@ const Header = () => {
 
             <NavLink to="/premium" className={navLinkClass}>
               Premium Line
+            </NavLink>
+            
+            <NavLink to="/accessories" className={navLinkClass}>
+              Accessories
             </NavLink>
             
             {/* Applications Dropdown */}
@@ -338,6 +343,20 @@ const Header = () => {
               onClick={closeMenu}
             >
               Premium Line
+            </NavLink>
+
+            <NavLink
+              to="/accessories"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive
+                    ? 'bg-primary-50 text-primary-500'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                }`
+              }
+              onClick={closeMenu}
+            >
+              Accessories
             </NavLink>
             
             {/* Applications Section */}

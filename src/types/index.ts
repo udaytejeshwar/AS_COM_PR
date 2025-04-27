@@ -2,6 +2,7 @@ export type ProductFamily = 'ER' | 'HSK';
 export type Application = 'Wood' | 'Stone' | 'Aluminum' | 'Composites';
 export type ToolHolder = 'ER20' | 'ER25' | 'ER32' | 'ER40' | 'HSK-E50' | 'HSK-F63' | 'HSK-A63';
 export type ProductLine = 'Standard' | 'Premium';
+export type AccessoryCategory = 'Cooling' | 'Tool Holders' | 'VFD' | 'Collets' | 'Tools';
 
 export interface Product {
   id: string;
@@ -34,6 +35,17 @@ export interface Product {
     };
   };
   imageUrl: string;
+}
+
+export interface Accessory {
+  id: string;
+  name: string;
+  category: AccessoryCategory;
+  description: string;
+  features: string[];
+  specifications: Record<string, string>;
+  imageUrl: string;
+  compatibleWith?: ProductFamily[];
 }
 
 export interface FilterOptions {
