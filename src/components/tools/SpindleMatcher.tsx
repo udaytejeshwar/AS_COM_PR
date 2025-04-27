@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Search, ArrowRight } from 'lucide-react';
 import { products } from '../../data/products';
-import { Product } from '../../types';
+import { Product, Application } from '../../types';
 import { Link } from 'react-router-dom';
 
 interface SpindleMatcherProps {
@@ -12,6 +12,7 @@ const SpindleMatcher = ({ className = '' }: SpindleMatcherProps) => {
   const [power, setPower] = useState<number>(0);
   const [speed, setSpeed] = useState<number>(0);
   const [torque, setTorque] = useState<number>(0);
+  const [application, setApplication] = useState<Application | ''>('');
   const [matches, setMatches] = useState<Product[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
 
@@ -26,8 +27,9 @@ const SpindleMatcher = ({ className = '' }: SpindleMatcherProps) => {
         product.minSpeed <= speed + speedTolerance &&
         product.maxSpeed >= speed - speedTolerance;
       const torqueMatch = Math.abs(product.torque - torque) <= torqueTolerance;
+      const applicationMatch = !application || product.applications.includes(application);
 
-      return powerMatch && speedMatch && torqueMatch;
+      return powerMatch && speedMatch && torqueMatch && applicationMatch;
     });
 
     setMatches(matchedProducts);
@@ -41,13 +43,14 @@ const SpindleMatcher = ({ className = '' }: SpindleMatcherProps) => {
         Enter your current spindle specifications to find compatible replacements from our product line.
       </p>
 
-      <div className="grid md:grid-cols-3 gap-6 mb-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="power" className="block text-sm font-medium text-gray-700 mb-2">
             Power (kW)
           </label>
           <input
             type="number"
+            id="power"
             value={power || ''}
             onChange={(e) => setPower(Number(e.target.value))}
             className="w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-500 focus:ring focus:ring-accent-blue-200 focus:ring-opacity-50"
@@ -56,11 +59,12 @@ const SpindleMatcher = ({ className = '' }: SpindleMatcherProps) => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="speed" className="block text-sm font-medium text-gray-700 mb-2">
             Speed (RPM)
           </label>
           <input
             type="number"
+            id="speed"
             value={speed || ''}
             onChange={(e) => setSpeed(Number(e.target.value))}
             className="w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-500 focus:ring focus:ring-accent-blue-200 focus:ring-opacity-50"
@@ -69,16 +73,35 @@ const SpindleMatcher = ({ className = '' }: SpindleMatcherProps) => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="torque" className="block text-sm font-medium text-gray-700 mb-2">
             Torque (Nm)
           </label>
           <input
             type="number"
+            id="torque"
             value={torque || ''}
             onChange={(e) => setTorque(Number(e.target.value))}
             className="w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-500 focus:ring focus:ring-accent-blue-200 focus:ring-opacity-50"
             placeholder="e.g., 5.4"
           />
+        </div>
+
+        <div>
+          <label htmlFor="application" className="block text-sm font-medium text-gray-700 mb-2">
+            Application
+          </label>
+          <select
+            id="application"
+            value={application}
+            onChange={(e) => setApplication(e.target.value as Application | '')}
+            className="w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-500 focus:ring focus:ring-accent-blue-200 focus:ring-opacity-50"
+          >
+            <option value="">Any Application</option>
+            <option value="Wood">Wood</option>
+            <option value="Stone">Stone</option>
+            <option value="Aluminum">Aluminum</option>
+            <option value="Composites">Composites</option>
+          </select>
         </div>
       </div>
 
@@ -110,6 +133,7 @@ const SpindleMatcher = ({ className = '' }: SpindleMatcherProps) => {
                       <p>Power: {product.power} kW</p>
                       <p>Speed: {product.minSpeed.toLocaleString()} - {product.maxSpeed.toLocaleString()} RPM</p>
                       <p>Torque: {product.torque} Nm</p>
+                      <p>Applications: {product.applications.join(', ')}</p>
                     </div>
                     <Link
                       to={`/products/${product.id}`}
