@@ -11,6 +11,7 @@ export interface Product {
   power: number; // in kilowatts
   minSpeed: number; // in RPM
   maxSpeed: number; // in RPM
+  nominalSpeed: number; // in RPM
   torque: number; // in Newton meters
   toolHolder: ToolHolder;
   applications: Application[];
