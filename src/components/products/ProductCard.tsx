@@ -47,6 +47,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <p className="text-gray-500">Torque</p>
             <p className="font-medium">{product.torque} Nm</p>
           </div>
+          <div>
+            <p className="text-gray-500">Nominal Speed</p>
+            <p className="font-medium">{product.nominalSpeed} RPM</p>
+          </div>
         </div>
         
         <p className="text-gray-600 text-sm mb-4 line-clamp-3">{product.description}</p>

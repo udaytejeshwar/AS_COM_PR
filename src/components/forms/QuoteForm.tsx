@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Send } from 'lucide-react';
 import { QuoteFormData } from '../../types';
+import { useLocation } from 'react-router-dom';
 
 interface QuoteFormProps {
   productId?: string;
@@ -18,7 +19,12 @@ const QuoteForm = ({ productId, productName }: QuoteFormProps) => {
     quantity: 1,
     application: '',
     message: '',
+    productName: productName || '',
   });
+
+  const location = useLocation();
+const params = new URLSearchParams(location.search);
+const productNameFromURL = params.get('productName') || '';
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -42,6 +48,7 @@ const QuoteForm = ({ productId, productName }: QuoteFormProps) => {
         quantity: 1,
         application: '',
         message: '',
+        productName: productName || '',
       });
     } catch (error) {
       setSubmitStatus('error');
@@ -134,6 +141,21 @@ const QuoteForm = ({ productId, productName }: QuoteFormProps) => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-500 focus:ring-accent-blue-500"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="productName" className="block text-sm font-medium text-gray-700">
+            Product Name
+          </label>
+          <input
+            type="text"
+            id="productName"
+            name="productName"
+            value={productNameFromURL}
+            onChange={handleChange}
+            placeholder="Enter the product you want quote for"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-500 focus:ring-accent-blue-500"
           />
         </div>
