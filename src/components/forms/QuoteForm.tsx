@@ -18,6 +18,7 @@ const QuoteForm = ({ productId, productName }: QuoteFormProps) => {
     quantity: 1,
     application: '',
     message: '',
+    productName: productName || '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,6 +43,7 @@ const QuoteForm = ({ productId, productName }: QuoteFormProps) => {
         quantity: 1,
         application: '',
         message: '',
+        productName: productName || '',
       });
     } catch (error) {
       setSubmitStatus('error');
@@ -137,6 +139,21 @@ const QuoteForm = ({ productId, productName }: QuoteFormProps) => {
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-500 focus:ring-accent-blue-500"
           />
         </div>
+
+        <div>
+  <label htmlFor="productName" className="block text-sm font-medium text-gray-700">
+    Product Name
+  </label>
+  <input
+    type="text"
+    id="productName"
+    name="productName"
+    value={formData.productName}
+    onChange={handleChange}
+    placeholder="Enter the product you want quote for"
+    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-500 focus:ring-accent-blue-500"
+  />
+</div>
 
         <div>
           <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">

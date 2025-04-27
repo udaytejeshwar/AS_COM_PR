@@ -58,4 +58,5 @@ export interface QuoteFormData {
   quantity: number;
   application: string;
   message: string;
+  productName: string;
 }
