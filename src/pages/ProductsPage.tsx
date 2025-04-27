@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, Filter } from 'lucide-react';
-
 import ProductCard from '../components/products/ProductCard';
 import ProductFilter from '../components/products/ProductFilter';
+import DownloadBrochure from '../components/shared/DownloadBrochure';
 import { products, getFilterLimits } from '../data/products';
 import { FilterOptions, Product, Application, ProductFamily, ToolHolder } from '../types';
 
@@ -134,10 +134,15 @@ const ProductsPage = () => {
       {/* Header */}
       <div className="bg-primary-500 text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4">Electro Spindles</h1>
-          <p className="text-primary-100 max-w-3xl">
-            Explore our comprehensive range of high-performance electro spindles designed for various materials and applications.
-          </p>
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-bold mb-4">Electro Spindles</h1>
+              <p className="text-primary-100 max-w-3xl">
+                Explore our comprehensive range of high-performance electro spindles designed for various materials and applications.
+              </p>
+            </div>
+            <DownloadBrochure />
+          </div>
         </div>
       </div>
       

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Gauge } from 'lucide-react';
-
+import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Gauge, Download, FileDown } from 'lucide-react';
 import { getProductById, products } from '../data/products';
 import { Product } from '../types';
+import DownloadBrochure from '../components/shared/DownloadBrochure';
 
 const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -11,9 +11,16 @@ const ProductDetailPage = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  // Get related products (same family or application)
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
+
+  const handleImageDownload = (imageUrl: string, productName: string) => {
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    link.download = `${productName.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   useEffect(() => {
     if (!id) {
@@ -27,7 +34,6 @@ const ProductDetailPage = () => {
       setProduct(fetchedProduct);
       setSelectedImage(fetchedProduct.imageUrl);
 
-      // Find related products (same family or applications overlap)
       const related = products
         .filter(p =>
           p.id !== fetchedProduct.id && (
@@ -76,7 +82,6 @@ const ProductDetailPage = () => {
 
   return (
     <div className="animate-fade-in">
-      {/* Breadcrumbs */}
       <div className="bg-gray-50 border-b">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex" aria-label="Breadcrumb">
@@ -99,20 +104,24 @@ const ProductDetailPage = () => {
         </div>
       </div>
 
-      {/* Product Details */}
       <div className="container mx-auto px-4 py-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-12">
-          {/* Product Images */}
           <div className="mb-8 lg:mb-0">
-            <div className="bg-white rounded-lg overflow-hidden shadow-md mb-4">
+            <div className="bg-white rounded-lg overflow-hidden shadow-md mb-4 relative group">
               <img
                 src={selectedImage || product.imageUrl}
                 alt={product.name}
                 className="w-full h-96 object-cover object-center"
               />
+              <button
+                onClick={() => handleImageDownload(selectedImage || product.imageUrl, product.name)}
+                className="absolute bottom-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                title="Download Image"
+              >
+                <Download className="w-5 h-5 text-primary-500" />
+              </button>
             </div>
 
-            {/* We could add more images in the future */}
             <div className="hidden sm:grid grid-cols-4 gap-2">
               <button
                 className={`border-2 rounded-md overflow-hidden ${selectedImage === product.imageUrl ? 'border-accent-blue-500' : 'border-gray-200'
@@ -125,13 +134,14 @@ const ProductDetailPage = () => {
                   className="w-full h-20 object-cover"
                 />
               </button>
-              {/* Placeholder for additional images */}
             </div>
           </div>
 
-          {/* Product Info */}
           <div>
-            <h1 className="text-3xl font-bold text-primary-500 mb-2">{product.name}</h1>
+            <div className="flex justify-between items-start mb-4">
+              <h1 className="text-3xl font-bold text-primary-500">{product.name}</h1>
+              <DownloadBrochure />
+            </div>
             <div className="flex items-center mb-4">
               <span className="text-sm font-medium bg-primary-500 text-white px-2 py-1 rounded mr-2">
                 {product.family} Series
@@ -151,7 +161,6 @@ const ProductDetailPage = () => {
 
             <p className="text-gray-700 mb-6">{product.description}</p>
 
-            {/* Key Specifications */}
             <div className="bg-gray-50 rounded-lg p-6 mb-6">
               <h3 className="text-lg font-semibold text-primary-500 mb-4">Specifications</h3>
               <div className="grid grid-cols-2 gap-y-4">
@@ -178,7 +187,6 @@ const ProductDetailPage = () => {
               </div>
             </div>
 
-            {/* Technical Specifications */}
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
               <h3 className="text-lg font-semibold text-primary-500 mb-4">Technical Specifications</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -230,7 +238,6 @@ const ProductDetailPage = () => {
               </div>
             </div>
 
-            {/* Features */}
             <div className="mb-8">
               <h3 className="text-lg font-semibold text-primary-500 mb-4">Key Features</h3>
               <ul className="space-y-2">
@@ -243,7 +250,6 @@ const ProductDetailPage = () => {
               </ul>
             </div>
 
-            {/* CTA */}
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => navigate(`/quote?productName=${encodeURIComponent(product.name)}`)}
@@ -262,7 +268,6 @@ const ProductDetailPage = () => {
         </div>
       </div>
 
-      {/* Related Products */}
       {relatedProducts.length > 0 && (
         <div className="bg-gray-50 py-12">
           <div className="container mx-auto px-4">
