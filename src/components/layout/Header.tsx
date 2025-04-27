@@ -65,10 +65,11 @@ const Header = () => {
             </NavLink>
             
             {/* Products Dropdown */}
-            <div className="relative">
+            <div className="relative"
+            onMouseEnter={() => setActiveDropdown('products')}
+            onMouseLeave={() => setActiveDropdown(null)}>
               <button 
-                className="flex items-center px-3 py-2 text-gray-700 hover:text-accent-blue-400 transition-colors duration-200"
-                onClick={() => toggleDropdown('products')}
+                className="flex items-center px-3 py-2 text-gray-700 hover:text-accent-blue-400 transition-colors duration-200" 
               >
                 Products
                 <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
@@ -76,10 +77,11 @@ const Header = () => {
               {activeDropdown === 'products' && (
                 <div className="absolute left-0 top-full mt-1 w-48 bg-white shadow-lg rounded-md overflow-visible z-50">
                   {/* ER Series */}
-                  <div className="relative group overflow-visible">
+                  <div className="relative group overflow-visible"
+                  onMouseEnter={() => setActiveSubDropdown('er')}
+                  onMouseLeave={() => setActiveSubDropdown(null)}>
                     <button 
                       className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500 flex items-center justify-between"
-                      onClick={() => toggleSubDropdown('er')}
                     >
                       ER Series
                       <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeSubDropdown === 'er' ? 'rotate-180' : ''}`} />
@@ -119,10 +121,11 @@ const Header = () => {
                   </div>
                   
                   {/* HSK Series */}
-                  <div className="relative group overflow-visible">
+                  <div className="relative group overflow-visible"
+                  onMouseEnter={() => setActiveSubDropdown('hsk')}
+                  onMouseLeave={() => setActiveSubDropdown(null)}>
                     <button 
                       className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500 flex items-center justify-between"
-                      onClick={() => toggleSubDropdown('hsk')}
                     >
                       HSK Series
                       <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeSubDropdown === 'hsk' ? 'rotate-180' : ''}`} />
@@ -170,10 +173,11 @@ const Header = () => {
             </NavLink>
             
             {/* Applications Dropdown */}
-            <div className="relative">
+            <div className="relative"
+            onMouseEnter={() => setActiveDropdown('applications')}
+            onMouseLeave={() => setActiveDropdown(null)}>
               <button 
                 className="flex items-center px-3 py-2 text-gray-700 hover:text-accent-blue-400 transition-colors duration-200"
-                onClick={() => toggleDropdown('applications')}
               >
                 Applications
                 <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'applications' ? 'rotate-180' : ''}`} />
