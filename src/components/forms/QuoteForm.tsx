@@ -33,29 +33,40 @@ const productNameFromURL = params.get('productName') || '';
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
-
+  
     try {
-      // In a real application, this would be an API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setSubmitStatus('success');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        company: '',
-        email: '',
-        phone: '',
-        productId: productId || '',
-        quantity: 1,
-        application: '',
-        message: '',
-        productName: productName || '',
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyo9mGIZWSsvjgsVBA-LX9FFlpyKmMaBDdWM5o_0I5TqFXECTvOblwC_miRi3_OmoJlqg/exec', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
+  
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          company: '',
+          email: '',
+          phone: '',
+          productId: productId || '',
+          quantity: 1,
+          application: '',
+          message: '',
+          productName: productName || '',
+        });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
   };
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
