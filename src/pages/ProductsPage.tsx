@@ -181,15 +181,17 @@ const ProductsPage = () => {
       {/* Products and Filters */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="lg:grid lg:grid-cols-4 lg:gap-8">
-          {/* Filters - Desktop */}
+          {/* Filters - Desktop (Sticky) */}
           <div className="hidden lg:block lg:col-span-1">
-            <ProductFilter 
-              filters={filters}
-              onFilterChange={setFilters}
-              powerRange={powerRange}
-              speedRange={speedRange}
-              torqueRange={torqueRange}
-            />
+            <div className="sticky top-20 z-10">
+              <ProductFilter 
+                filters={filters}
+                onFilterChange={setFilters}
+                powerRange={powerRange}
+                speedRange={speedRange}
+                torqueRange={torqueRange}
+              />
+            </div>
           </div>
           
           {/* Filters - Mobile */}
