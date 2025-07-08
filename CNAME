@@ -1,0 +1,5 @@
+import fs from 'fs';
+import path from 'path';
+
+const cname = 'arkspindles.com'; // your domain here
+fs.writeFileSync(path.resolve('dist', 'CNAME'), cname);
