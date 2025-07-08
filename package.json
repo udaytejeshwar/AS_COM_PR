@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node make-cname.js",
+    "build": "vite build"
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
