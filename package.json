@@ -33,7 +33,7 @@
     "vite": "^5.4.2"
   }
   "scripts": {
-  "build": "vite build",
+  "build": "vite build && node make-cname.js",
   "deploy": "gh-pages -d dist"
 }
 }
