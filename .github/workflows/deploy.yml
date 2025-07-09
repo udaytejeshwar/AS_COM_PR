@@ -35,10 +35,10 @@ jobs:
           git config --global user.name "github-actions bot"
           git config --global user.email "github-actions@users.noreply.github.com"
 
-      # - name: Deploy to GitHub Pages
-      #   env:
-      #     GH_TOKEN: ${{ secrets.AS_PRIVATE_DEPLOY_TOKEN }}
-      #   run: |
-      #     npx gh-pages -d dist \
-      #       -u "github-actions bot <github-actions@users.noreply.github.com>" \
-      #       -r "https://x-access-token:${GH_TOKEN}@github.com/udaytejeshwar/AS_COM_PR.git"
+      - name: Deploy to GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.AS_PRIVATE_DEPLOY_TOKEN }}
+        run: |
+          npx gh-pages -d dist \
+            -u "github-actions bot <github-actions@users.noreply.github.com>" \
+            -r "https://x-access-token:${GH_TOKEN}@github.com/udaytejeshwa/AS_COM_PR.git"
