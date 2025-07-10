@@ -69,7 +69,7 @@ const ProductFilter = ({
             Product Family
           </label>
           <div className="flex flex-wrap gap-2">
-            {(['All', 'ER', 'HSK'] as const).map((family) => (
+            {(['All', 'ER', 'HSK', 'ATC', 'Blade'] as const).map((family) => (
               <button
                 key={family}
                 type="button"
@@ -120,7 +120,7 @@ const ProductFilter = ({
                     {holder}
                   </button>
                 ))
-              ) : (
+              ) : filters.family === 'HSK' ? (
                 // HSK Series Tool Holders
                 ['HSK-E50', 'HSK-F63', 'HSK-A63'].map((holder) => (
                   <button
@@ -136,7 +136,39 @@ const ProductFilter = ({
                     {holder}
                   </button>
                 ))
-              )}
+              ) : filters.family === 'ATC' ? (
+                // ATC Series Tool Holders
+                ['ISO30', 'ISO40'].map((holder) => (
+                  <button
+                    key={holder}
+                    type="button"
+                    onClick={() => updateFilter('toolHolder', holder as ToolHolder)}
+                    className={`px-3 py-1 text-sm rounded-full border ${
+                      filters.toolHolder === holder
+                        ? 'bg-primary-500 text-white border-primary-500'
+                        : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200'
+                    }`}
+                  >
+                    {holder}
+                  </button>
+                ))
+              ) : filters.family === 'Blade' ? (
+                // Blade Series Tool Holders
+                ['Blade-Mount'].map((holder) => (
+                  <button
+                    key={holder}
+                    type="button"
+                    onClick={() => updateFilter('toolHolder', holder as ToolHolder)}
+                    className={`px-3 py-1 text-sm rounded-full border ${
+                      filters.toolHolder === holder
+                        ? 'bg-primary-500 text-white border-primary-500'
+                        : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200'
+                    }`}
+                  >
+                    {holder}
+                  </button>
+                ))
+              ) : null}
             </div>
           </div>
         )}
