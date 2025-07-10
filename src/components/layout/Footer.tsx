@@ -86,6 +86,16 @@ const Footer = () => {
                   Composite Applications
                 </Link>
               </li>
+              <li>
+                <Link to="/products?family=ATC" className="text-primary-100 hover:text-white transition-colors">
+                  ATC Spindles
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?family=Blade" className="text-primary-100 hover:text-white transition-colors">
+                  Blade Spindles
+                </Link>
+              </li>
             </ul>
           </div>
 
