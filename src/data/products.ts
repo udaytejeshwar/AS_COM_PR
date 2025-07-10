@@ -228,6 +228,158 @@ export const products: Product[] = [
       }
     },
     imageUrl: 'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+  },
+  {
+    id: '7',
+    name: 'ATC-9000 ISO30',
+    family: 'ATC',
+    line: 'Standard',
+    power: 9.0,
+    minSpeed: 5000,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
+    torque: 7.2,
+    toolHolder: 'ISO30',
+    applications: ['Wood', 'Aluminum', 'Composites'],
+    description: 'Advanced automatic tool change spindle with ISO30 interface, designed for high-productivity manufacturing environments. Features rapid tool change capabilities and exceptional precision for automated machining operations.',
+    features: [
+      'Automatic tool change system',
+      'ISO30 tool interface for universal compatibility',
+      'Pneumatic tool clamping mechanism',
+      'Integrated tool presence detection',
+      'High-speed operation with minimal vibration'
+    ],
+    technicalSpecs: {
+      runout: '< 0.003 mm',
+      bearingType: 'High-Precision Angular Contact',
+      coolingSystem: 'Liquid Cooling',
+      lubricationType: 'Grease Lubrication',
+      motorType: 'Asynchronous 3-Phase',
+      insulationClass: 'Class F',
+      protectionClass: 'IP65',
+      axialStiffness: '200 N/μm',
+      radialStiffness: '240 N/μm',
+      weight: 16.5,
+      dimensions: {
+        length: 420,
+        diameter: 140
+      }
+    },
+    imageUrl: 'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+  },
+  {
+    id: '8',
+    name: 'ATC-12000 ISO40',
+    family: 'ATC',
+    line: 'Premium',
+    power: 12.0,
+    minSpeed: 4000,
+    maxSpeed: 20000,
+    nominalSpeed: 16000,
+    torque: 9.8,
+    toolHolder: 'ISO40',
+    applications: ['Stone', 'Aluminum', 'Composites'],
+    description: 'Premium automatic tool change spindle with ISO40 interface for heavy-duty applications. Engineered for continuous operation in demanding production environments with superior tool holding force.',
+    features: [
+      'Heavy-duty ISO40 tool interface',
+      'Advanced pneumatic tool clamping',
+      'Integrated coolant through spindle',
+      'Tool breakage detection system',
+      'Enhanced vibration dampening'
+    ],
+    technicalSpecs: {
+      runout: '< 0.002 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      axialStiffness: '260 N/μm',
+      radialStiffness: '300 N/μm',
+      weight: 22.0,
+      dimensions: {
+        length: 480,
+        diameter: 160
+      }
+    },
+    imageUrl: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+  },
+  {
+    id: '9',
+    name: 'BLADE-8000 Standard',
+    family: 'Blade',
+    line: 'Standard',
+    power: 8.0,
+    minSpeed: 3000,
+    maxSpeed: 12000,
+    nominalSpeed: 8000,
+    torque: 18.5,
+    toolHolder: 'Blade-Mount',
+    applications: ['Wood', 'Stone'],
+    description: 'Specialized blade spindle designed for cutting applications requiring high torque at lower speeds. Perfect for sawing, slicing, and cutting operations in wood and stone processing.',
+    features: [
+      'High-torque blade mounting system',
+      'Optimized for cutting applications',
+      'Robust construction for continuous operation',
+      'Enhanced safety features',
+      'Low-speed high-torque characteristics'
+    ],
+    technicalSpecs: {
+      runout: '< 0.005 mm',
+      bearingType: 'Heavy-Duty Tapered Roller',
+      coolingSystem: 'Air Cooling',
+      lubricationType: 'Grease Lubrication',
+      motorType: 'Asynchronous 3-Phase',
+      insulationClass: 'Class F',
+      protectionClass: 'IP54',
+      axialStiffness: '300 N/μm',
+      radialStiffness: '350 N/μm',
+      weight: 25.0,
+      dimensions: {
+        length: 380,
+        diameter: 180
+      }
+    },
+    imageUrl: 'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+  },
+  {
+    id: '10',
+    name: 'BLADE-15000 Heavy-Duty',
+    family: 'Blade',
+    line: 'Premium',
+    power: 15.0,
+    minSpeed: 2000,
+    maxSpeed: 8000,
+    nominalSpeed: 6000,
+    torque: 28.0,
+    toolHolder: 'Blade-Mount',
+    applications: ['Stone', 'Aluminum'],
+    description: 'Heavy-duty blade spindle engineered for the most demanding cutting applications. Features exceptional torque output and robust construction for industrial stone and metal cutting operations.',
+    features: [
+      'Maximum torque output for heavy cutting',
+      'Industrial-grade blade mounting',
+      'Advanced cooling for continuous operation',
+      'Reinforced bearing system',
+      'Optimized for thick material cutting'
+    ],
+    technicalSpecs: {
+      runout: '< 0.004 mm',
+      bearingType: 'Ultra-Heavy-Duty Tapered Roller',
+      coolingSystem: 'Liquid Cooling',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP65',
+      axialStiffness: '350 N/μm',
+      radialStiffness: '400 N/μm',
+      weight: 32.5,
+      dimensions: {
+        length: 450,
+        diameter: 200
+      }
+    },
+    imageUrl: 'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
   }
 ];
 
