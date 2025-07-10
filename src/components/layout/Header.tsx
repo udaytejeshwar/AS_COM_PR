@@ -165,6 +165,22 @@ const Header = () => {
                   >
                     View All Products
                   </Link>
+                  
+                  <Link
+                    to="/products?family=ATC"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    View All ATC Spindles
+                  </Link>
+                  
+                  <Link
+                    to="/products?family=Blade"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    View All Blade Spindles
+                  </Link>
                 </div>
               )}
             </div>
@@ -329,6 +345,35 @@ const Header = () => {
               onClick={closeMenu}
             >
               HSK-A63
+            </Link>
+
+            <div className="px-3 py-2 font-medium text-gray-700">
+              ATC Series
+            </div>
+            <Link
+              to="/products?toolHolder=ISO30"
+              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
+              onClick={closeMenu}
+            >
+              ISO30
+            </Link>
+            <Link
+              to="/products?toolHolder=ISO40"
+              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
+              onClick={closeMenu}
+            >
+              ISO40
+            </Link>
+            
+            <div className="px-3 py-2 font-medium text-gray-700">
+              Blade Series
+            </div>
+            <Link
+              to="/products?family=Blade"
+              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
+              onClick={closeMenu}
+            >
+              Blade Spindles
             </Link>
 
             <NavLink
