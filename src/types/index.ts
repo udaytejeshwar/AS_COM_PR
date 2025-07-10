@@ -1,6 +1,6 @@
-export type ProductFamily = 'ER' | 'HSK';
+export type ProductFamily = 'ER' | 'HSK' | 'ATC' | 'Blade';
 export type Application = 'Wood' | 'Stone' | 'Aluminum' | 'Composites';
-export type ToolHolder = 'ER20' | 'ER25' | 'ER32' | 'ER40' | 'HSK-E50' | 'HSK-F63' | 'HSK-A63';
+export type ToolHolder = 'ER20' | 'ER25' | 'ER32' | 'ER40' | 'HSK-E50' | 'HSK-F63' | 'HSK-A63' | 'ISO30' | 'ISO40' | 'Blade-Mount';
 export type ProductLine = 'Standard' | 'Premium';
 export type AccessoryCategory = 'Cooling' | 'Tool Holders' | 'VFD' | 'Collets' | 'Tools';
 
