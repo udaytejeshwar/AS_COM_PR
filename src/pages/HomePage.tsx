@@ -187,6 +187,80 @@ const HomePage = () => {
                 </Link>
               </div>
             </div>
+
+            <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+              <div className="h-64 bg-gray-200 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                  alt="ATC Series Spindles" 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-primary-500 mb-3">ATC Series</h3>
+                <p className="text-gray-600 mb-4">
+                  Our ATC series features automatic tool change capabilities with ISO tool holders, designed for high-productivity manufacturing environments.
+                </p>
+                <ul className="mb-6 space-y-2">
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Available in ISO30 and ISO40 interfaces
+                  </li>
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Power ranges from 9kW to 12kW
+                  </li>
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Automatic tool change system
+                  </li>
+                </ul>
+                <Link
+                  to="/products?family=ATC"
+                  className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
+                >
+                  View ATC Series
+                  <ChevronRight className="ml-1 w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+              <div className="h-64 bg-gray-200 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                  alt="Blade Series Spindles" 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-primary-500 mb-3">Blade Series</h3>
+                <p className="text-gray-600 mb-4">
+                  Our Blade series offers specialized spindles for cutting applications, delivering high torque at lower speeds for sawing and slicing operations.
+                </p>
+                <ul className="mb-6 space-y-2">
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    High-torque blade mounting system
+                  </li>
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Power ranges from 8kW to 15kW
+                  </li>
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Optimized for cutting applications
+                  </li>
+                </ul>
+                <Link
+                  to="/products?family=Blade"
+                  className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
+                >
+                  View Blade Series
+                  <ChevronRight className="ml-1 w-4 h-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
