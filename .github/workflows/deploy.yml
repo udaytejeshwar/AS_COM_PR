@@ -1,12 +1,9 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (via external repo)
 
 on:
   push:
     branches:
       - main  # or your default branch
-
-permissions:
-  contents: write  # required to push to gh-pages branch
 
 jobs:
   build-and-deploy:
@@ -27,18 +24,19 @@ jobs:
       - name: Build site with Vite
         run: npm run build
 
-      - name: Create CNAME file
+      - name: Add custom domain (CNAME)
         run: echo 'arkspindles.com' > dist/CNAME
 
-      - name: Configure Git identity
-        run: |
-          git config --global user.name "github-actions bot"
-          git config --global user.email "github-actions@users.noreply.github.com"
-
-      - name: Deploy to GitHub Pages
+      - name: Deploy to public GitHub Pages repo
         env:
           GH_TOKEN: ${{ secrets.AS_PRIVATE_DEPLOY_TOKEN }}
         run: |
-          npx gh-pages -d dist \
-            -u "github-actions bot <github-actions@users.noreply.github.com>" \
-            -r "https://x-access-token:${GH_TOKEN}@github.com/udaytejeshwar/AS_COM_PR.git"
+          cd dist
+          git init
+          git config user.name "github-actions bot"
+          git config user.email "github-actions@users.noreply.github.com"
+          git remote add origin https://x-access-token:${GH_TOKEN}@github.com/udaytejeshwar/udaytejeshwar.github.io.git
+          git checkout -b main
+          git add .
+          git commit -m "Deploy static site"
+          git push --force origin main
