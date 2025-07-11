@@ -24,7 +24,7 @@ const HomePage = () => {
               Precision Electro Spindles <br />for Industrial Excellence
             </h1>
             <p className="text-xl mb-8 text-gray-200 max-w-2xl">
-              Industry-leading electro spindles engineered for precision, power, and reliability across wood, stone, aluminum, and composite applications.
+              Industry-leading Electro spindles engineered for precision, power, and reliability across wood, stone, aluminum, and composite applications.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
