@@ -43,7 +43,7 @@ export const products: Product[] = [
   {
     id: '2',
     name: 'ES-12000 ER40',
-    family: 'H',
+    family: 'Q',
     toolHolderTypeCategory: 'ER',
     line: 'Premium',
     power: 12.0,
@@ -121,7 +121,7 @@ export const products: Product[] = [
   {
     id: '4',
     name: 'ES-15000 HSK-E50',
-    family: 'H',
+    family: 'Q',
     toolHolderTypeCategory: 'HSK',
     line: 'Premium',
     power: 15.0,
@@ -199,7 +199,7 @@ export const products: Product[] = [
   {
     id: '6',
     name: 'ES-18000 HSK-A63',
-    family: 'H',
+    family: 'Q',
     toolHolderTypeCategory: 'HSK',
     line: 'Premium',
     power: 18.0,
