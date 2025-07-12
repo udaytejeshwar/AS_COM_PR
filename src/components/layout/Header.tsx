@@ -85,7 +85,7 @@ const Header = () => {
                     AM series
                   </Link>
                   <Link
-                    to="/products?family=H"
+                    to="/products?family=Q"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
@@ -248,7 +248,7 @@ const Header = () => {
               AM series
             </NavLink>
             <NavLink
-              to="/products?family=H"
+              to="/products?family=Q"
               className={({ isActive }) =>
                 `block px-3 py-2 rounded-md text-base font-medium ${
                   isActive
