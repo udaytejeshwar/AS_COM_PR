@@ -57,13 +57,33 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Products</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/products?family=ER" className="text-primary-100 hover:text-white transition-colors">
-                  ER Series Spindles
+                <Link to="/products?family=M" className="text-primary-100 hover:text-white transition-colors">
+                  Manual Tool Change Spindles
                 </Link>
               </li>
               <li>
-                <Link to="/products?family=HSK" className="text-primary-100 hover:text-white transition-colors">
-                  HSK Series Spindles
+                <Link to="/products?family=H" className="text-primary-100 hover:text-white transition-colors">
+                  Quick Tool Change Spindles
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?family=A" className="text-primary-100 hover:text-white transition-colors">
+                  Automatic Tool Change Spindles
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?toolHolderTypeCategory=ER" className="text-primary-100 hover:text-white transition-colors">
+                  ER Tool Holders
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?toolHolderTypeCategory=HSK" className="text-primary-100 hover:text-white transition-colors">
+                  HSK Tool Holders
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?toolHolderTypeCategory=ISO" className="text-primary-100 hover:text-white transition-colors">
+                  ISO Tool Holders
                 </Link>
               </li>
               <li>
@@ -84,16 +104,6 @@ const Footer = () => {
               <li>
                 <Link to="/products?application=Composites" className="text-primary-100 hover:text-white transition-colors">
                   Composite Applications
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?family=ATC" className="text-primary-100 hover:text-white transition-colors">
-                  ATC Spindles
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?family=Blade" className="text-primary-100 hover:text-white transition-colors">
-                  Blade Spindles
                 </Link>
               </li>
             </ul>
