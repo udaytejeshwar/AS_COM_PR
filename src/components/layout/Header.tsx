@@ -82,21 +82,21 @@ const Header = () => {
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    Manual Tool Change (M)
+                    AM series
                   </Link>
                   <Link
                     to="/products?family=H"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    Quick Tool Change (H)
+                    AQ series
                   </Link>
                   <Link
                     to="/products?family=A"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    Automatic Tool Change (A)
+                    AA series
                   </Link>
                   <Link
                     to="/products?toolHolderTypeCategory=ER"
@@ -245,7 +245,7 @@ const Header = () => {
               }
               onClick={closeMenu}
             >
-              Manual Tool Change (M)
+              AM series
             </NavLink>
             <NavLink
               to="/products?family=H"
@@ -258,7 +258,7 @@ const Header = () => {
               }
               onClick={closeMenu}
             >
-              Quick Tool Change (H)
+              AQ series
             </NavLink>
             <NavLink
               to="/products?family=A"
@@ -271,7 +271,7 @@ const Header = () => {
               }
               onClick={closeMenu}
             >
-              Automatic Tool Change (A)
+              AA series
             </NavLink>
 
             <NavLink
