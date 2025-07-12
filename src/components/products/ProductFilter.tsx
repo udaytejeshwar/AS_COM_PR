@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Filter } from 'lucide-react';
-import { Application, FilterOptions, ProductFamily, ToolHolder } from '../../types';
+import { Application, FilterOptions, ProductFamily, ToolHolder, ToolHolderTypeCategory } from '../../types';
 
 interface ProductFilterProps {
   filters: FilterOptions;
@@ -26,6 +26,7 @@ const ProductFilter = ({
   const resetFilters = () => {
     onFilterChange({
       family: 'All',
+      toolHolderTypeCategory: 'All',
       line: 'All',
       minPower: null,
       maxPower: null,
@@ -69,7 +70,7 @@ const ProductFilter = ({
             Product Family
           </label>
           <div className="flex flex-wrap gap-2">
-            {(['All', 'ER', 'HSK', 'ATC', 'Blade'] as const).map((family) => (
+            {(['All', 'M', 'H', 'A'] as const).map((family) => (
               <button
                 key={family}
                 type="button"
@@ -80,14 +81,36 @@ const ProductFilter = ({
                     : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200'
                 }`}
               >
-                {family}
+                {family === 'M' ? 'Manual (M)' : family === 'H' ? 'Quick (H)' : family === 'A' ? 'Automatic (A)' : family}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Tool Holder Filter */}
-        {filters.family !== 'All' && (
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Tool Holder Type
+          </label>
+          <div className="flex flex-wrap gap-2">
+            {(['All', 'ER', 'HSK', 'ISO'] as const).map((type) => (
+              <button
+                key={type}
+                type="button"
+                onClick={() => updateFilter('toolHolderTypeCategory', type)}
+                className={`px-3 py-1 text-sm rounded-full border ${
+                  filters.toolHolderTypeCategory === type
+                    ? 'bg-primary-500 text-white border-primary-500'
+                    : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200'
+                }`}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Tool Holder Size Filter */}
+        {filters.toolHolderTypeCategory !== 'All' && (
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Tool Holder Size
@@ -104,8 +127,7 @@ const ProductFilter = ({
               >
                 All
               </button>
-              {filters.family === 'ER' ? (
-                // ER Series Tool Holders
+              {filters.toolHolderTypeCategory === 'ER' && (
                 ['ER20', 'ER25', 'ER32', 'ER40'].map((holder) => (
                   <button
                     key={holder}
@@ -120,8 +142,8 @@ const ProductFilter = ({
                     {holder}
                   </button>
                 ))
-              ) : filters.family === 'HSK' ? (
-                // HSK Series Tool Holders
+              )}
+              {filters.toolHolderTypeCategory === 'HSK' && (
                 ['HSK-E50', 'HSK-F63', 'HSK-A63'].map((holder) => (
                   <button
                     key={holder}
@@ -136,8 +158,8 @@ const ProductFilter = ({
                     {holder}
                   </button>
                 ))
-              ) : filters.family === 'ATC' ? (
-                // ATC Series Tool Holders
+              )}
+              {filters.toolHolderTypeCategory === 'ISO' && (
                 ['ISO30', 'ISO40'].map((holder) => (
                   <button
                     key={holder}
@@ -152,23 +174,7 @@ const ProductFilter = ({
                     {holder}
                   </button>
                 ))
-              ) : filters.family === 'Blade' ? (
-                // Blade Series Tool Holders
-                ['Blade-Mount'].map((holder) => (
-                  <button
-                    key={holder}
-                    type="button"
-                    onClick={() => updateFilter('toolHolder', holder as ToolHolder)}
-                    className={`px-3 py-1 text-sm rounded-full border ${
-                      filters.toolHolder === holder
-                        ? 'bg-primary-500 text-white border-primary-500'
-                        : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200'
-                    }`}
-                  >
-                    {holder}
-                  </button>
-                ))
-              ) : null}
+              )}
             </div>
           </div>
         )}
