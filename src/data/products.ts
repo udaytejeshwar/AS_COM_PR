@@ -4,7 +4,8 @@ export const products: Product[] = [
   {
     id: '1',
     name: 'ES-9000 ER32',
-    family: 'ER',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
     line: 'Standard',
     power: 9.0,
     minSpeed: 6000,
@@ -18,7 +19,7 @@ export const products: Product[] = [
       'Precision balanced rotor',
       'Ceramic hybrid bearings',
       'Water cooling system',
-      'Automatic tool change compatibility',
+      'Manual tool change compatibility',
       'Low vibration design'
     ],
     technicalSpecs: {
@@ -42,7 +43,8 @@ export const products: Product[] = [
   {
     id: '2',
     name: 'ES-12000 ER40',
-    family: 'ER',
+    family: 'H',
+    toolHolderTypeCategory: 'ER',
     line: 'Premium',
     power: 12.0,
     minSpeed: 5000,
@@ -80,7 +82,8 @@ export const products: Product[] = [
   {
     id: '3',
     name: 'ES-7500 HSK-F63',
-    family: 'HSK',
+    family: 'M',
+    toolHolderTypeCategory: 'HSK',
     line: 'Standard',
     power: 7.5,
     minSpeed: 8000,
@@ -118,7 +121,8 @@ export const products: Product[] = [
   {
     id: '4',
     name: 'ES-15000 HSK-E50',
-    family: 'HSK',
+    family: 'H',
+    toolHolderTypeCategory: 'HSK',
     line: 'Premium',
     power: 15.0,
     minSpeed: 4000,
@@ -156,7 +160,8 @@ export const products: Product[] = [
   {
     id: '5',
     name: 'ES-5500 ER25',
-    family: 'ER',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
     line: 'Standard',
     power: 5.5,
     minSpeed: 10000,
@@ -194,7 +199,8 @@ export const products: Product[] = [
   {
     id: '6',
     name: 'ES-18000 HSK-A63',
-    family: 'HSK',
+    family: 'H',
+    toolHolderTypeCategory: 'HSK',
     line: 'Premium',
     power: 18.0,
     minSpeed: 3000,
@@ -232,7 +238,8 @@ export const products: Product[] = [
   {
     id: '7',
     name: 'ATC-9000 ISO30',
-    family: 'ATC',
+    family: 'A',
+    toolHolderTypeCategory: 'ISO',
     line: 'Standard',
     power: 9.0,
     minSpeed: 5000,
@@ -270,7 +277,8 @@ export const products: Product[] = [
   {
     id: '8',
     name: 'ATC-12000 ISO40',
-    family: 'ATC',
+    family: 'A',
+    toolHolderTypeCategory: 'ISO',
     line: 'Premium',
     power: 12.0,
     minSpeed: 4000,
@@ -304,82 +312,6 @@ export const products: Product[] = [
       }
     },
     imageUrl: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  },
-  {
-    id: '9',
-    name: 'BLADE-8000 Standard',
-    family: 'Blade',
-    line: 'Standard',
-    power: 8.0,
-    minSpeed: 3000,
-    maxSpeed: 12000,
-    nominalSpeed: 8000,
-    torque: 18.5,
-    toolHolder: 'Blade-Mount',
-    applications: ['Wood', 'Stone'],
-    description: 'Specialized blade spindle designed for cutting applications requiring high torque at lower speeds. Perfect for sawing, slicing, and cutting operations in wood and stone processing.',
-    features: [
-      'High-torque blade mounting system',
-      'Optimized for cutting applications',
-      'Robust construction for continuous operation',
-      'Enhanced safety features',
-      'Low-speed high-torque characteristics'
-    ],
-    technicalSpecs: {
-      runout: '< 0.005 mm',
-      bearingType: 'Heavy-Duty Tapered Roller',
-      coolingSystem: 'Air Cooling',
-      lubricationType: 'Grease Lubrication',
-      motorType: 'Asynchronous 3-Phase',
-      insulationClass: 'Class F',
-      protectionClass: 'IP54',
-      axialStiffness: '300 N/μm',
-      radialStiffness: '350 N/μm',
-      weight: 25.0,
-      dimensions: {
-        length: 380,
-        diameter: 180
-      }
-    },
-    imageUrl: 'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-  },
-  {
-    id: '10',
-    name: 'BLADE-15000 Heavy-Duty',
-    family: 'Blade',
-    line: 'Premium',
-    power: 15.0,
-    minSpeed: 2000,
-    maxSpeed: 8000,
-    nominalSpeed: 6000,
-    torque: 28.0,
-    toolHolder: 'Blade-Mount',
-    applications: ['Stone', 'Aluminum'],
-    description: 'Heavy-duty blade spindle engineered for the most demanding cutting applications. Features exceptional torque output and robust construction for industrial stone and metal cutting operations.',
-    features: [
-      'Maximum torque output for heavy cutting',
-      'Industrial-grade blade mounting',
-      'Advanced cooling for continuous operation',
-      'Reinforced bearing system',
-      'Optimized for thick material cutting'
-    ],
-    technicalSpecs: {
-      runout: '< 0.004 mm',
-      bearingType: 'Ultra-Heavy-Duty Tapered Roller',
-      coolingSystem: 'Liquid Cooling',
-      lubricationType: 'Oil-Air Lubrication',
-      motorType: 'Synchronous 3-Phase',
-      insulationClass: 'Class H',
-      protectionClass: 'IP65',
-      axialStiffness: '350 N/μm',
-      radialStiffness: '400 N/μm',
-      weight: 32.5,
-      dimensions: {
-        length: 450,
-        diameter: 200
-      }
-    },
-    imageUrl: 'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
   }
 ];
 
