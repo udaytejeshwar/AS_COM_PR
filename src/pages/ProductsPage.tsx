@@ -5,7 +5,7 @@ import ProductCard from '../components/products/ProductCard';
 import ProductFilter from '../components/products/ProductFilter';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
 import { products, getFilterLimits } from '../data/products';
-import { FilterOptions, Product, Application, ProductFamily, ToolHolder } from '../types';
+import { FilterOptions, Product, Application, ProductFamily, ToolHolder, ToolHolderTypeCategory } from '../types';
 
 const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -22,6 +22,7 @@ const ProductsPage = () => {
   // Set up filters based on URL parameters
   const [filters, setFilters] = useState<FilterOptions>({
     family: 'All',
+    toolHolderTypeCategory: 'All',
     line: 'All',
     minPower: null,
     maxPower: null,
@@ -36,11 +37,16 @@ const ProductsPage = () => {
   // Initialize filters from URL on load
   useEffect(() => {
     const familyParam = searchParams.get('family');
+    const toolHolderTypeCategoryParam = searchParams.get('toolHolderTypeCategory');
     const applicationParam = searchParams.get('application');
     const toolHolderParam = searchParams.get('toolHolder') as ToolHolder | null;
     
-    if (familyParam && (familyParam === 'ER' || familyParam === 'HSK')) {
+    if (familyParam && (familyParam === 'M' || familyParam === 'H' || familyParam === 'A')) {
       setFilters(prev => ({ ...prev, family: familyParam }));
+    }
+    
+    if (toolHolderTypeCategoryParam && ['ER', 'HSK', 'ISO'].includes(toolHolderTypeCategoryParam)) {
+      setFilters(prev => ({ ...prev, toolHolderTypeCategory: toolHolderTypeCategoryParam as ToolHolderTypeCategory }));
     }
     
     if (applicationParam && 
@@ -59,6 +65,10 @@ const ProductsPage = () => {
     
     if (filters.family !== 'All') {
       newParams.set('family', filters.family);
+    }
+    
+    if (filters.toolHolderTypeCategory !== 'All') {
+      newParams.set('toolHolderTypeCategory', filters.toolHolderTypeCategory);
     }
     
     if (filters.application !== 'All') {
@@ -88,6 +98,11 @@ const ProductsPage = () => {
     // Apply product family filter
     if (filters.family !== 'All') {
       result = result.filter(product => product.family === filters.family);
+    }
+    
+    // Apply tool holder type category filter
+    if (filters.toolHolderTypeCategory !== 'All') {
+      result = result.filter(product => product.toolHolderTypeCategory === filters.toolHolderTypeCategory);
     }
     
     // Apply tool holder filter
@@ -220,6 +235,7 @@ const ProductsPage = () => {
                     setSearchTerm('');
                     setFilters({
                       family: 'All',
+                      toolHolderTypeCategory: 'All',
                       line: 'All',
                       minPower: null,
                       maxPower: null,
