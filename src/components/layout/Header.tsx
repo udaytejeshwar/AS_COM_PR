@@ -77,109 +77,54 @@ const Header = () => {
               </button>
               {activeDropdown === 'products' && (
                 <div className="absolute left-0 top-full mt-1 w-48 bg-white shadow-lg rounded-md overflow-visible z-50">
-                  {/* ER Series */}
-                  <div className="relative group overflow-visible"
-                  onMouseEnter={() => setActiveSubDropdown('er')}
-                  onMouseLeave={() => setActiveSubDropdown(null)}>
-                    <button 
-                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500 flex items-center justify-between"
-                    >
-                      ER Series
-                      <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeSubDropdown === 'er' ? 'rotate-180' : ''}`} />
-                    </button>
-                    {activeSubDropdown === 'er' && (
-                      <div className="absolute left-full top-0 w-48 bg-white shadow-lg rounded-md overflow-hidden">
-                        <Link
-                          to="/products?toolHolder=ER20"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                          onClick={closeMenu}
-                        >
-                          ER20
-                        </Link>
-                        <Link
-                          to="/products?toolHolder=ER25"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                          onClick={closeMenu}
-                        >
-                          ER25
-                        </Link>
-                        <Link
-                          to="/products?toolHolder=ER32"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                          onClick={closeMenu}
-                        >
-                          ER32
-                        </Link>
-                        <Link
-                          to="/products?toolHolder=ER40"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                          onClick={closeMenu}
-                        >
-                          ER40
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* HSK Series */}
-                  <div className="relative group overflow-visible"
-                  onMouseEnter={() => setActiveSubDropdown('hsk')}
-                  onMouseLeave={() => setActiveSubDropdown(null)}>
-                    <button 
-                      className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500 flex items-center justify-between"
-                    >
-                      HSK Series
-                      <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeSubDropdown === 'hsk' ? 'rotate-180' : ''}`} />
-                    </button>
-                    {activeSubDropdown === 'hsk' && (
-                      <div className="absolute left-full top-0 w-48 bg-white shadow-lg rounded-md overflow-hidden">
-                        <Link
-                          to="/products?toolHolder=HSK-E50"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                          onClick={closeMenu}
-                        >
-                          HSK-E50
-                        </Link>
-                        <Link
-                          to="/products?toolHolder=HSK-F63"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                          onClick={closeMenu}
-                        >
-                          HSK-F63
-                        </Link>
-                        <Link
-                          to="/products?toolHolder=HSK-A63"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                          onClick={closeMenu}
-                        >
-                          HSK-A63
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                  
+                  <Link
+                    to="/products?family=M"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    Manual Tool Change (M)
+                  </Link>
+                  <Link
+                    to="/products?family=H"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    Quick Tool Change (H)
+                  </Link>
+                  <Link
+                    to="/products?family=A"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    Automatic Tool Change (A)
+                  </Link>
+                  <Link
+                    to="/products?toolHolderTypeCategory=ER"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    ER Tool Holders
+                  </Link>
+                  <Link
+                    to="/products?toolHolderTypeCategory=HSK"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    HSK Tool Holders
+                  </Link>
+                  <Link
+                    to="/products?toolHolderTypeCategory=ISO"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    ISO Tool Holders
+                  </Link>
                   <Link
                     to="/products"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
                     View All Products
-                  </Link>
-                  
-                  <Link
-                    to="/products?family=ATC"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    View All ATC Spindles
-                  </Link>
-                  
-                  <Link
-                    to="/products?family=Blade"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    View All Blade Spindles
                   </Link>
                 </div>
               )}
@@ -289,92 +234,45 @@ const Header = () => {
               Home
             </NavLink>
             
-            {/* Products Section */}
-            <div className="px-3 py-2 font-medium text-gray-700">
-              ER Series
-            </div>
-            <Link
-              to="/products?toolHolder=ER20"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
+            <NavLink
+              to="/products?family=M"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive
+                    ? 'bg-primary-50 text-primary-500'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                }`
+              }
               onClick={closeMenu}
             >
-              ER20
-            </Link>
-            <Link
-              to="/products?toolHolder=ER25"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
+              Manual Tool Change (M)
+            </NavLink>
+            <NavLink
+              to="/products?family=H"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive
+                    ? 'bg-primary-50 text-primary-500'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                }`
+              }
               onClick={closeMenu}
             >
-              ER25
-            </Link>
-            <Link
-              to="/products?toolHolder=ER32"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
+              Quick Tool Change (H)
+            </NavLink>
+            <NavLink
+              to="/products?family=A"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive
+                    ? 'bg-primary-50 text-primary-500'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                }`
+              }
               onClick={closeMenu}
             >
-              ER32
-            </Link>
-            <Link
-              to="/products?toolHolder=ER40"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
-              onClick={closeMenu}
-            >
-              ER40
-            </Link>
-            
-            <div className="px-3 py-2 font-medium text-gray-700">
-              HSK Series
-            </div>
-            <Link
-              to="/products?toolHolder=HSK-E50"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
-              onClick={closeMenu}
-            >
-              HSK-E50
-            </Link>
-            <Link
-              to="/products?toolHolder=HSK-F63"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
-              onClick={closeMenu}
-            >
-              HSK-F63
-            </Link>
-            <Link
-              to="/products?toolHolder=HSK-A63"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
-              onClick={closeMenu}
-            >
-              HSK-A63
-            </Link>
-
-            <div className="px-3 py-2 font-medium text-gray-700">
-              ATC Series
-            </div>
-            <Link
-              to="/products?toolHolder=ISO30"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
-              onClick={closeMenu}
-            >
-              ISO30
-            </Link>
-            <Link
-              to="/products?toolHolder=ISO40"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
-              onClick={closeMenu}
-            >
-              ISO40
-            </Link>
-            
-            <div className="px-3 py-2 font-medium text-gray-700">
-              Blade Series
-            </div>
-            <Link
-              to="/products?family=Blade"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
-              onClick={closeMenu}
-            >
-              Blade Spindles
-            </Link>
+              Automatic Tool Change (A)
+            </NavLink>
 
             <NavLink
               to="/premium"
