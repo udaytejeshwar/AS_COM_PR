@@ -1,4 +1,4 @@
-export type ProductFamily = 'M' | 'H' | 'A';
+export type ProductFamily = 'M' | 'Q' | 'A';
 export type ToolHolderTypeCategory = 'ER' | 'HSK' | 'ISO';
 export type Application = 'Wood' | 'Stone' | 'Aluminum' | 'Composites';
 export type ToolHolder = 'ER20' | 'ER25' | 'ER32' | 'ER40' | 'HSK-E50' | 'HSK-F63' | 'HSK-A63' | 'ISO30' | 'ISO40';
