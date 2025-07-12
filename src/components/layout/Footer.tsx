@@ -58,17 +58,17 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link to="/products?family=M" className="text-primary-100 hover:text-white transition-colors">
-                  Manual Tool Change Spindles
+                  AM series
                 </Link>
               </li>
               <li>
                 <Link to="/products?family=H" className="text-primary-100 hover:text-white transition-colors">
-                  Quick Tool Change Spindles
+                  AQ series
                 </Link>
               </li>
               <li>
                 <Link to="/products?family=A" className="text-primary-100 hover:text-white transition-colors">
-                  Automatic Tool Change Spindles
+                  AA series
                 </Link>
               </li>
               <li>
