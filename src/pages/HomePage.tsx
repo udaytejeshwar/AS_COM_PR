@@ -117,146 +117,109 @@ const HomePage = () => {
             <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
               <div className="h-64 bg-gray-200 overflow-hidden">
                 <img 
-                  src="https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                  alt="ER Series Spindles" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary-500 mb-3">ER Series</h3>
-                <p className="text-gray-600 mb-4">
-                  Our ER series features versatile collet-based tool holding systems, ideal for a wide range of applications from general machining to specialized tasks.
-                </p>
-                <ul className="mb-6 space-y-2">
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Available in ER25, ER32, and ER40 collet sizes
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Power ranges from 5.5kW to 12kW
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Speeds up to 30,000 RPM
-                  </li>
-                </ul>
-                <Link
-                  to="/products?family=ER"
-                  className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
-                >
-                  View ER Series
-                  <ChevronRight className="ml-1 w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
-              <div className="h-64 bg-gray-200 overflow-hidden">
-                <img 
-                  src="https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                  alt="HSK Series Spindles" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary-500 mb-3">HSK Series</h3>
-                <p className="text-gray-600 mb-4">
-                  Our HSK series offers hollow taper shank tool interfaces for superior rigidity and precision in high-demand applications.
-                </p>
-                <ul className="mb-6 space-y-2">
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Available in HSK-E50, HSK-F63, and HSK-A63 interfaces
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Power ranges from 7.5kW to 18kW
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Advanced features for demanding applications
-                  </li>
-                </ul>
-                <Link
-                  to="/products?family=HSK"
-                  className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
-                >
-                  View HSK Series
-                  <ChevronRight className="ml-1 w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
-              <div className="h-64 bg-gray-200 overflow-hidden">
-                <img 
                   src="https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                  alt="ATC Series Spindles" 
+                  alt="Manual Tool Change Spindles" 
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary-500 mb-3">ATC Series</h3>
+                <h3 className="text-2xl font-semibold text-primary-500 mb-3">Manual Tool Change (M)</h3>
                 <p className="text-gray-600 mb-4">
-                  Our ATC series features automatic tool change capabilities with ISO tool holders, designed for high-productivity manufacturing environments.
+                  Our Manual Tool Change spindles offer reliable performance for applications where tool changes are performed manually. Perfect for smaller operations and specialized tasks.
                 </p>
                 <ul className="mb-6 space-y-2">
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Available in ER and HSK tool holder types
+                  </li>
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Standard line products for reliable performance
+                  </li>
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Cost-effective solution for manual operations
+                  </li>
+                </ul>
+                <Link
+                  to="/products?family=M"
+                  className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
+                >
+                  View Manual Tool Change
+                  <ChevronRight className="ml-1 w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+              <div className="h-64 bg-gray-200 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                  alt="Quick Tool Change Spindles" 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-primary-500 mb-3">Quick Tool Change (H)</h3>
+                <p className="text-gray-600 mb-4">
+                  Our Quick Tool Change spindles feature premium engineering for faster tool changes and enhanced performance in demanding applications.
+                </p>
+                <ul className="mb-6 space-y-2">
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Premium line products with advanced features
+                  </li>
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Available in ER and HSK tool holder types
+                  </li>
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Enhanced cooling and precision engineering
+                  </li>
+                </ul>
+                <Link
+                  to="/products?family=H"
+                  className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
+                >
+                  View Quick Tool Change
+                  <ChevronRight className="ml-1 w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+              <div className="h-64 bg-gray-200 overflow-hidden">
+                <img 
+                  src="https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                  alt="Automatic Tool Change Spindles" 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-primary-500 mb-3">Automatic Tool Change (A)</h3>
+                <p className="text-gray-600 mb-4">
+                  Our Automatic Tool Change spindles feature fully automated tool changing with ISO tool holders, designed for high-productivity manufacturing environments.
+                </p>
+                <ul className="mb-6 space-y-2">
+                  <li className="flex items-center text-gray-600">
+                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
+                    Fully automated tool change system
+                  </li>
                   <li className="flex items-center text-gray-600">
                     <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
                     Available in ISO30 and ISO40 interfaces
                   </li>
                   <li className="flex items-center text-gray-600">
                     <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Power ranges from 9kW to 12kW
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Automatic tool change system
+                    High-productivity manufacturing solution
                   </li>
                 </ul>
                 <Link
-                  to="/products?family=ATC"
+                  to="/products?family=A"
                   className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
                 >
-                  View ATC Series
-                  <ChevronRight className="ml-1 w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
-              <div className="h-64 bg-gray-200 overflow-hidden">
-                <img 
-                  src="https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                  alt="Blade Series Spindles" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary-500 mb-3">Blade Series</h3>
-                <p className="text-gray-600 mb-4">
-                  Our Blade series offers specialized spindles for cutting applications, delivering high torque at lower speeds for sawing and slicing operations.
-                </p>
-                <ul className="mb-6 space-y-2">
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    High-torque blade mounting system
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Power ranges from 8kW to 15kW
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Optimized for cutting applications
-                  </li>
-                </ul>
-                <Link
-                  to="/products?family=Blade"
-                  className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
-                >
-                  View Blade Series
+                  View Automatic Tool Change
                   <ChevronRight className="ml-1 w-4 h-4" />
                 </Link>
               </div>
