@@ -1,6 +1,7 @@
-export type ProductFamily = 'ER' | 'HSK' | 'ATC' | 'Blade';
+export type ProductFamily = 'M' | 'H' | 'A';
+export type ToolHolderTypeCategory = 'ER' | 'HSK' | 'ISO';
 export type Application = 'Wood' | 'Stone' | 'Aluminum' | 'Composites';
-export type ToolHolder = 'ER20' | 'ER25' | 'ER32' | 'ER40' | 'HSK-E50' | 'HSK-F63' | 'HSK-A63' | 'ISO30' | 'ISO40' | 'Blade-Mount';
+export type ToolHolder = 'ER20' | 'ER25' | 'ER32' | 'ER40' | 'HSK-E50' | 'HSK-F63' | 'HSK-A63' | 'ISO30' | 'ISO40';
 export type ProductLine = 'Standard' | 'Premium';
 export type AccessoryCategory = 'Cooling' | 'Tool Holders' | 'VFD' | 'Collets' | 'Tools';
 
@@ -8,6 +9,7 @@ export interface Product {
   id: string;
   name: string;
   family: ProductFamily;
+  toolHolderTypeCategory: ToolHolderTypeCategory;
   line: ProductLine;
   power: number; // in kilowatts
   minSpeed: number; // in RPM
@@ -50,6 +52,7 @@ export interface Accessory {
 
 export interface FilterOptions {
   family: ProductFamily | 'All';
+  toolHolderTypeCategory: ToolHolderTypeCategory | 'All';
   line: ProductLine | 'All';
   minPower: number | null;
   maxPower: number | null;
