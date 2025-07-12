@@ -1,343 +1,272 @@
+import { ArrowRight, Zap, Shield, Award, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Clock, Award, PenTool as Tool, Settings } from 'lucide-react';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
-import DownloadBrochure from '../components/shared/DownloadBrochure';
 
 const HomePage = () => {
   return (
-    <div className="animate-fade-in">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-primary-500 text-white">
-        <div 
-          className="absolute inset-0 bg-black opacity-50 z-0"
-          style={{
-            backgroundImage: "url('https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            mixBlendMode: 'multiply'
-          }}
-        ></div>
+      <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-accent-blue-500/10 to-transparent"></div>
         
-        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-slide-in">
-              Precision Electro Spindles <br />for Industrial Excellence
-            </h1>
-            <p className="text-xl mb-8 text-gray-200 max-w-2xl">
-              Industry-leading Electro spindles engineered for precision, power, and reliability across wood, stone, aluminum, and composite applications.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/products"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue-500 transition-colors duration-200"
-              >
-                Explore Products
-                <ChevronRight className="ml-2 -mr-1 w-5 h-5" />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors duration-200"
-              >
-                Contact Sales
-              </Link>
-              <DownloadBrochure />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+                  Precision Spindles for
+                  <span className="block text-accent-blue-300">Industrial Excellence</span>
+                </h1>
+                <p className="text-xl lg:text-2xl text-gray-200 leading-relaxed">
+                  Advanced spindle technology engineered for wood, stone, aluminum, and composite machining applications.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/products"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  Explore Products
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+                <Link
+                  to="/quote"
+                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300"
+                >
+                  Get Quote
+                </Link>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="aspect-square bg-gradient-to-br from-accent-blue-400/20 to-primary-500/20 rounded-full p-8">
+                <img
+                  src="https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Precision Spindle Technology"
+                  className="w-full h-full object-cover rounded-full shadow-2xl"
+                />
+              </div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent-blue-400 rounded-full opacity-20 animate-pulse"></div>
+              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary-400 rounded-full opacity-20 animate-pulse delay-1000"></div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Spindle Matcher Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-primary-500 mb-4">Find Your Perfect Match</h2>
-            <p className="text-gray-600">
-              Use our intelligent spindle matching tool to find the ideal replacement for your current spindle.
-            </p>
-          </div>
-          <SpindleMatcher className="max-w-4xl mx-auto" />
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-primary-500 mb-4">Why Choose SpindleTech</h2>
-            <p className="text-gray-600">
-              Our electro spindles are designed with precision engineering and advanced technology to ensure maximum performance and reliability.
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Why Choose Our Spindles?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Engineered for precision, built for durability, designed for performance across diverse industrial applications.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 p-8 rounded-lg transition-all duration-300 hover:shadow-lg">
-              <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-6">
-                <Clock className="w-6 h-6 text-white" />
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Zap,
+                title: "High Performance",
+                description: "Superior power-to-weight ratio with speeds up to 30,000 RPM for maximum efficiency."
+              },
+              {
+                icon: Shield,
+                title: "Built to Last",
+                description: "Robust construction with premium materials ensures long-lasting reliability in demanding environments."
+              },
+              {
+                icon: Award,
+                title: "Precision Engineering",
+                description: "Tight tolerances and advanced balancing deliver exceptional surface finishes and dimensional accuracy."
+              },
+              {
+                icon: Users,
+                title: "Expert Support",
+                description: "Comprehensive technical support and application expertise to optimize your machining processes."
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
+                  <feature.icon className="w-8 h-8 text-primary-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
-              <h3 className="text-xl font-semibold text-primary-500 mb-3">Long Service Life</h3>
-              <p className="text-gray-600">
-                Premium components and precision engineering ensure our spindles deliver exceptional durability and longevity in demanding operating conditions.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-8 rounded-lg transition-all duration-300 hover:shadow-lg">
-              <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-6">
-                <Award className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-primary-500 mb-3">Superior Performance</h3>
-              <p className="text-gray-600">
-                Achieve optimal cutting speeds, precision, and surface finishes across all materials with our advanced spindle technology.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-8 rounded-lg transition-all duration-300 hover:shadow-lg">
-              <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-6">
-                <Tool className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-primary-500 mb-3">Versatile Applications</h3>
-              <p className="text-gray-600">
-                Our diverse range of spindles are optimized for specific materials including wood, stone, aluminum, and composites.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Product Families */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-primary-500 mb-4">Our Product Families</h2>
-            <p className="text-gray-600">
-              Explore our comprehensive range of electro spindles designed for various applications and requirements.
+      {/* Product Families Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Our Product Families
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive spindle solutions designed for specific machining requirements and applications.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
-              <div className="h-64 bg-gray-200 overflow-hidden">
-                <img 
-                  src="https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                  alt="Manual Tool Change Spindles" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
+          
+          <div className="grid lg:grid-cols-3 gap-8">
+            {[
+              {
+                family: 'M',
+                title: 'AM Series',
+                description: 'Manual tool change spindles offering reliable performance for standard machining operations.',
+                features: ['Manual tool change', 'Robust construction', 'Cost-effective solution', 'Wide speed range'],
+                image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=600'
+              },
+              {
+                family: 'Q',
+                title: 'AQ Series',
+                description: 'Quick tool change spindles for enhanced productivity and reduced downtime.',
+                features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'],
+                image: 'https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=600'
+              },
+              {
+                family: 'A',
+                title: 'AA Series',
+                description: 'Automatic tool change spindles for maximum efficiency in automated production environments.',
+                features: ['Automatic tool change', 'Maximum efficiency', 'Automated operation', 'Premium performance'],
+                image: 'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600'
+              }
+            ].map((product, index) => (
+              <div key={index} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900">{product.title}</h3>
+                    <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
+                      {product.family} Series
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{product.description}</p>
+                  <ul className="space-y-2 mb-8">
+                    {product.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-gray-700">
+                        <div className="w-2 h-2 bg-accent-blue-500 rounded-full mr-3"></div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to={`/products?family=${product.family}`}
+                    className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold transition-colors duration-300"
+                  >
+                    View Products
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary-500 mb-3">AM series</h3>
-                <p className="text-gray-600 mb-4">
-                  Our AM series spindles offer reliable performance for applications where tool changes are performed manually. Perfect for smaller operations and specialized tasks.
-                </p>
-                <ul className="mb-6 space-y-2">
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Available in ER and HSK tool holder types
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Standard line products for reliable performance
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Cost-effective solution for manual operations
-                  </li>
-                </ul>
-                <Link
-                  to="/products?family=M"
-                  className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
-                >
-                  View AM series
-                  <ChevronRight className="ml-1 w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
-              <div className="h-64 bg-gray-200 overflow-hidden">
-                <img 
-                  src="https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                  alt="Quick Tool Change Spindles" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary-500 mb-3">AQ series</h3>
-                <p className="text-gray-600 mb-4">
-                  Our AQ series spindles feature premium engineering for faster tool changes and enhanced performance in demanding applications.
-                </p>
-                <ul className="mb-6 space-y-2">
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Premium line products with advanced features
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Available in ER and HSK tool holder types
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Enhanced cooling and precision engineering
-                  </li>
-                </ul>
-                <Link
-                  to="/products?family=H"
-                  className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
-                >
-                  View AQ series
-                  <ChevronRight className="ml-1 w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
-              <div className="h-64 bg-gray-200 overflow-hidden">
-                <img 
-                  src="https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                  alt="Automatic Tool Change Spindles" 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary-500 mb-3">AA series</h3>
-                <p className="text-gray-600 mb-4">
-                  Our AA series spindles feature fully automated tool changing with ISO tool holders, designed for high-productivity manufacturing environments.
-                </p>
-                <ul className="mb-6 space-y-2">
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Fully automated tool change system
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    Available in ISO30 and ISO40 interfaces
-                  </li>
-                  <li className="flex items-center text-gray-600">
-                    <ChevronRight className="w-4 h-4 text-primary-500 mr-2" />
-                    High-productivity manufacturing solution
-                  </li>
-                </ul>
-                <Link
-                  to="/products?family=A"
-                  className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
-                >
-                  View AA series
-                  <ChevronRight className="ml-1 w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Applications */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-primary-500 mb-4">Application Solutions</h2>
-            <p className="text-gray-600">
-              Our spindles are designed for specific material applications with optimized performance characteristics.
+      {/* Spindle Matcher Tool */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Find Your Perfect Spindle
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Use our intelligent matching tool to find compatible spindle replacements based on your current specifications.
             </p>
           </div>
+          <SpindleMatcher />
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link to="/products?application=Wood" className="group">
-              <div className="rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl bg-white h-full">
-                <div className="h-48 bg-gray-200 overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/3095497/pexels-photo-3095497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                    alt="Wood Processing" 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+      {/* Applications Section */}
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Applications & Industries
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Our spindles excel across diverse materials and industries, delivering consistent results in demanding applications.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Wood Processing",
+                description: "Furniture, cabinetry, and architectural millwork with superior surface finishes.",
+                image: "https://images.pexels.com/photos/175709/pexels-photo-175709.jpeg?auto=compress&cs=tinysrgb&w=400"
+              },
+              {
+                title: "Stone & Marble",
+                description: "Precision cutting and shaping of natural and engineered stone materials.",
+                image: "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=400"
+              },
+              {
+                title: "Aluminum Machining",
+                description: "High-speed machining of aluminum components for aerospace and automotive.",
+                image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=400"
+              },
+              {
+                title: "Composite Materials",
+                description: "Advanced composites for aerospace, marine, and high-performance applications.",
+                image: "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=400"
+              }
+            ].map((application, index) => (
+              <div key={index} className="group cursor-pointer">
+                <div className="aspect-square overflow-hidden rounded-lg mb-4">
+                  <img
+                    src={application.image}
+                    alt={application.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold text-primary-500 mb-2 group-hover:text-accent-blue-500 transition-colors duration-300">Wood</h3>
-                  <p className="text-gray-600 text-sm">
-                    High-speed spindles for precision woodworking, furniture manufacturing, and cabinetry.
-                  </p>
-                </div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-accent-blue-300 transition-colors">
+                  {application.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed">{application.description}</p>
               </div>
-            </Link>
-
-            <Link to="/products?application=Stone" className="group">
-              <div className="rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl bg-white h-full">
-                <div className="h-48 bg-gray-200 overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/2086170/pexels-photo-2086170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                    alt="Stone Processing" 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold text-primary-500 mb-2 group-hover:text-accent-blue-500 transition-colors duration-300">Stone</h3>
-                  <p className="text-gray-600 text-sm">
-                    Robust spindles for marble, granite, and natural stone cutting, shaping, and polishing.
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/products?application=Aluminum" className="group">
-              <div className="rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl bg-white h-full">
-                <div className="h-48 bg-gray-200 overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/2381463/pexels-photo-2381463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                    alt="Aluminum Processing" 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold text-primary-500 mb-2 group-hover:text-accent-blue-500 transition-colors duration-300">Aluminum</h3>
-                  <p className="text-gray-600 text-sm">
-                    High-performance spindles for aluminum fabrication, aerospace components, and automotive parts.
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/products?application=Composites" className="group">
-              <div className="rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl bg-white h-full">
-                <div className="h-48 bg-gray-200 overflow-hidden">
-                  <img 
-                    src="https://images.pexels.com/photos/5247207/pexels-photo-5247207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                    alt="Composite Processing" 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-xl font-semibold text-primary-500 mb-2 group-hover:text-accent-blue-500 transition-colors duration-300">Composites</h3>
-                  <p className="text-gray-600 text-sm">
-                    Specialized spindles for carbon fiber, fiberglass, and advanced composite materials.
-                  </p>
-                </div>
-              </div>
-            </Link>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary-500 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-            <div className="mb-8 lg:mb-0">
-              <h2 className="text-3xl font-bold mb-4">Ready to elevate your machining capabilities?</h2>
-              <p className="text-primary-100 max-w-2xl">
-                Contact our expert team today to discuss your specific requirements and find the perfect spindle solution for your application.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/products"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors duration-200"
-              >
-                Explore Products
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors duration-200"
-              >
-                Contact Us
-              </Link>
-            </div>
+      <section className="py-20 bg-primary-600">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+            Ready to Enhance Your Machining Capabilities?
+          </h2>
+          <p className="text-xl text-primary-100 mb-8 leading-relaxed">
+            Contact our experts to find the perfect spindle solution for your specific application requirements.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/quote"
+              className="inline-flex items-center justify-center px-8 py-4 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Request Quote
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
       </section>
