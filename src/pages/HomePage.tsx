@@ -123,9 +123,9 @@ const HomePage = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary-500 mb-3">Manual Tool Change (M)</h3>
+                <h3 className="text-2xl font-semibold text-primary-500 mb-3">AM series</h3>
                 <p className="text-gray-600 mb-4">
-                  Our Manual Tool Change spindles offer reliable performance for applications where tool changes are performed manually. Perfect for smaller operations and specialized tasks.
+                  Our AM series spindles offer reliable performance for applications where tool changes are performed manually. Perfect for smaller operations and specialized tasks.
                 </p>
                 <ul className="mb-6 space-y-2">
                   <li className="flex items-center text-gray-600">
@@ -145,7 +145,7 @@ const HomePage = () => {
                   to="/products?family=M"
                   className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
                 >
-                  View Manual Tool Change
+                  View AM series
                   <ChevronRight className="ml-1 w-4 h-4" />
                 </Link>
               </div>
@@ -160,9 +160,9 @@ const HomePage = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary-500 mb-3">Quick Tool Change (H)</h3>
+                <h3 className="text-2xl font-semibold text-primary-500 mb-3">AQ series</h3>
                 <p className="text-gray-600 mb-4">
-                  Our Quick Tool Change spindles feature premium engineering for faster tool changes and enhanced performance in demanding applications.
+                  Our AQ series spindles feature premium engineering for faster tool changes and enhanced performance in demanding applications.
                 </p>
                 <ul className="mb-6 space-y-2">
                   <li className="flex items-center text-gray-600">
@@ -182,7 +182,7 @@ const HomePage = () => {
                   to="/products?family=H"
                   className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
                 >
-                  View Quick Tool Change
+                  View AQ series
                   <ChevronRight className="ml-1 w-4 h-4" />
                 </Link>
               </div>
@@ -197,9 +197,9 @@ const HomePage = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary-500 mb-3">Automatic Tool Change (A)</h3>
+                <h3 className="text-2xl font-semibold text-primary-500 mb-3">AA series</h3>
                 <p className="text-gray-600 mb-4">
-                  Our Automatic Tool Change spindles feature fully automated tool changing with ISO tool holders, designed for high-productivity manufacturing environments.
+                  Our AA series spindles feature fully automated tool changing with ISO tool holders, designed for high-productivity manufacturing environments.
                 </p>
                 <ul className="mb-6 space-y-2">
                   <li className="flex items-center text-gray-600">
@@ -219,7 +219,7 @@ const HomePage = () => {
                   to="/products?family=A"
                   className="inline-flex items-center text-accent-blue-500 hover:text-accent-blue-700 font-medium"
                 >
-                  View Automatic Tool Change
+                  View AA series
                   <ChevronRight className="ml-1 w-4 h-4" />
                 </Link>
               </div>
