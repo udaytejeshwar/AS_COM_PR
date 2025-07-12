@@ -41,7 +41,7 @@ const ProductsPage = () => {
     const applicationParam = searchParams.get('application');
     const toolHolderParam = searchParams.get('toolHolder') as ToolHolder | null;
     
-    if (familyParam && (familyParam === 'M' || familyParam === 'H' || familyParam === 'A')) {
+    if (familyParam && (familyParam === 'M' || familyParam === 'Q' || familyParam === 'A')) {
       setFilters(prev => ({ ...prev, family: familyParam }));
     }
     
