@@ -8,7 +8,7 @@ const PremiumLinePage = () => {
       <section 
         className="relative text-white overflow-hidden -mt-16"
         style={{
-          background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)'
+          background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)'
         }}
       >
         
