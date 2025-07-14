@@ -9,14 +9,19 @@ const QuotePage = () => {
 
   return (
     <div className="animate-fade-in">
-      <div className="bg-primary-500 text-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="relative text-white overflow-hidden -mt-16"
+        style={{
+          background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)'
+        }}
+      >
+        <div className="container mx-auto px-4 pt-40 pb-24 sm:px-6 lg:px-8">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">Request a Quote</h1>
           <p className="text-primary-100 max-w-3xl">
             Fill out the form below and our team will provide you with a detailed quote tailored to your requirements.
           </p>
         </div>
-      </div>
+      </section>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-3xl mx-auto">
