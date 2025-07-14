@@ -4,7 +4,6 @@ import { Menu, X, ChevronDown, Settings } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
 
@@ -28,25 +27,15 @@ const Header = () => {
     setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `relative px-3 py-2 transition-colors duration-200 hover:text-accent-blue-400 ${
-      isActive ? 'text-accent-blue-500 font-medium' : 'text-gray-700'
+    `relative px-3 py-2 transition-colors duration-200 hover:text-accent-blue-300 ${
+      isActive ? 'text-accent-blue-300 font-medium' : 'text-white'
     }`;
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent py-5"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -70,7 +59,7 @@ const Header = () => {
             onMouseEnter={() => setActiveDropdown('products')}
             onMouseLeave={() => setActiveDropdown(null)}>
               <button 
-                className="flex items-center px-3 py-2 text-gray-700 hover:text-accent-blue-400 transition-colors duration-200" 
+                className="flex items-center px-3 py-2 text-white hover:text-accent-blue-300 transition-colors duration-200" 
               >
                 Products
                 <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
@@ -143,7 +132,7 @@ const Header = () => {
             onMouseEnter={() => setActiveDropdown('applications')}
             onMouseLeave={() => setActiveDropdown(null)}>
               <button 
-                className="flex items-center px-3 py-2 text-gray-700 hover:text-accent-blue-400 transition-colors duration-200"
+                className="flex items-center px-3 py-2 text-white hover:text-accent-blue-300 transition-colors duration-200"
               >
                 Applications
                 <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'applications' ? 'rotate-180' : ''}`} />
