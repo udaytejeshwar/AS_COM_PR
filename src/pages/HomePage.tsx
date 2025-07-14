@@ -50,7 +50,7 @@ const HomePage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">  
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Advanced electro-spindle technology delivering uncompromising precision and performance for demanding CNC routing applications.
             </p>
           </div>
@@ -59,7 +59,7 @@ const HomePage = () => {
             {[
               {
                 icon: Zap,
-                title: "Performance",
+                title: "High Speed Performance",
                 description: "Engineered for sustained operation at speeds up to 30,000 RPM with superior power density and thermal management for continuous production cycles.",
                 specs: "Up to 30,000 RPM",
                 gradient: "from-blue-500 to-cyan-500"
@@ -80,7 +80,7 @@ const HomePage = () => {
               },
               {
                 icon: Users,
-                title: "Support",
+                title: "Engineering Support",
                 description: "Comprehensive technical support with application-specific optimization, tooling recommendations, and machining parameter development for your processes.",
                 specs: "Expert technical support",
                 gradient: "from-orange-500 to-red-500"
@@ -97,7 +97,7 @@ const HomePage = () => {
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-thin text-gray-900 mb-4 font-sans tracking-[0.1em]">
                     {feature.title}
                   </h3>
                   
@@ -126,11 +126,11 @@ const HomePage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Our Product Families
+            <h2 className="text-3xl lg:text-4xl font-thin text-gray-900 mb-4 font-sans tracking-[0.1em]">
+              PRECISION PLATFORMS
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive spindle solutions designed for specific machining requirements and applications.
+            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
+              Tailored spindle systems engineered for distinct materials, methods, and performance demands — from high-speed contouring in wood to heavy-duty milling in stone and aluminum.
             </p>
           </div>
           
