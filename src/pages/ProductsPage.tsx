@@ -147,8 +147,13 @@ const ProductsPage = () => {
   return (
     <div className="animate-fade-in">
       {/* Header */}
-      <div className="bg-primary-500 text-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="relative text-white overflow-hidden -mt-16"
+        style={{
+          background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)'
+        }}
+      >
+        <div className="container mx-auto px-4 pt-40 pb-24 sm:px-6 lg:px-8">
           <div className="flex justify-between items-start">
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold mb-4">Electro Spindles</h1>
@@ -159,7 +164,7 @@ const ProductsPage = () => {
             <DownloadBrochure />
           </div>
         </div>
-      </div>
+      </section>
       
       {/* Search and Filter Controls */}
       <div className="bg-gray-50 border-b">
