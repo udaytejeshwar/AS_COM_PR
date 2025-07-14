@@ -71,7 +71,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Nunito Sans Expanded', 'Inter', 'sans-serif'],
       },
       spacing: {
         '128': '32rem',
