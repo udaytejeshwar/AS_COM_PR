@@ -45,18 +45,14 @@ const ContactPage = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="relative bg-primary-500 text-white">
-        <div 
-          className="absolute inset-0 bg-black opacity-50 z-0"
-          style={{
-            backgroundImage: "url('https://images.pexels.com/photos/327540/pexels-photo-327540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            mixBlendMode: 'multiply'
-          }}
-        ></div>
+      <section 
+        className="relative text-white overflow-hidden -mt-16"
+        style={{
+          background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)'
+        }}
+      >
         
-        <div className="container mx-auto px-4 py-24 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-4 pt-40 pb-24 sm:px-6 lg:px-8 relative z-10">
           <div className="flex justify-between items-start max-w-3xl">
             <div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-slide-in">
