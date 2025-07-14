@@ -17,9 +17,9 @@ const HomePage = () => {
       <div className="space-y-8 max-w-4xl">
         <div className="space-y-4">
           <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase">
-  ARK SPINDLES<sup className="absolute top-0 right-[-1.2em] text-sm lg:text-base">™</sup>
+  ARK SPINDLES
 </h1>
-          <p className="text-xl lg:text-1xl text-gray-200 font-sans tracking-widest">
+          <p className="text-base lg:text-1xl text-gray-200 font-sans tracking-[0.3em]">
             Precision that powers Performance
           </p>
         </div>
@@ -45,14 +45,13 @@ const HomePage = () => {
 </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Our Spindles?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Engineered for precision, built for durability, designed for performance across diverse industrial applications.
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
+        
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">  
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Advanced electro-spindle technology delivering uncompromising precision and performance for demanding CNC routing applications.
             </p>
           </div>
           
@@ -60,34 +59,66 @@ const HomePage = () => {
             {[
               {
                 icon: Zap,
-                title: "High Performance",
-                description: "Superior power-to-weight ratio with speeds up to 30,000 RPM for maximum efficiency."
+                title: "Performance",
+                description: "Engineered for sustained operation at speeds up to 30,000 RPM with superior power density and thermal management for continuous production cycles.",
+                specs: "Up to 30,000 RPM",
+                gradient: "from-blue-500 to-cyan-500"
               },
               {
                 icon: Shield,
-                title: "Built to Last",
-                description: "Robust construction with premium materials ensures long-lasting reliability in demanding environments."
+                title: "Precision Engineering",
+                description: "Sub-micron runout tolerances and advanced dynamic balancing ensure exceptional surface finishes and dimensional accuracy in wood, aluminum, and composite materials.",
+                specs: "Sub-micron runout",
+                gradient: "from-emerald-500 to-teal-500"
               },
               {
                 icon: Award,
-                title: "Precision Engineering",
-                description: "Tight tolerances and advanced balancing deliver exceptional surface finishes and dimensional accuracy."
+                title: "Technical Innovation",
+                description: "State-of-the-art bearing systems, optimized cooling channels, and advanced motor control technology for maximum reliability and performance consistency.",
+                specs: "Advanced bearing systems",
+                gradient: "from-purple-500 to-violet-500"
               },
               {
                 icon: Users,
-                title: "Expert Support",
-                description: "Comprehensive technical support and application expertise to optimize your machining processes."
+                title: "Support",
+                description: "Comprehensive technical support with application-specific optimization, tooling recommendations, and machining parameter development for your processes.",
+                specs: "Expert technical support",
+                gradient: "from-orange-500 to-red-500"
               }
             ].map((feature, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
-                  <feature.icon className="w-8 h-8 text-primary-600" />
+              <div key={index} className="group relative">
+                <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full">
+                  {/* Clean icon container */}
+                  <div className="mb-6">
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{
+                      backgroundColor: '#4d5d6d'
+                    }}>
+                      <feature.icon className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    {feature.title}
+                  </h3>
+                  
+                  <div className="mb-4">
+                    <span className="inline-block px-3 py-1 text-sm font-semibold" style={{
+                      backgroundColor: '#f8f9fa',
+                      color: '#4d5d6d',
+                      border: '1px solid #e9ecef'
+                    }}>
+                      {feature.specs}
+                    </span>
+                  </div>
+                  
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
+         
         </div>
       </section>
 
