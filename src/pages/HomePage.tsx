@@ -13,19 +13,18 @@ const HomePage = () => {
   }}
 >
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-24 lg:pb-32">
-    <div className="grid lg:grid-cols-2 gap-12 items-center">
-      <div className="space-y-8">
+    <div className="flex flex-col items-center text-center">
+      <div className="space-y-8 max-w-4xl">
         <div className="space-y-4">
-          <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-            Precision Spindles for
-            <span className="block text-accent-blue-300">Industrial Excellence</span>
-          </h1>
-          <p className="text-xl lg:text-2xl text-gray-200 leading-relaxed">
-            Advanced spindle technology engineered for wood, stone, aluminum, and composite machining applications.
+          <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase">
+  ARK SPINDLES<sup className="absolute top-0 right-[-1.2em] text-sm lg:text-base">™</sup>
+</h1>
+          <p className="text-xl lg:text-1xl text-gray-200 font-sans tracking-widest">
+            Precision that powers Performance
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/products"
             className="inline-flex items-center justify-center px-8 py-4 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
