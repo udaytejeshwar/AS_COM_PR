@@ -6,54 +6,44 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-blue-500/10 to-transparent"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                  Precision Spindles for
-                  <span className="block text-accent-blue-300">Industrial Excellence</span>
-                </h1>
-                <p className="text-xl lg:text-2xl text-gray-200 leading-relaxed">
-                  Advanced spindle technology engineered for wood, stone, aluminum, and composite machining applications.
-                </p>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/products"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  Explore Products
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-                <Link
-                  to="/quote"
-                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300"
-                >
-                  Get Quote
-                </Link>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-accent-blue-400/20 to-primary-500/20 rounded-full p-8">
-                <img
-                  src="https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Precision Spindle Technology"
-                  className="w-full h-full object-cover rounded-full shadow-2xl"
-                />
-              </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent-blue-400 rounded-full opacity-20 animate-pulse"></div>
-              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary-400 rounded-full opacity-20 animate-pulse delay-1000"></div>
-            </div>
-          </div>
+      <section
+  className="relative text-white overflow-hidden -mt-16"
+  style={{
+    background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)'
+  }}
+>
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-24 lg:pb-32">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="space-y-8">
+        <div className="space-y-4">
+          <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+            Precision Spindles for
+            <span className="block text-accent-blue-300">Industrial Excellence</span>
+          </h1>
+          <p className="text-xl lg:text-2xl text-gray-200 leading-relaxed">
+            Advanced spindle technology engineered for wood, stone, aluminum, and composite machining applications.
+          </p>
         </div>
-      </section>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            to="/products"
+            className="inline-flex items-center justify-center px-8 py-4 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Explore Products
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Link>
+          <Link
+            to="/quote"
+            className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300"
+          >
+            Get Quote
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50">
