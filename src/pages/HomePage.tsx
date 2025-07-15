@@ -27,7 +27,7 @@ const HomePage = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/products"
-            className="inline-flex items-center justify-center px-8 py-4 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center justify-center px-8 py-4 bg-accent-black-500 text-white font-semibold rounded-lg hover:bg-accent-black-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Explore Products
             <ArrowRight className="ml-2 w-5 h-5" />
