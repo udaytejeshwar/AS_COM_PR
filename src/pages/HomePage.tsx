@@ -288,7 +288,7 @@ const HomePage = () => {
 
 <Link
   to="/contact"
-  className="mt-6 inline-flex items-center justify-center px-6 py-3 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+  className="mt-6 inline-flex items-center justify-center px-6 py-3 bg-black text-white font-semibold rounded-lg hover:bg-grey-900 transition-all duration-300 transform hover:scale-105 shadow-lg"
 >
   Contact Our Experts
   <ArrowRight className="ml-2 w-5 h-5" />
