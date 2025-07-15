@@ -283,15 +283,16 @@ const HomePage = () => {
               Contact Us for Custom Solutions
             </h3>
             <p className="text-base text-gray-600 max-w-1xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Our experts are ready to discuss your specific project and co-engineer the perfect spindle solution.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              Contact Our Experts
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+  Our experts are ready to discuss your specific project and co-engineer the perfect spindle solution.
+</p>
+
+<Link
+  to="/contact"
+  className="mt-6 inline-flex items-center justify-center px-6 py-3 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+>
+  Contact Our Experts
+  <ArrowRight className="ml-2 w-5 h-5" />
+</Link>
           </div>
         </div>
       </section>
