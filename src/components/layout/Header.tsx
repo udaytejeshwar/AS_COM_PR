@@ -212,7 +212,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Link
               to="/quote"
-              className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue-500 transition-colors duration-200"
+              className="inline-flex items-center justify-center px-4 py-2 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300"
             >
               Get a Quote
             </Link>
