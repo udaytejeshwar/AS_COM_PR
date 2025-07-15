@@ -30,18 +30,26 @@ const Header = () => {
 
   // Handle scroll effect
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+  let timeout: NodeJS.Timeout;
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleScroll = () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      setIsScrolled(window.scrollY > 50);
+    }, 50); // adjust delay for feel
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => {
+    clearTimeout(timeout);
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) => {
     const baseClasses = 'relative px-3 py-2 transition-colors duration-200';
     const textColor = isScrolled 
-      ? (isActive ? 'text-accent-blue-500 font-medium' : 'text-gray-700 hover:text-accent-blue-500')
+      ? (isActive ? 'text-accent-blue-500 font-medium' : 'text-white-700 hover:text-accent-blue-500')
       : (isActive ? 'text-accent-blue-300 font-medium' : 'text-white hover:text-accent-blue-300');
     
     return `${baseClasses} ${textColor}`;
@@ -52,8 +60,8 @@ const Header = () => {
     : 'flex items-center px-3 py-2 text-white hover:text-accent-blue-300 transition-colors duration-200';
 
   const containerClasses = isScrolled
-    ? 'bg-white/80 backdrop-blur-sm rounded-full ring-2 ring-accent-blue-500 shadow-md hover:bg-white hover:shadow-lg hover:ring-4 hover:ring-accent-blue-500 transition-all duration-300'
-    : 'bg-transparent hover:bg-white/10 hover:shadow-sm transition-all duration-300';
+    ? 'bg-white backdrop-blur-sm rounded-full shadow-md transition-all duration-300 ease-in-out'
+    : 'bg-transparent transition-all duration-300 ease-in-out';
 
   return (
     <header
