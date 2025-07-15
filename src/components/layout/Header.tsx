@@ -6,6 +6,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => {
@@ -27,11 +28,32 @@ const Header = () => {
     setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
   };
 
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
 
-  const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `relative px-3 py-2 transition-colors duration-200 hover:text-accent-blue-300 ${
-      isActive ? 'text-accent-blue-300 font-medium' : 'text-white'
-    }`;
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinkClass = ({ isActive }: { isActive: boolean }) => {
+    const baseClasses = 'relative px-3 py-2 transition-colors duration-200';
+    const textColor = isScrolled 
+      ? (isActive ? 'text-accent-blue-500 font-medium' : 'text-gray-700 hover:text-accent-blue-500')
+      : (isActive ? 'text-accent-blue-300 font-medium' : 'text-white hover:text-accent-blue-300');
+    
+    return `${baseClasses} ${textColor}`;
+  };
+
+  const dropdownButtonClass = isScrolled 
+    ? 'flex items-center px-3 py-2 text-gray-700 hover:text-accent-blue-500 transition-colors duration-200'
+    : 'flex items-center px-3 py-2 text-white hover:text-accent-blue-300 transition-colors duration-200';
+
+  const containerClasses = isScrolled
+    ? 'bg-white/80 backdrop-blur-sm rounded-full ring-2 ring-accent-blue-500 shadow-md hover:bg-white hover:shadow-lg hover:ring-4 hover:ring-accent-blue-500 transition-all duration-300'
+    : 'bg-transparent hover:bg-white/10 hover:shadow-sm transition-all duration-300';
 
   return (
     <header
@@ -49,7 +71,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className={`hidden md:flex items-center space-x-1 px-6 py-2 ${containerClasses}`}>
             <NavLink to="/" className={navLinkClass} end>
               Home
             </NavLink>
@@ -59,7 +81,7 @@ const Header = () => {
             onMouseEnter={() => setActiveDropdown('products')}
             onMouseLeave={() => setActiveDropdown(null)}>
               <button 
-                className="flex items-center px-3 py-2 text-white hover:text-accent-blue-300 transition-colors duration-200" 
+                className={dropdownButtonClass}
               >
                 Products
                 <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
@@ -132,7 +154,7 @@ const Header = () => {
             onMouseEnter={() => setActiveDropdown('applications')}
             onMouseLeave={() => setActiveDropdown(null)}>
               <button 
-                className="flex items-center px-3 py-2 text-white hover:text-accent-blue-300 transition-colors duration-200"
+                className={dropdownButtonClass}
               >
                 Applications
                 <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'applications' ? 'rotate-180' : ''}`} />
