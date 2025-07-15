@@ -126,8 +126,8 @@ const HomePage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-thin text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              PRECISION PLATFORMS
+            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
+              Precision Platforms
             </h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Tailored spindle systems engineered for distinct materials, methods, and performance demands — from high-speed contouring in wood to heavy-duty milling in stone and aluminum.
@@ -197,13 +197,13 @@ const HomePage = () => {
       </section>
 
       {/* Spindle Matcher Tool */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
               Find Your Perfect Spindle
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Use our intelligent matching tool to find compatible spindle replacements based on your current specifications.
             </p>
           </div>
@@ -212,13 +212,13 @@ const HomePage = () => {
       </section>
 
       {/* Applications Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
               Applications & Industries
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Our spindles excel across diverse materials and industries, delivering consistent results in demanding applications.
             </p>
           </div>
@@ -254,7 +254,7 @@ const HomePage = () => {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-accent-blue-300 transition-colors">
+                <h3 className="text-xl font-semibold mb-2 text-gray-300 group-hover:text-gray-900 transition-colors duration-300">
                   {application.title}
                 </h3>
                 <p className="text-gray-400 leading-relaxed">{application.description}</p>
