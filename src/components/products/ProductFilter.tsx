@@ -81,7 +81,7 @@ const ProductFilter = ({
                     : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200'
                 }`}
               >
-                {family === 'M' ? 'AM series' : family === 'Q' ? 'AQ series' : family === 'A' ? 'AA series' : family}
+                {family === 'M' ? 'MTC' : family === 'Q' ? 'QTC' : family === 'A' ? 'ATC' : family}
               </button>
             ))}
           </div>
