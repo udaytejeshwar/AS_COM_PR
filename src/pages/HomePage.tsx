@@ -265,27 +265,32 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Ready to Enhance Your Machining Capabilities?
-          </h2>
-          <p className="text-xl text-primary-100 mb-8 leading-relaxed">
-            Contact our experts to find the perfect spindle solution for your specific application requirements.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/quote"
-              className="inline-flex items-center justify-center px-8 py-4 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              Request Quote
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+      <section className="py-20 bg-primary-600" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
+          <div>
+            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
+              Need a Custom Project?
+            </h2>
+            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
+              Tailored spindle systems engineered for distinct materials, methods, and performance demands — from high-speed contouring in wood to heavy-duty milling in stone and aluminum. Each platform reflects a systems-level approach to machining excellence.
+            </p>
+            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
+              For unique requirements, we offer fully custom spindle solutions — co-engineered to match your exacting performance and integration needs.
+            </p>
+          </div>
+          <div className="text-center lg:text-left">
+            <h3 className="text-3xl lg:text-2xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
+              Contact Us for Custom Solutions
+            </h3>
+            <p className="text-base text-gray-600 max-w-1xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
+              Our experts are ready to discuss your specific project and co-engineer the perfect spindle solution.
+            </p>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 bg-accent-blue-500 text-white font-semibold rounded-lg hover:bg-accent-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              Contact Us
+              Contact Our Experts
+              <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </div>
         </div>
