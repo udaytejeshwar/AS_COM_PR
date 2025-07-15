@@ -138,21 +138,21 @@ const HomePage = () => {
             {[
               {
                 family: 'M',
-                title: 'AM Series',
+                title: 'MTC',
                 description: 'Manual tool change spindles offering reliable performance for standard machining operations.',
                 features: ['Manual tool change', 'Robust construction', 'Cost-effective solution', 'Wide speed range'],
                 image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=600'
               },
               {
                 family: 'Q',
-                title: 'AQ Series',
+                title: 'QTC',
                 description: 'Quick tool change spindles for enhanced productivity and reduced downtime.',
                 features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'],
                 image: 'https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=600'
               },
               {
                 family: 'A',
-                title: 'AA Series',
+                title: 'ATC',
                 description: 'Automatic tool change spindles for maximum efficiency in automated production environments.',
                 features: ['Automatic tool change', 'Maximum efficiency', 'Automated operation', 'Premium performance'],
                 image: 'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600'
@@ -170,7 +170,7 @@ const HomePage = () => {
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-bold text-gray-900">{product.title}</h3>
                     <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
-                      {product.family} Series
+                      {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : 'AA'} Series
                     </span>
                   </div>
                   <p className="text-gray-600 mb-6 leading-relaxed">{product.description}</p>
