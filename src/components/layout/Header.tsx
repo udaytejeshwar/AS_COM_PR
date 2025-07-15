@@ -71,21 +71,21 @@ const Header = () => {
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    AM series
+                    MTC
                   </Link>
                   <Link
                     to="/products?family=Q"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    AQ series
+                    QTC
                   </Link>
                   <Link
                     to="/products?family=A"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    AA series
+                    ATC
                   </Link>
                   <Link
                     to="/products?toolHolderTypeCategory=ER"
@@ -234,7 +234,7 @@ const Header = () => {
               }
               onClick={closeMenu}
             >
-              AM series
+              MTC
             </NavLink>
             <NavLink
               to="/products?family=Q"
@@ -247,7 +247,7 @@ const Header = () => {
               }
               onClick={closeMenu}
             >
-              AQ series
+              QTC
             </NavLink>
             <NavLink
               to="/products?family=A"
@@ -260,7 +260,7 @@ const Header = () => {
               }
               onClick={closeMenu}
             >
-              AA series
+              ATC
             </NavLink>
 
             <NavLink
