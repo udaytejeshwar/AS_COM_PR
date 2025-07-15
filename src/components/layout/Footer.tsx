@@ -3,7 +3,9 @@ import { Settings, Mail, Phone, MapPin, Linkedin, Facebook, Twitter } from 'luci
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-500 text-white pt-16 pb-8">
+    <footer className="bg-primary-500 text-white pt-16 pb-8" style={{
+    background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)'
+  }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
