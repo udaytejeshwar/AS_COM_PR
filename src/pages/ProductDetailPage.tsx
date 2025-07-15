@@ -144,7 +144,7 @@ const ProductDetailPage = () => {
             </div>
             <div className="flex items-center mb-4">
               <span className="text-sm font-medium bg-primary-500 text-white px-2 py-1 rounded mr-2">
-                {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : product.family} Series
+                {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : 'AA'} Series
               </span>
               <span className="text-sm font-medium bg-accent-blue-500 text-white px-2 py-1 rounded mr-2">
                 {product.line}
