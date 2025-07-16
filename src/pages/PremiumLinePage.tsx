@@ -12,23 +12,16 @@ const PremiumLinePage = () => {
         }}
       >
         
-        <div className="container mx-auto px-4 pt-40 pb-24 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-slide-in">
-              Premium Line: <br />Engineering Excellence
-            </h1>
-            <p className="text-xl mb-8 text-gray-200 max-w-2xl">
-              Experience unparalleled performance with our Premium Line electro spindles, engineered for the most demanding applications where precision and reliability are paramount.
-            </p>
-            <Link
-              to="/products?line=Premium"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue-500 transition-colors duration-200"
-            >
-              Explore Premium Products
-              <ChevronRight className="ml-2 -mr-1 w-5 h-5" />
-            </Link>
-          </div>
-        </div>
+        <div className="flex justify-center items-center h-[500px] sm:h-[600px] lg:h-[700px]">
+  <div className="border border-white px-8 py-6 text-center animate-fade-in">
+    <h1 className="text-white tracking-[0.3em] text-4xl sm:text-5xl font-light mb-2">
+      T I T A N  Series<sup className="text-sm align-top ml-1">®</sup>
+    </h1>
+    {/* <p className="text-white-300 text-sm italic tracking-widest">
+      By ARK SPINDLES
+    </p> */}
+  </div>
+</div>
       </section>
 
       {/* Features Grid */}
