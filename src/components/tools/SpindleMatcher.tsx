@@ -38,8 +38,8 @@ const SpindleMatcher = ({ className = '' }: SpindleMatcherProps) => {
 
   return (
     <div className={`bg-white rounded-lg shadow-lg p-8 ${className}`}>
-      <h2 className="text-2xl font-bold text-primary-500 mb-6">Spindle Matcher</h2>
-      <p className="text-gray-600 mb-8">
+      <h2 className="text-2xl font-light font-sans text-primary-500 mb-6">Spindle Matcher</h2>
+      <p className="text-gray-600 font-light font-sans mb-8">
         Enter your current spindle specifications to find compatible replacements from our product line.
       </p>
 
