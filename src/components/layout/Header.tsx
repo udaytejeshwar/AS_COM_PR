@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Settings } from 'lucide-react';
 
 const Header = () => {
@@ -7,6 +7,22 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  // Check if we're on a product detail page
+  const isProductDetailPage = /^\/products\/[^\/]+$/.test(location.pathname);
+
+  // Force scrolled state on product detail pages for visibility
+  const headerIsScrolled = isScrolled || isProductDetailPage;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => {
@@ -28,58 +44,43 @@ const Header = () => {
     setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
   };
 
-  // Handle scroll effect
-  useEffect(() => {
-  let timeout: NodeJS.Timeout;
-
-  const handleScroll = () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      setIsScrolled(window.scrollY > 50);
-    }, 50); // adjust delay for feel
-  };
-
-  window.addEventListener('scroll', handleScroll);
-  return () => {
-    clearTimeout(timeout);
-    window.removeEventListener('scroll', handleScroll);
-  };
-}, []);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) => {
     const baseClasses = 'relative px-3 py-2 transform transition-all duration-200 hover:scale-105';
-    const textColor = isScrolled 
-      ? (isActive ? 'text-gray-900 font-medium font-bold scale-120' : 'text-gray-700 hover:text-gray-900')
-      : (isActive ? 'text-white font-medium font-bold scale-120' : 'text-white hover:text-white');
+    const textColor = headerIsScrolled
+      ? (isActive 
+          ? 'text-gray-900 font-medium scale-105' 
+          : 'text-gray-700 hover:text-gray-900')
+      : (isActive
+          ? 'text-white font-medium scale-105'
+          : 'text-white hover:text-white');
     
     return `${baseClasses} ${textColor}`;
   };
 
-  const dropdownButtonClass = isScrolled 
+  const dropdownButtonClass = headerIsScrolled
     ? 'flex items-center px-3 py-2 text-gray-700 hover:text-gray-900 transform transition-all duration-200 hover:scale-105'
     : 'flex items-center px-3 py-2 text-white hover:text-white transform transition-all duration-200 hover:scale-105';
 
-  const containerClasses = isScrolled
-    ? 'bg-white backdrop-blur-sm rounded-full shadow-md transition-all duration-300 ease-in-out'
-    : 'bg-transparent transition-all duration-300 ease-in-out';
-
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        headerIsScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+      }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between py-4">
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={closeMenu}>
-              <Settings className="w-8 h-8 text-primary-500" />
-              <span className="ml-2 text-xl font-bold text-primary-500">
+              <Settings className={`w-8 h-8 ${headerIsScrolled ? 'text-primary-500' : 'text-white'}`} />
+              <span className={`ml-2 text-xl font-bold ${headerIsScrolled ? 'text-primary-500' : 'text-white'}`}>
                 SpindleTech
               </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className={`hidden md:flex items-center space-x-1 px-6 py-2 ${containerClasses}`}>
+          <nav className="hidden md:flex items-center space-x-1">
             <NavLink to="/" className={navLinkClass} end>
               Home
             </NavLink>
@@ -212,7 +213,11 @@ const Header = () => {
           <div className="hidden md:block">
             <Link
               to="/quote"
-              className="inline-flex items-center justify-center px-4 py-2 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300"
+              className={`inline-flex items-center justify-center px-4 py-2 border-2 font-semibold rounded-lg transition-all duration-300 ${
+                headerIsScrolled
+                  ? 'border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white'
+                  : 'border-white text-white hover:bg-white hover:text-primary-500'
+              }`}
             >
               Get a Quote
             </Link>
@@ -222,7 +227,11 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-primary-400 hover:text-primary-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent-blue-500"
+              className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent-blue-500 ${
+                headerIsScrolled
+                  ? 'text-primary-400 hover:text-primary-500 hover:bg-gray-100'
+                  : 'text-white hover:text-white hover:bg-white/10'
+              }`}
             >
               {isMenuOpen ? (
                 <X className="block h-6 w-6" aria-hidden="true" />
@@ -236,15 +245,21 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg animate-fade-in">
+        <div className={`md:hidden shadow-lg animate-fade-in ${
+          headerIsScrolled ? 'bg-white' : 'bg-black/90 backdrop-blur-sm'
+        }`}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive
-                    ? 'bg-primary-50 text-primary-500'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
                 }`
               }
               onClick={closeMenu}
@@ -256,10 +271,14 @@ const Header = () => {
             <NavLink
               to="/products?family=M"
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive
-                    ? 'bg-primary-50 text-primary-500'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
                 }`
               }
               onClick={closeMenu}
@@ -269,10 +288,14 @@ const Header = () => {
             <NavLink
               to="/products?family=Q"
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive
-                    ? 'bg-primary-50 text-primary-500'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
                 }`
               }
               onClick={closeMenu}
@@ -282,10 +305,14 @@ const Header = () => {
             <NavLink
               to="/products?family=A"
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive
-                    ? 'bg-primary-50 text-primary-500'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
                 }`
               }
               onClick={closeMenu}
@@ -296,10 +323,14 @@ const Header = () => {
             <NavLink
               to="/premium"
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive
-                    ? 'bg-primary-50 text-primary-500'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
                 }`
               }
               onClick={closeMenu}
@@ -310,10 +341,14 @@ const Header = () => {
             <NavLink
               to="/accessories"
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive
-                    ? 'bg-primary-50 text-primary-500'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
                 }`
               }
               onClick={closeMenu}
@@ -322,33 +357,51 @@ const Header = () => {
             </NavLink>
             
             {/* Applications Section */}
-            <div className="px-3 py-2 font-medium text-gray-700">
+            <div className={`px-3 py-2 font-medium ${
+              headerIsScrolled ? 'text-gray-700' : 'text-white'
+            }`}>
               Applications
             </div>
             <Link
               to="/products?application=Wood"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
+              className={`block pl-6 pr-3 py-2 text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                  : 'text-white hover:bg-white/10 hover:text-white'
+              }`}
               onClick={closeMenu}
             >
               Wood
             </Link>
             <Link
               to="/products?application=Stone"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
+              className={`block pl-6 pr-3 py-2 text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                  : 'text-white hover:bg-white/10 hover:text-white'
+              }`}
               onClick={closeMenu}
             >
               Stone
             </Link>
             <Link
               to="/products?application=Aluminum"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
+              className={`block pl-6 pr-3 py-2 text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                  : 'text-white hover:bg-white/10 hover:text-white'
+              }`}
               onClick={closeMenu}
             >
               Aluminum
             </Link>
             <Link
               to="/products?application=Composites"
-              className="block pl-6 pr-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-primary-500"
+              className={`block pl-6 pr-3 py-2 text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                  : 'text-white hover:bg-white/10 hover:text-white'
+              }`}
               onClick={closeMenu}
             >
               Composites
@@ -357,10 +410,14 @@ const Header = () => {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive
-                    ? 'bg-primary-50 text-primary-500'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
                 }`
               }
               onClick={closeMenu}
@@ -370,10 +427,14 @@ const Header = () => {
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-base font-medium ${
-                  isActive
-                    ? 'bg-primary-50 text-primary-500'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
                 }`
               }
               onClick={closeMenu}
@@ -382,7 +443,11 @@ const Header = () => {
             </NavLink>
             <Link
               to="/quote"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary-500 hover:bg-primary-600"
+              className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-white bg-primary-500 hover:bg-primary-600'
+                  : 'text-primary-500 bg-white hover:bg-gray-100'
+              }`}
               onClick={closeMenu}
             >
               Get a Quote
