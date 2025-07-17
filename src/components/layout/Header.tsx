@@ -47,17 +47,17 @@ const Header = () => {
 }, []);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) => {
-    const baseClasses = 'relative px-3 py-2 transition-colors duration-200';
+    const baseClasses = 'relative px-3 py-2 transform transition-all duration-200 hover:scale-105';
     const textColor = isScrolled 
-      ? (isActive ? 'text-accent-blue-500 font-medium' : 'text-white-700 hover:text-accent-blue-500')
-      : (isActive ? 'text-accent-blue-300 font-medium' : 'text-white hover:text-accent-blue-300');
+      ? (isActive ? 'text-gray-900 font-medium font-bold scale-120' : 'text-gray-700 hover:text-gray-900')
+      : (isActive ? 'text-white font-medium font-bold scale-120' : 'text-white hover:text-white');
     
     return `${baseClasses} ${textColor}`;
   };
 
   const dropdownButtonClass = isScrolled 
-    ? 'flex items-center px-3 py-2 text-gray-700 hover:text-accent-blue-500 transition-colors duration-200'
-    : 'flex items-center px-3 py-2 text-white hover:text-accent-blue-300 transition-colors duration-200';
+    ? 'flex items-center px-3 py-2 text-gray-700 hover:text-gray-900 transform transition-all duration-200 hover:scale-105'
+    : 'flex items-center px-3 py-2 text-white hover:text-white transform transition-all duration-200 hover:scale-105';
 
   const containerClasses = isScrolled
     ? 'bg-white backdrop-blur-sm rounded-full shadow-md transition-all duration-300 ease-in-out'
