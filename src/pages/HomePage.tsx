@@ -17,7 +17,7 @@ const HomePage = () => {
       <div className="space-y-8 max-w-4xl">
         <div className="space-y-4">
           <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase">
-  ARK SPINDLES
+  ARK SPINDLES<sup className="text-sm align-top ml-1">®</sup>
 </h1>
           <p className="text-base lg:text-1xl text-gray-200 font-sans tracking-[0.3em]">
             Precision that powers Performance
@@ -97,7 +97,7 @@ const HomePage = () => {
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-thin text-gray-900 mb-4 font-sans tracking-[0.1em]">
+                  <h3 className="text-xl font-light text-gray-900 mb-4 font-sans tracking-[0.1em]">
                     {feature.title}
                   </h3>
                   
