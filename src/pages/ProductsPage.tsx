@@ -40,24 +40,29 @@ const ProductsPage = () => {
     const toolHolderTypeCategoryParam = searchParams.get('toolHolderTypeCategory');
     const applicationParam = searchParams.get('application');
     const toolHolderParam = searchParams.get('toolHolder') as ToolHolder | null;
+    const minPowerParam = searchParams.get('minPower');
+    const maxPowerParam = searchParams.get('maxPower');
+    const minSpeedParam = searchParams.get('minSpeed');
+    const maxSpeedParam = searchParams.get('maxSpeed');
+    const minTorqueParam = searchParams.get('minTorque');
+    const maxTorqueParam = searchParams.get('maxTorque');
+    const lineParam = searchParams.get('line');
     
-    if (familyParam && (familyParam === 'M' || familyParam === 'Q' || familyParam === 'A')) {
-      setFilters(prev => ({ ...prev, family: familyParam }));
-    }
-    
-    if (toolHolderTypeCategoryParam && ['ER', 'HSK', 'ISO'].includes(toolHolderTypeCategoryParam)) {
-      setFilters(prev => ({ ...prev, toolHolderTypeCategory: toolHolderTypeCategoryParam as ToolHolderTypeCategory }));
-    }
-    
-    if (applicationParam && 
-        ['Wood', 'Stone', 'Aluminum', 'Composites'].includes(applicationParam)) {
-      setFilters(prev => ({ ...prev, application: applicationParam as Application }));
-    }
-
-    if (toolHolderParam) {
-      setFilters(prev => ({ ...prev, toolHolder: toolHolderParam }));
-    }
-  }, []);
+    setFilters(prev => ({
+      ...prev,
+      family: (familyParam && ['M', 'Q', 'A'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
+      toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK', 'ISO'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
+      application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites'].includes(applicationParam)) ? applicationParam as Application : 'All',
+      toolHolder: toolHolderParam || 'All',
+      line: (lineParam && ['Standard', 'Premium'].includes(lineParam)) ? lineParam as 'Standard' | 'Premium' : 'All',
+      minPower: minPowerParam ? Number(minPowerParam) : null,
+      maxPower: maxPowerParam ? Number(maxPowerParam) : null,
+      minSpeed: minSpeedParam ? Number(minSpeedParam) : null,
+      maxSpeed: maxSpeedParam ? Number(maxSpeedParam) : null,
+      minTorque: minTorqueParam ? Number(minTorqueParam) : null,
+      maxTorque: maxTorqueParam ? Number(maxTorqueParam) : null,
+    }));
+  }, [searchParams]);
 
   // Update URL when filters change
   useEffect(() => {
@@ -77,6 +82,34 @@ const ProductsPage = () => {
 
     if (filters.toolHolder !== 'All') {
       newParams.set('toolHolder', filters.toolHolder);
+    }
+    
+    if (filters.line !== 'All') {
+      newParams.set('line', filters.line);
+    }
+    
+    if (filters.minPower !== null) {
+      newParams.set('minPower', filters.minPower.toString());
+    }
+    
+    if (filters.maxPower !== null) {
+      newParams.set('maxPower', filters.maxPower.toString());
+    }
+    
+    if (filters.minSpeed !== null) {
+      newParams.set('minSpeed', filters.minSpeed.toString());
+    }
+    
+    if (filters.maxSpeed !== null) {
+      newParams.set('maxSpeed', filters.maxSpeed.toString());
+    }
+    
+    if (filters.minTorque !== null) {
+      newParams.set('minTorque', filters.minTorque.toString());
+    }
+    
+    if (filters.maxTorque !== null) {
+      newParams.set('maxTorque', filters.maxTorque.toString());
     }
     
     setSearchParams(newParams, { replace: true });
