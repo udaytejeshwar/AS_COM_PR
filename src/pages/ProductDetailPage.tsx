@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Gauge, Download, FileDown } from 'lucide-react';
+import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Gauge, Download, FileDown, ArrowLeft } from 'lucide-react';
 import { getProductById, products } from '../data/products';
 import { Product } from '../types';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
@@ -82,6 +82,20 @@ const ProductDetailPage = () => {
 
   return (
     <div className="animate-fade-in">
+      {/* Back Button */}
+      <div className="bg-gray-50 border-b">
+        <div className="container mx-auto px-4 py-3">
+          <button
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center text-sm text-gray-600 hover:text-primary-500 transition-colors duration-200"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Products
+          </button>
+        </div>
+      </div>
+
+      {/* Breadcrumbs */}
       <div className="bg-gray-50 border-b">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex" aria-label="Breadcrumb">
