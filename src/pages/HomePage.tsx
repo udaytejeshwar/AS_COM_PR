@@ -254,10 +254,10 @@ const HomePage = () => {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-300 group-hover:text-gray-900 transition-colors duration-300">
+                <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
                   {application.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed">{application.description}</p>
+                <p className="text-gray-700 leading-relaxed">{application.description}</p>
               </div>
             ))}
           </div>
