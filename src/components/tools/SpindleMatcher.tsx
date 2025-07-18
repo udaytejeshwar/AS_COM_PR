@@ -107,7 +107,8 @@ const SpindleMatcher = ({ className = '' }: SpindleMatcherProps) => {
 
       <button
         onClick={findMatches}
-        className="w-full flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue-500 mb-8"
+        className="w-full flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue-500 mb-8"
+  style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
       >
         <Search className="w-5 h-5 mr-2" />
         Find Matching Spindles
