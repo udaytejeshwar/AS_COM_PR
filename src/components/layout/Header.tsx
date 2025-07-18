@@ -1,304 +1,470 @@
-import { ArrowRight, Zap, Shield, Award, Users } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import SpindleMatcher from '../components/tools/SpindleMatcher';
+import { useState, useEffect } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { Menu, X, ChevronDown, Settings } from 'lucide-react';
 
-const HomePage = () => {
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  // Check if we're on a product detail page
+  const isProductDetailPage = /^\/products\/[^\/]+$/.test(location.pathname);
+
+  // Force scrolled state on product detail pages for visibility
+  const headerIsScrolled = isScrolled || isProductDetailPage;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setActiveDropdown(null);
+    setActiveSubDropdown(null);
+  };
+
+  const toggleDropdown = (dropdown: string) => {
+    if (dropdown === 'products' || dropdown === 'applications') {
+      setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+      setActiveSubDropdown(null); // Close any sub-dropdown when switching main
+    } else {
+      setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
+    }
+  };
+
+  const toggleSubDropdown = (dropdown: string) => {
+    setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
+  };
+
+
+  const navLinkClass = ({ isActive }: { isActive: boolean }) => {
+    const baseClasses = 'relative px-3 py-2 transform transition-all duration-200 hover:scale-105';
+    const textColor = headerIsScrolled
+      ? (isActive 
+          ? 'text-gray-900 font-medium scale-105' 
+          : 'text-gray-700 hover:text-gray-900')
+      : (isActive
+          ? 'text-white font-medium scale-105'
+          : 'text-white hover:text-white');
+    
+    return `${baseClasses} ${textColor}`;
+  };
+
+  const dropdownButtonClass = headerIsScrolled
+    ? 'flex items-center px-3 py-2 text-gray-700 hover:text-gray-900 transform transition-all duration-200 hover:scale-105'
+    : 'flex items-center px-3 py-2 text-white hover:text-white transform transition-all duration-200 hover:scale-105';
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section
-  className="relative text-white overflow-hidden -mt-16"
-  style={{
-    background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)'
-  }}
->
-  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-24 lg:pb-32">
-    <div className="flex flex-col items-center text-center">
-      <div className="space-y-8 max-w-4xl">
-        <div className="space-y-4">
-          <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase">
-  ARK SPINDLES<sup className="text-sm align-top ml-1">®</sup>
-</h1>
-          <p className="text-base lg:text-1xl text-gray-200 font-sans tracking-[0.3em]">
-            Precision that powers Performance
-          </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            to="/products"
-            className="inline-flex items-center justify-center px-8 py-4 bg-accent-black-500 text-white font-semibold rounded-lg hover:bg-accent-black-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
-          >
-            Explore Products
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
-          <Link
-            to="/quote"
-            className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300"
-          >
-            Get Quote
-          </Link>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      {/* Features Section */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
-        
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">  
-            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Advanced electro-spindle technology delivering uncompromising precision and performance for demanding CNC routing applications.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: Zap,
-                title: "High Speed Performance",
-                description: "Engineered for sustained operation at speeds up to 30,000 RPM with superior power density and thermal management for continuous production cycles.",
-                specs: "Up to 30,000 RPM",
-                gradient: "from-blue-500 to-cyan-500"
-              },
-              {
-                icon: Shield,
-                title: "Precision Engineering",
-                description: "Sub-micron runout tolerances and advanced dynamic balancing ensure exceptional surface finishes and dimensional accuracy in wood, aluminum, and composite materials.",
-                specs: "Sub-micron runout",
-                gradient: "from-emerald-500 to-teal-500"
-              },
-              {
-                icon: Award,
-                title: "Technical Innovation",
-                description: "State-of-the-art bearing systems, optimized cooling channels, and advanced motor control technology for maximum reliability and performance consistency.",
-                specs: "Advanced bearing systems",
-                gradient: "from-purple-500 to-violet-500"
-              },
-              {
-                icon: Users,
-                title: "Engineering Support",
-                description: "Comprehensive technical support with application-specific optimization, tooling recommendations, and machining parameter development for your processes.",
-                specs: "Expert technical support",
-                gradient: "from-orange-500 to-red-500"
-              }
-            ].map((feature, index) => (
-              <div key={index} className="group relative">
-                <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full">
-                  {/* Clean icon container */}
-                  <div className="mb-6">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{
-                      backgroundColor: '#4d5d6d'
-                    }}>
-                      <feature.icon className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl font-light text-gray-900 mb-4 font-sans tracking-[0.1em]">
-                    {feature.title}
-                  </h3>
-                  
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 text-sm font-semibold" style={{
-                      backgroundColor: '#f8f9fa',
-                      color: '#4d5d6d',
-                      border: '1px solid #e9ecef'
-                    }}>
-                      {feature.specs}
-                    </span>
-                  </div>
-                  
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {feature.description}
-                  </p>
-                </div>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        headerIsScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-4">
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center" onClick={closeMenu}>
+              <div 
+                className={`inline-flex items-center justify-center transition-all duration-300 ${
+                  headerIsScrolled ? 'p-2 rounded-md' : ''
+                }`}
+                style={headerIsScrolled ? { backgroundColor: 'radial-gradient(circle, #4d5d6d 50%)' } : {}}
+              >
+                <img 
+                  src="/ARKRIDGE-LOGO.png" 
+                  alt="ARK SPINDLES Logo" 
+                  className="h-8 w-auto"
+                />
               </div>
-            ))}
+            </Link>
           </div>
-         
-        </div>
-      </section>
 
-      {/* Product Families Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              Precision Platforms
-            </h2>
-            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Tailored spindle systems engineered for distinct materials, methods, and performance demands — from high-speed contouring in wood to heavy-duty milling in stone and aluminum.
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-3 gap-8">
-            {[
-              {
-                family: 'M',
-                title: 'MTC spindles',
-                description: 'Manual tool change spindles offering reliable performance for standard machining operations.',
-                features: ['Manual tool change', 'Robust construction', 'Cost-effective solution', 'Wide speed range'],
-                image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=600'
-              },
-              {
-                family: 'Q',
-                title: 'QTC spindles',
-                description: 'Quick tool change spindles for enhanced productivity and reduced downtime.',
-                features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'],
-                image: 'https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=600'
-              },
-              {
-                family: 'A',
-                title: 'ATC spindles',
-                description: 'Automatic tool change spindles for maximum efficiency in automated production environments.',
-                features: ['Automatic tool change', 'Maximum efficiency', 'Automated operation', 'Premium performance'],
-                image: 'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600'
-              }
-            ].map((product, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                </div>
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-light font-sans text-gray-900">{product.title}</h3>
-                    <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
-                      {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : 'AA'} Series
-                    </span>
-                  </div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{product.description}</p>
-                  <ul className="space-y-2 mb-8">
-                    {product.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-gray-700">
-                        <div className="w-2 h-2 bg-accent-blue-500 rounded-full mr-3"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-1">
+            <NavLink to="/" className={navLinkClass} end>
+              Home
+            </NavLink>
+            
+            {/* Products Dropdown */}
+            <div className="relative"
+            onMouseEnter={() => setActiveDropdown('products')}
+            onMouseLeave={() => setActiveDropdown(null)}>
+              <button 
+                className={dropdownButtonClass}
+              >
+                Products
+                <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
+              </button>
+              {activeDropdown === 'products' && (
+                <div className="absolute left-0 top-full mt-1 w-48 bg-white shadow-lg rounded-md overflow-visible z-50">
                   <Link
-                    to={`/products?family=${product.family}`}
-                    className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold transition-colors duration-300"
+                    to="/products?family=M"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
                   >
-                    View Products
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                    MTC
+                  </Link>
+                  <Link
+                    to="/products?family=Q"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    QTC
+                  </Link>
+                  <Link
+                    to="/products?family=A"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    ATC
+                  </Link>
+                  <Link
+                    to="/products?toolHolderTypeCategory=ER"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    ER Tool Holders
+                  </Link>
+                  <Link
+                    to="/products?toolHolderTypeCategory=HSK"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    HSK Tool Holders
+                  </Link>
+                  <Link
+                    to="/products?toolHolderTypeCategory=ISO"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    ISO Tool Holders
+                  </Link>
+                  <Link
+                    to="/products"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    View All Products
                   </Link>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              )}
+            </div>
 
-      {/* Spindle Matcher Tool */}
-      <section className="py-20 bg-white" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              Find your Existing Spindle Replacement in Seconds
-            </h2>
-            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Use our intelligent matching tool to find compatible spindle replacements based on your current specifications.
-            </p>
-          </div>
-          <SpindleMatcher />
-        </div>
-      </section>
-
-      {/* Applications Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              Applications & Industries
-            </h2>
-            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Our spindles excel across diverse materials and industries, delivering consistent results in demanding applications.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                title: "Wood Processing",
-                description: "Furniture, cabinetry, and architectural millwork with superior surface finishes.",
-                image: "https://images.pexels.com/photos/175709/pexels-photo-175709.jpeg?auto=compress&cs=tinysrgb&w=400"
-              },
-              {
-                title: "Stone & Marble",
-                description: "Precision cutting and shaping of natural and engineered stone materials.",
-                image: "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=400"
-              },
-              {
-                title: "Aluminum Machining",
-                description: "High-speed machining of aluminum components for aerospace and automotive.",
-                image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=400"
-              },
-              {
-                title: "Composite Materials",
-                description: "Advanced composites for aerospace, marine, and high-performance applications.",
-                image: "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=400"
-              }
-            ].map((application, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="aspect-square overflow-hidden rounded-lg mb-4">
-                  <img
-                    src={application.image}
-                    alt={application.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
+            <NavLink to="/premium" className={navLinkClass}>
+              Premium Line
+            </NavLink>
+            
+            <NavLink to="/accessories" className={navLinkClass}>
+              Accessories
+            </NavLink>
+            
+            {/* Applications Dropdown */}
+            <div className="relative"
+            onMouseEnter={() => setActiveDropdown('applications')}
+            onMouseLeave={() => setActiveDropdown(null)}>
+              <button 
+                className={dropdownButtonClass}
+              >
+                Applications
+                <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'applications' ? 'rotate-180' : ''}`} />
+              </button>
+              {activeDropdown === 'applications' && (
+                <div className="absolute left-0 top-full mt-1 w-48 bg-white shadow-lg rounded-md overflow-hidden z-50">
+                  <Link
+                    to="/products?application=Wood"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    Wood
+                  </Link>
+                  <Link
+                    to="/products?application=Stone"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    Stone
+                  </Link>
+                  <Link
+                    to="/products?application=Aluminum"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    Aluminum
+                  </Link>
+                  <Link
+                    to="/products?application=Composites"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    Composites
+                  </Link>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
-                  {application.title}
-                </h3>
-                <p className="text-gray-700 leading-relaxed">{application.description}</p>
-              </div>
-            ))}
+              )}
+            </div>
+            
+            <NavLink to="/about" className={navLinkClass}>
+              About
+            </NavLink>
+            <NavLink to="/contact" className={navLinkClass}>
+              Contact
+            </NavLink>
+          </nav>
+
+          <div className="hidden md:block">
+            <Link
+              to="/quote"
+              className={`inline-flex items-center justify-center px-4 py-2 border-2 font-semibold rounded-lg transition-all duration-300 ${
+                headerIsScrolled
+                  ? 'border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white'
+                  : 'border-white text-white hover:bg-white hover:text-primary-500'
+              }`}
+            >
+              Get a Quote
+            </Link>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent-blue-500 ${
+                headerIsScrolled
+                  ? 'text-primary-400 hover:text-primary-500 hover:bg-gray-100'
+                  : 'text-white hover:text-white hover:bg-white/10'
+              }`}
+            >
+              {isMenuOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary-600" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
-          <div>
-            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              Need a Custom Project?
-            </h2>
-            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Tailored spindle systems engineered for distinct materials, methods, and performance demands — from high-speed contouring in wood to heavy-duty milling in stone and aluminum. Each platform reflects a systems-level approach to machining excellence.
-            </p>
-            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              For unique requirements, we offer fully custom spindle solutions — co-engineered to match your exacting performance and integration needs.
-            </p>
-          </div>
-          <div className="text-center lg:text-left">
-            <h3 className="text-3xl lg:text-2xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              Contact Us for Custom Solutions
-            </h3>
-            <p className="text-base text-gray-600 max-w-1xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-  Our experts are ready to discuss your specific project and co-engineer the perfect spindle solution.
-</p>
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className={`md:hidden shadow-lg animate-fade-in ${
+          headerIsScrolled ? 'bg-white' : 'bg-black/90 backdrop-blur-sm'
+        }`}>
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
+                }`
+              }
+              onClick={closeMenu}
+              end
+            >
+              Home
+            </NavLink>
+            
+            <NavLink
+              to="/products?family=M"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
+                }`
+              }
+              onClick={closeMenu}
+            >
+              MTC
+            </NavLink>
+            <NavLink
+              to="/products?family=Q"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
+                }`
+              }
+              onClick={closeMenu}
+            >
+              QTC
+            </NavLink>
+            <NavLink
+              to="/products?family=A"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
+                }`
+              }
+              onClick={closeMenu}
+            >
+              ATC
+            </NavLink>
 
-<Link
-  to="/contact"
-  className="mt-6 inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-  style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
->
-  Contact Our Experts
-  <ArrowRight className="ml-2 w-5 h-5" />
-</Link>
+            <NavLink
+              to="/premium"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
+                }`
+              }
+              onClick={closeMenu}
+            >
+              Premium Line
+            </NavLink>
+
+            <NavLink
+              to="/accessories"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
+                }`
+              }
+              onClick={closeMenu}
+            >
+              Accessories
+            </NavLink>
+            
+            {/* Applications Section */}
+            <div className={`px-3 py-2 font-medium ${
+              headerIsScrolled ? 'text-gray-700' : 'text-white'
+            }`}>
+              Applications
+            </div>
+            <Link
+              to="/products?application=Wood"
+              className={`block pl-6 pr-3 py-2 text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                  : 'text-white hover:bg-white/10 hover:text-white'
+              }`}
+              onClick={closeMenu}
+            >
+              Wood
+            </Link>
+            <Link
+              to="/products?application=Stone"
+              className={`block pl-6 pr-3 py-2 text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                  : 'text-white hover:bg-white/10 hover:text-white'
+              }`}
+              onClick={closeMenu}
+            >
+              Stone
+            </Link>
+            <Link
+              to="/products?application=Aluminum"
+              className={`block pl-6 pr-3 py-2 text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                  : 'text-white hover:bg-white/10 hover:text-white'
+              }`}
+              onClick={closeMenu}
+            >
+              Aluminum
+            </Link>
+            <Link
+              to="/products?application=Composites"
+              className={`block pl-6 pr-3 py-2 text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                  : 'text-white hover:bg-white/10 hover:text-white'
+              }`}
+              onClick={closeMenu}
+            >
+              Composites
+            </Link>
+            
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
+                }`
+              }
+              onClick={closeMenu}
+            >
+              About
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
+                }`
+              }
+              onClick={closeMenu}
+            >
+              Contact
+            </NavLink>
+            <Link
+              to="/quote"
+              className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-white bg-primary-500 hover:bg-primary-600'
+                  : 'text-primary-500 bg-white hover:bg-gray-100'
+              }`}
+              onClick={closeMenu}
+            >
+              Get a Quote
+            </Link>
           </div>
         </div>
-      </section>
-    </div>
+      )}
+    </header>
   );
 };
 
-export default HomePage;
+export default Header;
