@@ -72,18 +72,11 @@ const Header = () => {
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={closeMenu}>
-              <div 
-                className={`inline-flex items-center justify-center transition-all duration-300 ${
-                  headerIsScrolled ? 'p-2 rounded-md' : ''
-                }`}
-                style={headerIsScrolled ? { backgroundColor: 'radial-gradient(circle, #4d5d6d 50%)' } : {}}
-              >
-                <img 
-                  src="/ARKRIDGE-LOGO.png" 
-                  alt="ARK SPINDLES Logo" 
-                  className="h-8 w-auto"
-                />
-              </div>
+              <img 
+                src={headerIsScrolled ? "/ARKRIDGE-LOGO-1.png" : "/ARKRIDGE-LOGO.png"}
+                alt="ARK SPINDLES Logo" 
+                className="h-8 w-auto transition-all duration-300"
+              />
             </Link>
           </div>
 
