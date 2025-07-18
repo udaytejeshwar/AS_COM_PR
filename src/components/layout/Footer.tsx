@@ -10,8 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <Settings className="w-8 h-8" />
-              <span className="ml-2 text-xl font-bold">SpindleTech</span>
+              <span className="ml-2 text-xl font-light font-sans tracking-[0.2em]">ARK SPINDLES</span>
             </div>
             <p className="text-primary-100 mb-6">
               Precision engineered electro spindles for wood, stone, aluminum, and composite applications.
@@ -56,7 +55,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Products</h3>
+            <h3 className="text-lg font-semibold mb-4">Products & Applications</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/products?family=M" className="text-primary-100 hover:text-white transition-colors">
