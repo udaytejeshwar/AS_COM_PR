@@ -72,10 +72,18 @@ const Header = () => {
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={closeMenu}>
-              <Settings className={`w-8 h-8 ${headerIsScrolled ? 'text-primary-500' : 'text-white'}`} />
-              <span className={`ml-2 text-xl font-bold ${headerIsScrolled ? 'text-primary-500' : 'text-white'}`}>
-                SpindleTech
-              </span>
+              <div 
+                className={`inline-flex items-center justify-center transition-all duration-300 ${
+                  headerIsScrolled ? 'p-2 rounded-md' : ''
+                }`}
+                style={headerIsScrolled ? { backgroundColor: '#4d5d6d' } : {}}
+              >
+                <img 
+                  src="/ARKRIDGE-LOGO.png" 
+                  alt="ARK SPINDLES Logo" 
+                  className="h-8 w-auto"
+                />
+              </div>
             </Link>
           </div>
 
