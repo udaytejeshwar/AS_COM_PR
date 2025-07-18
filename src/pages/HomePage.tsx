@@ -177,7 +177,7 @@ const HomePage = () => {
                   <ul className="space-y-2 mb-8">
                     {product.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-gray-700">
-                        <div className="w-2 h-2 bg-accent-blue-500 rounded-full mr-3"></div>
+                        <div className="w-2 h-2 bg-accent-gray-800 rounded-full mr-3"></div>
                         {feature}
                       </li>
                     ))}
