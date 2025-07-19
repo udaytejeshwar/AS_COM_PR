@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Send } from 'lucide-react';
 import { QuoteFormData } from '../../types';
 import { useLocation } from 'react-router-dom';
+import { getGoogleSheetsUrl } from '../../config/googleSheets';
+import { submitToGoogleSheets, validateFormData, formatForGoogleSheets } from '../../utils/googleSheets';
 
 interface QuoteFormProps {
   productId?: string;
@@ -33,40 +35,45 @@ const productNameFromURL = params.get('productName') || '';
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
-  
+
+    // Prepare data for submission
+    const submissionData = {
+      type: 'quote' as const,
+      timestamp: new Date().toISOString(),
+      ...formData
+    };
+
+    // Validate data
+    if (!validateFormData(submissionData)) {
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbyo9mGIZWSsvjgsVBA-LX9FFlpyKmMaBDdWM5o_0I5TqFXECTvOblwC_miRi3_OmoJlqg/exec', {
-        method: 'POST',
-        body: JSON.stringify(formData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const scriptUrl = getGoogleSheetsUrl('quote');
+      await submitToGoogleSheets(submissionData, scriptUrl);
+      
+      setSubmitStatus('success');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        company: '',
+        email: '',
+        phone: '',
+        productId: productId || '',
+        quantity: 1,
+        application: '',
+        message: '',
+        productName: productName || '',
       });
-  
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          company: '',
-          email: '',
-          phone: '',
-          productId: productId || '',
-          quantity: 1,
-          application: '',
-          message: '',
-          productName: productName || '',
-        });
-      } else {
-        setSubmitStatus('error');
-      }
     } catch (error) {
+      console.error('Error submitting quote form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
   };
-  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
