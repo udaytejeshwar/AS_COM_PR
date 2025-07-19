@@ -39,7 +39,7 @@ const PremiumLinePage = () => {
               <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-6">
                 <Shield className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-500 mb-3">Enhanced Durability</h3>
+              <h3 className="text-xl font-semibold text-primary-500 mb-3">Enhanced Sensors</h3>
               <p className="text-gray-600">
                 Premium ceramic hybrid bearings and specialized coatings ensure extended service life and superior performance under extreme conditions.
               </p>
@@ -59,7 +59,7 @@ const PremiumLinePage = () => {
               <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-6">
                 <BarChart className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-500 mb-3">Superior Precision</h3>
+              <h3 className="text-xl font-semibold text-primary-500 mb-3">Superior Precision bearings</h3>
               <p className="text-gray-600">
                 Ultra-precise machining and assembly processes result in exceptional runout characteristics and dimensional accuracy.
               </p>
