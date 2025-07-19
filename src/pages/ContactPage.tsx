@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
+import { getGoogleSheetsUrl } from '../config/googleSheets';
+import { submitToGoogleSheets, validateFormData } from '../utils/googleSheets';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -19,9 +21,24 @@ const ContactPage = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    // Prepare data for submission
+    const submissionData = {
+      type: 'contact' as const,
+      timestamp: new Date().toISOString(),
+      ...formData
+    };
+
+    // Validate data
+    if (!validateFormData(submissionData)) {
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const scriptUrl = getGoogleSheetsUrl('contact');
+      await submitToGoogleSheets(submissionData, scriptUrl);
+      
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -31,6 +48,7 @@ const ContactPage = () => {
         message: ''
       });
     } catch (error) {
+      console.error('Error submitting contact form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
