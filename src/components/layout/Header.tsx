@@ -73,9 +73,11 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={closeMenu}>
               <img 
-                src={headerIsScrolled ? "/ARKRIDGE-LOGO-1.png" : "/ARKRIDGE-LOGO.png"}
+                src="/ARKRIDGE-LOGO.png"
                 alt="ARK SPINDLES Logo" 
-                className="h-8 w-auto transition-all duration-300"
+                className={`h-8 w-auto transition-all duration-300 ${
+                  headerIsScrolled ? 'filter invert' : ''
+                }`}
               />
             </Link>
           </div>
