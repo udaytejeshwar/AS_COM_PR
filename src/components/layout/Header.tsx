@@ -75,7 +75,7 @@ const Header = () => {
               <img 
                 src="/ARKRIDGE-LOGO.png"
                 alt="ARK SPINDLES Logo" 
-                className={`h-8 w-auto transition-all duration-300 ${
+                className={`h-14 w-auto transition-all duration-300 ${
                   headerIsScrolled ? 'filter invert' : ''
                 }`}
               />
