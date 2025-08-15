@@ -15,7 +15,7 @@ export const products: Product[] = [
     current: 2.0,
     voltage: '220/380',  
     toolHolder: 'ER32',
-    applications: ['Wood', 'Aluminum'],
+    applications: ['Wood', 'Aluminum', 'Plastic'],
     description: 'High-performance ER32 electro spindle designed for precision woodworking and aluminum machining. Features advanced cooling system and premium bearing technology for extended service life.',
     features: [
       'Precision balanced rotor',
@@ -61,7 +61,7 @@ export const products: Product[] = [
     current: 2.0,
     voltage: '220/380', 
     toolHolder: 'ER40',
-    applications: ['Wood', 'Stone', 'Aluminum'],
+    applications: ['Wood', 'Stone', 'Aluminum', 'Glass'],
     description: 'Premium ER40 electro spindle offering exceptional versatility across wood, stone, and aluminum applications. Engineered for high material removal rates while maintaining superior surface finish quality.',
     features: [
       'High-capacity ER40 collet system',
@@ -198,7 +198,7 @@ export const products: Product[] = [
     current: 2.0,
     voltage: '220/380',
     toolHolder: 'ER25',
-    applications: ['Wood', 'Aluminum', 'Composites'],
+    applications: ['Wood', 'Aluminum', 'Composites', 'Plastic'],
     description: 'Compact and lightweight ER25 electro spindle offering exceptional speed for precision machining of wood, aluminum, and composite materials where detailed finishing is essential.',
     features: [
       'High-speed ER25 collet system',
@@ -288,7 +288,7 @@ export const products: Product[] = [
     current: 2.0,
     voltage: '220/380',
     toolHolder: 'ISO30',
-    applications: ['Wood', 'Aluminum', 'Composites'],
+    applications: ['Wood', 'Aluminum', 'Composites', 'Glass'],
     description: 'Advanced automatic tool change spindle with ISO30 interface, designed for high-productivity manufacturing environments. Features rapid tool change capabilities and exceptional precision for automated machining operations.',
     features: [
       'Automatic tool change system',
