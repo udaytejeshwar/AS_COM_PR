@@ -52,7 +52,7 @@ const ProductsPage = () => {
       ...prev,
       family: (familyParam && ['M', 'Q', 'A'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
       toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK', 'ISO'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
-      application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites'].includes(applicationParam)) ? applicationParam as Application : 'All',
+      application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'].includes(applicationParam)) ? applicationParam as Application : 'All',
       toolHolder: toolHolderParam || 'All',
       line: (lineParam && ['Standard', 'Premium'].includes(lineParam)) ? lineParam as 'Standard' | 'Premium' : 'All',
       minPower: minPowerParam ? Number(minPowerParam) : null,
