@@ -107,6 +107,16 @@ const Footer = () => {
                   Composite Applications
                 </Link>
               </li>
+              <li>
+                <Link to="/products?application=Plastic" className="text-primary-100 hover:text-white transition-colors">
+                  Plastic Applications
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?application=Glass" className="text-primary-100 hover:text-white transition-colors">
+                  Glass Applications
+                </Link>
+              </li>
             </ul>
           </div>
 
