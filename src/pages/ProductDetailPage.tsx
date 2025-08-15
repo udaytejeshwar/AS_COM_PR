@@ -11,6 +11,7 @@ const ProductDetailPage = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [allImages, setAllImages] = useState<string[]>([]);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
 
   const handleImageDownload = (imageUrl: string, productName: string) => {
@@ -32,7 +33,9 @@ const ProductDetailPage = () => {
 
     if (fetchedProduct) {
       setProduct(fetchedProduct);
-      setSelectedImage(fetchedProduct.imageUrl);
+      const images = [fetchedProduct.imageUrl, ...(fetchedProduct.additionalImageUrls || [])];
+      setAllImages(images);
+      setSelectedImage(images[0]);
 
       const related = products
         .filter(p =>
@@ -123,12 +126,12 @@ const ProductDetailPage = () => {
           <div className="mb-8 lg:mb-0">
             <div className="bg-white rounded-lg overflow-hidden shadow-md mb-4 relative group">
               <img
-                src={selectedImage || product.imageUrl}
+                src={selectedImage || allImages[0]}
                 alt={product.name}
                 className="w-full h-96 object-cover object-center"
               />
               <button
-                onClick={() => handleImageDownload(selectedImage || product.imageUrl, product.name)}
+                onClick={() => handleImageDownload(selectedImage || allImages[0], product.name)}
                 className="absolute bottom-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                 title="Download Image"
               >
@@ -136,19 +139,27 @@ const ProductDetailPage = () => {
               </button>
             </div>
 
-            <div className="hidden sm:grid grid-cols-4 gap-2">
-              <button
-                className={`border-2 rounded-md overflow-hidden ${selectedImage === product.imageUrl ? 'border-accent-blue-500' : 'border-gray-200'
-                  }`}
-                onClick={() => setSelectedImage(product.imageUrl)}
-              >
-                <img
-                  src={product.imageUrl}
-                  alt={product.name}
-                  className="w-full h-20 object-cover"
-                />
-              </button>
-            </div>
+            {allImages.length > 1 && (
+              <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-4 gap-2">
+                {allImages.map((imageUrl, index) => (
+                  <button
+                    key={index}
+                    className={`border-2 rounded-md overflow-hidden transition-all duration-200 ${
+                      selectedImage === imageUrl 
+                        ? 'border-accent-blue-500 ring-2 ring-accent-blue-200' 
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                    onClick={() => setSelectedImage(imageUrl)}
+                  >
+                    <img
+                      src={imageUrl}
+                      alt={`${product.name} - Image ${index + 1}`}
+                      className="w-full h-16 sm:h-20 object-cover transition-transform duration-200 hover:scale-105"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div>
