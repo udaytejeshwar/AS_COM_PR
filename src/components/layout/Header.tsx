@@ -192,6 +192,20 @@ const Header = () => {
                   >
                     Composites
                   </Link>
+                  <Link
+                    to="/products?application=Plastic"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    Plastic
+                  </Link>
+                  <Link
+                    to="/products?application=Glass"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    Glass
+                  </Link>
                 </div>
               )}
             </div>
@@ -399,6 +413,28 @@ const Header = () => {
               onClick={closeMenu}
             >
               Composites
+            </Link>
+            <Link
+              to="/products?application=Plastic"
+              className={`block pl-6 pr-3 py-2 text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                  : 'text-white hover:bg-white/10 hover:text-white'
+              }`}
+              onClick={closeMenu}
+            >
+              Plastic
+            </Link>
+            <Link
+              to="/products?application=Glass"
+              className={`block pl-6 pr-3 py-2 text-base font-medium transition-all duration-200 ${
+                headerIsScrolled
+                  ? 'text-gray-700 hover:bg-gray-50 hover:text-primary-500'
+                  : 'text-white hover:bg-white/10 hover:text-white'
+              }`}
+              onClick={closeMenu}
+            >
+              Glass
             </Link>
             
             <NavLink
