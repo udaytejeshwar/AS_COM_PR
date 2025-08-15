@@ -184,7 +184,7 @@ const ProductFilter = ({
             Application
           </label>
           <div className="flex flex-wrap gap-2">
-            {(['All', 'Wood', 'Stone', 'Aluminum', 'Composites'] as const).map((app) => (
+            {(['All', 'Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'] as const).map((app) => (
               <button
                 key={app}
                 type="button"
