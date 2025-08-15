@@ -244,6 +244,16 @@ const HomePage = () => {
                 title: "Composite Materials",
                 description: "Advanced composites for aerospace, marine, and high-performance applications.",
                 image: "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=400"
+              },
+              {
+                title: "Plastic Processing",
+                description: "Precision machining of thermoplastics and engineering plastics for industrial components.",
+                image: "https://images.pexels.com/photos/3735747/pexels-photo-3735747.jpeg?auto=compress&cs=tinysrgb&w=400"
+              },
+              {
+                title: "Glass Engraving",
+                description: "High-precision engraving and cutting of glass materials for decorative and functional applications.",
+                image: "https://images.pexels.com/photos/1029624/pexels-photo-1029624.jpeg?auto=compress&cs=tinysrgb&w=400"
               }
             ].map((application, index) => (
               <div key={index} className="group cursor-pointer">
