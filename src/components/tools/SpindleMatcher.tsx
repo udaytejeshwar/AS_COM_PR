@@ -101,6 +101,8 @@ const SpindleMatcher = ({ className = '' }: SpindleMatcherProps) => {
             <option value="Stone">Stone</option>
             <option value="Aluminum">Aluminum</option>
             <option value="Composites">Composites</option>
+            <option value="Plastic">Plastic</option>
+            <option value="Glass">Glass</option>
           </select>
         </div>
       </div>
