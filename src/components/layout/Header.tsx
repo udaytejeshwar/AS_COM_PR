@@ -92,12 +92,10 @@ const Header = () => {
             <div className="relative"
             onMouseEnter={() => setActiveDropdown('products')}
             onMouseLeave={() => setActiveDropdown(null)}>
-              <button 
-                className={dropdownButtonClass}
-              >
+              <NavLink to="/products" className={navLinkClass}>
                 Products
                 <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
-              </button>
+              </NavLink>
               {activeDropdown === 'products' && (
                 <div className="absolute left-0 top-full mt-1 w-48 bg-white shadow-lg rounded-md overflow-visible z-50">
                   <Link
@@ -142,13 +140,6 @@ const Header = () => {
                   >
                     ISO Tool Holders
                   </Link>
-                  <Link
-                    to="/products"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    View All Products
-                  </Link>
                 </div>
               )}
             </div>
@@ -165,7 +156,7 @@ const Header = () => {
             <div className="relative"
             onMouseEnter={() => setActiveDropdown('applications')}
             onMouseLeave={() => setActiveDropdown(null)}>
-              <button 
+              <button
                 className={dropdownButtonClass}
               >
                 Applications
