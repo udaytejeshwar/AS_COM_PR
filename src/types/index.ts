@@ -37,6 +37,7 @@ export interface Product {
     };
   };
   imageUrl: string;
+  additionalImageUrls?: string[];
 }
 
 export interface Accessory {
