@@ -183,8 +183,8 @@ const ProductDetailPage = () => {
                   <p className="font-medium">{product.power} kW</p>
                 </div>
                 <div>
-                  <span className="text-sm text-gray-500">Min Speed</span>
-                  <p className="font-medium">{product.minSpeed.toLocaleString()} RPM</p>
+                  <span className="text-sm text-gray-500">Nominal Speed</span>
+                  <p className="font-medium">{product.nominalSpeed.toLocaleString()} RPM</p>
                 </div>
                 <div>
                   <span className="text-sm text-gray-500">Max Speed</span>
@@ -195,6 +195,14 @@ const ProductDetailPage = () => {
                   <p className="font-medium">{product.torque} Nm</p>
                 </div>
                 <div>
+                  <span className="text-sm text-gray-500">Current</span>
+                  <p className="font-medium">{product.current} A</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500">Voltage</span>
+                  <p className="font-medium">{product.voltage} V</p>
+                </div>
+                <div>
                   <span className="text-sm text-gray-500">Tool Holder</span>
                   <p className="font-medium">{product.toolHolder}</p>
                 </div>
@@ -202,7 +210,7 @@ const ProductDetailPage = () => {
             </div>
 
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-              <h3 className="text-lg font-semibold text-primary-500 mb-4">Technical Specifications</h3>
+              <h3 className="text-lg font-semibold text-primary-500 mb-4">Features</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex items-start">
                   <Gauge className="w-5 h-5 text-primary-500 mt-1 mr-3" />
