@@ -8,7 +8,7 @@ export const products: Product[] = [
     toolHolderTypeCategory: 'ER',
     line: 'Standard',
     power: 9.0,
-    nominalSpeed: 6000,
+    minSpeed: 6000,
     maxSpeed: 24000,
     nominalSpeed: 24000,
     torque: 6.8,
@@ -40,7 +40,12 @@ export const products: Product[] = [
         diameter: 120
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    imageUrl: 'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
   },
   {
     id: '2',
@@ -49,7 +54,7 @@ export const products: Product[] = [
     toolHolderTypeCategory: 'ER',
     line: 'Premium',
     power: 12.0,
-    nominalSpeed: 5000,
+    minSpeed: 5000,
     maxSpeed: 22000,
     nominalSpeed: 24000,
     torque: 8.5,
@@ -81,7 +86,12 @@ export const products: Product[] = [
         diameter: 150
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    imageUrl: 'https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
   },
   {
     id: '3',
@@ -90,7 +100,7 @@ export const products: Product[] = [
     toolHolderTypeCategory: 'HSK',
     line: 'Standard',
     power: 7.5,
-    nominalSpeed: 8000,
+    minSpeed: 8000,
     maxSpeed: 28000,
     nominalSpeed: 24000,
     torque: 5.4,
@@ -122,7 +132,11 @@ export const products: Product[] = [
         diameter: 110
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    imageUrl: 'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
   },
   {
     id: '4',
@@ -131,7 +145,7 @@ export const products: Product[] = [
     toolHolderTypeCategory: 'HSK',
     line: 'Premium',
     power: 15.0,
-    nominalSpeed: 4000,
+    minSpeed: 4000,
     maxSpeed: 20000,
     nominalSpeed: 24000,
     torque: 12.2,
@@ -163,7 +177,12 @@ export const products: Product[] = [
         diameter: 160
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    imageUrl: 'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
   },
   {
     id: '5',
@@ -172,7 +191,7 @@ export const products: Product[] = [
     toolHolderTypeCategory: 'ER',
     line: 'Standard',
     power: 5.5,
-    nominalSpeed: 10000,
+    minSpeed: 10000,
     maxSpeed: 30000,
     nominalSpeed: 24000,
     torque: 3.8,
@@ -204,7 +223,11 @@ export const products: Product[] = [
         diameter: 100
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    imageUrl: 'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
   },
   {
     id: '6',
@@ -213,7 +236,7 @@ export const products: Product[] = [
     toolHolderTypeCategory: 'HSK',
     line: 'Premium',
     power: 18.0,
-    nominalSpeed: 3000,
+    minSpeed: 3000,
     maxSpeed: 18000,
     nominalSpeed: 24000,
     torque: 15.0,
@@ -245,7 +268,11 @@ export const products: Product[] = [
         diameter: 180
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    imageUrl: 'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
   },
   {
     id: '7',
@@ -254,7 +281,7 @@ export const products: Product[] = [
     toolHolderTypeCategory: 'ISO',
     line: 'Standard',
     power: 9.0,
-    nominalSpeed: 5000,
+    minSpeed: 5000,
     maxSpeed: 24000,
     nominalSpeed: 18000,
     torque: 7.2,
@@ -286,7 +313,11 @@ export const products: Product[] = [
         diameter: 140
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    imageUrl: 'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
   },
   {
     id: '8',
@@ -295,7 +326,7 @@ export const products: Product[] = [
     toolHolderTypeCategory: 'ISO',
     line: 'Premium',
     power: 12.0,
-    nominalSpeed: 4000,
+    minSpeed: 4000,
     maxSpeed: 20000,
     nominalSpeed: 16000,
     torque: 9.8,
@@ -327,7 +358,12 @@ export const products: Product[] = [
         diameter: 160
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    imageUrl: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
   }
 ];
 
