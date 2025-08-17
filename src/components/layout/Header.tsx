@@ -256,7 +256,7 @@ const Header = () => {
         <div className={`md:hidden shadow-lg animate-fade-in ${
           headerIsScrolled ? 'bg-white' : 'bg-black/90 backdrop-blur-sm'
         }`}>
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 max-h-[calc(100vh-88px)] overflow-y-auto">
             <NavLink
               to="/"
               className={({ isActive }) =>
