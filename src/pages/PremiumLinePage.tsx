@@ -1,126 +1,166 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight, Shield, Zap, BarChart, Microscope, Award, Star } from 'lucide-react';
+import { Shield, Zap, BarChart, Microscope, Award, Star } from 'lucide-react';
 
 const PremiumLinePage = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section 
+      <section
         className="relative text-white overflow-hidden -mt-16"
         style={{
           background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)'
         }}
       >
-        
         <div className="flex justify-center items-center h-[500px] sm:h-[600px] lg:h-[700px]">
-  <div className="border border-white px-8 py-6 text-center animate-fade-in">
-    <h1 className="text-white tracking-[0.3em] text-4xl sm:text-5xl font-light mb-2">
-      T I T A N  Series<sup className="text-sm align-top ml-1">®</sup>
-    </h1>
-    {/* <p className="text-white-300 text-sm italic tracking-widest">
-      By ARK SPINDLES
-    </p> */}
-  </div>
-</div>
+          <div className="border border-white px-8 py-6 text-center animate-fade-in">
+            <h1 className="text-white tracking-[0.3em] text-4xl sm:text-5xl font-light mb-2">
+              T I T A N Series<sup className="text-sm align-top ml-1">®</sup>
+            </h1>
+          </div>
+        </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-primary-500 mb-4">The Premium Advantage</h2>
-            <p className="text-gray-600">
-              Our Premium Line represents the pinnacle of spindle technology, incorporating advanced features and superior engineering for unmatched performance.
+      {/* Premium Advantage with Storytelling and ROI */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <h2 className="text-4xl font-extrabold text-primary-600 mb-6">
+              Engineered for Those Who Demand the Best
+            </h2>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              The TITAN Premium Line is our most advanced electrospindle series, crafted from decades of engineering expertise and refined with cutting-edge technology. Designed to deliver unmatched precision, reliability, and performance, these spindles guarantee you a competitive edge with reduced downtime, longer tool life, and consistent machining quality.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 p-8 rounded-lg transition-all duration-300 hover:shadow-lg">
-              <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-6">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-primary-500 mb-3">Enhanced Sensors</h3>
-              <p className="text-gray-600">
-                Premium ceramic hybrid bearings and specialized coatings ensure extended service life and superior performance under extreme conditions.
+          <div className="grid md:grid-cols-3 gap-10">
+            {/* Feature 1 */}
+            <div className="bg-gray-50 p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <div 
+  className="mb-6 w-14 h-14 rounded-full flex items-center justify-center text-white" 
+  style={{ background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)' }}
+>
+  <Shield className="w-7 h-7" />
+</div>
+
+              <h3 className="text-2xl font-semibold text-primary-700 mb-4">
+                Ultra-Precision Shaft Balancing
+              </h3>
+              <p className="text-gray-600 mb-4">
+                High-precision dynamic balancing across operating RPMs reduces vibration by up to 90%, improving surface finish quality and extending spindle and tool life by up to 40%.
               </p>
+              <p className="font-semibold text-primary-600">Benefit:</p>
+              <ul className="list-disc list-inside text-gray-700">
+                <li>Smoother cuts and less wear on tools</li>
+                <li>Minimized machine vibrations for longer equipment life</li>
+              </ul>
             </div>
 
-            <div className="bg-gray-50 p-8 rounded-lg transition-all duration-300 hover:shadow-lg">
-              <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-6">
-                <Zap className="w-6 h-6 text-white" />
+            {/* Feature 2 */}
+            <div className="bg-gray-50 p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <div className="mb-6 w-14 h-14 bg-primary-600 rounded-full flex items-center justify-center text-white">
+                <Zap className="w-7 h-7" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-500 mb-3">Advanced Cooling</h3>
-              <p className="text-gray-600">
-                Innovative dual-circuit cooling system maintains optimal temperature even during continuous high-speed operation.
+              <h3 className="text-2xl font-semibold text-primary-700 mb-4">
+                Integrated Smart Sensors
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Embedded temperature, vibration, and load sensors continuously track spindle health, providing real-time data to operators and enabling early detection of potential issues.
               </p>
+              <p className="font-semibold text-primary-600">Benefit:</p>
+              <ul className="list-disc list-inside text-gray-700">
+                <li>Prevent unexpected downtime with alerts</li>
+                <li>Optimize maintenance scheduling, saving time and cost</li>
+              </ul>
             </div>
 
-            <div className="bg-gray-50 p-8 rounded-lg transition-all duration-300 hover:shadow-lg">
-              <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-6">
-                <BarChart className="w-6 h-6 text-white" />
+            {/* Feature 3 */}
+            <div className="bg-gray-50 p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <div className="mb-6 w-14 h-14 bg-primary-600 rounded-full flex items-center justify-center text-white">
+                <BarChart className="w-7 h-7" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-500 mb-3">Superior Precision bearings</h3>
-              <p className="text-gray-600">
-                Ultra-precise machining and assembly processes result in exceptional runout characteristics and dimensional accuracy.
+              <h3 className="text-2xl font-semibold text-primary-700 mb-4">
+                AI-Driven Performance Monitoring
+              </h3>
+              <p className="text-gray-600 mb-4">
+                A simple yet intelligent AI system continuously learns your spindle's unique operating signature, automatically detecting performance deviations and sending maintenance alerts to keep your production running smoothly.
               </p>
+              <p className="font-semibold text-primary-600">Benefit:</p>
+              <ul className="list-disc list-inside text-gray-700">
+                <li>Proactive maintenance to avoid costly downtime</li>
+                <li>Maximized spindle lifespan and productivity</li>
+              </ul>
             </div>
+          </div>
+
+          {/* ROI and Justification Block */}
+          <div className="mt-20 rounded-xl bg-primary-600 text-white p-12 max-w-4xl mx-auto shadow-lg">
+            <h3 className="text-3xl font-bold mb-6 text-center">
+              Invest in Premium and Reap Tangible Returns
+            </h3>
+            <p className="text-lg leading-relaxed mb-6 text-center max-w-3xl mx-auto">
+              With the TITAN Premium Line, manufacturers have reported up to 30% reduction in machine downtime, a 40% increase in spindle service life, and up to 20% improvement in machining consistency.
+            </p>
+            <p className="text-center text-xl font-semibold">
+              A single AI alert can prevent losses exceeding $5,000 in unplanned downtime, making the Premium Line a smart investment for sustainable productivity.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Research & Development */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-primary-500 mb-6">Research & Development</h2>
-              <p className="text-gray-600 mb-8">
-                Our Premium Line is the result of extensive research and development, combining decades of engineering expertise with cutting-edge technology.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <Microscope className="h-6 w-6 text-accent-blue-500" />
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-primary-500">Advanced Testing Facilities</h3>
-                    <p className="text-gray-600">State-of-the-art laboratories equipped with precision measurement and testing equipment.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <Award className="h-6 w-6 text-accent-blue-500" />
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-primary-500">Quality Certification</h3>
-                    <p className="text-gray-600">ISO 9001:2015 certified manufacturing processes with comprehensive quality control.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <Star className="h-6 w-6 text-accent-blue-500" />
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-primary-500">Industry Expertise</h3>
-                    <p className="text-gray-600">Collaboration with leading manufacturers and research institutions worldwide.</p>
-                  </div>
-                </div>
-              </div>
+<section className="py-16 bg-gray-50">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+      <div>
+        <h2 className="text-3xl font-bold text-primary-500 mb-6">Research & Development</h2>
+        <p className="text-gray-600 mb-8">
+          Our Premium Line electrospindles are engineered with rigorous research and development protocols, leveraging the latest industry innovations and precision engineering methods to guarantee superior performance and reliability.
+        </p>
+
+        <div className="space-y-6">
+          <div className="flex items-start">
+            <div className="flex-shrink-0">
+              <Microscope className="h-6 w-6 text-accent-blue-500" />
             </div>
-            
-            <div className="mt-12 lg:mt-0">
-              <img 
-                src="https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt="Research and Development"
-                className="rounded-lg shadow-lg"
-              />
+            <div className="ml-4">
+              <h3 className="text-lg font-semibold text-primary-500">Advanced Testing Facilities</h3>
+              <p className="text-gray-600">Utilizing state-of-the-art laboratories equipped with precision measurement and testing equipment to ensure every spindle meets exacting standards.</p>
+            </div>
+          </div>
+
+          <div className="flex items-start">
+            <div className="flex-shrink-0">
+              <Award className="h-6 w-6 text-accent-blue-500" />
+            </div>
+            <div className="ml-4">
+              <h3 className="text-lg font-semibold text-primary-500">Certified Quality Processes</h3>
+              <p className="text-gray-600">Manufactured under ISO 9001:2015 certified quality management systems, ensuring consistent excellence and thorough quality control.</p>
+            </div>
+          </div>
+
+          <div className="flex items-start">
+            <div className="flex-shrink-0">
+              <Star className="h-6 w-6 text-accent-blue-500" />
+            </div>
+            <div className="ml-4">
+              <h3 className="text-lg font-semibold text-primary-500">Industry Collaboration</h3>
+              <p className="text-gray-600">Partnering with leading manufacturers and research institutions worldwide to continuously incorporate best practices and innovation.</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className="mt-12 lg:mt-0">
+        <img
+          src="https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Research and Development"
+          className="rounded-lg shadow-lg"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Premium Support */}
       <section className="py-16 bg-white">
@@ -131,34 +171,22 @@ const PremiumLinePage = () => {
               Our Premium Line comes with dedicated technical support and comprehensive service packages to ensure optimal performance throughout the product lifecycle.
             </p>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-lg font-semibold text-primary-500 mb-2">24/7 Technical Support</h3>
-              <p className="text-gray-600">
-                Round-the-clock access to our expert technical support team.
-              </p>
+              <p className="text-gray-600">Round-the-clock access to our expert technical support team.</p>
             </div>
-
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-lg font-semibold text-primary-500 mb-2">Extended Warranty</h3>
-              <p className="text-gray-600">
-                Comprehensive warranty coverage with optional extensions.
-              </p>
+              <p className="text-gray-600">Comprehensive warranty coverage with optional extensions.</p>
             </div>
-
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-lg font-semibold text-primary-500 mb-2">Preventive Maintenance</h3>
-              <p className="text-gray-600">
-                Scheduled maintenance services to prevent downtime.
-              </p>
+              <p className="text-gray-600">Scheduled maintenance services to prevent downtime.</p>
             </div>
-
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-lg font-semibold text-primary-500 mb-2">Performance Analysis</h3>
-              <p className="text-gray-600">
-                Regular performance monitoring and optimization services.
-              </p>
+              <p className="text-gray-600">Regular performance monitoring and optimization services.</p>
             </div>
           </div>
         </div>
