@@ -92,18 +92,7 @@ const PremiumLinePage = () => {
             </div>
           </div>
 
-          {/* ROI and Justification Block */}
-          <div className="mt-20 rounded-xl bg-primary-600 text-white p-12 max-w-4xl mx-auto shadow-lg">
-            <h3 className="text-3xl font-bold mb-6 text-center">
-              Invest in Premium and Reap Tangible Returns
-            </h3>
-            <p className="text-lg leading-relaxed mb-6 text-center max-w-3xl mx-auto">
-              With the TITAN Premium Line, manufacturers have reported up to 30% reduction in machine downtime, a 40% increase in spindle service life, and up to 20% improvement in machining consistency.
-            </p>
-            <p className="text-center text-xl font-semibold">
-              A single AI alert can prevent losses exceeding $5,000 in unplanned downtime, making the Premium Line a smart investment for sustainable productivity.
-            </p>
-          </div>
+        
         </div>
       </section>
 
