@@ -154,6 +154,13 @@ const HomePage = () => {
                 description: 'Automatic tool change spindles for maximum efficiency in automated production environments.',
                 features: ['Automatic tool change', 'Maximum efficiency', 'Automated operation', 'Premium performance'],
                 image: 'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600'
+              },
+              {
+                family: 'B',
+                title: 'Blade Tech spindles',
+                description: 'Advanced blade technology spindles for precision cutting and specialized applications.',
+                features: ['Blade mounting interface', 'High-speed cutting', 'Precision alignment', 'Advanced cooling'],
+                image: 'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=600'
               }
             ].map((product, index) => (
               <div key={index} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
@@ -168,7 +175,7 @@ const HomePage = () => {
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-light font-sans text-gray-900">{product.title}</h3>
                     <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
-                      {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : 'AA'} Series
+                      {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series
                     </span>
                   </div>
                   <p className="text-gray-600 mb-6 leading-relaxed">{product.description}</p>
