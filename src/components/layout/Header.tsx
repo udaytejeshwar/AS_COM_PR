@@ -97,55 +97,55 @@ const Header = () => {
                 <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
               </NavLink>
               {activeDropdown === 'products' && (
-                <div className="absolute left-0 top-full mt-1 w-48 bg-white shadow-lg rounded-md overflow-visible z-50">
+                <div className="absolute left-0 top-full mt-1 w-72 bg-white shadow-lg rounded-md overflow-visible z-50">
                   <Link
                     to="/products?family=M"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    MTC
+                    Manual tool change spindles
                   </Link>
                   <Link
                     to="/products?family=Q"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    QTC
+                    Quick tool change spindles
                   </Link>
                   <Link
                     to="/products?family=A"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    ATC
+                    Automatic tool change spindles
                   </Link>
                   <Link
                     to="/products?family=B"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    Blade Tech
+                    Blade tech spindles
                   </Link>
                   <Link
                     to="/products?toolHolderTypeCategory=ER"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    ER Tool Holders
+                    ER tool holder spindles
                   </Link>
                   <Link
                     to="/products?toolHolderTypeCategory=HSK"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    HSK Tool Holders
+                    HSK tool holder spindles
                   </Link>
                   <Link
                     to="/products?toolHolderTypeCategory=ISO"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
                   >
-                    ISO Tool Holders
+                    ISO tool holder spindles
                   </Link>
                 </div>
               )}
@@ -298,7 +298,7 @@ const Header = () => {
               }
               onClick={closeMenu}
             >
-              MTC
+              Manual tool change spindles
             </NavLink>
             <NavLink
               to="/products?family=Q"
@@ -315,7 +315,7 @@ const Header = () => {
               }
               onClick={closeMenu}
             >
-              QTC
+              Quick tool change spindles
             </NavLink>
             <NavLink
               to="/products?family=A"
@@ -332,7 +332,7 @@ const Header = () => {
               }
               onClick={closeMenu}
             >
-              ATC
+              Automatic tool change spindles
             </NavLink>
             <NavLink
               to="/products?family=B"
@@ -349,7 +349,7 @@ const Header = () => {
               }
               onClick={closeMenu}
             >
-              Blade Tech
+              Blade tech spindles
             </NavLink>
 
             <NavLink
