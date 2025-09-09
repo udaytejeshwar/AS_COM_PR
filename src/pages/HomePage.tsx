@@ -90,9 +90,7 @@ const HomePage = () => {
                 <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full">
                   {/* Clean icon container */}
                   <div className="mb-6">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{
-                      backgroundColor: '#4d5d6d'
-                    }}>
+                    <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-6">
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
                   </div>
