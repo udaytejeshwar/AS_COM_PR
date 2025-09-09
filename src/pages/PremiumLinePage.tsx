@@ -57,7 +57,10 @@ const PremiumLinePage = () => {
 
             {/* Feature 2 */}
             <div className="bg-gray-50 p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <div className="mb-6 w-14 h-14 bg-primary-600 rounded-full flex items-center justify-center text-white">
+              <div 
+  className="mb-6 w-14 h-14 rounded-full flex items-center justify-center text-white" 
+  style={{ background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)' }}
+>
                 <Zap className="w-7 h-7" />
               </div>
               <h3 className="text-2xl font-semibold text-primary-700 mb-4">
@@ -75,7 +78,10 @@ const PremiumLinePage = () => {
 
             {/* Feature 3 */}
             <div className="bg-gray-50 p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <div className="mb-6 w-14 h-14 bg-primary-600 rounded-full flex items-center justify-center text-white">
+              <div 
+  className="mb-6 w-14 h-14 rounded-full flex items-center justify-center text-white" 
+  style={{ background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)' }}
+>
                 <BarChart className="w-7 h-7" />
               </div>
               <h3 className="text-2xl font-semibold text-primary-700 mb-4">
@@ -109,7 +115,7 @@ const PremiumLinePage = () => {
         <div className="space-y-6">
           <div className="flex items-start">
             <div className="flex-shrink-0">
-              <Microscope className="h-6 w-6 text-accent-blue-500" />
+              <Microscope className="h-6 w-6 text-accent-red-500" />
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-semibold text-primary-500">Advanced Testing Facilities</h3>
@@ -119,7 +125,7 @@ const PremiumLinePage = () => {
 
           <div className="flex items-start">
             <div className="flex-shrink-0">
-              <Award className="h-6 w-6 text-accent-blue-500" />
+              <Award className="h-6 w-6 text-accent-red-500" />
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-semibold text-primary-500">Certified Quality Processes</h3>
@@ -129,7 +135,7 @@ const PremiumLinePage = () => {
 
           <div className="flex items-start">
             <div className="flex-shrink-0">
-              <Star className="h-6 w-6 text-accent-blue-500" />
+              <Star className="h-6 w-6 text-accent-red-500" />
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-semibold text-primary-500">Industry Collaboration</h3>
@@ -182,19 +188,24 @@ const PremiumLinePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary-500 text-white">
+      <section 
+        className="py-16 text-white"
+        style={{
+          background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)'
+        }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
             <div className="mb-8 lg:mb-0">
-              <h2 className="text-3xl font-bold mb-4">Ready to upgrade to Premium?</h2>
-              <p className="text-primary-100 max-w-2xl">
+              <h2 className="text-3xl font-bold mb-4 text-white">Ready to upgrade to Premium?</h2>
+              <p className="text-gray-200 max-w-2xl">
                 Contact our specialists to discuss how our Premium Line can enhance your manufacturing capabilities.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/products?line=Premium"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors duration-200"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors duration-200"
               >
                 View Premium Products
               </Link>
