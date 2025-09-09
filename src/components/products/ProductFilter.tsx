@@ -70,7 +70,7 @@ const ProductFilter = ({
             Product Family
           </label>
           <div className="flex flex-wrap gap-2">
-            {(['All', 'M', 'Q', 'A'] as const).map((family) => (
+            {(['All', 'M', 'Q', 'A', 'B'] as const).map((family) => (
               <button
                 key={family}
                 type="button"
@@ -81,7 +81,7 @@ const ProductFilter = ({
                     : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200'
                 }`}
               >
-                {family === 'M' ? 'MTC' : family === 'Q' ? 'QTC' : family === 'A' ? 'ATC' : family}
+                {family === 'M' ? 'MTC' : family === 'Q' ? 'QTC' : family === 'A' ? 'ATC' : family === 'B' ? 'Blade Tech' : family}
               </button>
             ))}
           </div>
