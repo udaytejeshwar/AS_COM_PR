@@ -120,6 +120,13 @@ const Header = () => {
                     ATC
                   </Link>
                   <Link
+                    to="/products?family=B"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
+                    onClick={closeMenu}
+                  >
+                    Blade Tech
+                  </Link>
+                  <Link
                     to="/products?toolHolderTypeCategory=ER"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
                     onClick={closeMenu}
@@ -326,6 +333,23 @@ const Header = () => {
               onClick={closeMenu}
             >
               ATC
+            </NavLink>
+            <NavLink
+              to="/products?family=B"
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  headerIsScrolled
+                    ? (isActive
+                        ? 'bg-primary-50 text-primary-500'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-primary-500')
+                    : (isActive
+                        ? 'bg-white/20 text-white'
+                        : 'text-white hover:bg-white/10 hover:text-white')
+                }`
+              }
+              onClick={closeMenu}
+            >
+              Blade Tech
             </NavLink>
 
             <NavLink
