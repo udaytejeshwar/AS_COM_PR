@@ -16,7 +16,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         />
         <div className="absolute top-2 left-2 bg-primary-500 text-white text-xs px-2 py-1 rounded">
-          {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : 'AA'} Series
+          {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series
         </div>
       </div>
       
