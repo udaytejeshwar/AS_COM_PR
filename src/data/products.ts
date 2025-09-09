@@ -364,6 +364,141 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ]
+  },
+  {
+    id: '9',
+    name: 'BT-6000 ER25',
+    family: 'B',
+    toolHolderTypeCategory: 'ER',
+    line: 'Standard',
+    power: 6.0,
+    minSpeed: 8000,
+    maxSpeed: 32000,
+    nominalSpeed: 28000,
+    torque: 4.2,
+    current: 1.8,
+    voltage: '220/380',
+    toolHolder: 'ER25',
+    applications: ['Wood', 'Composites', 'Plastic'],
+    description: 'High-speed blade technology spindle designed for precision cutting and trimming operations. Features advanced blade mounting system and optimized cooling for continuous operation.',
+    features: [
+      'Specialized blade mounting interface',
+      'High-speed cutting capability',
+      'Precision blade alignment system',
+      'Enhanced cooling for continuous operation',
+      'Low vibration blade technology'
+    ],
+    technicalSpecs: {
+      runout: '< 0.001 mm',
+      bearingType: 'Ultra-Precision Ceramic',
+      coolingSystem: 'Advanced Liquid Cooling',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class F',
+      protectionClass: 'IP65',
+      axialStiffness: '150 N/μm',
+      radialStiffness: '180 N/μm',
+      weight: 9.2,
+      dimensions: {
+        length: 350,
+        diameter: 105
+      }
+    },
+    imageUrl: 'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
+  },
+  {
+    id: '10',
+    name: 'BT-8000 ER32',
+    family: 'B',
+    toolHolderTypeCategory: 'ER',
+    line: 'Premium',
+    power: 8.0,
+    minSpeed: 6000,
+    maxSpeed: 30000,
+    nominalSpeed: 26000,
+    torque: 5.8,
+    current: 2.2,
+    voltage: '220/380',
+    toolHolder: 'ER32',
+    applications: ['Wood', 'Aluminum', 'Composites'],
+    description: 'Premium blade technology spindle with advanced cutting capabilities for demanding applications. Features intelligent blade monitoring and adaptive speed control.',
+    features: [
+      'Intelligent blade monitoring system',
+      'Adaptive speed control technology',
+      'Premium blade mounting interface',
+      'Advanced vibration dampening',
+      'Real-time performance optimization'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0008 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Dual Circuit Advanced Cooling',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      axialStiffness: '200 N/μm',
+      radialStiffness: '240 N/μm',
+      weight: 13.5,
+      dimensions: {
+        length: 390,
+        diameter: 125
+      }
+    },
+    imageUrl: 'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
+  },
+  {
+    id: '11',
+    name: 'BT-10000 HSK-F63',
+    family: 'B',
+    toolHolderTypeCategory: 'HSK',
+    line: 'Premium',
+    power: 10.0,
+    minSpeed: 5000,
+    maxSpeed: 28000,
+    nominalSpeed: 24000,
+    torque: 7.2,
+    current: 2.5,
+    voltage: '220/380',
+    toolHolder: 'HSK-F63',
+    applications: ['Wood', 'Stone', 'Composites'],
+    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    features: [
+      'HSK-F63 precision interface',
+      'Heavy-duty blade cutting capability',
+      'Industrial-grade construction',
+      'Advanced thermal management',
+      'Continuous duty operation'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0005 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      axialStiffness: '240 N/μm',
+      radialStiffness: '290 N/μm',
+      weight: 16.8,
+      dimensions: {
+        length: 440,
+        diameter: 140
+      }
+    },
+    imageUrl: 'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    additionalImageUrls: [
+      'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ]
   }
 ];
 
