@@ -73,6 +73,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/products?family=B" className="text-primary-100 hover:text-white transition-colors">
+                  Blade Tech
+                </Link>
+              </li>
+              <li>
                 <Link to="/products?toolHolderTypeCategory=ER" className="text-primary-100 hover:text-white transition-colors">
                   ER Tool Holders
                 </Link>
