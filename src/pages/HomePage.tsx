@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { ArrowRight, Zap, Shield, Award, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
 
 const HomePage = () => {
+  const [hoveredApplication, setHoveredApplication] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -233,46 +236,113 @@ const HomePage = () => {
               {
                 title: "Wood Processing",
                 description: "Furniture, cabinetry, and architectural millwork with superior surface finishes.",
-                image: "https://images.pexels.com/photos/175709/pexels-photo-175709.jpeg?auto=compress&cs=tinysrgb&w=400"
+                image: "https://images.pexels.com/photos/175709/pexels-photo-175709.jpeg?auto=compress&cs=tinysrgb&w=400",
+                detailedDescription: [
+                  "Hardwood machining (Oak, Maple, Cherry)",
+                  "Softwood processing (Pine, Cedar, Fir)",
+                  "Engineered wood products (Plywood, MDF, OSB)",
+                  "Laminated materials and veneers",
+                  "Complex 3D carving and profiling"
+                ]
               },
               {
                 title: "Stone & Marble",
                 description: "Precision cutting and shaping of natural and engineered stone materials.",
-                image: "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=400"
+                image: "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=400",
+                detailedDescription: [
+                  "Natural stone (Granite, Marble, Limestone)",
+                  "Engineered quartz and composite stones",
+                  "Ceramic and porcelain tiles",
+                  "Architectural stone elements",
+                  "Countertop fabrication and edge profiling"
+                ]
               },
               {
                 title: "Aluminum Machining",
                 description: "High-speed machining of aluminum components for aerospace and automotive.",
-                image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=400"
+                image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=400",
+                detailedDescription: [
+                  "6061 and 7075 aluminum alloys",
+                  "Aerospace component manufacturing",
+                  "Automotive parts and heat sinks",
+                  "Architectural aluminum profiles",
+                  "High-speed milling and drilling operations"
+                ]
               },
               {
                 title: "Composite Materials",
                 description: "Advanced composites for aerospace, marine, and high-performance applications.",
-                image: "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=400"
+                image: "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=400",
+                detailedDescription: [
+                  "Carbon fiber reinforced plastics (CFRP)",
+                  "Glass fiber composites (GFRP)",
+                  "Honeycomb sandwich structures",
+                  "Prepreg and wet-lay materials",
+                  "Aerospace and marine applications"
+                ]
               },
               {
                 title: "Plastic Processing",
                 description: "Precision machining of thermoplastics and engineering plastics for industrial components.",
-                image: "https://images.pexels.com/photos/3735747/pexels-photo-3735747.jpeg?auto=compress&cs=tinysrgb&w=400"
+                image: "https://images.pexels.com/photos/3735747/pexels-photo-3735747.jpeg?auto=compress&cs=tinysrgb&w=400",
+                detailedDescription: [
+                  "Engineering plastics (PEEK, POM, Nylon)",
+                  "Thermoplastics (ABS, PC, PMMA)",
+                  "High-performance polymers",
+                  "Medical grade plastics",
+                  "Precision prototype development"
+                ]
               },
               {
                 title: "Glass Engraving",
                 description: "High-precision engraving and cutting of glass materials for decorative and functional applications.",
-                image: "https://images.pexels.com/photos/1029624/pexels-photo-1029624.jpeg?auto=compress&cs=tinysrgb&w=400"
+                image: "https://images.pexels.com/photos/1029624/pexels-photo-1029624.jpeg?auto=compress&cs=tinysrgb&w=400",
+                detailedDescription: [
+                  "Tempered and laminated glass",
+                  "Decorative glass engraving",
+                  "Optical glass components",
+                  "Architectural glass panels",
+                  "Precision edge polishing"
+                ]
               }
             ].map((application, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="aspect-square overflow-hidden rounded-lg mb-4">
+              <div 
+                key={index} 
+                className="group cursor-pointer bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl"
+                onMouseEnter={() => setHoveredApplication(index)}
+                onMouseLeave={() => setHoveredApplication(null)}
+              >
+                <div className="aspect-square overflow-hidden">
                   <img
                     src={application.image}
                     alt={application.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
-                  {application.title}
-                </h3>
-                <p className="text-gray-700 leading-relaxed">{application.description}</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
+                    {application.title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-4">{application.description}</p>
+                  
+                  <div className={`transition-all duration-300 overflow-hidden ${
+                    hoveredApplication === index 
+                      ? 'max-h-40 opacity-100' 
+                      : 'max-h-0 opacity-0'
+                  }`}>
+                    <div className="border-t border-gray-200 pt-4">
+                      <h4 className="text-sm font-semibold text-primary-500 mb-2">Specialized Applications:</h4>
+                      <ul className="text-sm text-gray-600 space-y-1">
+                        {application.detailedDescription.map((detail, detailIndex) => (
+                          <li key={detailIndex} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
