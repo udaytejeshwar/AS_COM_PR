@@ -1,19 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Settings } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
+  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+  const [isApplicationsDropdownOpen, setIsApplicationsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const dropdownCloseTimeout = useRef<number | null>(null);
   const location = useLocation();
 
   // Check if we're on a product detail page
   const isProductDetailPage = /^\/products\/[^\/]+$/.test(location.pathname);
 
   // Force scrolled state on product detail pages for visibility
-  const headerIsScrolled = isScrolled || isProductDetailPage;
+  const headerIsScrolled = isScrolled || isProductDetailPage || isProductsDropdownOpen || isApplicationsDropdownOpen;
+
+  // Check if any dropdown is open
+  const isDropdownOpen = isProductsDropdownOpen || isApplicationsDropdownOpen;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,29 +25,52 @@ const Header = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (dropdownCloseTimeout.current) {
+        clearTimeout(dropdownCloseTimeout.current);
+      }
+    };
   }, []);
+
+  const handleDropdownOpen = (dropdownType: 'products' | 'applications') => {
+    if (dropdownCloseTimeout.current) {
+      clearTimeout(dropdownCloseTimeout.current);
+      dropdownCloseTimeout.current = null;
+    }
+    setIsProductsDropdownOpen(dropdownType === 'products');
+    setIsApplicationsDropdownOpen(dropdownType === 'applications');
+  };
+
+  const handleDropdownClose = () => {
+    dropdownCloseTimeout.current = window.setTimeout(() => {
+      setIsProductsDropdownOpen(false);
+      setIsApplicationsDropdownOpen(false);
+    }, 150); // Small delay to allow moving mouse from trigger to overlay
+  };
+
+  const handleOverlayMouseEnter = () => {
+    if (dropdownCloseTimeout.current) {
+      clearTimeout(dropdownCloseTimeout.current);
+      dropdownCloseTimeout.current = null;
+    }
+  };
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => {
     setIsMenuOpen(false);
-    setActiveDropdown(null);
-    setActiveSubDropdown(null);
-  };
-
-  const toggleDropdown = (dropdown: string) => {
-    if (dropdown === 'products' || dropdown === 'applications') {
-      setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
-      setActiveSubDropdown(null); // Close any sub-dropdown when switching main
-    } else {
-      setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
+    setIsProductsDropdownOpen(false);
+    setIsApplicationsDropdownOpen(false);
+    if (dropdownCloseTimeout.current) {
+      clearTimeout(dropdownCloseTimeout.current);
+      dropdownCloseTimeout.current = null;
     }
   };
 
-  const toggleSubDropdown = (dropdown: string) => {
-    setActiveSubDropdown(activeSubDropdown === dropdown ? null : dropdown);
+  const closeDropdown = () => {
+    setIsProductsDropdownOpen(false);
+    setIsApplicationsDropdownOpen(false);
   };
-
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) => {
     const baseClasses = 'flex items-center px-3 py-2 transform transition-all duration-200 hover:scale-105';
@@ -58,16 +85,86 @@ const Header = () => {
     return `${baseClasses} ${textColor}`;
   };
 
-  const dropdownButtonClass = headerIsScrolled
-    ? 'flex items-center px-3 py-2 text-gray-700 hover:text-gray-900 transform transition-all duration-200 hover:scale-105'
-    : 'flex items-center px-3 py-2 text-white hover:text-white transform transition-all duration-200 hover:scale-105';
+  // Product dropdown items with descriptions
+  const productItems = [
+    {
+      to: "/products?family=M",
+      title: "Manual Tool Change Spindles",
+      description: "Reliable performance for standard machining operations with manual tool changes"
+    },
+    {
+      to: "/products?family=Q",
+      title: "Quick Tool Change Spindles",
+      description: "Enhanced productivity with rapid tool changes for reduced downtime"
+    },
+    {
+      to: "/products?family=A",
+      title: "Automatic Tool Change Spindles",
+      description: "Maximum efficiency for automated production environments"
+    },
+    {
+      to: "/products?family=B",
+      title: "Blade Tech Spindles",
+      description: "Advanced blade technology for precision cutting applications"
+    },
+    {
+      to: "/products?toolHolderTypeCategory=ER",
+      title: "ER Tool Holder Spindles",
+      description: "Versatile collet system for wide range of tool diameters"
+    },
+    {
+      to: "/products?toolHolderTypeCategory=HSK",
+      title: "HSK Tool Holder Spindles",
+      description: "High-precision interface for superior runout control"
+    },
+    {
+      to: "/products?toolHolderTypeCategory=ISO",
+      title: "ISO Tool Holder Spindles",
+      description: "Universal compatibility with standard ISO tool interfaces"
+    }
+  ];
+
+  // Application dropdown items with descriptions
+  const applicationItems = [
+    {
+      to: "/products?application=Wood",
+      title: "Wood Processing",
+      description: "Furniture, cabinetry, and architectural millwork applications"
+    },
+    {
+      to: "/products?application=Stone",
+      title: "Stone & Marble",
+      description: "Natural and engineered stone cutting and shaping"
+    },
+    {
+      to: "/products?application=Aluminum",
+      title: "Aluminum Machining",
+      description: "High-speed machining for aerospace and automotive components"
+    },
+    {
+      to: "/products?application=Composites",
+      title: "Composite Materials",
+      description: "Advanced composites for aerospace and marine applications"
+    },
+    {
+      to: "/products?application=Plastic",
+      title: "Plastic Processing",
+      description: "Precision machining of thermoplastics and engineering plastics"
+    },
+    {
+      to: "/products?application=Glass",
+      title: "Glass Engraving",
+      description: "High-precision engraving and cutting of glass materials"
+    }
+  ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        headerIsScrolled ? 'bg-white shadow-md' : 'bg-transparent'
-      }`}
-    >
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          headerIsScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        }`}
+      >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center">
@@ -88,134 +185,46 @@ const Header = () => {
               Home
             </NavLink>
             
-            {/* Products Dropdown */}
-            <div className="relative"
-            onMouseEnter={() => setActiveDropdown('products')}
-            onMouseLeave={() => setActiveDropdown(null)}>
-              <NavLink to="/products" className={navLinkClass}>
+            {/* Products Dropdown Trigger */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleDropdownOpen('products')}
+              onMouseLeave={handleDropdownClose}
+            >
+              <Link 
+                to="/products" 
+                className={`flex items-center px-3 py-2 transform transition-all duration-200 hover:scale-105 ${
+                  headerIsScrolled ? 'text-gray-700 hover:text-gray-900' : 'text-white hover:text-white'
+                } ${isProductsDropdownOpen ? 'font-medium scale-105' : ''}`}
+              >
                 Products
-                <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'products' ? 'rotate-180' : ''}`} />
-              </NavLink>
-              {activeDropdown === 'products' && (
-                <div className="absolute left-0 top-full mt-1 w-72 bg-white shadow-lg rounded-md overflow-visible z-50">
-                  <Link
-                    to="/products?family=M"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    Manual tool change spindles
-                  </Link>
-                  <Link
-                    to="/products?family=Q"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    Quick tool change spindles
-                  </Link>
-                  <Link
-                    to="/products?family=A"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    Automatic tool change spindles
-                  </Link>
-                  <Link
-                    to="/products?family=B"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    Blade tech spindles
-                  </Link>
-                  <Link
-                    to="/products?toolHolderTypeCategory=ER"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    ER tool holder spindles
-                  </Link>
-                  <Link
-                    to="/products?toolHolderTypeCategory=HSK"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    HSK tool holder spindles
-                  </Link>
-                  <Link
-                    to="/products?toolHolderTypeCategory=ISO"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    ISO tool holder spindles
-                  </Link>
-                </div>
-              )}
+                <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
+              </Link>
             </div>
-
-            <NavLink to="/premium" className={navLinkClass}>
-              Premium Line
-            </NavLink>
             
             <NavLink to="/accessories" className={navLinkClass}>
               Accessories
             </NavLink>
             
-            {/* Applications Dropdown */}
-            <div className="relative"
-            onMouseEnter={() => setActiveDropdown('applications')}
-            onMouseLeave={() => setActiveDropdown(null)}>
+            {/* Applications Dropdown Trigger */}
+            <div
+              className="relative"
+              onMouseEnter={() => handleDropdownOpen('applications')}
+              onMouseLeave={handleDropdownClose}
+            >
               <button
-                className={dropdownButtonClass}
+                className={`flex items-center px-3 py-2 transform transition-all duration-200 hover:scale-105 ${
+                  headerIsScrolled ? 'text-gray-700 hover:text-gray-900' : 'text-white hover:text-white'
+                } ${isApplicationsDropdownOpen ? 'font-medium scale-105' : ''}`}
               >
                 Applications
-                <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${activeDropdown === 'applications' ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${isApplicationsDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
-              {activeDropdown === 'applications' && (
-                <div className="absolute left-0 top-full mt-1 w-48 bg-white shadow-lg rounded-md overflow-hidden z-50">
-                  <Link
-                    to="/products?application=Wood"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    Wood
-                  </Link>
-                  <Link
-                    to="/products?application=Stone"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    Stone
-                  </Link>
-                  <Link
-                    to="/products?application=Aluminum"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    Aluminum
-                  </Link>
-                  <Link
-                    to="/products?application=Composites"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    Composites
-                  </Link>
-                  <Link
-                    to="/products?application=Plastic"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    Plastic
-                  </Link>
-                  <Link
-                    to="/products?application=Glass"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-500"
-                    onClick={closeMenu}
-                  >
-                    Glass
-                  </Link>
-                </div>
-              )}
             </div>
+            
+            <NavLink to="/premium" className={navLinkClass}>
+              Premium Line
+            </NavLink>
             
             <NavLink to="/about" className={navLinkClass}>
               About
@@ -229,7 +238,7 @@ const Header = () => {
             <Link
               to="/quote"
               className={`inline-flex items-center justify-center px-4 py-2 border-2 font-semibold rounded-lg transition-all duration-300 ${
-                headerIsScrolled
+                headerIsScrolled && !isDropdownOpen
                   ? 'border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white'
                   : 'border-white text-white hover:bg-white hover:text-primary-500'
               }`}
@@ -243,7 +252,7 @@ const Header = () => {
             <button
               onClick={toggleMenu}
               className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent-blue-500 ${
-                headerIsScrolled
+                headerIsScrolled && !isDropdownOpen
                   ? 'text-primary-400 hover:text-primary-500 hover:bg-gray-100'
                   : 'text-white hover:text-white hover:bg-white/10'
               }`}
@@ -260,7 +269,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className={`md:hidden shadow-lg animate-fade-in ${
+        <div className={`md:hidden shadow-lg animate-fade-in fixed inset-x-0 top-[80px] z-50 ${
           headerIsScrolled ? 'bg-white' : 'bg-black/90 backdrop-blur-sm'
         }`}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 max-h-[calc(100vh-88px)] overflow-y-auto">
@@ -509,7 +518,69 @@ const Header = () => {
           </div>
         </div>
       )}
-    </header>
+      </header>
+
+      {/* Full-Width Dropdown Overlay */}
+      {isDropdownOpen && (
+        <div 
+          className="hidden md:block fixed inset-x-0 top-[80px] bg-white shadow-xl border-t border-gray-200 z-40 animate-fade-in"
+          onMouseEnter={handleOverlayMouseEnter}
+          onMouseLeave={handleDropdownClose}
+        >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            {isProductsDropdownOpen && (
+              <div>
+                <h3 className="text-2xl font-bold text-primary-500 mb-8 text-center">
+                  Our Product Lines
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                  {productItems.map((item, index) => (
+                    <Link
+                      key={index}
+                      to={item.to}
+                      className="group block p-6 bg-gray-50 rounded-lg hover:bg-primary-50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                      onClick={closeDropdown}
+                    >
+                      <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 mb-2">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-gray-600 group-hover:text-primary-500 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {isApplicationsDropdownOpen && (
+              <div>
+                <h3 className="text-2xl font-bold text-primary-500 mb-8 text-center">
+                  Applications & Industries
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                  {applicationItems.map((item, index) => (
+                    <Link
+                      key={index}
+                      to={item.to}
+                      className="group block p-6 bg-gray-50 rounded-lg hover:bg-primary-50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                      onClick={closeDropdown}
+                    >
+                      <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 mb-2">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-gray-600 group-hover:text-primary-500 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
