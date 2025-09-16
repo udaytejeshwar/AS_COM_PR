@@ -538,13 +538,14 @@ const Header = () => {
                     <Link
                       key={index}
                       to={item.to}
-                      className="group block p-6 bg-gray-50 rounded-lg hover:bg-primary-50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                      className="group block p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300 hover:brightness-125"
+                      style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
                       onClick={closeDropdown}
                     >
-                      <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 mb-2">
+                      <h4 className="text-lg font-semibold text-white group-hover:text-gray-200 mb-2">
                         {item.title}
                       </h4>
-                      <p className="text-sm text-gray-600 group-hover:text-primary-500 leading-relaxed">
+                      <p className="text-sm text-gray-200 group-hover:text-gray-400 leading-relaxed">
                         {item.description}
                       </p>
                     </Link>
@@ -563,13 +564,14 @@ const Header = () => {
                     <Link
                       key={index}
                       to={item.to}
-                      className="group block p-6 bg-gray-50 rounded-lg hover:bg-primary-50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                      className="group block p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300 hover:brightness-125"
+                      style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
                       onClick={closeDropdown}
                     >
-                      <h4 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 mb-2">
+                      <h4 className="text-lg font-semibold text-white group-hover:text-gray-200 mb-2">
                         {item.title}
                       </h4>
-                      <p className="text-sm text-gray-600 group-hover:text-primary-500 leading-relaxed">
+                      <p className="text-sm text-gray-200 group-hover:text-gray-400 leading-relaxed">
                         {item.description}
                       </p>
                     </Link>
