@@ -30,7 +30,7 @@ const PremiumLinePage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-4xl font-extrabold text-primary-600 mb-6">
+            <h2 className="text-4xl font-light text-primary-600 mb-6">
               Engineered for Those Who Demand the Best
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
