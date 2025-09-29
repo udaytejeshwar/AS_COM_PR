@@ -12,10 +12,16 @@ const PremiumLinePage = () => {
         }}
       >
         <div className="flex justify-center items-center h-[500px] sm:h-[600px] lg:h-[700px]">
-          <div className="border border-white px-8 py-6 text-center animate-fade-in">
-            <h1 className="text-white tracking-[0.3em] text-4xl sm:text-5xl font-light mb-2">
-              T I T A N Series<sup className="text-sm align-top ml-1">®</sup>
-            </h1>
+          <div className="text-center animate-fade-in">
+            <div className="border border-white px-8 py-6 mb-8">
+              <h1 className="text-white tracking-[0.3em] text-4xl sm:text-5xl font-light">
+                T I T A N Series<sup className="text-sm align-top ml-1">®</sup>
+              </h1>
+            </div>
+            <p className="text-white/80 text-base font-light tracking-[0.05em] leading-relaxed max-w-2xl mx-auto">
+              Where precision meets power. Engineering excellence redefined.<br />
+              The ultimate expression of spindle technology for demanding applications.
+            </p>
           </div>
         </div>
       </section>
