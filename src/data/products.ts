@@ -45,7 +45,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: '2-3 weeks'
   },
   {
     id: '2',
@@ -91,7 +92,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: '3-4 weeks'
   },
   {
     id: '3',
@@ -136,7 +138,8 @@ export const products: Product[] = [
     additionalImageUrls: [
       'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: '2-3 weeks'
   },
   {
     id: '4',
@@ -182,7 +185,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: '4-6 weeks'
   },
   {
     id: '5',
@@ -227,7 +231,8 @@ export const products: Product[] = [
     additionalImageUrls: [
       'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: 'In stock'
   },
   {
     id: '6',
@@ -272,7 +277,8 @@ export const products: Product[] = [
     additionalImageUrls: [
       'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: '6-8 weeks'
   },
   {
     id: '7',
@@ -317,7 +323,8 @@ export const products: Product[] = [
     additionalImageUrls: [
       'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: '3-4 weeks'
   },
   {
     id: '8',
@@ -363,7 +370,8 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: '4-5 weeks'
   },
   {
     id: '9',
@@ -408,7 +416,8 @@ export const products: Product[] = [
     additionalImageUrls: [
       'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: '2-3 weeks'
   },
   {
     id: '10',
@@ -453,7 +462,8 @@ export const products: Product[] = [
     additionalImageUrls: [
       'https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: '3-5 weeks'
   },
   {
     id: '11',
@@ -498,7 +508,8 @@ export const products: Product[] = [
     additionalImageUrls: [
       'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ]
+    ],
+    deliveryTime: '4-6 weeks'
   }
 ];
 
