@@ -89,17 +89,17 @@ const Header = () => {
   const productItems = [
     {
       to: "/products?family=M",
-      title: "Manual Tool Change Spindles",
+      title: "MTC Spindles",
       description: "Reliable performance for standard machining operations with manual tool changes"
     },
     {
       to: "/products?family=Q",
-      title: "Quick Tool Change Spindles",
+      title: "QTC Spindles",
       description: "Enhanced productivity with rapid tool changes for reduced downtime"
     },
     {
       to: "/products?family=A",
-      title: "Automatic Tool Change Spindles",
+      title: "ATC Spindles",
       description: "Maximum efficiency for automated production environments"
     },
     {
@@ -109,17 +109,17 @@ const Header = () => {
     },
     {
       to: "/products?toolHolderTypeCategory=ER",
-      title: "ER Tool Holder Spindles",
+      title: "ER Spindles",
       description: "Versatile collet system for wide range of tool diameters"
     },
     {
       to: "/products?toolHolderTypeCategory=HSK",
-      title: "HSK Tool Holder Spindles",
+      title: "HSK Spindles",
       description: "High-precision interface for superior runout control"
     },
     {
       to: "/products?toolHolderTypeCategory=ISO",
-      title: "ISO Tool Holder Spindles",
+      title: "ISO Spindles",
       description: "Universal compatibility with standard ISO tool interfaces"
     }
   ];
