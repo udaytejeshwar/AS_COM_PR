@@ -98,5 +98,22 @@ export default {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.clip-curved': {
+          'border-radius': '1rem',
+        },
+        '.clip-curved-sm': {
+          'border-radius': '0.5rem',
+        },
+        '.clip-curved-lg': {
+          'border-radius': '1.5rem',
+        },
+        '.clip-curved-xl': {
+          'border-radius': '2rem',
+        },
+      }
+      addUtilities(newUtilities)
+    },
   ],
 };
