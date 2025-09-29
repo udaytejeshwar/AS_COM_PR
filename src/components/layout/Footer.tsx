@@ -10,16 +10,16 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-primary-500 text-white pt-16 pb-8" style={{
+      <footer className="bg-primary-500 text-white pt-12 pb-6" style={{
       background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)'
     }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
               <div className="flex items-center mb-4">
                 <span className="ml-2 text-xl font-light font-sans tracking-[0.2em]">ARK SPINDLES</span>
               </div>
-              <p className="text-primary-100 mb-6">
+              <p className="text-primary-100 mb-4">
                 Precision engineered electro spindles for wood, stone, aluminum, and composite applications.
               </p>
               <div className="flex space-x-4">
@@ -37,7 +37,7 @@ const Footer = () => {
 
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
+              <ul className="space-y-1">
                 <li>
                   <Link to="/" className="text-primary-100 hover:text-white transition-colors">
                     Home
@@ -63,20 +63,20 @@ const Footer = () => {
 
             <div>
               <h3 className="text-lg font-semibold mb-4">Products & Applications</h3>
-              <ul className="space-y-2">
+              <ul className="space-y-1 grid grid-cols-1 lg:grid-cols-2 gap-x-4.5">
                 <li>
                   <Link to="/products?family=M" className="text-primary-100 hover:text-white transition-colors">
-                    MTC
+                    MTC spindles
                   </Link>
                 </li>
                 <li>
                   <Link to="/products?family=Q" className="text-primary-100 hover:text-white transition-colors">
-                    QTC
+                    QTC spindles
                   </Link>
                 </li>
                 <li>
                   <Link to="/products?family=A" className="text-primary-100 hover:text-white transition-colors">
-                    ATC
+                    ATC spindles
                   </Link>
                 </li>
                 <li>
@@ -86,47 +86,47 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link to="/products?toolHolderTypeCategory=ER" className="text-primary-100 hover:text-white transition-colors">
-                    ER Tool Holders
+                    ER spindles
                   </Link>
                 </li>
                 <li>
                   <Link to="/products?toolHolderTypeCategory=HSK" className="text-primary-100 hover:text-white transition-colors">
-                    HSK Tool Holders
+                    HSK spindles
                   </Link>
                 </li>
                 <li>
                   <Link to="/products?toolHolderTypeCategory=ISO" className="text-primary-100 hover:text-white transition-colors">
-                    ISO Tool Holders
+                    ISO spindles
                   </Link>
                 </li>
                 <li>
                   <Link to="/products?application=Wood" className="text-primary-100 hover:text-white transition-colors">
-                    Wood Applications
+                    Wood 
                   </Link>
                 </li>
                 <li>
                   <Link to="/products?application=Stone" className="text-primary-100 hover:text-white transition-colors">
-                    Stone Applications
+                    Stone 
                   </Link>
                 </li>
                 <li>
                   <Link to="/products?application=Aluminum" className="text-primary-100 hover:text-white transition-colors">
-                    Aluminum Applications
+                    Aluminum 
                   </Link>
                 </li>
                 <li>
                   <Link to="/products?application=Composites" className="text-primary-100 hover:text-white transition-colors">
-                    Composite Applications
+                    Composite 
                   </Link>
                 </li>
                 <li>
                   <Link to="/products?application=Plastic" className="text-primary-100 hover:text-white transition-colors">
-                    Plastic Applications
+                    Plastic 
                   </Link>
                 </li>
                 <li>
                   <Link to="/products?application=Glass" className="text-primary-100 hover:text-white transition-colors">
-                    Glass Applications
+                    Glass 
                   </Link>
                 </li>
               </ul>
@@ -134,7 +134,7 @@ const Footer = () => {
 
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 <li className="flex">
                   <MapPin className="w-5 h-5 mr-3 flex-shrink-0" />
                   <span className="text-primary-100">
@@ -157,12 +157,12 @@ const Footer = () => {
             </div>
           </div>
         
-          <div className="border-t border-primary-400 mt-12 pt-8">
+          <div className="border-t border-primary-400 mt-8 pt-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-primary-100 text-sm">
                 &copy; {new Date().getFullYear()} SpindleTech. All rights reserved.
               </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
+              <div className="flex space-x-6 mt-3 md:mt-0">
                 <button 
                   onClick={() => setIsPrivacyModalOpen(true)}
                   className="text-primary-100 hover:text-white text-sm transition-colors cursor-pointer"
