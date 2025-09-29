@@ -90,37 +90,44 @@ const Header = () => {
     {
       to: "/products?family=M",
       title: "MTC Spindles",
-      description: "Reliable performance for standard machining operations with manual tool changes"
+      description: "Reliable performance for standard machining operations with manual tool changes",
+      image: "https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?family=Q",
       title: "QTC Spindles",
-      description: "Enhanced productivity with rapid tool changes for reduced downtime"
+      description: "Enhanced productivity with rapid tool changes for reduced downtime",
+      image: "https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?family=A",
       title: "ATC Spindles",
-      description: "Maximum efficiency for automated production environments"
+      description: "Maximum efficiency for automated production environments",
+      image: "https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?family=B",
       title: "Blade Tech Spindles",
-      description: "Advanced blade technology for precision cutting applications"
+      description: "Advanced blade technology for precision cutting applications",
+      image: "https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?toolHolderTypeCategory=ER",
       title: "ER Spindles",
-      description: "Versatile collet system for wide range of tool diameters"
+      description: "Versatile collet system for wide range of tool diameters",
+      image: "https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?toolHolderTypeCategory=HSK",
       title: "HSK Spindles",
-      description: "High-precision interface for superior runout control"
+      description: "High-precision interface for superior runout control",
+      image: "https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?toolHolderTypeCategory=ISO",
       title: "ISO Spindles",
-      description: "Universal compatibility with standard ISO tool interfaces"
+      description: "Universal compatibility with standard ISO tool interfaces",
+      image: "https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=600"
     }
   ];
 
@@ -538,16 +545,35 @@ const Header = () => {
                     <Link
                       key={index}
                       to={item.to}
-                      className="group block p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300 hover:brightness-125"
-                      style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
+                      className="group block relative h-48 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
                       onClick={closeDropdown}
                     >
-                      <h4 className="text-lg font-semibold text-white group-hover:text-gray-200 mb-2">
-                        {item.title}
-                      </h4>
-                      <p className="text-sm text-gray-200 group-hover:text-gray-400 leading-relaxed">
-                        {item.description}
-                      </p>
+                      {/* Background Image */}
+                      <div className="absolute inset-0">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300"></div>
+                      </div>
+                      
+                      {/* Inclined Content Area */}
+                      <div className="absolute inset-0 flex items-end">
+                        <div 
+                          className="w-full h-32 transform -skew-x-12 origin-bottom-left transition-all duration-500 group-hover:h-36"
+                          style={{ background: 'linear-gradient(135deg, rgba(77, 93, 109, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%)' }}
+                        >
+                          <div className="transform skew-x-12 p-6 h-full flex flex-col justify-center">
+                            <h4 className="text-lg font-semibold text-white group-hover:text-gray-100 mb-2 transition-colors duration-300">
+                              {item.title}
+                            </h4>
+                            <p className="text-sm text-gray-200 group-hover:text-gray-300 leading-relaxed transition-colors duration-300">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </Link>
                   ))}
                 </div>
@@ -564,7 +590,7 @@ const Header = () => {
                     <Link
                       key={index}
                       to={item.to}
-                      className="group block p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300 hover:brightness-125"
+                      className="group block p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                       style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
                       onClick={closeDropdown}
                     >
