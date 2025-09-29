@@ -38,6 +38,7 @@ export interface Product {
   };
   imageUrl: string;
   additionalImageUrls?: string[];
+  deliveryTime: string;
 }
 
 export interface Accessory {
