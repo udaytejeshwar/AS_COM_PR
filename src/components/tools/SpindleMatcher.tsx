@@ -137,6 +137,7 @@ const SpindleMatcher = ({ className = '' }: SpindleMatcherProps) => {
                       <p>Speed: {product.minSpeed.toLocaleString()} - {product.maxSpeed.toLocaleString()} RPM</p>
                       <p>Torque: {product.torque} Nm</p>
                       <p>Applications: {product.applications.join(', ')}</p>
+                      <p className="text-success-600 font-medium">Expected Delivery: {product.deliveryTime}</p>
                     </div>
                     <Link
                       to={`/products/${product.id}`}
