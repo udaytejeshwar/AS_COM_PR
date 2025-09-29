@@ -136,32 +136,38 @@ const Header = () => {
     {
       to: "/products?application=Wood",
       title: "Wood Processing",
-      description: "Furniture, cabinetry, and architectural millwork applications"
+      description: "Furniture, cabinetry, and architectural millwork applications",
+      image: "https://images.pexels.com/photos/175709/pexels-photo-175709.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?application=Stone",
       title: "Stone & Marble",
-      description: "Natural and engineered stone cutting and shaping"
+      description: "Natural and engineered stone cutting and shaping",
+      image: "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?application=Aluminum",
       title: "Aluminum Machining",
-      description: "High-speed machining for aerospace and automotive components"
+      description: "High-speed machining for aerospace and automotive components",
+      image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?application=Composites",
       title: "Composite Materials",
-      description: "Advanced composites for aerospace and marine applications"
+      description: "Advanced composites for aerospace and marine applications",
+      image: "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?application=Plastic",
       title: "Plastic Processing",
-      description: "Precision machining of thermoplastics and engineering plastics"
+      description: "Precision machining of thermoplastics and engineering plastics",
+      image: "https://images.pexels.com/photos/3735747/pexels-photo-3735747.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       to: "/products?application=Glass",
       title: "Glass Engraving",
-      description: "High-precision engraving and cutting of glass materials"
+      description: "High-precision engraving and cutting of glass materials",
+      image: "https://images.pexels.com/photos/1029624/pexels-photo-1029624.jpeg?auto=compress&cs=tinysrgb&w=600"
     }
   ];
 
@@ -585,21 +591,40 @@ const Header = () => {
                 <h3 className="text-2xl font-bold text-primary-500 mb-8 text-center">
                   Applications & Industries
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                   {applicationItems.map((item, index) => (
                     <Link
                       key={index}
                       to={item.to}
-                      className="group block p-6 rounded-lg hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-                      style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
+                      className="group block relative h-48 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
                       onClick={closeDropdown}
                     >
-                      <h4 className="text-lg font-semibold text-white group-hover:text-gray-200 mb-2">
-                        {item.title}
-                      </h4>
-                      <p className="text-sm text-gray-200 group-hover:text-gray-400 leading-relaxed">
-                        {item.description}
-                      </p>
+                      {/* Background Image */}
+                      <div className="absolute inset-0">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300"></div>
+                      </div>
+                      
+                      {/* Inclined Content Area */}
+                      <div className="absolute inset-0 flex items-end">
+                        <div 
+                          className="w-full h-32 transform -skew-x-12 origin-bottom-left transition-all duration-500 group-hover:h-36"
+                          style={{ background: 'linear-gradient(135deg, rgba(77, 93, 109, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%)' }}
+                        >
+                          <div className="transform skew-x-12 p-6 h-full flex flex-col justify-center">
+                            <h4 className="text-lg font-semibold text-white group-hover:text-gray-100 mb-2 transition-colors duration-300">
+                              {item.title}
+                            </h4>
+                            <p className="text-sm text-gray-200 group-hover:text-gray-300 leading-relaxed transition-colors duration-300">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </Link>
                   ))}
                 </div>
