@@ -567,7 +567,7 @@ const Header = () => {
                       {/* Inclined Content Area */}
                       <div className="absolute inset-0 flex items-end">
                         <div 
-                          className="w-full h-32 transform -skew-x-12 origin-bottom-left transition-all duration-500 group-hover:h-36"
+                          className="w-full h-32 transform -skew-x-12 origin-bottom-left transition-all duration-500 group-hover:h-36 clip-curved"
                           style={{ background: 'linear-gradient(135deg, rgba(77, 93, 109, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%)' }}
                         >
                           <div className="transform skew-x-12 p-6 h-full flex flex-col justify-center">
@@ -612,7 +612,7 @@ const Header = () => {
                       {/* Inclined Content Area */}
                       <div className="absolute inset-0 flex items-end">
                         <div 
-                          className="w-full h-32 transform -skew-x-12 origin-bottom-left transition-all duration-500 group-hover:h-36"
+                          className="w-full h-32 transform -skew-x-12 origin-bottom-left transition-all duration-500 group-hover:h-36 clip-curved"
                           style={{ background: 'linear-gradient(135deg, rgba(77, 93, 109, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%)' }}
                         >
                           <div className="transform skew-x-12 p-6 h-full flex flex-col justify-center">
