@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight, Users, History, Target, Award, Globe2, Rocket, Crosshair, Zap, Gauge } from 'lucide-react';
+import { ChevronRight, Users, History, Target, Award, Globe as Globe2, Rocket, Crosshair, Zap, Gauge } from 'lucide-react';
+import Breadcrumbs from '../components/shared/Breadcrumbs';
 
 const AboutPage = () => {
   return (
     <div className="animate-fade-in">
+      <Breadcrumbs items={[{ label: 'About' }]} />
+
       {/* Hero Section */}
       <section 
         className="relative text-white overflow-hidden -mt-16"
@@ -37,10 +40,10 @@ const AboutPage = () => {
             <div>
               <h2 className="text-3xl font-bold text-primary-500 mb-6">Our Story</h2>
               <p className="text-gray-600 mb-6">
-                ARK SPINDLES was founded with a clear ambition: to build India's most respected precision engineered electrospindles, that power the future of industrial automation.
+                ARK SPINDLES was founded with a clear ambition: to build India's most respected <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">precision engineered electrospindles</Link>, that power the future of industrial automation.
               </p>
               <p className="text-gray-600 mb-6">
-                We’re building for today's applications with tomorrow's tech — where precision, efficiency, and localized innovation will define the winners of global manufacturing.
+                We're building for today's applications with tomorrow's tech — where precision, efficiency, and localized innovation will define the winners of global manufacturing. Explore our <Link to="/premium" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">premium line</Link> to see our latest innovations.
               </p>
               <div className="grid grid-cols-2 gap-6 mt-8">
                 <div className="text-center">
@@ -116,14 +119,14 @@ const AboutPage = () => {
             <div>
               <h2 className="text-3xl font-bold text-primary-500 mb-6">Expanding Globally</h2>
               <p className="text-gray-600 mb-6">
-                While proudly rooted in India, our spindles are finding their way into machines around the world. We’re building a global reputation for engineering clarity, competitive pricing, and exceptional after-sales support.
+                While proudly rooted in India, our <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">spindles</Link> are finding their way into machines around the world. We're building a global reputation for engineering clarity, competitive pricing, and exceptional <Link to="/contact" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">after-sales support</Link>.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <Globe2 className="w-6 h-6 text-primary-500 mr-4 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Trusted by OEMs</h3>
-                    <p className="text-gray-600">Serving machine builders in woodworking, stone, aluminum, and more</p>
+                    <p className="text-gray-600">Serving machine builders in <Link to="/products?application=Wood" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">woodworking</Link>, <Link to="/products?application=Stone" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">stone</Link>, <Link to="/products?application=Aluminum" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">aluminum</Link>, and more</p>
                   </div>
                 </div>
                 <div className="flex items-start">
