@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Shield, Zap, BarChart, Microscope, Award, Star } from 'lucide-react';
-import Breadcrumbs from '../components/shared/Breadcrumbs';
 
 const PremiumLinePage = () => {
   return (
     <div className="animate-fade-in">
-      <Breadcrumbs items={[{ label: 'Premium Line' }]} />
 
       {/* Hero Section */}
       <section
