@@ -306,41 +306,47 @@ const HomePage = () => {
                 ]
               }
             ].map((application, index) => (
-              <div 
-                key={index} 
-                className="group cursor-pointer bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl"
+              <div
+                key={index}
+                className="relative group cursor-pointer bg-white rounded-lg shadow-md overflow-visible transition-all duration-300 hover:shadow-xl hover:z-50"
                 onMouseEnter={() => setHoveredApplication(index)}
                 onMouseLeave={() => setHoveredApplication(null)}
               >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={application.image}
-                    alt={application.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
+                <div className="overflow-hidden rounded-t-lg">
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={application.image}
+                      alt={application.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
+                      {application.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">{application.description}</p>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
-                    {application.title}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">{application.description}</p>
-                  
-                  <div className={`transition-all duration-300 overflow-hidden ${
-                    hoveredApplication === index 
-                      ? 'max-h-40 opacity-100' 
-                      : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="border-t border-gray-200 pt-4">
-                      <h4 className="text-sm font-semibold text-primary-500 mb-2">Specialized Applications:</h4>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        {application.detailedDescription.map((detail, detailIndex) => (
-                          <li key={detailIndex} className="flex items-start">
-                            <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
-                            {detail}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+
+                {/* Expanded overlay content */}
+                <div
+                  className={`absolute left-0 right-0 top-full bg-white rounded-b-lg shadow-2xl transition-all duration-300 ${
+                    hoveredApplication === index
+                      ? 'opacity-100 translate-y-0 pointer-events-auto'
+                      : 'opacity-0 -translate-y-2 pointer-events-none'
+                  }`}
+                  style={{ zIndex: 60 }}
+                >
+                  <div className="border-t border-gray-200 p-6">
+                    <h4 className="text-sm font-semibold text-primary-500 mb-3">Specialized Applications:</h4>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      {application.detailedDescription.map((detail, detailIndex) => (
+                        <li key={detailIndex} className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
