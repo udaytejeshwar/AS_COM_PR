@@ -52,9 +52,9 @@ const HomePage = () => {
         
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">  
+          <div className="text-center mb-16">
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Advanced electro-spindle technology delivering uncompromising precision and performance for demanding CNC routing applications.
+              Advanced electro-spindle technology delivering uncompromising precision and performance for demanding <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">CNC routing applications</Link>.
             </p>
           </div>
           
@@ -131,7 +131,7 @@ const HomePage = () => {
               Precision Platforms
             </h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Tailored spindle systems engineered for distinct materials, methods, and performance demands — from high-speed contouring in wood to heavy-duty milling in stone and aluminum.
+              Tailored spindle systems engineered for distinct materials, methods, and performance demands — from <Link to="/products?application=Wood" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">high-speed contouring in wood</Link> to heavy-duty milling in <Link to="/products?application=Stone" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">stone</Link> and <Link to="/products?application=Aluminum" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">aluminum</Link>.
             </p>
           </div>
           
@@ -212,7 +212,7 @@ const HomePage = () => {
               Find a Replacement for your Existing Spindle
             </h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Use our intelligent matching tool to find compatible spindle replacements based on your current specifications.
+              Use our intelligent matching tool to find compatible <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">spindle replacements</Link> based on your current specifications.
             </p>
           </div>
           <SpindleMatcher />
@@ -227,7 +227,7 @@ const HomePage = () => {
               Applications & Industries
             </h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Our spindles excel across diverse materials and industries, delivering consistent results in demanding applications.
+              Our <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">precision spindles</Link> excel across diverse materials and industries, delivering consistent results in demanding applications.
             </p>
           </div>
           
@@ -363,10 +363,10 @@ const HomePage = () => {
               Need a Custom Project?
             </h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Tailored spindle systems engineered for distinct materials, methods, and performance demands — from high-speed contouring in wood to heavy-duty milling in stone and aluminum. Each platform reflects a systems-level approach to machining excellence.
+              Tailored <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">spindle systems</Link> engineered for distinct materials, methods, and performance demands — from high-speed contouring in wood to heavy-duty milling in stone and aluminum. Each platform reflects a systems-level approach to machining excellence.
             </p>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              For unique requirements, we offer fully custom spindle solutions — co-engineered to match your exacting performance and integration needs.
+              For unique requirements, we offer fully <Link to="/premium" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">custom spindle solutions</Link> — co-engineered to match your exacting performance and integration needs.
             </p>
           </div>
           <div className="text-center lg:text-left">
