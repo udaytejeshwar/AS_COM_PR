@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ChevronRight, Users, History, Target, Award, Globe as Globe2, Rocket, Crosshair, Zap, Gauge } from 'lucide-react';
-import Breadcrumbs from '../components/shared/Breadcrumbs';
 
 const AboutPage = () => {
   return (
     <div className="animate-fade-in">
-      <Breadcrumbs items={[{ label: 'About' }]} />
 
       {/* Hero Section */}
       <section 
