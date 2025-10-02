@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Shield, Zap, BarChart, Microscope, Award, Star } from 'lucide-react';
+import Breadcrumbs from '../components/shared/Breadcrumbs';
 
 const PremiumLinePage = () => {
   return (
     <div className="animate-fade-in">
+      <Breadcrumbs items={[{ label: 'Premium Line' }]} />
+
       {/* Hero Section */}
       <section
         className="relative text-white overflow-hidden -mt-16"
@@ -34,7 +37,7 @@ const PremiumLinePage = () => {
               Engineered for Those Who Demand the Best
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              The TITAN Premium Line is our most advanced electrospindle series, crafted from decades of engineering expertise and refined with cutting-edge technology. Designed to deliver unmatched precision, reliability, and performance, these spindles guarantee you a competitive edge with reduced downtime, longer tool life, and consistent machining quality.
+              The TITAN Premium Line is our most advanced <Link to="/products?line=Premium" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">electrospindle series</Link>, crafted from decades of engineering expertise and refined with cutting-edge technology. Designed to deliver unmatched precision, reliability, and performance, these spindles guarantee you a competitive edge with reduced downtime, longer tool life, and consistent machining quality. Explore our full <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">product catalog</Link> to find the perfect spindle for your application.
             </p>
           </div>
 
@@ -115,7 +118,7 @@ const PremiumLinePage = () => {
       <div>
         <h2 className="text-3xl font-bold text-primary-500 mb-6">Research & Development</h2>
         <p className="text-gray-600 mb-8">
-          Our Premium Line electrospindles are engineered with rigorous research and development protocols, leveraging the latest industry innovations and precision engineering methods to guarantee superior performance and reliability.
+          Our <Link to="/products?line=Premium" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">Premium Line electrospindles</Link> are engineered with rigorous research and development protocols, leveraging the latest industry innovations and precision engineering methods to guarantee superior performance and reliability. Learn more about our <Link to="/about" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">company and engineering philosophy</Link>.
         </p>
 
         <div className="space-y-6">
@@ -169,7 +172,7 @@ const PremiumLinePage = () => {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-primary-500 mb-4">Premium Support</h2>
             <p className="text-gray-600">
-              Our Premium Line comes with dedicated technical support and comprehensive service packages to ensure optimal performance throughout the product lifecycle.
+              Our Premium Line comes with dedicated <Link to="/contact" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">technical support</Link> and comprehensive service packages to ensure optimal performance throughout the product lifecycle.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
