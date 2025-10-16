@@ -158,7 +158,7 @@ const ContactPage = () => {
               <div className="bg-gray-50 p-6 rounded-lg animate-slide-in" style={{ animationDelay: '0.5s' }}>
                 <h3 className="text-lg font-semibold text-primary-500 mb-2">Emergency Support</h3>
                 <p className="text-gray-600">
-                  For urgent technical assistance, our emergency support line is available 24/7. Please call:
+                  For urgent technical assistance, our emergency support line is available. Please call:
                 </p>
                 <p className="text-xl font-semibold text-primary-500 mt-2">
                   +1 (234) 567-899
