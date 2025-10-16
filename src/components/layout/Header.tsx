@@ -214,11 +214,7 @@ const Header = () => {
                 <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
               </Link>
             </div>
-            
-            <NavLink to="/accessories" className={navLinkClass}>
-              Accessories
-            </NavLink>
-            
+
             {/* Applications Dropdown Trigger */}
             <div
               className="relative"
@@ -234,9 +230,13 @@ const Header = () => {
                 <ChevronDown className={`ml-1 w-4 h-4 transform transition-transform duration-200 ${isApplicationsDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
             </div>
-            
+
             <NavLink to="/premium" className={navLinkClass}>
               Premium Line
+            </NavLink>
+
+            <NavLink to="/accessories" className={navLinkClass}>
+              Accessories
             </NavLink>
             
             <NavLink to="/about" className={navLinkClass}>
@@ -409,7 +409,7 @@ const Header = () => {
             >
               Accessories
             </NavLink>
-            
+
             {/* Applications Section */}
             <div className={`px-3 py-2 font-medium ${
               headerIsScrolled ? 'text-gray-700' : 'text-white'
