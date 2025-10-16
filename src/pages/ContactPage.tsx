@@ -71,7 +71,7 @@ const ContactPage = () => {
       >
         
         <div className="container mx-auto px-4 pt-40 pb-24 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex justify-between items-start max-w-3xl">
+          <div className="flex justify-between items-start">
             <div>
               <h1 className="text-3xl sm:text-5xl lg:text-5xl font-light mb-6 leading-tight animate-slide-in">
                 Contact Us
