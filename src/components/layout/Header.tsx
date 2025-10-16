@@ -90,7 +90,7 @@ const Header = () => {
     {
       to: "/products?family=M",
       title: "MTC Spindles",
-      description: "Reliable performance for standard machining operations with manual tool changes",
+      description: "Reliable performance for machining operations with manual tool changes",
       image: "https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
@@ -160,7 +160,7 @@ const Header = () => {
     {
       to: "/products?application=Plastic",
       title: "Plastic Processing",
-      description: "Precision machining of thermoplastics and engineering plastics",
+      description: "Precision machining of engineering plastics",
       image: "https://images.pexels.com/photos/3735747/pexels-photo-3735747.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
@@ -543,8 +543,8 @@ const Header = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
             {isProductsDropdownOpen && (
               <div>
-                <h3 className="text-2xl font-bold text-primary-500 mb-8 text-center">
-                  Our Product Lines
+                <h3 className="text-2xl font-light text-primary-500 mb-8 text-center">
+                  Our Precision spindle systems built for high-performance machining
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
                   {productItems.map((item, index) => (
