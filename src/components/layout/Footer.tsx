@@ -160,7 +160,7 @@ const Footer = () => {
           <div className="border-t border-primary-400 mt-8 pt-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-primary-100 text-sm">
-                &copy; {new Date().getFullYear()} SpindleTech. All rights reserved.
+                &copy; {new Date().getFullYear()} ArkSpindles. All rights reserved.
               </p>
               <div className="flex space-x-6 mt-3 md:mt-0">
                 <button 
