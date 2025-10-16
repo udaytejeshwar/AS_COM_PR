@@ -77,8 +77,8 @@ const HomePage = () => {
               {
                 icon: Award,
                 title: "Technical Innovation",
-                description: "State-of-the-art bearing systems, optimized cooling channels, and advanced motor control technology for maximum reliability and performance consistency.",
-                specs: "Advanced bearing systems",
+                description: "High-efficiency motor architecture with optimized rotor-stator design delivers superior torque density, smooth acceleration, and stable performance across the speed range.",
+                specs: "Optimized design",
                 gradient: "from-purple-500 to-violet-500"
               },
               {
@@ -223,7 +223,7 @@ const HomePage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
+            <h2 className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em] mb-4">
               Applications & Industries
             </h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
