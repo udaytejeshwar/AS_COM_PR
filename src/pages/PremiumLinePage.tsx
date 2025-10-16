@@ -175,8 +175,8 @@ const PremiumLinePage = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-primary-500 mb-2">24/7 Technical Support</h3>
-              <p className="text-gray-600">Round-the-clock access to our expert technical support team.</p>
+              <h3 className="text-lg font-semibold text-primary-500 mb-2">Commissioning & maintenance support</h3>
+              <p className="text-gray-600">Comprehensive spindle lifecycle support.</p>
             </div>
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-lg font-semibold text-primary-500 mb-2">Extended Warranty</h3>
