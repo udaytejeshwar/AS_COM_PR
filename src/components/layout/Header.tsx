@@ -543,7 +543,7 @@ const Header = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
             {isProductsDropdownOpen && (
               <div>
-                <h3 className="text-2xl font-light text-primary-500 mb-8 text-center">
+                <h3 className="text-1xl font-light text-primary-2000 mb-8 text-center font-sans tracking-[0.05em] leading-relaxed">
                   Our Precision spindle systems built for high-performance machining
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -588,7 +588,7 @@ const Header = () => {
 
             {isApplicationsDropdownOpen && (
               <div>
-                <h3 className="text-2xl font-bold text-primary-500 mb-8 text-center">
+                <h3 className="text-1xl font-light text-primary-2000 mb-8 text-center font-sans tracking-[0.05em] leading-relaxed">
                   Applications & Industries
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
