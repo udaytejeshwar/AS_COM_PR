@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
               <div className="flex items-center mb-4">
-                <span className="ml-2 text-xl font-light font-sans tracking-[0.2em]">ARK SPINDLES</span>
+                <span className="text-xl font-light font-sans tracking-[0.2em]">ARK SPINDLES</span>
               </div>
               <p className="text-primary-100 mb-4">
                 Precision engineered electro spindles for wood, stone, aluminum, and composite applications.
@@ -63,7 +63,7 @@ const Footer = () => {
 
             <div>
               <h3 className="text-lg font-semibold mb-4">Products & Applications</h3>
-              <ul className="space-y-1 grid grid-cols-1 lg:grid-cols-2 gap-x-4.5">
+              <ul className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-1">
                 <li>
                   <Link to="/products?family=M" className="text-primary-100 hover:text-white transition-colors">
                     MTC spindles
@@ -135,19 +135,19 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
               <ul className="space-y-3">
-                <li className="flex">
-                  <MapPin className="w-5 h-5 mr-3 flex-shrink-0" />
+                <li className="flex items-start">
+                  <MapPin className="w-5 h-5 mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-primary-100">
                     1234 Industrial Avenue, Tech Park, Milan, Italy
                   </span>
                 </li>
-                <li className="flex">
+                <li className="flex items-center">
                   <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
                   <a href="tel:+1234567890" className="text-primary-100 hover:text-white transition-colors">
                     +1 (234) 567-890
                   </a>
                 </li>
-                <li className="flex">
+                <li className="flex items-center">
                   <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
                   <a href="mailto:info@spindletech.com" className="text-primary-100 hover:text-white transition-colors">
                     info@spindletech.com
