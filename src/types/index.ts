@@ -11,11 +11,13 @@ export interface Product {
   family: ProductFamily;
   toolHolderTypeCategory: ToolHolderTypeCategory;
   line: ProductLine;
-  power: number; // in kilowatts
+  power: number; // in kilowatts (S1 - continuous duty)
+  powerS6?: number; // in kilowatts (S6 - intermittent duty at 40%)
   minSpeed: number; // in RPM
   maxSpeed: number; // in RPM
   nominalSpeed: number; // in RPM
-  torque: number; // in Newton meters
+  torque: number; // in Newton meters (S1 - continuous duty)
+  torqueS6?: number; // in Newton meters (S6 - intermittent duty at 40%)
   toolHolder: ToolHolder;
   applications: Application[];
   description: string;
