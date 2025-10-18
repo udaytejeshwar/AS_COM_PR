@@ -37,7 +37,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
           <div>
             <p className="text-gray-500">Power</p>
-            <p className="font-medium">{product.power} kW</p>
+            <p className="font-medium">
+              {product.power} kW (S1)
+              {product.powerS6 && (
+                <span className="block text-xs text-gray-500">
+                  {product.powerS6} kW (S6-40%)
+                </span>
+              )}
+            </p>
           </div>
           <div>
             <p className="text-gray-500">Speed Range</p>
@@ -45,7 +52,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </div>
           <div>
             <p className="text-gray-500">Torque</p>
-            <p className="font-medium">{product.torque} Nm</p>
+            <p className="font-medium">
+              {product.torque} Nm (S1)
+              {product.torqueS6 && (
+                <span className="block text-xs text-gray-500">
+                  {product.torqueS6} Nm (S6-40%)
+                </span>
+              )}
+            </p>
           </div>
           <div>
             <p className="text-gray-500">Nominal Speed</p>
