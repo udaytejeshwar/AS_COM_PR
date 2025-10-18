@@ -191,7 +191,14 @@ const ProductDetailPage = () => {
               <div className="grid grid-cols-2 gap-y-4">
                 <div>
                   <span className="text-sm text-gray-500">Power</span>
-                  <p className="font-medium">{product.power} kW</p>
+                  <p className="font-medium">
+                    {product.power} kW (S1)
+                    {product.powerS6 && (
+                      <span className="text-sm text-gray-600 ml-2">
+                        / {product.powerS6} kW (S6-40%)
+                      </span>
+                    )}
+                  </p>
                 </div>
                 <div>
                   <span className="text-sm text-gray-500">Nominal Speed</span>
@@ -203,7 +210,14 @@ const ProductDetailPage = () => {
                 </div>
                 <div>
                   <span className="text-sm text-gray-500">Torque</span>
-                  <p className="font-medium">{product.torque} Nm</p>
+                  <p className="font-medium">
+                    {product.torque} Nm (S1)
+                    {product.torqueS6 && (
+                      <span className="text-sm text-gray-600 ml-2">
+                        / {product.torqueS6} Nm (S6-40%)
+                      </span>
+                    )}
+                  </p>
                 </div>
                 <div>
                   <span className="text-sm text-gray-500">Current</span>
