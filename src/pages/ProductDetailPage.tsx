@@ -84,7 +84,7 @@ const ProductDetailPage = () => {
   }
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in pt-4">
       {/* Back Button */}
       <div className="bg-gray-50 border-b">
         <div className="container mx-auto px-4 py-3">
