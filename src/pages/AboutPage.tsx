@@ -93,7 +93,7 @@ const AboutPage = () => {
               </div>
               <h3 className="text-xl font-semibold text-primary-500 mb-3">Power</h3>
               <p className="text-gray-600">
-                Behind every SpindleTech system is a deep understanding of force, motion, and mechanical strength. Whether it’s torque delivery at low RPM or sustained performance at high speeds, we engineer our spindles for optimal power-to-weight ratios, rigid rotor systems, and superior thermal dissipation — all tailored to real-world cutting loads.
+                Behind every Arkspindle system is a deep understanding of force, motion, and mechanical strength. Whether it’s torque delivery at low RPM or sustained performance at high speeds, we engineer our spindles for optimal power-to-weight ratios, rigid rotor systems, and superior thermal dissipation — all tailored to real-world cutting loads.
               </p>
             </div>
 
