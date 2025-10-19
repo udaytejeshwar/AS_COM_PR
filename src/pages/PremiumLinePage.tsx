@@ -20,8 +20,8 @@ const PremiumLinePage = () => {
               </h1>
             </div>
             <p className="text-white/80 text-base font-light tracking-[0.05em] leading-relaxed max-w-2xl mx-auto">
-              Where precision meets power. Engineering excellence redefined.<br />
-              The ultimate expression of spindle technology for demanding applications.
+              Where precision meets power, engineering excellence will be redefined.<br />
+              Our ultimate expression of spindle technology for demanding applications.
             </p>
           </div>
         </div>
@@ -31,8 +31,8 @@ const PremiumLinePage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-4xl font-light text-primary-600 mb-6">
-              Engineered for Those Who Demand the Best
+            <h2 className="text-4xl font-light text-primary-400 mb-6">
+              Engineered for Peak Performance
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
               The TITAN Premium Line is our most advanced <Link to="/products?line=Premium" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">electrospindle series</Link>, crafted from decades of engineering expertise and refined with cutting-edge technology. Designed to deliver unmatched precision, reliability, and performance, these spindles guarantee you a competitive edge with reduced downtime, longer tool life, and consistent machining quality. Explore our full <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">product catalog</Link> to find the perfect spindle for your application.
@@ -114,7 +114,7 @@ const PremiumLinePage = () => {
   <div className="container mx-auto px-4 sm:px-6 lg:px-8">
     <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
       <div>
-        <h2 className="text-3xl font-bold text-primary-500 mb-6">Research & Development</h2>
+        <h2 className="text-3xl font-light text-primary-500 mb-6">Research & Development</h2>
         <p className="text-gray-600 mb-8">
           Our <Link to="/products?line=Premium" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">Premium Line electrospindles</Link> are engineered with rigorous research and development protocols, leveraging the latest industry innovations and precision engineering methods to guarantee superior performance and reliability. Learn more about our <Link to="/about" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">company and engineering philosophy</Link>.
         </p>
@@ -168,7 +168,7 @@ const PremiumLinePage = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-primary-500 mb-4">Premium Support</h2>
+            <h2 className="text-3xl font-light text-primary-500 mb-4">Premium Support</h2>
             <p className="text-gray-600">
               Our Premium Line comes with dedicated <Link to="/contact" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">technical support</Link> and comprehensive service packages to ensure optimal performance throughout the product lifecycle.
             </p>
