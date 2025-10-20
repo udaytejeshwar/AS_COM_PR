@@ -199,14 +199,6 @@ const ProductDetailPage = () => {
                   )}
                 </div>
                 <div>
-                  <span className="text-sm text-gray-500">Nominal Speed</span>
-                  <p className="font-medium">{product.nominalSpeed.toLocaleString()} RPM</p>
-                </div>
-                <div>
-                  <span className="text-sm text-gray-500">Max Speed</span>
-                  <p className="font-medium">{product.maxSpeed.toLocaleString()} RPM</p>
-                </div>
-                <div>
                   <span className="text-sm text-gray-500">Torque</span>
                   <p className="font-medium">{product.torque} Nm (S1)</p>
                   {product.torqueS6 && (
@@ -214,6 +206,14 @@ const ProductDetailPage = () => {
                       {product.torqueS6} Nm (S6-40%)
                     </p>
                   )}
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500">Nominal Speed</span>
+                  <p className="font-medium">{product.nominalSpeed.toLocaleString()} RPM</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-500">Max Speed</span>
+                  <p className="font-medium">{product.maxSpeed.toLocaleString()} RPM</p>
                 </div>
                 <div>
                   <span className="text-sm text-gray-500">Current</span>
