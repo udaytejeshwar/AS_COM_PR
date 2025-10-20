@@ -155,26 +155,26 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary-500 text-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
             <div className="mb-8 lg:mb-0">
-              <h2 className="text-3xl font-bold mb-4">Join Our Precision Revolution</h2>
-              <p className="text-primary-100 max-w-2xl">
+              <h2 className="text-3xl font-bold text-primary-500 mb-4">Join Our Precision Revolution</h2>
+              <p className="text-gray-600 max-w-2xl">
                 Whether you're building a machine or an entire factory line, Ark Spindles is ready to support your growth with reliable, precise, and scalable spindle systems.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/products"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors duration-200"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"
               >
                 Explore Products
                 <ChevronRight className="ml-2 -mr-1 w-5 h-5" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors duration-200"
+                className="inline-flex items-center px-6 py-3 border border-primary-500 text-base font-medium rounded-md text-primary-500 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"
               >
                 Contact Us
               </Link>
