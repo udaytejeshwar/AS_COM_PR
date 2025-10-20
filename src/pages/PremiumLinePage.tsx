@@ -14,10 +14,13 @@ const PremiumLinePage = () => {
       >
         <div className="flex justify-center items-center h-[500px] sm:h-[600px] lg:h-[700px]">
           <div className="text-center animate-fade-in">
-            <div className="border border-white px-8 py-6 mb-8">
+            <div className="relative border border-white px-8 py-6 mb-8">
               <h1 className="text-white tracking-[0.3em] text-4xl sm:text-5xl font-light">
                 T I T A N Series<sup className="text-sm align-top ml-1">®</sup>
               </h1>
+              <div className="absolute bottom-0 right-3 text-white/70 text-[0.6rem] sm:text-[0.75rem] font-light tracking-[0.15em]">
+              <span className="italic">By</span> ArkSpindles
+            </div>
             </div>
             <p className="text-white/80 text-base font-light tracking-[0.05em] leading-relaxed max-w-2xl mx-auto">
               Where precision meets power, engineering excellence will be redefined.<br />
