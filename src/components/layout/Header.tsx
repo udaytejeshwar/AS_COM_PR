@@ -544,7 +544,7 @@ const Header = () => {
             {isProductsDropdownOpen && (
               <div>
                 <h3 className="text-1xl font-light text-primary-2000 mb-8 text-center font-sans tracking-[0.05em] leading-relaxed">
-                  Our Precision spindle systems built for high-performance machining
+                  Explore our recision spindle systems built for high-performance machining
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
                   {productItems.map((item, index) => (
@@ -589,7 +589,7 @@ const Header = () => {
             {isApplicationsDropdownOpen && (
               <div>
                 <h3 className="text-1xl font-light text-primary-2000 mb-8 text-center font-sans tracking-[0.05em] leading-relaxed">
-                  Applications & Industries
+                  Explore our high performance spindles based on your applications & industries
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                   {applicationItems.map((item, index) => (
