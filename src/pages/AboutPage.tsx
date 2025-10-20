@@ -18,7 +18,7 @@ const AboutPage = () => {
               ARK SPINDLES
             </h1>
             <p className="text-xl mb-8 text-gray-200 max-w-2xl">
-              Precision. Built in India. Engineered for the World.
+              Precision. Made in India. Engineered for the World.
             </p>
           </div>
         </div>
