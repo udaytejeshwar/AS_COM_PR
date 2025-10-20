@@ -45,14 +45,14 @@ const CookieNotice = ({ onLearnMore }: CookieNoticeProps) => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-start gap-3 flex-1">
-              <Cookie className="w-6 h-6 text-amber-400 flex-shrink-0 mt-1" />
+              <Cookie className="w-6 h-6 text-accent-blue-400 flex-shrink-0 mt-1" />
               <div className="flex-1">
                 <p className="text-white text-sm sm:text-base leading-relaxed">
                   We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic.
                   By clicking "Accept", you consent to our use of cookies.
                   <button
                     onClick={onLearnMore}
-                    className="text-amber-400 hover:text-amber-300 underline ml-1 transition-colors font-medium"
+                    className="text-accent-blue-400 hover:text-accent-blue-300 underline ml-1 transition-colors font-medium"
                   >
                     Learn More
                   </button>
@@ -63,7 +63,7 @@ const CookieNotice = ({ onLearnMore }: CookieNoticeProps) => {
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <button
                 onClick={handleAccept}
-                className="flex-1 sm:flex-initial px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="flex-1 sm:flex-initial px-6 py-2.5 bg-accent-blue-500 hover:bg-accent-blue-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Accept
               </button>
