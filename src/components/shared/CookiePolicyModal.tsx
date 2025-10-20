@@ -20,7 +20,7 @@ const CookiePolicyModal = ({ isOpen, onClose }: CookiePolicyModalProps) => {
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 border-b border-gray-200">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Cookie className="w-8 h-8 text-amber-500" />
+                <Cookie className="w-8 h-8 text-accent-blue-500" />
                 <h3 className="text-2xl font-bold text-primary-500">
                   Cookie Policy
                 </h3>
@@ -129,7 +129,7 @@ const CookiePolicyModal = ({ isOpen, onClose }: CookiePolicyModalProps) => {
                   <li><strong>Microsoft Edge:</strong> Settings → Privacy, search, and services → Cookies and site permissions</li>
                 </ul>
 
-                <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mt-4">
+                <div className="bg-accent-blue-50 border-l-4 border-accent-blue-500 p-4 mt-4">
                   <p className="text-sm text-gray-700">
                     <strong>Note:</strong> If you disable cookies, some features of our website may not work as intended,
                     and your user experience may be limited.
