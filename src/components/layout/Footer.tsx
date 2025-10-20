@@ -4,7 +4,11 @@ import { Settings, Mail, Phone, MapPin, Linkedin, Facebook, Twitter } from 'luci
 import PrivacyPolicyModal from '../shared/PrivacyPolicyModal';
 import TermsAndConditionsModal from '../shared/TermsAndConditionsModal';
 
-const Footer = () => {
+interface FooterProps {
+  onOpenCookiePolicy: () => void;
+}
+
+const Footer = ({ onOpenCookiePolicy }: FooterProps) => {
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
   const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
 
@@ -162,14 +166,20 @@ const Footer = () => {
               <p className="text-primary-100 text-sm">
                 &copy; {new Date().getFullYear()} ArkSpindles. All rights reserved.
               </p>
-              <div className="flex space-x-6 mt-3 md:mt-0">
-                <button 
+              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-3 md:mt-0">
+                <button
                   onClick={() => setIsPrivacyModalOpen(true)}
                   className="text-primary-100 hover:text-white text-sm transition-colors cursor-pointer"
                 >
                   Privacy Policy
                 </button>
-                <button 
+                <button
+                  onClick={onOpenCookiePolicy}
+                  className="text-primary-100 hover:text-white text-sm transition-colors cursor-pointer"
+                >
+                  Cookie Policy
+                </button>
+                <button
                   onClick={() => setIsTermsModalOpen(true)}
                   className="text-primary-100 hover:text-white text-sm transition-colors cursor-pointer"
                 >
