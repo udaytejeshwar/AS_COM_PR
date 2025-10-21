@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Shield, Zap, BarChart, Microscope, Award, Star } from 'lucide-react';
+import { getSiteImagePath } from '../config/imagePaths';
 
 const PremiumLinePage = () => {
   return (
@@ -157,7 +158,7 @@ const PremiumLinePage = () => {
 
       <div className="mt-12 lg:mt-0">
         <img
-          src="https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={getSiteImagePath('premium-research-development.jpg')}
           alt="Research and Development"
           className="rounded-lg shadow-lg"
         />
