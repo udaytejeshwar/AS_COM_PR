@@ -3,6 +3,7 @@ import { ArrowRight, Zap, Shield, Award, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
 import TypewriterEffect from '../components/shared/TypewriterEffect';
+import { getProductImagePath, getApplicationImagePath } from '../config/imagePaths';
 
 const HomePage = () => {
   const [hoveredApplication, setHoveredApplication] = useState<number | null>(null);
@@ -172,28 +173,28 @@ const HomePage = () => {
                 title: 'MTC spindles',
                 description: 'Manual tool change spindles offering reliable performance for standard machining operations.',
                 features: ['Manual tool change', 'Robust construction', 'Cost-effective solution', 'Wide speed range'],
-                image: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=600'
+                image: getProductImagePath('1', 'ES-9000 ER32', 'main')
               },
               {
                 family: 'Q',
                 title: 'QTC spindles',
                 description: 'Quick tool change spindles for enhanced productivity and reduced downtime.',
                 features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'],
-                image: 'https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=600'
+                image: getProductImagePath('2', 'ES-12000 ER40', 'main')
               },
               {
                 family: 'A',
                 title: 'ATC spindles',
                 description: 'Automatic tool change spindles for maximum efficiency in automated production environments.',
                 features: ['Automatic tool change', 'Maximum efficiency', 'Automated operation', 'Premium performance'],
-                image: 'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600'
+                image: getProductImagePath('7', 'ATC-9000 ISO30', 'main')
               },
               {
                 family: 'B',
                 title: 'Blade Tech spindles',
                 description: 'Advanced blade technology spindles for precision cutting and specialized applications.',
                 features: ['Blade mounting interface', 'High-speed cutting', 'Precision alignment', 'Advanced cooling'],
-                image: 'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=600'
+                image: getProductImagePath('9', 'BT-6000 ER25', 'main')
               }
             ].map((product, index) => (
               <div key={index} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
@@ -266,7 +267,7 @@ const HomePage = () => {
               {
                 title: "Wood Processing",
                 description: "Furniture, cabinetry, and architectural millwork with superior surface finishes.",
-                image: "https://images.pexels.com/photos/175709/pexels-photo-175709.jpeg?auto=compress&cs=tinysrgb&w=400",
+                image: getApplicationImagePath('wood-processing.jpg'),
                 detailedDescription: [
                   "Hardwood machining (Oak, Maple, Cherry)",
                   "Softwood processing (Pine, Cedar, Fir)",
@@ -278,7 +279,7 @@ const HomePage = () => {
               {
                 title: "Stone & Marble",
                 description: "Precision cutting and shaping of natural and engineered stone materials.",
-                image: "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=400",
+                image: getApplicationImagePath('stone-marble.jpg'),
                 detailedDescription: [
                   "Natural stone (Granite, Marble, Limestone)",
                   "Engineered quartz and composite stones",
@@ -290,7 +291,7 @@ const HomePage = () => {
               {
                 title: "Aluminum Machining",
                 description: "High-speed machining of aluminum components for aerospace and automotive.",
-                image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=400",
+                image: getApplicationImagePath('aluminum-machining.jpg'),
                 detailedDescription: [
                   "6061 and 7075 aluminum alloys",
                   "Aerospace component manufacturing",
@@ -302,7 +303,7 @@ const HomePage = () => {
               {
                 title: "Composite Materials",
                 description: "Advanced composites for aerospace, marine, and high-performance applications.",
-                image: "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=400",
+                image: getApplicationImagePath('composite-materials.jpg'),
                 detailedDescription: [
                   "Carbon fiber reinforced plastics (CFRP)",
                   "Glass fiber composites (GFRP)",
@@ -314,7 +315,7 @@ const HomePage = () => {
               {
                 title: "Plastic Processing",
                 description: "Precision machining of thermoplastics and engineering plastics for industrial components.",
-                image: "https://images.pexels.com/photos/3735747/pexels-photo-3735747.jpeg?auto=compress&cs=tinysrgb&w=400",
+                image: getApplicationImagePath('plastic-processing.jpg'),
                 detailedDescription: [
                   "Engineering plastics (PEEK, POM, Nylon)",
                   "Thermoplastics (ABS, PC, PMMA)",
@@ -326,7 +327,7 @@ const HomePage = () => {
               {
                 title: "Glass Engraving",
                 description: "High-precision engraving and cutting of glass materials for decorative and functional applications.",
-                image: "https://images.pexels.com/photos/1029624/pexels-photo-1029624.jpeg?auto=compress&cs=tinysrgb&w=400",
+                image: getApplicationImagePath('glass-engraving.jpg'),
                 detailedDescription: [
                   "Tempered and laminated glass",
                   "Decorative glass engraving",
