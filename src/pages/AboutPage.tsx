@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ChevronRight, Users, History, Target, Award, Globe as Globe2, Rocket, Crosshair, Zap, Gauge } from 'lucide-react';
+import { getSiteImagePath } from '../config/imagePaths';
 
 const AboutPage = () => {
   return (
@@ -30,7 +31,7 @@ const AboutPage = () => {
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
             <div className="mb-10 lg:mb-0">
               <img 
-                src="https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src={getSiteImagePath('factory-facility.jpg')}
                 alt="Ark Spindles Factory"
                 className="rounded-lg shadow-lg"
               />
@@ -145,7 +146,7 @@ const AboutPage = () => {
             </div>
             <div className="mt-10 lg:mt-0">
               <img 
-                src="https://images.pexels.com/photos/2760241/pexels-photo-2760241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src={getSiteImagePath('global-operations.jpg')}
                 alt="Global Operations"
                 className="rounded-lg shadow-lg"
               />
