@@ -2,9 +2,17 @@ import { useState } from 'react';
 import { ArrowRight, Zap, Shield, Award, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
+import TypewriterEffect from '../components/shared/TypewriterEffect';
 
 const HomePage = () => {
   const [hoveredApplication, setHoveredApplication] = useState<number | null>(null);
+  const [showImage, setShowImage] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+
+  const handleTypewriterComplete = () => {
+    setTimeout(() => setShowImage(true), 300);
+    setTimeout(() => setShowButton(true), 600);
+  };
 
   return (
     <div className="min-h-screen">
@@ -18,7 +26,7 @@ const HomePage = () => {
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-24 lg:pb-32">
     <div className="flex flex-col items-center text-center">
       <div className="space-y-8 max-w-4xl">
-        <div className="space-y-4">
+        <div className="space-y-6">
           <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase">
   ARK SPINDLES<sup className="text-sm align-top ml-1">®</sup>
 </h1>
@@ -27,19 +35,41 @@ const HomePage = () => {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div
+          className={`mt-8 transition-all duration-700 transform ${
+            showImage
+              ? 'opacity-100 translate-y-0 scale-100'
+              : 'opacity-0 translate-y-4 scale-95'
+          }`}
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Make_In_India.svg/320px-Make_In_India.svg.png"
+            alt="Make in India"
+            className="mx-auto h-20 lg:h-24 w-auto"
+          />
+        </div>
+
+        <div className="mt-8">
+          <TypewriterEffect
+            text="Indian Manufacturing Prowess - Through Every Revolution"
+            speed={80}
+            onComplete={handleTypewriterComplete}
+          />
+        </div>
+
+        <div
+          className={`mt-8 transition-all duration-700 transform ${
+            showButton
+              ? 'opacity-100 translate-y-0 scale-100'
+              : 'opacity-0 translate-y-4 scale-95'
+          }`}
+        >
           <Link
             to="/products"
             className="inline-flex items-center justify-center px-8 py-4 bg-accent-black-500 text-white font-semibold rounded-lg hover:bg-accent-black-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Explore Products
             <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
-          <Link
-            to="/quote"
-            className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-600 transition-all duration-300"
-          >
-            Get Quote
           </Link>
         </div>
       </div>
