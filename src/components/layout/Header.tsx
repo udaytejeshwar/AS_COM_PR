@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Settings } from 'lucide-react';
+import { getProductImagePath, getApplicationImagePath, getLogoPath } from '../../config/imagePaths';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -91,43 +92,43 @@ const Header = () => {
       to: "/products?family=M",
       title: "MTC Spindles",
       description: "Reliable performance for machining operations with manual tool changes",
-      image: "https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getProductImagePath('1', 'ES-9000 ER32', 'main')
     },
     {
       to: "/products?family=Q",
       title: "QTC Spindles",
       description: "Enhanced productivity with rapid tool changes for reduced downtime",
-      image: "https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getProductImagePath('2', 'ES-12000 ER40', 'main')
     },
     {
       to: "/products?family=A",
       title: "ATC Spindles",
       description: "Maximum efficiency for automated production environments",
-      image: "https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getProductImagePath('7', 'ATC-9000 ISO30', 'main')
     },
     {
       to: "/products?family=B",
       title: "Blade Tech Spindles",
       description: "Advanced blade technology for precision cutting applications",
-      image: "https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getProductImagePath('9', 'BT-6000 ER25', 'main')
     },
     {
       to: "/products?toolHolderTypeCategory=ER",
       title: "ER Spindles",
       description: "Versatile collet system for wide range of tool diameters",
-      image: "https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getProductImagePath('1', 'ES-9000 ER32', 1)
     },
     {
       to: "/products?toolHolderTypeCategory=HSK",
       title: "HSK Spindles",
       description: "High-precision interface for superior runout control",
-      image: "https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getProductImagePath('3', 'ES-7500 HSK-F63', 'main')
     },
     {
       to: "/products?toolHolderTypeCategory=ISO",
       title: "ISO Spindles",
       description: "Universal compatibility with standard ISO tool interfaces",
-      image: "https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getProductImagePath('7', 'ATC-9000 ISO30', 1)
     }
   ];
 
@@ -137,37 +138,37 @@ const Header = () => {
       to: "/products?application=Wood",
       title: "Wood Processing",
       description: "Furniture, cabinetry, and architectural millwork applications",
-      image: "https://images.pexels.com/photos/175709/pexels-photo-175709.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getApplicationImagePath('wood-processing.jpg')
     },
     {
       to: "/products?application=Stone",
       title: "Stone & Marble",
       description: "Natural and engineered stone cutting and shaping",
-      image: "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getApplicationImagePath('stone-marble.jpg')
     },
     {
       to: "/products?application=Aluminum",
       title: "Aluminum Machining",
       description: "High-speed machining for aerospace and automotive components",
-      image: "https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getApplicationImagePath('aluminum-machining.jpg')
     },
     {
       to: "/products?application=Composites",
       title: "Composite Materials",
       description: "Advanced composites for aerospace and marine applications",
-      image: "https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getApplicationImagePath('composite-materials.jpg')
     },
     {
       to: "/products?application=Plastic",
       title: "Plastic Processing",
       description: "Precision machining of engineering plastics",
-      image: "https://images.pexels.com/photos/3735747/pexels-photo-3735747.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getApplicationImagePath('plastic-processing.jpg')
     },
     {
       to: "/products?application=Glass",
       title: "Glass Engraving",
       description: "High-precision engraving and cutting of glass materials",
-      image: "https://images.pexels.com/photos/1029624/pexels-photo-1029624.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: getApplicationImagePath('glass-engraving.jpg')
     }
   ];
 
@@ -182,9 +183,9 @@ const Header = () => {
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={closeMenu}>
-              <img 
-                src="/ARKRIDGE-LOGO.png"
-                alt="ARK SPINDLES Logo" 
+              <img
+                src={getLogoPath('ARKRIDGE-LOGO.png')}
+                alt="ARK SPINDLES Logo"
                 className={`h-14 w-auto transition-all duration-300 ${
                   headerIsScrolled ? 'filter invert' : ''
                 }`}
