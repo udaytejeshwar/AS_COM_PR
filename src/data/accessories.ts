@@ -1,4 +1,5 @@
 import { Accessory } from '../types';
+import { getAccessoryImagePath } from '../config/imagePaths';
 
 export const accessories: Accessory[] = [
   {
@@ -20,7 +21,7 @@ export const accessories: Accessory[] = [
       'Noise Level': '< 45 dB',
       'Dimensions': '120 x 120 x 38 mm'
     },
-    imageUrl: 'https://images.pexels.com/photos/6636091/pexels-photo-6636091.jpeg'
+    imageUrl: getAccessoryImagePath('fan-dc-1', 'High-Performance DC Cooling Fan', 'main')
   },
   {
     id: 'er32-set',
@@ -41,7 +42,7 @@ export const accessories: Accessory[] = [
       'Clamping Range': '2-20mm',
       'Runout': '≤ 0.005mm'
     },
-    imageUrl: 'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg',
+    imageUrl: getAccessoryImagePath('er32-set', 'ER32 Collet Set', 'main'),
     compatibleWith: ['ER']
   },
   {
@@ -63,7 +64,7 @@ export const accessories: Accessory[] = [
       'Control Mode': 'V/F & Vector Control',
       'Protection Class': 'IP20'
     },
-    imageUrl: 'https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg'
+    imageUrl: getAccessoryImagePath('vfd-7500', 'VFD-7500 Drive Controller', 'main')
   },
   {
     id: 'er-wrench-set',
@@ -84,7 +85,7 @@ export const accessories: Accessory[] = [
       'Handle Type': 'Dual Component',
       'Storage': 'Blow Molded Case'
     },
-    imageUrl: 'https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg',
+    imageUrl: getAccessoryImagePath('er-wrench-set', 'Professional ER Wrench Set', 'main'),
     compatibleWith: ['ER']
   }
 ];
