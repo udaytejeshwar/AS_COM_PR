@@ -1,4 +1,5 @@
 import { Product } from '../types';
+import { getProductImagePath } from '../config/imagePaths';
 
 export const products: Product[] = [
   {
@@ -42,11 +43,11 @@ export const products: Product[] = [
         diameter: 120
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('1', 'ES-9000 ER32', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('1', 'ES-9000 ER32', 1),
+      getProductImagePath('1', 'ES-9000 ER32', 2),
+      getProductImagePath('1', 'ES-9000 ER32', 3)
     ],
     deliveryTime: '2-3 weeks'
   },
@@ -91,11 +92,11 @@ export const products: Product[] = [
         diameter: 150
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('2', 'ES-12000 ER40', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('2', 'ES-12000 ER40', 1),
+      getProductImagePath('2', 'ES-12000 ER40', 2),
+      getProductImagePath('2', 'ES-12000 ER40', 3)
     ],
     deliveryTime: '3-4 weeks'
   },
@@ -138,10 +139,10 @@ export const products: Product[] = [
         diameter: 110
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('3', 'ES-7500 HSK-F63', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('3', 'ES-7500 HSK-F63', 1),
+      getProductImagePath('3', 'ES-7500 HSK-F63', 2)
     ],
     deliveryTime: '2-3 weeks'
   },
@@ -186,11 +187,11 @@ export const products: Product[] = [
         diameter: 160
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('4', 'ES-15000 HSK-E50', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('4', 'ES-15000 HSK-E50', 1),
+      getProductImagePath('4', 'ES-15000 HSK-E50', 2),
+      getProductImagePath('4', 'ES-15000 HSK-E50', 3)
     ],
     deliveryTime: '4-6 weeks'
   },
@@ -233,10 +234,10 @@ export const products: Product[] = [
         diameter: 100
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('5', 'ES-5500 ER25', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('5', 'ES-5500 ER25', 1),
+      getProductImagePath('5', 'ES-5500 ER25', 2)
     ],
     deliveryTime: 'In stock'
   },
@@ -279,10 +280,10 @@ export const products: Product[] = [
         diameter: 180
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('6', 'ES-18000 HSK-A63', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('6', 'ES-18000 HSK-A63', 1),
+      getProductImagePath('6', 'ES-18000 HSK-A63', 2)
     ],
     deliveryTime: '6-8 weeks'
   },
@@ -325,10 +326,10 @@ export const products: Product[] = [
         diameter: 140
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('7', 'ATC-9000 ISO30', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('7', 'ATC-9000 ISO30', 1),
+      getProductImagePath('7', 'ATC-9000 ISO30', 2)
     ],
     deliveryTime: '3-4 weeks'
   },
@@ -371,11 +372,11 @@ export const products: Product[] = [
         diameter: 160
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('8', 'ATC-12000 ISO40', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('8', 'ATC-12000 ISO40', 1),
+      getProductImagePath('8', 'ATC-12000 ISO40', 2),
+      getProductImagePath('8', 'ATC-12000 ISO40', 3)
     ],
     deliveryTime: '4-5 weeks'
   },
@@ -418,10 +419,10 @@ export const products: Product[] = [
         diameter: 105
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/3846517/pexels-photo-3846517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('9', 'BT-6000 ER25', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/209235/pexels-photo-209235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('9', 'BT-6000 ER25', 1),
+      getProductImagePath('9', 'BT-6000 ER25', 2)
     ],
     deliveryTime: '2-3 weeks'
   },
@@ -464,10 +465,10 @@ export const products: Product[] = [
         diameter: 125
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/5975507/pexels-photo-5975507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('10', 'BT-8000 ER32', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/3822927/pexels-photo-3822927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('10', 'BT-8000 ER32', 1),
+      getProductImagePath('10', 'BT-8000 ER32', 2)
     ],
     deliveryTime: '3-5 weeks'
   },
@@ -510,10 +511,10 @@ export const products: Product[] = [
         diameter: 140
       }
     },
-    imageUrl: 'https://images.pexels.com/photos/1094767/pexels-photo-1094767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageUrl: getProductImagePath('11', 'BT-10000 HSK-F63', 'main'),
     additionalImageUrls: [
-      'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      getProductImagePath('11', 'BT-10000 HSK-F63', 1),
+      getProductImagePath('11', 'BT-10000 HSK-F63', 2)
     ],
     deliveryTime: '4-6 weeks'
   }
