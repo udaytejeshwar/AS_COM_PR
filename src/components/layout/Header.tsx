@@ -534,25 +534,39 @@ const Header = () => {
       )}
       </header>
 
-      {/* Full-Width Dropdown Overlay */}
+      {/* Backdrop */}
       {isDropdownOpen && (
-        <div 
-          className="hidden md:block fixed inset-x-0 top-[80px] bg-white shadow-xl border-t border-gray-200 z-40 animate-fade-in"
+        <div
+          className="hidden md:block fixed inset-0 top-[80px] bg-black/20 backdrop-blur-sm z-30 animate-fade-in"
+          onMouseEnter={handleOverlayMouseEnter}
+          onMouseLeave={handleDropdownClose}
+        />
+      )}
+
+      {/* Contained Dropdown Menu */}
+      {isDropdownOpen && (
+        <div
+          className="hidden md:block fixed left-1/2 -translate-x-1/2 top-[80px] z-40 animate-fade-in"
           onMouseEnter={handleOverlayMouseEnter}
           onMouseLeave={handleDropdownClose}
         >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="bg-white shadow-xl rounded-xl border border-gray-200 max-h-[70vh] lg:max-h-[65vh] xl:max-h-[60vh] overflow-y-auto scrollbar-thin w-[90vw] max-w-[1200px] mx-auto"
+            style={{
+              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+            }}
+          >
+          <div className="px-4 sm:px-6 lg:px-8 py-6">
             {isProductsDropdownOpen && (
               <div>
-                <h3 className="text-1xl font-light text-primary-2000 mb-8 text-center font-sans tracking-[0.05em] leading-relaxed">
+                <h3 className="text-base font-light text-primary-2000 mb-6 text-center font-sans tracking-[0.05em] leading-relaxed">
                   Explore our precision spindle systems built for high-performance machining
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
                   {productItems.map((item, index) => (
                     <Link
                       key={index}
                       to={item.to}
-                      className="group block relative h-48 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
+                      className="group block relative h-40 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                       onClick={closeDropdown}
                     >
                       {/* Background Image */}
@@ -564,18 +578,18 @@ const Header = () => {
                         />
                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300"></div>
                       </div>
-                      
+
                       {/* Inclined Content Area */}
                       <div className="absolute inset-0 flex items-end">
-                        <div 
-                          className="w-full h-32 transform -skew-x-12 origin-bottom-left transition-all duration-500 group-hover:h-36 clip-curved"
+                        <div
+                          className="w-full h-28 transform -skew-x-12 origin-bottom-left transition-all duration-300 group-hover:h-32 clip-curved"
                           style={{ background: 'linear-gradient(135deg, rgba(77, 93, 109, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%)' }}
                         >
-                          <div className="transform skew-x-12 p-6 h-full flex flex-col justify-center">
-                            <h4 className="text-lg font-semibold text-white group-hover:text-gray-100 mb-2 transition-colors duration-300">
+                          <div className="transform skew-x-12 p-4 h-full flex flex-col justify-center">
+                            <h4 className="text-base font-semibold text-white group-hover:text-gray-100 mb-1 transition-colors duration-300">
                               {item.title}
                             </h4>
-                            <p className="text-sm text-gray-200 group-hover:text-gray-300 leading-relaxed transition-colors duration-300">
+                            <p className="text-xs text-gray-200 group-hover:text-gray-300 leading-relaxed transition-colors duration-300">
                               {item.description}
                             </p>
                           </div>
@@ -589,15 +603,15 @@ const Header = () => {
 
             {isApplicationsDropdownOpen && (
               <div>
-                <h3 className="text-1xl font-light text-primary-2000 mb-8 text-center font-sans tracking-[0.05em] leading-relaxed">
+                <h3 className="text-base font-light text-primary-2000 mb-6 text-center font-sans tracking-[0.05em] leading-relaxed">
                   Explore our high performance spindles based on your applications & industries
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                   {applicationItems.map((item, index) => (
                     <Link
                       key={index}
                       to={item.to}
-                      className="group block relative h-48 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
+                      className="group block relative h-40 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                       onClick={closeDropdown}
                     >
                       {/* Background Image */}
@@ -609,18 +623,18 @@ const Header = () => {
                         />
                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300"></div>
                       </div>
-                      
+
                       {/* Inclined Content Area */}
                       <div className="absolute inset-0 flex items-end">
-                        <div 
-                          className="w-full h-32 transform -skew-x-12 origin-bottom-left transition-all duration-500 group-hover:h-36 clip-curved"
+                        <div
+                          className="w-full h-28 transform -skew-x-12 origin-bottom-left transition-all duration-300 group-hover:h-32 clip-curved"
                           style={{ background: 'linear-gradient(135deg, rgba(77, 93, 109, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%)' }}
                         >
-                          <div className="transform skew-x-12 p-6 h-full flex flex-col justify-center">
-                            <h4 className="text-lg font-semibold text-white group-hover:text-gray-100 mb-2 transition-colors duration-300">
+                          <div className="transform skew-x-12 p-4 h-full flex flex-col justify-center">
+                            <h4 className="text-base font-semibold text-white group-hover:text-gray-100 mb-1 transition-colors duration-300">
                               {item.title}
                             </h4>
-                            <p className="text-sm text-gray-200 group-hover:text-gray-300 leading-relaxed transition-colors duration-300">
+                            <p className="text-xs text-gray-200 group-hover:text-gray-300 leading-relaxed transition-colors duration-300">
                               {item.description}
                             </p>
                           </div>
@@ -631,6 +645,7 @@ const Header = () => {
                 </div>
               </div>
             )}
+          </div>
           </div>
         </div>
       )}
