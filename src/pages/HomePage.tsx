@@ -33,9 +33,11 @@ const HomePage = () => {
           ARK SPINDLES
           <sup className="text-sm align-top ml-1">®</sup>
         </h1>
-        <p className="text-base lg:text-xl text-gray-200 font-sans tracking-[0.3em]">
-          Precision that powers Performance
-        </p>
+        <div className="text-center mb-16">
+            <p className="text-base text-white-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
+              Advanced electro-spindle technology delivering uncompromising precision and performance for demanding <Link to="/products" className="text-white hover:text-white-800 underline decoration-1 underline-offset-2">CNC routing applications</Link>.
+            </p>
+          </div>
       </div>
 
       {/* Make in India + Button */}
@@ -78,11 +80,7 @@ const HomePage = () => {
         
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">
-            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Advanced electro-spindle technology delivering uncompromising precision and performance for demanding <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">CNC routing applications</Link>.
-            </p>
-          </div>
+          
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
