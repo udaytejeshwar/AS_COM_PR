@@ -7,76 +7,71 @@ import { getProductImagePath, getApplicationImagePath } from '../config/imagePat
 
 const HomePage = () => {
   const [hoveredApplication, setHoveredApplication] = useState<number | null>(null);
-  const [showImage, setShowImage] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
   const handleTypewriterComplete = () => {
-    setTimeout(() => setShowImage(true), 300);
-    setTimeout(() => setShowButton(true), 600);
+    setTimeout(() => setShowButton(true), 300);
   };
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
-  className="relative text-white overflow-hidden -mt-16"
+  className="relative text-white overflow-hidden -mt-16 min-h-screen flex flex-col justify-center"
   style={{
-    background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)'
+    background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)',
   }}
 >
-  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-24 lg:pb-32">
-    <div className="flex flex-col items-center text-center">
-      <div className="space-y-8 max-w-4xl">
-        <div className="space-y-6">
-          <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase">
-  ARK SPINDLES<sup className="text-sm align-top ml-1">®</sup>
-</h1>
-          <p className="text-base lg:text-1xl text-gray-200 font-sans tracking-[0.3em]">
-            Precision that powers Performance
-          </p>
-        </div>
+  {/* Main container */}
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center items-center text-center">
+    
+    {/* Centered content */}
+    <div className="space-y-8 max-w-4xl">
+      {/* Title + Subtitle */}
+      <div className="space-y-6">
+        <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase">
+          ARK SPINDLES
+          <sup className="text-sm align-top ml-1">®</sup>
+        </h1>
+        <p className="text-base lg:text-xl text-gray-200 font-sans tracking-[0.3em]">
+          Precision that powers Performance
+        </p>
+      </div>
 
-        <div
-          className={`mt-8 transition-all duration-700 transform ${
-            showImage
-              ? 'opacity-100 translate-y-0 scale-100'
-              : 'opacity-0 translate-y-4 scale-95'
-          }`}
+      {/* Make in India + Button */}
+      <div
+        className={`flex flex-col sm:flex-row items-center justify-center gap-6 transition-all duration-700 transform ${
+          showButton
+            ? 'opacity-100 translate-y-0 scale-100'
+            : 'opacity-0 translate-y-4 scale-95'
+        }`}
+      >
+        <img
+          src="/images/site/makeInIndia.png"
+          alt="Make in India"
+          className="h-24 w-auto"
+        />
+        <Link
+          to="/products"
+          className="inline-flex items-center justify-center px-8 py-4 bg-accent-black-500 text-white font-semibold rounded-lg hover:bg-accent-black-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
         >
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Make_In_India.svg/320px-Make_In_India.svg.png"
-            alt="Make in India"
-            className="mx-auto h-20 lg:h-24 w-auto"
-          />
-        </div>
-
-        <div className="mt-8">
-          <TypewriterEffect
-            text="Indian Manufacturing Prowess - Through Every Revolution"
-            speed={80}
-            onComplete={handleTypewriterComplete}
-          />
-        </div>
-
-        <div
-          className={`mt-8 transition-all duration-700 transform ${
-            showButton
-              ? 'opacity-100 translate-y-0 scale-100'
-              : 'opacity-0 translate-y-4 scale-95'
-          }`}
-        >
-          <Link
-            to="/products"
-            className="inline-flex items-center justify-center px-8 py-4 bg-accent-black-500 text-white font-semibold rounded-lg hover:bg-accent-black-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
-          >
-            Explore Products
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
-        </div>
+          Explore Products
+          <ArrowRight className="ml-2 w-5 h-5" />
+        </Link>
       </div>
     </div>
   </div>
+
+  {/* Typewriter anchored to bottom */}
+  <div className="absolute bottom-[6.5rem] w-full text-center">
+    <TypewriterEffect
+      text="Indian Manufacturing Prowess - Through Every Revolution"
+      speed={80}
+      onComplete={handleTypewriterComplete}
+    />
+  </div>
 </section>
+
 
       {/* Features Section */}
       <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
