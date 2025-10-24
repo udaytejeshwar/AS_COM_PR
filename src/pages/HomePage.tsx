@@ -29,13 +29,13 @@ const HomePage = () => {
     <div className="space-y-8 max-w-4xl">
       {/* Title + Subtitle */}
       <div className="space-y-6">
-        <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase">
-          ARK SPINDLES
-          <sup className="text-sm align-top ml-1">®</sup>
-        </h1>
+        <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase text-center">
+  <span className="inline-block">ARK SPINDLES</span>
+  <sup className="text-sm align-top ml-1">®</sup>
+</h1>
         <div className="text-center mb-16">
             <p className="text-base text-white-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Advanced electro-spindle technology delivering uncompromising precision and performance for demanding <Link to="/products" className="text-white hover:text-white-800 underline decoration-1 underline-offset-2">CNC routing applications</Link>.
+              Advanced electro-spindle technology for demanding <Link to="/products" className="text-white hover:text-white-800 underline decoration-1 underline-offset-2">CNC applications</Link>.
             </p>
           </div>
       </div>
@@ -87,8 +87,8 @@ const HomePage = () => {
               {
                 icon: Zap,
                 title: "High Speed Performance",
-                description: "Engineered for sustained operation at speeds up to 30,000 RPM with superior power density and thermal management for continuous production cycles.",
-                specs: "Up to 30,000 RPM",
+                description: "Engineered for sustained operation at speeds up to 60,000 RPM with superior power density and thermal management for continuous production cycles.",
+                specs: "Up to 60,000 RPM",
                 gradient: "from-blue-500 to-cyan-500"
               },
               {
