@@ -216,12 +216,8 @@ const ProductDetailPage = () => {
                   <p className="font-medium">{product.maxSpeed.toLocaleString()} RPM</p>
                 </div>
                 <div>
-                  <span className="text-sm text-gray-500">Current</span>
-                  <p className="font-medium">{product.current} A</p>
-                </div>
-                <div>
                   <span className="text-sm text-gray-500">Voltage</span>
-                  <p className="font-medium">{product.voltage} V</p>
+                  <p className="font-medium">{product.voltage}</p>
                 </div>
                 <div>
                   <span className="text-sm text-gray-500">Tool Holder</span>
@@ -271,10 +267,10 @@ const ProductDetailPage = () => {
                 <div className="flex items-start">
                   <Ruler className="w-5 h-5 text-primary-500 mt-1 mr-3" />
                   <div>
-                    <p className="text-sm font-medium text-gray-900">Dimensions</p>
+                    <p className="text-sm font-medium text-gray-900">Body Diameter</p>
                     <p className="text-sm text-gray-600">
-                      L: {product.technicalSpecs.dimensions.length} mm<br />
-                      Ø: {product.technicalSpecs.dimensions.diameter} mm
+                      Width: {product.technicalSpecs.bodyDiameter.width} mm<br />
+                      Height: {product.technicalSpecs.bodyDiameter.height} mm
                     </p>
                   </div>
                 </div>
