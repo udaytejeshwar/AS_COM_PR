@@ -15,8 +15,7 @@ export const products: Product[] = [
     nominalSpeed: 24000,
     torque: 6.8,
     torqueS6: 4.8,
-    current: 2.0,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'ER32',
     applications: ['Wood', 'Aluminum', 'Plastic'],
     description: 'High-performance ER32 electro spindle designed for precision woodworking and aluminum machining. Features advanced cooling system and premium bearing technology for extended service life.',
@@ -35,12 +34,10 @@ export const products: Product[] = [
       motorType: 'Asynchronous 3-Phase',
       insulationClass: 'Class F',
       protectionClass: 'IP65',
-      axialStiffness: '180 N/μm',
-      radialStiffness: '220 N/μm',
       weight: 12.5,
-      dimensions: {
-        length: 380,
-        diameter: 120
+      bodyDiameter: {
+        width: 380,
+        height: 120
       }
     },
     imageUrl: getProductImagePath('1', 'ES-9000 ER32', 'main'),
@@ -64,8 +61,7 @@ export const products: Product[] = [
     nominalSpeed: 24000,
     torque: 8.5,
     torqueS6: 6.0,
-    current: 2.0,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'ER40',
     applications: ['Wood', 'Stone', 'Aluminum', 'Glass'],
     description: 'Premium ER40 electro spindle offering exceptional versatility across wood, stone, and aluminum applications. Engineered for high material removal rates while maintaining superior surface finish quality.',
@@ -84,12 +80,10 @@ export const products: Product[] = [
       motorType: 'Asynchronous 3-Phase',
       insulationClass: 'Class H',
       protectionClass: 'IP66',
-      axialStiffness: '220 N/μm',
-      radialStiffness: '280 N/μm',
       weight: 15.8,
-      dimensions: {
-        length: 420,
-        diameter: 150
+      bodyDiameter: {
+        width: 420,
+        height: 150
       }
     },
     imageUrl: getProductImagePath('2', 'ES-12000 ER40', 'main'),
@@ -111,8 +105,7 @@ export const products: Product[] = [
     maxSpeed: 28000,
     nominalSpeed: 24000,
     torque: 5.4,
-    current: 2.0,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'HSK-F63',
     applications: ['Wood', 'Composites'],
     description: 'Compact HSK-F63 electro spindle with exceptional speed capabilities, ideal for intricate woodworking and composite machining where precision and surface finish are paramount.',
@@ -131,12 +124,10 @@ export const products: Product[] = [
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class F',
       protectionClass: 'IP65',
-      axialStiffness: '160 N/μm',
-      radialStiffness: '190 N/μm',
       weight: 10.2,
-      dimensions: {
-        length: 340,
-        diameter: 110
+      bodyDiameter: {
+        width: 340,
+        height: 110
       }
     },
     imageUrl: getProductImagePath('3', 'ES-7500 HSK-F63', 'main'),
@@ -159,8 +150,7 @@ export const products: Product[] = [
     nominalSpeed: 24000,
     torque: 12.2,
     torqueS6: 8.5,
-    current: 2.0,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'HSK-E50',
     applications: ['Stone', 'Aluminum', 'Composites'],
     description: 'Heavy-duty HSK-E50 electro spindle developed for demanding applications in stone, aluminum, and composite materials. Features advanced vibration dampening and superior power delivery.',
@@ -179,12 +169,10 @@ export const products: Product[] = [
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class H',
       protectionClass: 'IP67',
-      axialStiffness: '250 N/μm',
-      radialStiffness: '310 N/μm',
       weight: 18.5,
-      dimensions: {
-        length: 460,
-        diameter: 160
+      bodyDiameter: {
+        width: 460,
+        height: 160
       }
     },
     imageUrl: getProductImagePath('4', 'ES-15000 HSK-E50', 'main'),
@@ -206,8 +194,7 @@ export const products: Product[] = [
     maxSpeed: 30000,
     nominalSpeed: 24000,
     torque: 3.8,
-    current: 2.0,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'ER25',
     applications: ['Wood', 'Aluminum', 'Composites', 'Plastic'],
     description: 'Compact and lightweight ER25 electro spindle offering exceptional speed for precision machining of wood, aluminum, and composite materials where detailed finishing is essential.',
@@ -226,12 +213,10 @@ export const products: Product[] = [
       motorType: 'Asynchronous 3-Phase',
       insulationClass: 'Class F',
       protectionClass: 'IP65',
-      axialStiffness: '140 N/μm',
-      radialStiffness: '170 N/μm',
       weight: 8.5,
-      dimensions: {
-        length: 320,
-        diameter: 100
+      bodyDiameter: {
+        width: 320,
+        height: 100
       }
     },
     imageUrl: getProductImagePath('5', 'ES-5500 ER25', 'main'),
@@ -252,8 +237,7 @@ export const products: Product[] = [
     maxSpeed: 18000,
     nominalSpeed: 24000,
     torque: 15.0,
-    current: 2.0,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'HSK-A63',
     applications: ['Stone', 'Aluminum'],
     description: 'Industrial-grade HSK-A63 electro spindle designed for the most demanding stone and aluminum applications. Exceptional power and torque characteristics for heavy material removal.',
@@ -272,12 +256,10 @@ export const products: Product[] = [
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class H',
       protectionClass: 'IP67',
-      axialStiffness: '280 N/μm',
-      radialStiffness: '350 N/μm',
       weight: 22.5,
-      dimensions: {
-        length: 490,
-        diameter: 180
+      bodyDiameter: {
+        width: 490,
+        height: 180
       }
     },
     imageUrl: getProductImagePath('6', 'ES-18000 HSK-A63', 'main'),
@@ -298,8 +280,7 @@ export const products: Product[] = [
     maxSpeed: 24000,
     nominalSpeed: 18000,
     torque: 7.2,
-    current: 2.0,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'ISO30',
     applications: ['Wood', 'Aluminum', 'Composites', 'Glass'],
     description: 'Advanced automatic tool change spindle with ISO30 interface, designed for high-productivity manufacturing environments. Features rapid tool change capabilities and exceptional precision for automated machining operations.',
@@ -318,12 +299,10 @@ export const products: Product[] = [
       motorType: 'Asynchronous 3-Phase',
       insulationClass: 'Class F',
       protectionClass: 'IP65',
-      axialStiffness: '200 N/μm',
-      radialStiffness: '240 N/μm',
       weight: 16.5,
-      dimensions: {
-        length: 420,
-        diameter: 140
+      bodyDiameter: {
+        width: 420,
+        height: 140
       }
     },
     imageUrl: getProductImagePath('7', 'ATC-9000 ISO30', 'main'),
@@ -344,8 +323,7 @@ export const products: Product[] = [
     maxSpeed: 20000,
     nominalSpeed: 16000,
     torque: 9.8,
-    current: 2.0,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'ISO40',
     applications: ['Stone', 'Aluminum', 'Composites'],
     description: 'Premium automatic tool change spindle with ISO40 interface for heavy-duty applications. Engineered for continuous operation in demanding production environments with superior tool holding force.',
@@ -364,12 +342,10 @@ export const products: Product[] = [
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class H',
       protectionClass: 'IP67',
-      axialStiffness: '260 N/μm',
-      radialStiffness: '300 N/μm',
       weight: 22.0,
-      dimensions: {
-        length: 480,
-        diameter: 160
+      bodyDiameter: {
+        width: 480,
+        height: 160
       }
     },
     imageUrl: getProductImagePath('8', 'ATC-12000 ISO40', 'main'),
@@ -391,8 +367,7 @@ export const products: Product[] = [
     maxSpeed: 32000,
     nominalSpeed: 28000,
     torque: 4.2,
-    current: 1.8,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'ER25',
     applications: ['Wood', 'Composites', 'Plastic'],
     description: 'High-speed blade technology spindle designed for precision cutting and trimming operations. Features advanced blade mounting system and optimized cooling for continuous operation.',
@@ -411,12 +386,10 @@ export const products: Product[] = [
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class F',
       protectionClass: 'IP65',
-      axialStiffness: '150 N/μm',
-      radialStiffness: '180 N/μm',
       weight: 9.2,
-      dimensions: {
-        length: 350,
-        diameter: 105
+      bodyDiameter: {
+        width: 350,
+        height: 105
       }
     },
     imageUrl: getProductImagePath('9', 'BT-6000 ER25', 'main'),
@@ -437,8 +410,7 @@ export const products: Product[] = [
     maxSpeed: 30000,
     nominalSpeed: 26000,
     torque: 5.8,
-    current: 2.2,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'ER32',
     applications: ['Wood', 'Aluminum', 'Composites'],
     description: 'Premium blade technology spindle with advanced cutting capabilities for demanding applications. Features intelligent blade monitoring and adaptive speed control.',
@@ -457,12 +429,10 @@ export const products: Product[] = [
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class H',
       protectionClass: 'IP67',
-      axialStiffness: '200 N/μm',
-      radialStiffness: '240 N/μm',
       weight: 13.5,
-      dimensions: {
-        length: 390,
-        diameter: 125
+      bodyDiameter: {
+        width: 390,
+        height: 125
       }
     },
     imageUrl: getProductImagePath('10', 'BT-8000 ER32', 'main'),
@@ -483,8 +453,7 @@ export const products: Product[] = [
     maxSpeed: 28000,
     nominalSpeed: 24000,
     torque: 7.2,
-    current: 2.5,
-    voltage: '220/380',
+    voltage: '220V, 380V',
     toolHolder: 'HSK-F63',
     applications: ['Wood', 'Stone', 'Composites'],
     description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
@@ -503,12 +472,10 @@ export const products: Product[] = [
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class H',
       protectionClass: 'IP67',
-      axialStiffness: '240 N/μm',
-      radialStiffness: '290 N/μm',
       weight: 16.8,
-      dimensions: {
-        length: 440,
-        diameter: 140
+      bodyDiameter: {
+        width: 440,
+        height: 140
       }
     },
     imageUrl: getProductImagePath('11', 'BT-10000 HSK-F63', 'main'),
