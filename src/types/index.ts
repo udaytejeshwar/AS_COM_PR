@@ -18,6 +18,7 @@ export interface Product {
   nominalSpeed: number; // in RPM
   torque: number; // in Newton meters (S1 - continuous duty)
   torqueS6?: number; // in Newton meters (S6 - intermittent duty at 40%)
+  voltage: string; // Voltage (e.g., '220V', '380V', '220V, 380V')
   toolHolder: ToolHolder;
   applications: Application[];
   description: string;
@@ -30,12 +31,10 @@ export interface Product {
     motorType: string;
     insulationClass: string;
     protectionClass: string;
-    axialStiffness: string;
-    radialStiffness: string;
     weight: number; // in kg
-    dimensions: {
-      length: number; // in mm
-      diameter: number; // in mm
+    bodyDiameter: {
+      width: number; // in mm
+      height: number; // in mm
     };
   };
   imageUrl: string;
