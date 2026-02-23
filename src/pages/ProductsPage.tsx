@@ -50,9 +50,13 @@ const ProductsPage = () => {
     
     setFilters(prev => ({
       ...prev,
-      family: (familyParam && ['M', 'Q', 'A', 'B'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
-      toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK', 'ISO'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
-      application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'].includes(applicationParam)) ? applicationParam as Application : 'All',
+      //Use the below 3 lines when you need to include ATC and blade along with aother applications
+      // family: (familyParam && ['M', 'Q', 'A', 'B'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
+      // toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK', 'ISO'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
+      // application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'].includes(applicationParam)) ? applicationParam as Application : 'All',
+      family: (familyParam && ['M', 'Q'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
+      toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
+      application: (applicationParam && ['Wood', 'Aluminum', 'Composites'].includes(applicationParam)) ? applicationParam as Application : 'All',
       toolHolder: toolHolderParam || 'All',
       line: (lineParam && ['Standard', 'Premium'].includes(lineParam)) ? lineParam as 'Standard' | 'Premium' : 'All',
       minPower: minPowerParam ? Number(minPowerParam) : null,
