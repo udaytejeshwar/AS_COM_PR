@@ -158,8 +158,8 @@ const HomePage = () => {
               Tailored spindle systems engineered for distinct materials, methods, and performance demands — from <Link to="/products?application=Wood" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">high-speed contouring in wood</Link> to heavy-duty milling in <Link to="/products?application=Stone" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">stone</Link> and <Link to="/products?application=Aluminum" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">aluminum</Link>.
             </p>
           </div>
-          
-          <div className="grid lg:grid-cols-3 gap-8">
+          {/* use 3 when more than 4 are used */}
+          <div className="grid lg:grid-cols-2 gap-8">
             {[
               {
                 family: 'M',
@@ -174,21 +174,21 @@ const HomePage = () => {
                 description: 'Quick tool change spindles for enhanced productivity and reduced downtime.',
                 features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'],
                 image: getProductImagePath('2', 'ES-12000 ER40', 'main')
-              },
-              {
-                family: 'A',
-                title: 'ATC spindles',
-                description: 'Automatic tool change spindles for maximum efficiency in automated production environments.',
-                features: ['Automatic tool change', 'Maximum efficiency', 'Automated operation', 'Premium performance'],
-                image: getProductImagePath('7', 'ATC-9000 ISO30', 'main')
-              },
-              {
-                family: 'B',
-                title: 'Blade Tech spindles',
-                description: 'Advanced blade technology spindles for precision cutting and specialized applications.',
-                features: ['Blade mounting interface', 'High-speed cutting', 'Precision alignment', 'Advanced cooling'],
-                image: getProductImagePath('9', 'BT-6000 ER25', 'main')
               }
+              // ,{
+              //   family: 'A',
+              //   title: 'ATC spindles',
+              //   description: 'Automatic tool change spindles for maximum efficiency in automated production environments.',
+              //   features: ['Automatic tool change', 'Maximum efficiency', 'Automated operation', 'Premium performance'],
+              //   image: getProductImagePath('7', 'ATC-9000 ISO30', 'main')
+              // },
+              // {
+              //   family: 'B',
+              //   title: 'Blade Tech spindles',
+              //   description: 'Advanced blade technology spindles for precision cutting and specialized applications.',
+              //   features: ['Blade mounting interface', 'High-speed cutting', 'Precision alignment', 'Advanced cooling'],
+              //   image: getProductImagePath('9', 'BT-6000 ER25', 'main')
+              // }
             ].map((product, index) => (
               <div key={index} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className="aspect-video overflow-hidden">
