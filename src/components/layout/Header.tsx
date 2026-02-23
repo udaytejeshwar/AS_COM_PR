@@ -99,37 +99,37 @@ const Header = () => {
       title: "QTC Spindles",
       description: "Enhanced productivity with rapid tool changes for reduced downtime",
       image: getProductImagePath('2', 'ES-12000 ER40', 'main')
-    },
-    {
-      to: "/products?family=A",
-      title: "ATC Spindles",
-      description: "Maximum efficiency for automated production environments",
-      image: getProductImagePath('7', 'ATC-9000 ISO30', 'main')
-    },
-    {
-      to: "/products?family=B",
-      title: "Blade Tech Spindles",
-      description: "Advanced blade technology for precision cutting applications",
-      image: getProductImagePath('9', 'BT-6000 ER25', 'main')
-    },
-    {
-      to: "/products?toolHolderTypeCategory=ER",
-      title: "ER Spindles",
-      description: "Versatile collet system for wide range of tool diameters",
-      image: getProductImagePath('1', 'ES-9000 ER32', 1)
-    },
-    {
-      to: "/products?toolHolderTypeCategory=HSK",
-      title: "HSK Spindles",
-      description: "High-precision interface for superior runout control",
-      image: getProductImagePath('3', 'ES-7500 HSK-F63', 'main')
-    },
-    {
-      to: "/products?toolHolderTypeCategory=ISO",
-      title: "ISO Spindles",
-      description: "Universal compatibility with standard ISO tool interfaces",
-      image: getProductImagePath('7', 'ATC-9000 ISO30', 1)
     }
+    // ,{
+    //   to: "/products?family=A",
+    //   title: "ATC Spindles",
+    //   description: "Maximum efficiency for automated production environments",
+    //   image: getProductImagePath('7', 'ATC-9000 ISO30', 'main')
+    // },
+    // {
+    //   to: "/products?family=B",
+    //   title: "Blade Tech Spindles",
+    //   description: "Advanced blade technology for precision cutting applications",
+    //   image: getProductImagePath('9', 'BT-6000 ER25', 'main')
+    // },
+    // {
+    //   to: "/products?toolHolderTypeCategory=ER",
+    //   title: "ER Spindles",
+    //   description: "Versatile collet system for wide range of tool diameters",
+    //   image: getProductImagePath('1', 'ES-9000 ER32', 1)
+    // },
+    // {
+    //   to: "/products?toolHolderTypeCategory=HSK",
+    //   title: "HSK Spindles",
+    //   description: "High-precision interface for superior runout control",
+    //   image: getProductImagePath('3', 'ES-7500 HSK-F63', 'main')
+    // },
+    // {
+    //   to: "/products?toolHolderTypeCategory=ISO",
+    //   title: "ISO Spindles",
+    //   description: "Universal compatibility with standard ISO tool interfaces",
+    //   image: getProductImagePath('7', 'ATC-9000 ISO30', 1)
+    // }
   ];
 
   // Application dropdown items with descriptions
