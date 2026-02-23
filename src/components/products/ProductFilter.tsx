@@ -67,10 +67,10 @@ const ProductFilter = ({
       <div className={`${isOpen ? 'block' : 'hidden'} lg:block p-4 space-y-6`}>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Product Family
+            {/* Product Family */}
           </label>
           <div className="flex flex-wrap gap-2">
-            /* {(['All', 'M', 'Q', 'A', 'B'] as const).map((family) => ( */
+           {/* {(['All', 'M', 'Q', 'A', 'B'] as const).map((family) => ( */}
             {(['All', 'M', 'Q'] as const).map((family) => (
               <button
                 key={family}
@@ -82,7 +82,7 @@ const ProductFilter = ({
                     : 'bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200'
                 }`}
               >
-                /* {family === 'M' ? 'MTC' : family === 'Q' ? 'QTC' : family === 'A' ? 'ATC' : family === 'B' ? 'Blade Tech' : family} */
+               {/* {family === 'M' ? 'MTC' : family === 'Q' ? 'QTC' : family === 'A' ? 'ATC' : family === 'B' ? 'Blade Tech' : family} */}
                 {family === 'M' ? 'MTC' : family === 'Q' ? 'QTC' : family}
               </button>
             ))}
@@ -94,7 +94,7 @@ const ProductFilter = ({
             Tool Holder Type
           </label>
           <div className="flex flex-wrap gap-2">
-            /* {(['All', 'ER', 'HSK', 'ISO'] as const).map((type) => ( */
+           {/* {(['All', 'ER', 'HSK', 'ISO'] as const).map((type) => ( */}
             {(['All', 'ER', 'HSK'] as const).map((type) => (
               <button
                 key={type}
