@@ -10,7 +10,7 @@ export const products: Product[] = [
     line: 'Standard',
     power: 6.0,
     powerS6: 6.3,
-    minSpeed: 6000,
+    minSpeed: 12000,
     maxSpeed: 18000,
     nominalSpeed: 24000,
     torque: 3.18,
