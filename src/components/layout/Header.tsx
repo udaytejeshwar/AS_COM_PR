@@ -232,9 +232,9 @@ const Header = () => {
               </button>
             </div>
 
-            <NavLink to="/premium" className={navLinkClass}>
+            {/* <NavLink to="/premium" className={navLinkClass}>
               Premium Line
-            </NavLink>
+            </NavLink> */}
 
             <NavLink to="/accessories" className={navLinkClass}>
               Accessories
@@ -375,7 +375,7 @@ const Header = () => {
               Blade tech spindles
             </NavLink>
 
-            <NavLink
+            {/* <NavLink
               to="/premium"
               className={({ isActive }) =>
                 `block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
@@ -391,7 +391,7 @@ const Header = () => {
               onClick={closeMenu}
             >
               Premium Line
-            </NavLink>
+            </NavLink> */}
 
             <NavLink
               to="/accessories"
