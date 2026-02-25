@@ -33,8 +33,8 @@ export const products: Product[] = [
       lubricationType: 'Grease Lubrication',
       motorType: 'Asynchronous 3-Phase',
       insulationClass: 'Class F',
-      protectionClass: 'IP65',
-      weight: 12.5,
+      protectionClass: 'IP54',
+      weight: 13.5,
       bodyDiameter: {
         width: 380,
         height: 120
