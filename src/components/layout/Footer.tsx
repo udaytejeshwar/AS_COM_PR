@@ -78,7 +78,7 @@ const Footer = ({ onOpenCookiePolicy }: FooterProps) => {
                     QTC spindles
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/products?family=A" className="text-primary-100 hover:text-white transition-colors">
                     ATC spindles
                   </Link>
@@ -87,7 +87,7 @@ const Footer = ({ onOpenCookiePolicy }: FooterProps) => {
                   <Link to="/products?family=B" className="text-primary-100 hover:text-white transition-colors">
                     Blade Tech
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/products?toolHolderTypeCategory=ER" className="text-primary-100 hover:text-white transition-colors">
                     ER spindles
@@ -98,11 +98,11 @@ const Footer = ({ onOpenCookiePolicy }: FooterProps) => {
                     HSK spindles
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/products?toolHolderTypeCategory=ISO" className="text-primary-100 hover:text-white transition-colors">
                     ISO spindles
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/products?application=Wood" className="text-primary-100 hover:text-white transition-colors">
                     Wood 
