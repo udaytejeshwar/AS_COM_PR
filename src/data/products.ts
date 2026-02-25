@@ -4,20 +4,20 @@ import { getProductImagePath } from '../config/imagePaths';
 export const products: Product[] = [
   {
     id: '1',
-    name: 'ES-9000 ER32',
+    name: 'AME0300-1001',
     family: 'M',
     toolHolderTypeCategory: 'ER',
     line: 'Standard',
-    power: 9.0,
+    power: 6.0,
     powerS6: 6.3,
     minSpeed: 6000,
-    maxSpeed: 24000,
+    maxSpeed: 18000,
     nominalSpeed: 24000,
-    torque: 6.8,
+    torque: 3.18,
     torqueS6: 4.8,
     voltage: '220V, 380V',
     toolHolder: 'ER32',
-    applications: ['Wood', 'Aluminum', 'Plastic'],
+    applications: ['Wood', 'Aluminum', 'Composites'],
     description: 'High-performance ER32 electro spindle designed for precision woodworking and aluminum machining. Features advanced cooling system and premium bearing technology for extended service life.',
     features: [
       'Precision balanced rotor',
@@ -40,11 +40,11 @@ export const products: Product[] = [
         height: 120
       }
     },
-    imageUrl: getProductImagePath('1', 'ES-9000 ER32', 'main'),
+    imageUrl: getProductImagePath('1', 'AME0300-1001', 'main'),
     additionalImageUrls: [
-      getProductImagePath('1', 'ES-9000 ER32', 1),
-      getProductImagePath('1', 'ES-9000 ER32', 2),
-      getProductImagePath('1', 'ES-9000 ER32', 3)
+      getProductImagePath('1', 'AME0300-1001', 1),
+      getProductImagePath('1', 'AME0300-1001', 2),
+      getProductImagePath('1', 'AME0300-1001', 3)
     ],
     deliveryTime: '2-3 weeks'
   },
