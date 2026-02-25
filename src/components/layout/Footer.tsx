@@ -142,19 +142,19 @@ const Footer = ({ onOpenCookiePolicy }: FooterProps) => {
                 <li className="flex items-start">
                   <MapPin className="w-5 h-5 mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-primary-100">
-                    1234 Industrial Avenue, Tech Park, Milan, Italy
+                    Plot 28, Gachibowli, Hyderabad 500032, India
                   </span>
                 </li>
                 <li className="flex items-center">
                   <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
-                  <a href="tel:+1234567890" className="text-primary-100 hover:text-white transition-colors">
-                    +1 (234) 567-890
+                  <a href="tel:+916309185996" className="text-primary-100 hover:text-white transition-colors">
+                    +91 630-918-5996 / +91 702-265-5669
                   </a>
                 </li>
                 <li className="flex items-center">
                   <Mail className="w-5 h-5 mr-3 flex-shrink-0" />
                   <a href="mailto:info@spindletech.com" className="text-primary-100 hover:text-white transition-colors">
-                    info@spindletech.com
+                    sales@arkspindles.com
                   </a>
                 </li>
               </ul>
