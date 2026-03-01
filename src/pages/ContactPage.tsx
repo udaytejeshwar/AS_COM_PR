@@ -3,11 +3,16 @@ import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
 import { getGoogleSheetsUrl } from '../config/googleSheets';
 import { submitToGoogleSheets, validateFormData } from '../utils/googleSheets';
+import StructuredData from '../components/shared/StructuredData';
+import { buildLocalBusinessSchema } from '../config/schemas';
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
 
+const LOCAL_BUSINESS_SCHEMA = buildLocalBusinessSchema();
+
 const ContactPage = () => {
   useSEO(SEO.contact);
+
 
   const [formData, setFormData] = useState({
     name: '',
@@ -46,6 +51,7 @@ const ContactPage = () => {
 
   return (
     <div className="animate-fade-in">
+      <StructuredData schemas={LOCAL_BUSINESS_SCHEMA} />
       <section className="relative text-white overflow-hidden -mt-16" style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}>
         <div className="container mx-auto px-4 pt-40 pb-24 sm:px-6 lg:px-8 relative z-10">
           <div className="flex justify-between items-start">
