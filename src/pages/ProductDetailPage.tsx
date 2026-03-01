@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Gauge, Download, FileDown, ArrowLeft } from 'lucide-react';
+import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Gauge, Download, ArrowLeft } from 'lucide-react';
 import { getProductById, products } from '../data/products';
 import { Product } from '../types';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
+import useSEO from '../hooks/useSEO';
+import { buildProductSEO } from '../config/seo';
 
 const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -13,6 +15,18 @@ const ProductDetailPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [allImages, setAllImages] = useState<string[]>([]);
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
+
+  // Build SEO data from the loaded product (or use safe defaults while loading)
+  const seoData = product
+    ? buildProductSEO(product)
+    : {
+        title: 'CNC Electro Spindle | ARK SPINDLES India',
+        description: 'Precision CNC electro spindle by ARK SPINDLES, manufactured in Hyderabad, India.',
+        keywords: 'electro spindle India, CNC spindle',
+        canonicalUrl: `/products/${id ?? ''}`,
+      };
+
+  useSEO(seoData);
 
   const handleImageDownload = (imageUrl: string, productName: string) => {
     const link = document.createElement('a');
@@ -127,7 +141,7 @@ const ProductDetailPage = () => {
             <div className="bg-white rounded-lg overflow-hidden shadow-md mb-4 relative group">
               <img
                 src={selectedImage || allImages[0]}
-                alt={product.name}
+                alt={`${product.name} — ${product.toolHolder} CNC spindle by ARK SPINDLES India`}
                 className="w-full h-96 object-cover object-center"
               />
               <button
@@ -153,7 +167,7 @@ const ProductDetailPage = () => {
                   >
                     <img
                       src={imageUrl}
-                      alt={`${product.name} - Image ${index + 1}`}
+                      alt={`${product.name} — view ${index + 1}`}
                       className="w-full h-16 sm:h-20 object-cover transition-transform duration-200 hover:scale-105"
                     />
                   </button>
@@ -187,7 +201,7 @@ const ProductDetailPage = () => {
             <p className="text-gray-700 mb-6">{product.description}</p>
 
             <div className="bg-gray-50 rounded-lg p-6 mb-6">
-              <h3 className="text-lg font-semibold text-primary-500 mb-4">Specifications</h3>
+              <h2 className="text-lg font-semibold text-primary-500 mb-4">Specifications</h2>
               <div className="grid grid-cols-2 gap-y-4">
                 <div>
                   <span className="text-sm text-gray-500">Power</span>
@@ -227,7 +241,7 @@ const ProductDetailPage = () => {
             </div>
 
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-              <h3 className="text-lg font-semibold text-primary-500 mb-4">Features</h3>
+              <h2 className="text-lg font-semibold text-primary-500 mb-4">Technical Details</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex items-start">
                   <Gauge className="w-5 h-5 text-primary-500 mt-1 mr-3" />
@@ -278,7 +292,7 @@ const ProductDetailPage = () => {
             </div>
 
             <div className="mb-8">
-              <h3 className="text-lg font-semibold text-primary-500 mb-4">Key Features</h3>
+              <h2 className="text-lg font-semibold text-primary-500 mb-4">Key Features</h2>
               <ul className="space-y-2">
                 {product.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
@@ -320,7 +334,7 @@ const ProductDetailPage = () => {
                   <div className="h-48 bg-gray-200 overflow-hidden">
                     <img
                       src={relatedProduct.imageUrl}
-                      alt={relatedProduct.name}
+                      alt={`${relatedProduct.name} — CNC spindle by ARK SPINDLES`}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
