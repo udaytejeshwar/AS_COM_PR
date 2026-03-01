@@ -6,6 +6,8 @@ import ProductFilter from '../components/products/ProductFilter';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
 import { products, getFilterLimits } from '../data/products';
 import { FilterOptions, Product, Application, ProductFamily, ToolHolder, ToolHolderTypeCategory } from '../types';
+import useSEO from '../hooks/useSEO';
+import { SEO } from '../config/seo';
 
 const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,6 +15,8 @@ const ProductsPage = () => {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
   const [showFilters, setShowFilters] = useState(false);
   
+  useSEO(SEO.products);
+
   // Get filter ranges
   const limits = getFilterLimits();
   const powerRange: [number, number] = [limits.minPower, limits.maxPower];
@@ -72,49 +76,17 @@ const ProductsPage = () => {
   useEffect(() => {
     const newParams = new URLSearchParams();
     
-    if (filters.family !== 'All') {
-      newParams.set('family', filters.family);
-    }
-    
-    if (filters.toolHolderTypeCategory !== 'All') {
-      newParams.set('toolHolderTypeCategory', filters.toolHolderTypeCategory);
-    }
-    
-    if (filters.application !== 'All') {
-      newParams.set('application', filters.application);
-    }
-
-    if (filters.toolHolder !== 'All') {
-      newParams.set('toolHolder', filters.toolHolder);
-    }
-    
-    if (filters.line !== 'All') {
-      newParams.set('line', filters.line);
-    }
-    
-    if (filters.minPower !== null) {
-      newParams.set('minPower', filters.minPower.toString());
-    }
-    
-    if (filters.maxPower !== null) {
-      newParams.set('maxPower', filters.maxPower.toString());
-    }
-    
-    if (filters.minSpeed !== null) {
-      newParams.set('minSpeed', filters.minSpeed.toString());
-    }
-    
-    if (filters.maxSpeed !== null) {
-      newParams.set('maxSpeed', filters.maxSpeed.toString());
-    }
-    
-    if (filters.minTorque !== null) {
-      newParams.set('minTorque', filters.minTorque.toString());
-    }
-    
-    if (filters.maxTorque !== null) {
-      newParams.set('maxTorque', filters.maxTorque.toString());
-    }
+    if (filters.family !== 'All') newParams.set('family', filters.family);
+    if (filters.toolHolderTypeCategory !== 'All') newParams.set('toolHolderTypeCategory', filters.toolHolderTypeCategory);
+    if (filters.application !== 'All') newParams.set('application', filters.application);
+    if (filters.toolHolder !== 'All') newParams.set('toolHolder', filters.toolHolder);
+    if (filters.line !== 'All') newParams.set('line', filters.line);
+    if (filters.minPower !== null) newParams.set('minPower', filters.minPower.toString());
+    if (filters.maxPower !== null) newParams.set('maxPower', filters.maxPower.toString());
+    if (filters.minSpeed !== null) newParams.set('minSpeed', filters.minSpeed.toString());
+    if (filters.maxSpeed !== null) newParams.set('maxSpeed', filters.maxSpeed.toString());
+    if (filters.minTorque !== null) newParams.set('minTorque', filters.minTorque.toString());
+    if (filters.maxTorque !== null) newParams.set('maxTorque', filters.maxTorque.toString());
     
     setSearchParams(newParams, { replace: true });
   }, [filters, setSearchParams]);
@@ -123,7 +95,6 @@ const ProductsPage = () => {
   useEffect(() => {
     let result = [...products];
     
-    // Apply search term
     if (searchTerm) {
       const lowercaseSearch = searchTerm.toLowerCase();
       result = result.filter(product => 
@@ -132,51 +103,16 @@ const ProductsPage = () => {
       );
     }
     
-    // Apply product family filter
-    if (filters.family !== 'All') {
-      result = result.filter(product => product.family === filters.family);
-    }
-    
-    // Apply tool holder type category filter
-    if (filters.toolHolderTypeCategory !== 'All') {
-      result = result.filter(product => product.toolHolderTypeCategory === filters.toolHolderTypeCategory);
-    }
-    
-    // Apply tool holder filter
-    if (filters.toolHolder !== 'All') {
-      result = result.filter(product => product.toolHolder === filters.toolHolder);
-    }
-    
-    // Apply application filter
-    if (filters.application !== 'All') {
-      result = result.filter(product => 
-        product.applications.includes(filters.application as Application)
-      );
-    }
-    
-    // Apply power range filter
-    if (filters.minPower !== null) {
-      result = result.filter(product => product.power >= filters.minPower!);
-    }
-    if (filters.maxPower !== null) {
-      result = result.filter(product => product.power <= filters.maxPower!);
-    }
-    
-    // Apply speed range filter
-    if (filters.minSpeed !== null) {
-      result = result.filter(product => product.minSpeed >= filters.minSpeed!);
-    }
-    if (filters.maxSpeed !== null) {
-      result = result.filter(product => product.maxSpeed <= filters.maxSpeed!);
-    }
-    
-    // Apply torque filter
-    if (filters.minTorque !== null) {
-      result = result.filter(product => product.torque >= filters.minTorque!);
-    }
-    if (filters.maxTorque !== null) {
-      result = result.filter(product => product.torque <= filters.maxTorque!);
-    }
+    if (filters.family !== 'All') result = result.filter(product => product.family === filters.family);
+    if (filters.toolHolderTypeCategory !== 'All') result = result.filter(product => product.toolHolderTypeCategory === filters.toolHolderTypeCategory);
+    if (filters.toolHolder !== 'All') result = result.filter(product => product.toolHolder === filters.toolHolder);
+    if (filters.application !== 'All') result = result.filter(product => product.applications.includes(filters.application as Application));
+    if (filters.minPower !== null) result = result.filter(product => product.power >= filters.minPower!);
+    if (filters.maxPower !== null) result = result.filter(product => product.power <= filters.maxPower!);
+    if (filters.minSpeed !== null) result = result.filter(product => product.minSpeed >= filters.minSpeed!);
+    if (filters.maxSpeed !== null) result = result.filter(product => product.maxSpeed <= filters.maxSpeed!);
+    if (filters.minTorque !== null) result = result.filter(product => product.torque >= filters.minTorque!);
+    if (filters.maxTorque !== null) result = result.filter(product => product.torque <= filters.maxTorque!);
     
     setFilteredProducts(result);
   }, [searchTerm, filters]);
