@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom';
 import { ChevronRight, History, Award, Globe as Globe2, Zap, Gauge, Crosshair } from 'lucide-react';
 import { getSiteImagePath } from '../config/imagePaths';
+import StructuredData from '../components/shared/StructuredData';
+import { buildLocalBusinessSchema } from '../config/schemas';
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
+
+const LOCAL_BUSINESS_SCHEMA = buildLocalBusinessSchema();
 
 const AboutPage = () => {
   useSEO(SEO.about);
 
+
   return (
     <div className="animate-fade-in">
+      <StructuredData schemas={LOCAL_BUSINESS_SCHEMA} />
 
       {/* Hero Section */}
       <section 
