@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
 import TypewriterEffect from '../components/shared/TypewriterEffect';
 import { getProductImagePath, getApplicationImagePath } from '../config/imagePaths';
+import useSEO from '../hooks/useSEO';
+import { SEO } from '../config/seo';
 
 const HomePage = () => {
   const [hoveredApplication, setHoveredApplication] = useState<number | null>(null);
   const [showButton, setShowButton] = useState(false);
+
+  useSEO(SEO.home);
 
   const handleTypewriterComplete = () => {
     setTimeout(() => setShowButton(true), 300);
@@ -77,11 +81,7 @@ const HomePage = () => {
 
       {/* Features Section */}
       <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
-        
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          
-          
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
@@ -115,7 +115,6 @@ const HomePage = () => {
             ].map((feature, index) => (
               <div key={index} className="group relative">
                 <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full">
-                  {/* Clean icon container */}
                   <div className="mb-6">
                     <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-6">
                       <feature.icon className="w-6 h-6 text-white" />
@@ -143,7 +142,6 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-         
         </div>
       </section>
 
@@ -158,7 +156,6 @@ const HomePage = () => {
               Tailored spindle systems engineered for distinct materials, methods, and performance demands — from <Link to="/products?application=Wood" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">high-speed contouring in wood</Link> to heavy-duty milling in <Link to="/products?application=Stone" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">stone</Link> and <Link to="/products?application=Aluminum" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">aluminum</Link>.
             </p>
           </div>
-          {/* use 3 when more than 4 are used */}
           <div className="grid lg:grid-cols-2 gap-8">
             {[
               {
@@ -194,7 +191,7 @@ const HomePage = () => {
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={product.image}
-                    alt={product.title}
+                    alt={`${product.title} — CNC electro spindle by ARK SPINDLES India`}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                   />
                 </div>
@@ -340,7 +337,7 @@ const HomePage = () => {
                   <div className="aspect-square overflow-hidden">
                     <img
                       src={application.image}
-                      alt={application.title}
+                      alt={`${application.title} spindle application — ARK SPINDLES India`}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
