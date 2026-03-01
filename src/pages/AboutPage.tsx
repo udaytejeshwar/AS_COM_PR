@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight, Users, History, Target, Award, Globe as Globe2, Rocket, Crosshair, Zap, Gauge } from 'lucide-react';
+import { ChevronRight, History, Award, Globe as Globe2, Zap, Gauge, Crosshair } from 'lucide-react';
 import { getSiteImagePath } from '../config/imagePaths';
+import useSEO from '../hooks/useSEO';
+import { SEO } from '../config/seo';
 
 const AboutPage = () => {
+  useSEO(SEO.about);
+
   return (
     <div className="animate-fade-in">
 
@@ -32,7 +36,7 @@ const AboutPage = () => {
             <div className="mb-10 lg:mb-0">
               <img 
                 src={getSiteImagePath('factory-facility.jpg')}
-                alt="Ark Spindles Factory"
+                alt="ARK SPINDLES manufacturing facility in Hyderabad, India"
                 className="rounded-lg shadow-lg"
               />
             </div>
@@ -84,7 +88,7 @@ const AboutPage = () => {
               </div>
               <h3 className="text-xl font-semibold text-primary-500 mb-3">Precision</h3>
               <p className="text-gray-600">
-                We believe precision is not just a metric — it’s a mindset. From micron-level tolerances to thermal deformation analysis, every spindle is engineered with obsessive attention to dimensional integrity, dynamic balance, and long-term stability. Precision enables consistency, reliability, and control in every cut.
+                We believe precision is not just a metric — it's a mindset. From micron-level tolerances to thermal deformation analysis, every spindle is engineered with obsessive attention to dimensional integrity, dynamic balance, and long-term stability.
               </p>
             </div>
 
@@ -94,7 +98,7 @@ const AboutPage = () => {
               </div>
               <h3 className="text-xl font-semibold text-primary-500 mb-3">Power</h3>
               <p className="text-gray-600">
-                Behind every Arkspindle system is a deep understanding of force, motion, and mechanical strength. Whether it’s torque delivery at low RPM or sustained performance at high speeds, we engineer our spindles for optimal power-to-weight ratios, rigid rotor systems, and superior thermal dissipation — all tailored to real-world cutting loads.
+                Behind every Arkspindle system is a deep understanding of force, motion, and mechanical strength. Whether it's torque delivery at low RPM or sustained performance at high speeds, we engineer for optimal power-to-weight ratios and superior thermal dissipation.
               </p>
             </div>
 
@@ -104,7 +108,7 @@ const AboutPage = () => {
               </div>
               <h3 className="text-xl font-semibold text-primary-500 mb-3">Performance</h3>
               <p className="text-gray-600">
-                Performance is where theory meets reality. It’s not just about speed or horsepower, but how a spindle behaves over time — under stress, during long production cycles, and in varied environments. Our spindles are built for repeatability, efficiency, and durability — delivering measurable results where it matters: on the shop floor.
+                Performance is where theory meets reality. Our spindles are built for repeatability, efficiency, and durability — delivering measurable results where it matters: on the shop floor.
               </p>
             </div>
           </div>
@@ -147,7 +151,7 @@ const AboutPage = () => {
             <div className="mt-10 lg:mt-0">
               <img 
                 src={getSiteImagePath('global-operations.jpg')}
-                alt="Global Operations"
+                alt="ARK SPINDLES global operations and export markets"
                 className="rounded-lg shadow-lg"
               />
             </div>
