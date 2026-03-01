@@ -1,0 +1,24 @@
+# robots.txt — ARK SPINDLES (arkspindles.com)
+# Generated for GitHub Pages deployment
+
+User-agent: *
+Allow: /
+
+# Block crawlers from indexing form-confirmation query strings
+# and internal utility paths that have no SEO value
+Disallow: /quote?*
+Disallow: /products?minPower=*
+Disallow: /products?maxPower=*
+Disallow: /products?minSpeed=*
+Disallow: /products?maxSpeed=*
+Disallow: /products?minTorque=*
+Disallow: /products?maxTorque=*
+
+# Allow product family/application/toolHolder filters — these have SEO value
+Allow: /products?family=*
+Allow: /products?application=*
+Allow: /products?toolHolder=*
+Allow: /products?toolHolderTypeCategory=*
+
+# Sitemap location
+Sitemap: https://arkspindles.com/sitemap.xml
