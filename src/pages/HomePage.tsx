@@ -3,9 +3,14 @@ import { ArrowRight, Zap, Shield, Award, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
 import TypewriterEffect from '../components/shared/TypewriterEffect';
+import StructuredData from '../components/shared/StructuredData';
 import { getProductImagePath, getApplicationImagePath } from '../config/imagePaths';
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
+import { buildOrganizationSchema, buildWebSiteSchema } from '../config/schemas';
+
+// Built once — stable references so useEffect in StructuredData doesn't re-fire
+const SCHEMAS = [buildOrganizationSchema(), buildWebSiteSchema()];
 
 const HomePage = () => {
   const [hoveredApplication, setHoveredApplication] = useState<number | null>(null);
@@ -19,99 +24,51 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen">
+      <StructuredData schemas={SCHEMAS} />
+
       {/* Hero Section */}
       <section
-  className="relative text-white overflow-hidden -mt-16 min-h-screen flex flex-col justify-center"
-  style={{
-    background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)',
-  }}
->
-  {/* Main container */}
-  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center items-center text-center">
-    
-    {/* Centered content */}
-    <div className="space-y-8 max-w-4xl">
-      {/* Title + Subtitle */}
-      <div className="space-y-6">
-        <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase text-center">
-  <span className="inline-block">ARK SPINDLES</span>
-  <sup className="text-sm align-top ml-1">®</sup>
-</h1>
-        <div className="text-center mb-16">
-            <p className="text-base text-white-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Advanced electro-spindle technology for demanding <Link to="/products" className="text-white hover:text-white-800 underline decoration-1 underline-offset-2">CNC applications</Link>.
-            </p>
-          </div>
-      </div>
-
-      {/* Make in India + Button */}
-      <div
-        className={`flex flex-col sm:flex-row items-center justify-center gap-6 transition-all duration-700 transform ${
-          showButton
-            ? 'opacity-100 translate-y-0 scale-100'
-            : 'opacity-0 translate-y-4 scale-95'
-        }`}
+        className="relative text-white overflow-hidden -mt-16 min-h-screen flex flex-col justify-center"
+        style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
       >
-        <img
-          src="/images/site/makeInIndia.png"
-          alt="Make in India"
-          className="h-24 w-auto"
-        />
-        <Link
-          to="/products"
-          className="inline-flex items-center justify-center px-8 py-4 bg-accent-black-500 text-white font-semibold rounded-lg hover:bg-accent-black-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
-        >
-          Explore Products
-          <ArrowRight className="ml-2 w-5 h-5" />
-        </Link>
-      </div>
-    </div>
-  </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center items-center text-center">
+          <div className="space-y-8 max-w-4xl">
+            <div className="space-y-6">
+              <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase text-center">
+                <span className="inline-block">ARK SPINDLES</span>
+                <sup className="text-sm align-top ml-1">®</sup>
+              </h1>
+              <div className="text-center mb-16">
+                <p className="text-base text-white-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
+                  Advanced electro-spindle technology for demanding <Link to="/products" className="text-white hover:text-white-800 underline decoration-1 underline-offset-2">CNC applications</Link>.
+                </p>
+              </div>
+            </div>
 
-  {/* Typewriter anchored to bottom */}
-  <div className="absolute bottom-[6.5rem] w-full text-center">
-    <TypewriterEffect
-      text="Indian Manufacturing Prowess - Through Every Revolution"
-      speed={80}
-      onComplete={handleTypewriterComplete}
-    />
-  </div>
-</section>
+            <div className={`flex flex-col sm:flex-row items-center justify-center gap-6 transition-all duration-700 transform ${showButton ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}`}>
+              <img src="/images/site/makeInIndia.png" alt="Make in India" className="h-24 w-auto" />
+              <Link to="/products" className="inline-flex items-center justify-center px-8 py-4 bg-accent-black-500 text-white font-semibold rounded-lg hover:bg-accent-black-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Explore Products
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
 
+        <div className="absolute bottom-[6.5rem] w-full text-center">
+          <TypewriterEffect text="Indian Manufacturing Prowess - Through Every Revolution" speed={80} onComplete={handleTypewriterComplete} />
+        </div>
+      </section>
 
       {/* Features Section */}
       <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              {
-                icon: Zap,
-                title: "High Speed Performance",
-                description: "Engineered for sustained operation at speeds up to 60,000 RPM with superior power density and thermal management for continuous production cycles.",
-                specs: "Up to 60,000 RPM",
-                gradient: "from-blue-500 to-cyan-500"
-              },
-              {
-                icon: Shield,
-                title: "Precision Engineering",
-                description: "Sub-micron runout tolerances and advanced dynamic balancing ensure exceptional surface finishes and dimensional accuracy in wood, aluminum, and composite materials.",
-                specs: "Sub-micron runout",
-                gradient: "from-emerald-500 to-teal-500"
-              },
-              {
-                icon: Award,
-                title: "Technical Innovation",
-                description: "High-efficiency motor architecture with optimized rotor-stator design delivers superior torque density, smooth acceleration, and stable performance across the speed range.",
-                specs: "Optimized design",
-                gradient: "from-purple-500 to-violet-500"
-              },
-              {
-                icon: Users,
-                title: "Engineering Support",
-                description: "Comprehensive technical support with application-specific optimization, tooling recommendations, and machining parameter development for your processes.",
-                specs: "Expert technical support",
-                gradient: "from-orange-500 to-red-500"
-              }
+              { icon: Zap, title: "High Speed Performance", description: "Engineered for sustained operation at speeds up to 60,000 RPM with superior power density and thermal management for continuous production cycles.", specs: "Up to 60,000 RPM" },
+              { icon: Shield, title: "Precision Engineering", description: "Sub-micron runout tolerances and advanced dynamic balancing ensure exceptional surface finishes and dimensional accuracy in wood, aluminum, and composite materials.", specs: "Sub-micron runout" },
+              { icon: Award, title: "Technical Innovation", description: "High-efficiency motor architecture with optimized rotor-stator design delivers superior torque density, smooth acceleration, and stable performance across the speed range.", specs: "Optimized design" },
+              { icon: Users, title: "Engineering Support", description: "Comprehensive technical support with application-specific optimization, tooling recommendations, and machining parameter development for your processes.", specs: "Expert technical support" },
             ].map((feature, index) => (
               <div key={index} className="group relative">
                 <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full">
@@ -120,24 +77,11 @@ const HomePage = () => {
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
                   </div>
-                  
-                  <h3 className="text-xl font-light text-gray-900 mb-4 font-sans tracking-[0.1em]">
-                    {feature.title}
-                  </h3>
-                  
+                  <h3 className="text-xl font-light text-gray-900 mb-4 font-sans tracking-[0.1em]">{feature.title}</h3>
                   <div className="mb-4">
-                    <span className="inline-block px-3 py-1 text-sm font-semibold" style={{
-                      backgroundColor: '#f8f9fa',
-                      color: '#4d5d6d',
-                      border: '1px solid #e9ecef'
-                    }}>
-                      {feature.specs}
-                    </span>
+                    <span className="inline-block px-3 py-1 text-sm font-semibold" style={{ backgroundColor: '#f8f9fa', color: '#4d5d6d', border: '1px solid #e9ecef' }}>{feature.specs}</span>
                   </div>
-                  
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {feature.description}
-                  </p>
+                  <p className="text-gray-600 leading-relaxed text-sm">{feature.description}</p>
                 </div>
               </div>
             ))}
@@ -149,29 +93,15 @@ const HomePage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              Precision Platforms
-            </h2>
+            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Precision Platforms</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Tailored spindle systems engineered for distinct materials, methods, and performance demands — from <Link to="/products?application=Wood" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">high-speed contouring in wood</Link> to heavy-duty milling in <Link to="/products?application=Stone" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">stone</Link> and <Link to="/products?application=Aluminum" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">aluminum</Link>.
             </p>
           </div>
           <div className="grid lg:grid-cols-2 gap-8">
             {[
-              {
-                family: 'M',
-                title: 'MTC spindles',
-                description: 'Manual tool change spindles offering reliable performance for standard machining operations.',
-                features: ['Manual tool change', 'Robust construction', 'Cost-effective solution', 'Wide speed range'],
-                image: getProductImagePath('1', 'ES-9000 ER32', 'main')
-              },
-              {
-                family: 'Q',
-                title: 'QTC spindles',
-                description: 'Quick tool change spindles for enhanced productivity and reduced downtime.',
-                features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'],
-                image: getProductImagePath('2', 'ES-12000 ER40', 'main')
-              }
+              { family: 'M', title: 'MTC spindles', description: 'Manual tool change spindles offering reliable performance for standard machining operations.', features: ['Manual tool change', 'Robust construction', 'Cost-effective solution', 'Wide speed range'], image: getProductImagePath('1', 'ES-9000 ER32', 'main') },
+              { family: 'Q', title: 'QTC spindles', description: 'Quick tool change spindles for enhanced productivity and reduced downtime.', features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'], image: getProductImagePath('2', 'ES-12000 ER40', 'main') }
               // ,{
               //   family: 'A',
               //   title: 'ATC spindles',
@@ -189,34 +119,23 @@ const HomePage = () => {
             ].map((product, index) => (
               <div key={index} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className="aspect-video overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={`${product.title} — CNC electro spindle by ARK SPINDLES India`}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
+                  <img src={product.image} alt={`${product.title} — CNC electro spindle by ARK SPINDLES India`} className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
                 </div>
                 <div className="p-8">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-light font-sans text-gray-900">{product.title}</h3>
-                    <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">
-                      {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series
-                    </span>
+                    <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium">{product.family === 'M' ? 'AM' : 'AQ'} Series</span>
                   </div>
                   <p className="text-gray-600 mb-6 leading-relaxed">{product.description}</p>
                   <ul className="space-y-2 mb-8">
-                    {product.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-gray-700">
-                        <div className="w-2 h-2 bg-accent-gray-800 rounded-full mr-3"></div>
-                        {feature}
+                    {product.features.map((feature, i) => (
+                      <li key={i} className="flex items-center text-gray-700">
+                        <div className="w-2 h-2 bg-accent-gray-800 rounded-full mr-3"></div>{feature}
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    to={`/products?family=${product.family}`}
-                    className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold transition-colors duration-300"
-                  >
-                    View Products
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                  <Link to={`/products?family=${product.family}`} className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold transition-colors duration-300">
+                    View Products <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -225,13 +144,11 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Spindle Matcher Tool */}
-      <section className="py-20 bg-white" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
+      {/* Spindle Matcher */}
+      <section className="py-20" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              Find a Replacement for your Existing Spindle
-            </h2>
+            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Find a Replacement for your Existing Spindle</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Use our intelligent matching tool to find compatible <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">spindle replacements</Link> based on your current specifications.
             </p>
@@ -244,127 +161,38 @@ const HomePage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              Applications & Industries
-            </h2>
+            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Applications & Industries</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Our <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">precision spindles</Link> excel across diverse materials and industries, delivering consistent results in demanding applications.
             </p>
           </div>
-          
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              {
-                title: "Wood Processing",
-                description: "Furniture, cabinetry, and architectural millwork with superior surface finishes.",
-                image: getApplicationImagePath('wood-processing.jpg'),
-                detailedDescription: [
-                  "Hardwood machining (Oak, Maple, Cherry)",
-                  "Softwood processing (Pine, Cedar, Fir)",
-                  "Engineered wood products (Plywood, MDF, OSB)",
-                  "Laminated materials and veneers",
-                  "Complex 3D carving and profiling"
-                ]
-              },
-              {
-                title: "Stone & Marble",
-                description: "Precision cutting and shaping of natural and engineered stone materials.",
-                image: getApplicationImagePath('stone-marble.jpg'),
-                detailedDescription: [
-                  "Natural stone (Granite, Marble, Limestone)",
-                  "Engineered quartz and composite stones",
-                  "Ceramic and porcelain tiles",
-                  "Architectural stone elements",
-                  "Countertop fabrication and edge profiling"
-                ]
-              },
-              {
-                title: "Aluminum Machining",
-                description: "High-speed machining of aluminum components for aerospace and automotive.",
-                image: getApplicationImagePath('aluminum-machining.jpg'),
-                detailedDescription: [
-                  "6061 and 7075 aluminum alloys",
-                  "Aerospace component manufacturing",
-                  "Automotive parts and heat sinks",
-                  "Architectural aluminum profiles",
-                  "High-speed milling and drilling operations"
-                ]
-              },
-              {
-                title: "Composite Materials",
-                description: "Advanced composites for aerospace, marine, and high-performance applications.",
-                image: getApplicationImagePath('composite-materials.jpg'),
-                detailedDescription: [
-                  "Carbon fiber reinforced plastics (CFRP)",
-                  "Glass fiber composites (GFRP)",
-                  "Honeycomb sandwich structures",
-                  "Prepreg and wet-lay materials",
-                  "Aerospace and marine applications"
-                ]
-              },
-              {
-                title: "Plastic Processing",
-                description: "Precision machining of thermoplastics and engineering plastics for industrial components.",
-                image: getApplicationImagePath('plastic-processing.jpg'),
-                detailedDescription: [
-                  "Engineering plastics (PEEK, POM, Nylon)",
-                  "Thermoplastics (ABS, PC, PMMA)",
-                  "High-performance polymers",
-                  "Medical grade plastics",
-                  "Precision prototype development"
-                ]
-              },
-              {
-                title: "Glass Engraving",
-                description: "High-precision engraving and cutting of glass materials for decorative and functional applications.",
-                image: getApplicationImagePath('glass-engraving.jpg'),
-                detailedDescription: [
-                  "Tempered and laminated glass",
-                  "Decorative glass engraving",
-                  "Optical glass components",
-                  "Architectural glass panels",
-                  "Precision edge polishing"
-                ]
-              }
+              { title: "Wood Processing", description: "Furniture, cabinetry, and architectural millwork with superior surface finishes.", image: getApplicationImagePath('wood-processing.jpg'), detailedDescription: ["Hardwood machining (Oak, Maple, Cherry)", "Softwood processing (Pine, Cedar, Fir)", "Engineered wood products (Plywood, MDF, OSB)", "Laminated materials and veneers", "Complex 3D carving and profiling"] },
+              { title: "Stone & Marble", description: "Precision cutting and shaping of natural and engineered stone materials.", image: getApplicationImagePath('stone-marble.jpg'), detailedDescription: ["Natural stone (Granite, Marble, Limestone)", "Engineered quartz and composite stones", "Ceramic and porcelain tiles", "Architectural stone elements", "Countertop fabrication and edge profiling"] },
+              { title: "Aluminum Machining", description: "High-speed machining of aluminum components for aerospace and automotive.", image: getApplicationImagePath('aluminum-machining.jpg'), detailedDescription: ["6061 and 7075 aluminum alloys", "Aerospace component manufacturing", "Automotive parts and heat sinks", "Architectural aluminum profiles", "High-speed milling and drilling operations"] },
+              { title: "Composite Materials", description: "Advanced composites for aerospace, marine, and high-performance applications.", image: getApplicationImagePath('composite-materials.jpg'), detailedDescription: ["Carbon fiber reinforced plastics (CFRP)", "Glass fiber composites (GFRP)", "Honeycomb sandwich structures", "Prepreg and wet-lay materials", "Aerospace and marine applications"] },
+              { title: "Plastic Processing", description: "Precision machining of thermoplastics and engineering plastics for industrial components.", image: getApplicationImagePath('plastic-processing.jpg'), detailedDescription: ["Engineering plastics (PEEK, POM, Nylon)", "Thermoplastics (ABS, PC, PMMA)", "High-performance polymers", "Medical grade plastics", "Precision prototype development"] },
+              { title: "Glass Engraving", description: "High-precision engraving and cutting of glass materials for decorative and functional applications.", image: getApplicationImagePath('glass-engraving.jpg'), detailedDescription: ["Tempered and laminated glass", "Decorative glass engraving", "Optical glass components", "Architectural glass panels", "Precision edge polishing"] },
             ].map((application, index) => (
-              <div
-                key={index}
-                className="relative group cursor-pointer bg-white rounded-lg shadow-md overflow-visible transition-all duration-300 hover:shadow-xl hover:z-50"
-                onMouseEnter={() => setHoveredApplication(index)}
-                onMouseLeave={() => setHoveredApplication(null)}
-              >
+              <div key={index} className="relative group cursor-pointer bg-white rounded-lg shadow-md overflow-visible transition-all duration-300 hover:shadow-xl hover:z-50"
+                onMouseEnter={() => setHoveredApplication(index)} onMouseLeave={() => setHoveredApplication(null)}>
                 <div className="overflow-hidden rounded-t-lg">
                   <div className="aspect-square overflow-hidden">
-                    <img
-                      src={application.image}
-                      alt={`${application.title} spindle application — ARK SPINDLES India`}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
+                    <img src={application.image} alt={`${application.title} spindle application — ARK SPINDLES India`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">
-                      {application.title}
-                    </h3>
+                    <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">{application.title}</h3>
                     <p className="text-gray-700 leading-relaxed">{application.description}</p>
                   </div>
                 </div>
-
-                {/* Expanded overlay content */}
-                <div
-                  className={`absolute left-0 right-0 top-full bg-white rounded-b-lg shadow-2xl transition-all duration-300 ${
-                    hoveredApplication === index
-                      ? 'opacity-100 translate-y-0 pointer-events-auto'
-                      : 'opacity-0 -translate-y-2 pointer-events-none'
-                  }`}
-                  style={{ zIndex: 60 }}
-                >
+                <div className={`absolute left-0 right-0 top-full bg-white rounded-b-lg shadow-2xl transition-all duration-300 ${hoveredApplication === index ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`} style={{ zIndex: 60 }}>
                   <div className="border-t border-gray-200 p-6">
                     <h4 className="text-sm font-semibold text-primary-500 mb-3">Specialized Applications:</h4>
                     <ul className="text-sm text-gray-600 space-y-2">
-                      {application.detailedDescription.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="flex items-start">
-                          <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
-                          {detail}
+                      {application.detailedDescription.map((detail, i) => (
+                        <li key={i} className="flex items-start">
+                          <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>{detail}
                         </li>
                       ))}
                     </ul>
@@ -377,35 +205,23 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary-600" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
+      <section className="py-20" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
           <div>
-            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              Need a Custom Project?
-            </h2>
+            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Need a Custom Project?</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-              Tailored <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">spindle systems</Link> engineered for distinct materials, methods, and performance demands — from high-speed contouring in wood to heavy-duty milling in stone and aluminum. Each platform reflects a systems-level approach to machining excellence.
+              Tailored <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">spindle systems</Link> engineered for distinct materials, methods, and performance demands. Each platform reflects a systems-level approach to machining excellence.
             </p>
-            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
+            <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em] mt-4">
               For unique requirements, we offer fully <Link to="/premium" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">custom spindle solutions</Link> — co-engineered to match your exacting performance and integration needs.
             </p>
           </div>
           <div className="text-center lg:text-left">
-            <h3 className="text-3xl lg:text-2xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">
-              Contact Us for Custom Solutions
-            </h3>
-            <p className="text-base text-gray-600 max-w-1xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
-  Our experts are ready to discuss your specific project and co-engineer the perfect spindle solution.
-</p>
-
-<Link
-  to="/contact"
-  className="mt-6 inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-  style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
->
-  Contact Our Experts
-  <ArrowRight className="ml-2 w-5 h-5" />
-</Link>
+            <h3 className="text-2xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Contact Us for Custom Solutions</h3>
+            <p className="text-base text-gray-600 leading-relaxed font-sans tracking-[0.05em]">Our experts are ready to discuss your specific project and co-engineer the perfect spindle solution.</p>
+            <Link to="/contact" className="mt-6 inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg" style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}>
+              Contact Our Experts <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
