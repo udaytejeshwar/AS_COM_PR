@@ -11,10 +11,10 @@ export const products: Product[] = [
     power: 6.0,
     // powerS6: 6.3,
     minSpeed: 12000,
-    maxSpeed: 18000,
-    nominalSpeed: 24000,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
     torque: 3.18,
-    torqueS6: 4.8,
+    // torqueS6: 4.8,
     voltage: '220V, 380V',
     toolHolder: 'ER32',
     applications: ['Wood', 'Aluminum', 'Composites'],
@@ -50,23 +50,23 @@ export const products: Product[] = [
   },
   {
     id: '2',
-    name: 'ES-12000 ER40',
-    family: 'Q',
+    name: 'AME0300-1002',
+    family: 'M',
     toolHolderTypeCategory: 'ER',
-    line: 'Premium',
-    power: 12.0,
-    powerS6: 8.4,
-    minSpeed: 5000,
-    maxSpeed: 22000,
-    nominalSpeed: 24000,
+    line: 'Standard',
+    power: 3.75,
+    // powerS6: 8.4,
+    minSpeed: 6000,
+    maxSpeed: 18000,
+    nominalSpeed: 12000,
     torque: 8.5,
-    torqueS6: 6.0,
+    // torqueS6: 6.0,
     voltage: '220V, 380V',
-    toolHolder: 'ER40',
-    applications: ['Wood', 'Stone', 'Aluminum', 'Glass'],
-    description: 'Premium ER40 electro spindle offering exceptional versatility across wood, stone, and aluminum applications. Engineered for high material removal rates while maintaining superior surface finish quality.',
+    toolHolder: 'ER32',
+    applications: ['Wood', 'Stone', 'Aluminum'],
+    description: 'Premium ER32 electro spindle offering exceptional versatility across wood, stone, and aluminum applications. Engineered for high material removal rates while maintaining superior surface finish quality.',
     features: [
-      'High-capacity ER40 collet system',
+      'High-capacity ER32 collet system',
       'Liquid cooling with enhanced thermal efficiency',
       'Heavy-duty bearings for increased radial loads',
       'Integrated temperature monitoring',
@@ -86,31 +86,31 @@ export const products: Product[] = [
         height: 150
       }
     },
-    imageUrl: getProductImagePath('2', 'ES-12000 ER40', 'main'),
+    imageUrl: getProductImagePath('2', 'AME0300-1002', 'main'),
     additionalImageUrls: [
-      getProductImagePath('2', 'ES-12000 ER40', 1),
-      getProductImagePath('2', 'ES-12000 ER40', 2),
-      getProductImagePath('2', 'ES-12000 ER40', 3)
+      getProductImagePath('2', 'AME0300-1002', 1),
+      getProductImagePath('2', 'AME0300-1002', 2),
+      getProductImagePath('2', 'AME0300-1002', 3)
     ],
     deliveryTime: '3-4 weeks'
   },
   {
     id: '3',
-    name: 'ES-7500 HSK-F63',
+    name: 'AME0300-1003',
     family: 'M',
-    toolHolderTypeCategory: 'HSK',
+    toolHolderTypeCategory: 'ER',
     line: 'Standard',
-    power: 7.5,
-    minSpeed: 8000,
-    maxSpeed: 28000,
-    nominalSpeed: 24000,
-    torque: 5.4,
+    power: 4.5,
+    minSpeed: 12000,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
+    torque: 2.4,
     voltage: '220V, 380V',
-    toolHolder: 'HSK-F63',
+    toolHolder: 'ER32',
     applications: ['Wood', 'Composites'],
-    description: 'Compact HSK-F63 electro spindle with exceptional speed capabilities, ideal for intricate woodworking and composite machining where precision and surface finish are paramount.',
+    description: 'Compact ER32 electro spindle with exceptional speed capabilities, ideal for intricate woodworking and composite machining where precision and surface finish are paramount.',
     features: [
-      'HSK-F63 tool interface for superior runout control',
+      'ER32 tool interface for superior runout control',
       'Compact design for tight installation spaces',
       'Liquid cooling system',
       'Low thermal expansion characteristics',
@@ -130,18 +130,18 @@ export const products: Product[] = [
         height: 110
       }
     },
-    imageUrl: getProductImagePath('3', 'ES-7500 HSK-F63', 'main'),
+    imageUrl: getProductImagePath('3', 'AME0300-1003', 'main'),
     additionalImageUrls: [
-      getProductImagePath('3', 'ES-7500 HSK-F63', 1),
-      getProductImagePath('3', 'ES-7500 HSK-F63', 2)
+      getProductImagePath('3', 'AME0300-1003', 1),
+      getProductImagePath('3', 'AME0300-1003', 2)
     ],
     deliveryTime: '2-3 weeks'
   },
   {
     id: '4',
-    name: 'ES-15000 HSK-E50',
-    family: 'Q',
-    toolHolderTypeCategory: 'HSK',
+    name: 'AME0300-1004',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
     line: 'Premium',
     power: 15.0,
     powerS6: 10.5,
@@ -151,11 +151,11 @@ export const products: Product[] = [
     torque: 12.2,
     torqueS6: 8.5,
     voltage: '220V, 380V',
-    toolHolder: 'HSK-E50',
-    applications: ['Stone', 'Aluminum', 'Composites'],
-    description: 'Heavy-duty HSK-E50 electro spindle developed for demanding applications in stone, aluminum, and composite materials. Features advanced vibration dampening and superior power delivery.',
+    toolHolder: 'ER32',
+    applications: ['Wood', 'Aluminum', 'Composites'],
+    description: 'Heavy-duty HSK-E50 electro spindle developed for demanding applications in wood, aluminum, and composite materials. Features advanced vibration dampening and superior power delivery.',
     features: [
-      'HSK-E50 interface for high precision and rigidity',
+      'ER32 interface for high precision and rigidity',
       'Robust construction for demanding applications',
       'Advanced cooling system for continuous operation',
       'Vector control drive compatibility',
@@ -175,11 +175,11 @@ export const products: Product[] = [
         height: 160
       }
     },
-    imageUrl: getProductImagePath('4', 'ES-15000 HSK-E50', 'main'),
+    imageUrl: getProductImagePath('4', 'AME0300-1004', 'main'),
     additionalImageUrls: [
-      getProductImagePath('4', 'ES-15000 HSK-E50', 1),
-      getProductImagePath('4', 'ES-15000 HSK-E50', 2),
-      getProductImagePath('4', 'ES-15000 HSK-E50', 3)
+      getProductImagePath('4', 'AME0300-1004', 1),
+      getProductImagePath('4', 'AME0300-1004', 2),
+      getProductImagePath('4', 'AME0300-1004', 3)
     ],
     deliveryTime: '4-6 weeks'
   },
