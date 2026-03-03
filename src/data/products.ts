@@ -9,7 +9,7 @@ export const products: Product[] = [
     toolHolderTypeCategory: 'ER',
     line: 'Standard',
     power: 6.0,
-    powerS6: 6.3,
+    // powerS6: 6.3,
     minSpeed: 12000,
     maxSpeed: 18000,
     nominalSpeed: 24000,
