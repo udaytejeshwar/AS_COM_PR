@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Settings } from 'lucide-react';
-import { getProductImagePath, getApplicationImagePath, getLogoPath } from '../../config/imagePaths';
+import { getProductImagePath, getLogoPath } from '../../config/imagePaths';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -138,37 +138,37 @@ const Header = () => {
       to: "/products?application=Wood",
       title: "Wood Processing",
       description: "Furniture, cabinetry, and architectural millwork applications",
-      image: getApplicationImagePath('wood-processing.jpg')
+      image: 'https://images.pexels.com/photos/3637786/pexels-photo-3637786.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       to: "/products?application=Stone",
       title: "Stone & Marble",
       description: "Natural and engineered stone cutting and shaping",
-      image: getApplicationImagePath('stone-marble.jpg')
+      image: 'https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       to: "/products?application=Aluminum",
       title: "Aluminum Machining",
       description: "High-speed machining for aerospace and automotive components",
-      image: getApplicationImagePath('aluminum-machining.jpg')
+      image: 'https://images.pexels.com/photos/162568/metal-aluminum-factory-workshop-162568.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       to: "/products?application=Composites",
       title: "Composite Materials",
       description: "Advanced composites for aerospace and marine applications",
-      image: getApplicationImagePath('composite-materials.jpg')
+      image: 'https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       to: "/products?application=Plastic",
       title: "Plastic Processing",
       description: "Precision machining of engineering plastics",
-      image: getApplicationImagePath('plastic-processing.jpg')
+      image: 'https://images.pexels.com/photos/802221/pexels-photo-802221.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       to: "/products?application=Glass",
       title: "Glass Engraving",
       description: "High-precision engraving and cutting of glass materials",
-      image: getApplicationImagePath('glass-engraving.jpg')
+      image: 'https://images.pexels.com/photos/2693212/pexels-photo-2693212.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ];
 
