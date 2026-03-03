@@ -16,6 +16,32 @@ const PRODUCT_LIST_SCHEMA = buildProductListSchema(
   products.map(p => ({ id: p.id, name: p.name, description: p.description, imageUrl: p.imageUrl }))
 );
 
+const getFiltersFromSearchParams = (searchParams: URLSearchParams): FilterOptions => {
+  const familyParam = searchParams.get('family');
+  const toolHolderTypeCategoryParam = searchParams.get('toolHolderTypeCategory');
+  const applicationParam = searchParams.get('application');
+  const toolHolderParam = searchParams.get('toolHolder') as ToolHolder | null;
+  const lineParam = searchParams.get('line');
+
+  return {
+    //Use the below 3 lines when you need to include ATC and blade along with aother applications
+    // family: (familyParam && ['M', 'Q', 'A', 'B'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
+    // toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK', 'ISO'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
+    // application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'].includes(applicationParam)) ? applicationParam as Application : 'All',
+    family: (familyParam && ['M', 'Q'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
+    toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
+    application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'].includes(applicationParam)) ? applicationParam as Application : 'All',
+    toolHolder: toolHolderParam || 'All',
+    line: (lineParam && ['Standard', 'Premium'].includes(lineParam)) ? lineParam as 'Standard' | 'Premium' : 'All',
+    minPower: searchParams.get('minPower') ? Number(searchParams.get('minPower')) : null,
+    maxPower: searchParams.get('maxPower') ? Number(searchParams.get('maxPower')) : null,
+    minSpeed: searchParams.get('minSpeed') ? Number(searchParams.get('minSpeed')) : null,
+    maxSpeed: searchParams.get('maxSpeed') ? Number(searchParams.get('maxSpeed')) : null,
+    minTorque: searchParams.get('minTorque') ? Number(searchParams.get('minTorque')) : null,
+    maxTorque: searchParams.get('maxTorque') ? Number(searchParams.get('maxTorque')) : null,
+  };
+};
+
 const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState('');
@@ -29,36 +55,11 @@ const ProductsPage = () => {
   const speedRange: [number, number] = [limits.minSpeed, limits.maxSpeed];
   const torqueRange: [number, number] = [limits.minTorque, limits.maxTorque];
 
-  const [filters, setFilters] = useState<FilterOptions>({
-    family: 'All', toolHolderTypeCategory: 'All', line: 'All',
-    minPower: null, maxPower: null, minSpeed: null, maxSpeed: null,
-    minTorque: null, maxTorque: null, toolHolder: 'All', application: 'All'
-  });
+  const [filters, setFilters] = useState<FilterOptions>(() => getFiltersFromSearchParams(searchParams));
 
   useEffect(() => {
-    const familyParam = searchParams.get('family');
-    const toolHolderTypeCategoryParam = searchParams.get('toolHolderTypeCategory');
-    const applicationParam = searchParams.get('application');
-    const toolHolderParam = searchParams.get('toolHolder') as ToolHolder | null;
-    const lineParam = searchParams.get('line');
-    setFilters(prev => ({
-      ...prev,
-      //Use the below 3 lines when you need to include ATC and blade along with aother applications
-      // family: (familyParam && ['M', 'Q', 'A', 'B'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
-      // toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK', 'ISO'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
-      // application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'].includes(applicationParam)) ? applicationParam as Application : 'All',
-      family: (familyParam && ['M', 'Q'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
-      toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
-      application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'].includes(applicationParam)) ? applicationParam as Application : 'All',
-      toolHolder: toolHolderParam || 'All',
-      line: (lineParam && ['Standard', 'Premium'].includes(lineParam)) ? lineParam as 'Standard' | 'Premium' : 'All',
-      minPower: searchParams.get('minPower') ? Number(searchParams.get('minPower')) : null,
-      maxPower: searchParams.get('maxPower') ? Number(searchParams.get('maxPower')) : null,
-      minSpeed: searchParams.get('minSpeed') ? Number(searchParams.get('minSpeed')) : null,
-      maxSpeed: searchParams.get('maxSpeed') ? Number(searchParams.get('maxSpeed')) : null,
-      minTorque: searchParams.get('minTorque') ? Number(searchParams.get('minTorque')) : null,
-      maxTorque: searchParams.get('maxTorque') ? Number(searchParams.get('maxTorque')) : null,
-    }));
+    const nextFilters = getFiltersFromSearchParams(searchParams);
+    setFilters(prev => JSON.stringify(prev) === JSON.stringify(nextFilters) ? prev : nextFilters);
   }, [searchParams]);
 
   useEffect(() => {
@@ -74,8 +75,10 @@ const ProductsPage = () => {
     if (filters.maxSpeed !== null) newParams.set('maxSpeed', filters.maxSpeed.toString());
     if (filters.minTorque !== null) newParams.set('minTorque', filters.minTorque.toString());
     if (filters.maxTorque !== null) newParams.set('maxTorque', filters.maxTorque.toString());
-    setSearchParams(newParams, { replace: true });
-  }, [filters, setSearchParams]);
+    if (newParams.toString() !== searchParams.toString()) {
+      setSearchParams(newParams, { replace: true });
+    }
+  }, [filters, searchParams, setSearchParams]);
 
   useEffect(() => {
     let result = [...products];
