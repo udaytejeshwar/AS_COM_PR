@@ -565,33 +565,30 @@ const Header = () => {
                     <Link
                       key={index}
                       to={item.to}
-                      className="group block relative h-40 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                      className="group block h-40 rounded-lg overflow-hidden bg-white border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                       onClick={closeDropdown}
                     >
-                      {/* Background Image */}
-                      <div className="absolute inset-0">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300"></div>
-                      </div>
-
-                      {/* Inclined Content Area */}
-                      <div className="absolute inset-0 flex items-end">
+                      <div className="flex h-full">
                         <div
-                          className="w-full h-28 transform -skew-x-12 origin-bottom-left transition-all duration-300 group-hover:h-32 clip-curved"
-                          style={{ background: 'linear-gradient(135deg, rgba(77, 93, 109, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%)' }}
+                          className="w-[62%] h-full text-white pl-5 pr-8 py-4 flex flex-col justify-center transition-all duration-300"
+                          style={{
+                            clipPath: 'polygon(0 0, 88% 0, 100% 100%, 0 100%)',
+                            background: 'linear-gradient(135deg, rgba(77, 93, 109, 0.98) 0%, rgba(0, 0, 0, 0.96) 100%)'
+                          }}
                         >
-                          <div className="transform skew-x-12 p-4 h-full flex flex-col justify-center">
-                            <h4 className="text-base font-semibold text-white group-hover:text-gray-100 mb-1 transition-colors duration-300">
-                              {item.title}
-                            </h4>
-                            <p className="text-xs text-gray-200 group-hover:text-gray-300 leading-relaxed transition-colors duration-300">
-                              {item.description}
-                            </p>
-                          </div>
+                          <h4 className="text-base font-semibold text-white group-hover:text-gray-100 mb-1 transition-colors duration-300">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs text-gray-200 group-hover:text-gray-300 leading-relaxed transition-colors duration-300 pr-2">
+                            {item.description}
+                          </p>
+                        </div>
+                        <div className="w-[38%] h-full overflow-hidden">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
                         </div>
                       </div>
                     </Link>
@@ -610,33 +607,30 @@ const Header = () => {
                     <Link
                       key={index}
                       to={item.to}
-                      className="group block relative h-40 rounded-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                      className="group block h-40 rounded-lg overflow-hidden bg-white border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                       onClick={closeDropdown}
                     >
-                      {/* Background Image */}
-                      <div className="absolute inset-0">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300"></div>
-                      </div>
-
-                      {/* Inclined Content Area */}
-                      <div className="absolute inset-0 flex items-end">
+                      <div className="flex h-full">
                         <div
-                          className="w-full h-28 transform -skew-x-12 origin-bottom-left transition-all duration-300 group-hover:h-32 clip-curved"
-                          style={{ background: 'linear-gradient(135deg, rgba(77, 93, 109, 0.95) 0%, rgba(0, 0, 0, 0.95) 100%)' }}
+                          className="w-[62%] h-full text-white pl-5 pr-8 py-4 flex flex-col justify-center transition-all duration-300"
+                          style={{
+                            clipPath: 'polygon(0 0, 88% 0, 100% 100%, 0 100%)',
+                            background: 'linear-gradient(135deg, rgba(77, 93, 109, 0.98) 0%, rgba(0, 0, 0, 0.96) 100%)'
+                          }}
                         >
-                          <div className="transform skew-x-12 p-4 h-full flex flex-col justify-center">
-                            <h4 className="text-base font-semibold text-white group-hover:text-gray-100 mb-1 transition-colors duration-300">
-                              {item.title}
-                            </h4>
-                            <p className="text-xs text-gray-200 group-hover:text-gray-300 leading-relaxed transition-colors duration-300">
-                              {item.description}
-                            </p>
-                          </div>
+                          <h4 className="text-base font-semibold text-white group-hover:text-gray-100 mb-1 transition-colors duration-300">
+                            {item.title}
+                          </h4>
+                          <p className="text-xs text-gray-200 group-hover:text-gray-300 leading-relaxed transition-colors duration-300 pr-2">
+                            {item.description}
+                          </p>
+                        </div>
+                        <div className="w-[38%] h-full overflow-hidden">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
                         </div>
                       </div>
                     </Link>
