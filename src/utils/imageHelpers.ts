@@ -46,3 +46,11 @@ export function getApplicationImagePath(imageName: string): string {
 export function getLogoPath(logoName: string): string {
   return `${IMAGE_BASE_PATHS.LOGOS}/${logoName}`;
 }
+
+
+export function getProductRoleImagePath(
+  productId: string,
+  role: 'spindle' | 'drawing' | 'graph'
+): string {
+  return `${IMAGE_BASE_PATHS.PRODUCTS}/${productId}/${role}.jpg`;
+}

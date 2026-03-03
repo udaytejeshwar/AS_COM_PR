@@ -5,6 +5,22 @@ export type ToolHolder = 'ER20' | 'ER25' | 'ER32' | 'ER40' | 'HSK-E50' | 'HSK-F6
 export type ProductLine = 'Standard' | 'Premium';
 export type AccessoryCategory = 'Cooling' | 'Tool Holders' | 'VFD' | 'Collets' | 'Tools';
 
+export type ProductImageType = 'spindle' | 'drawing' | 'graph';
+
+export interface ProductImageAsset {
+  type: ProductImageType;
+  url: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+export interface ProductImageSet {
+  spindle: ProductImageAsset;
+  drawing: ProductImageAsset;
+  graph: ProductImageAsset;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -39,6 +55,7 @@ export interface Product {
   };
   imageUrl: string;
   additionalImageUrls?: string[];
+  images?: ProductImageSet;
   deliveryTime: string;
 }
 

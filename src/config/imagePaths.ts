@@ -3,6 +3,7 @@ export {
   sanitizeNameForPath,
   getProductImagePath,
   getAccessoryImagePath,
+  getProductRoleImagePath,
   getSiteImagePath,
   getApplicationImagePath,
   getLogoPath,

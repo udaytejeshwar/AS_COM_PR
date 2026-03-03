@@ -10,10 +10,11 @@ import { FilterOptions, Product, Application, ProductFamily, ToolHolder, ToolHol
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
 import { buildProductListSchema } from '../config/schemas';
+import { getPrimaryProductImage } from '../utils/productImages';
 
 // Full product list schema — stable, built once
 const PRODUCT_LIST_SCHEMA = buildProductListSchema(
-  products.map(p => ({ id: p.id, name: p.name, description: p.description, imageUrl: p.imageUrl }))
+  products.map(p => ({ id: p.id, name: p.name, description: p.description, imageUrl: getPrimaryProductImage(p).url }))
 );
 
 const getFiltersFromSearchParams = (searchParams: URLSearchParams): FilterOptions => {
