@@ -13,7 +13,6 @@ import { buildOrganizationSchema, buildWebSiteSchema } from '../config/schemas';
 const SCHEMAS = [buildOrganizationSchema(), buildWebSiteSchema()];
 
 const HomePage = () => {
-  const [hoveredApplication, setHoveredApplication] = useState<number | null>(null);
   const [showButton, setShowButton] = useState(false);
 
   useSEO(SEO.home);
@@ -175,30 +174,30 @@ const HomePage = () => {
               { title: "Plastic Processing", description: "Precision machining of thermoplastics and engineering plastics for industrial components.", image: getApplicationImagePath('plastic-processing.jpg'), detailedDescription: ["Engineering plastics (PEEK, POM, Nylon)", "Thermoplastics (ABS, PC, PMMA)", "High-performance polymers", "Medical grade plastics", "Precision prototype development"] },
               { title: "Glass Engraving", description: "High-precision engraving and cutting of glass materials for decorative and functional applications.", image: getApplicationImagePath('glass-engraving.jpg'), detailedDescription: ["Tempered and laminated glass", "Decorative glass engraving", "Optical glass components", "Architectural glass panels", "Precision edge polishing"] },
             ].map((application, index) => (
-              <div key={index} className="relative group cursor-pointer bg-white rounded-lg shadow-md overflow-visible transition-all duration-300 hover:shadow-xl hover:z-50"
-                onMouseEnter={() => setHoveredApplication(index)} onMouseLeave={() => setHoveredApplication(null)}>
-                <div className="overflow-hidden rounded-t-lg">
-                  <div className="aspect-square overflow-hidden">
-                    <img src={application.image} alt={`${application.title} spindle application — ARK SPINDLES India`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">{application.title}</h3>
-                    <p className="text-gray-700 leading-relaxed">{application.description}</p>
-                  </div>
+              <article
+                key={index}
+                className="group bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img src={application.image} alt={`${application.title} spindle application — ARK SPINDLES India`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
-                <div className={`absolute left-0 right-0 top-full bg-white rounded-b-lg shadow-2xl transition-all duration-300 ${hoveredApplication === index ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`} style={{ zIndex: 60 }}>
-                  <div className="border-t border-gray-200 p-6">
-                    <h4 className="text-sm font-semibold text-primary-500 mb-3">Specialized Applications:</h4>
-                    <ul className="text-sm text-gray-600 space-y-2">
-                      {application.detailedDescription.map((detail, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>{detail}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="p-6 pb-5">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">{application.title}</h3>
+                  <p className="text-gray-700 leading-relaxed">{application.description}</p>
                 </div>
-              </div>
+
+                <div className="px-6 pb-6 border-t border-gray-100 bg-gray-50/80 max-h-0 opacity-0 translate-y-2 transition-all duration-300 ease-out group-hover:max-h-72 group-hover:opacity-100 group-hover:translate-y-0">
+                  <h4 className="text-sm font-semibold text-primary-500 mt-4 mb-3 tracking-wide">Specialized Applications</h4>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    {application.detailedDescription.map((detail, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 mt-2 flex-shrink-0"></span>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
             ))}
           </div>
         </div>
