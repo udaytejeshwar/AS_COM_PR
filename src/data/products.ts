@@ -143,12 +143,12 @@ export const products: Product[] = [
     family: 'M',
     toolHolderTypeCategory: 'ER',
     line: 'Premium',
-    power: 15.0,
+    power: 5.6,
     powerS6: 10.5,
-    minSpeed: 4000,
-    maxSpeed: 20000,
-    nominalSpeed: 24000,
-    torque: 12.2,
+    minSpeed: 6000,
+    maxSpeed: 18000,
+    nominalSpeed: 12000,
+    torque: 2.9,
     torqueS6: 8.5,
     voltage: '220V, 380V',
     toolHolder: 'ER32',
@@ -185,21 +185,21 @@ export const products: Product[] = [
   },
   {
     id: '5',
-    name: 'ES-5500 ER25',
+    name: 'AME0300-1005',
     family: 'M',
     toolHolderTypeCategory: 'ER',
     line: 'Standard',
-    power: 5.5,
-    minSpeed: 10000,
-    maxSpeed: 30000,
-    nominalSpeed: 24000,
-    torque: 3.8,
+    power: 4.5,
+    minSpeed: 12000,
+    maxSpeed: 18000,
+    nominalSpeed: 18000,
+    torque: 2.4,
     voltage: '220V, 380V',
-    toolHolder: 'ER25',
-    applications: ['Wood', 'Aluminum', 'Composites', 'Plastic'],
+    toolHolder: 'ER32',
+    applications: ['Wood', 'Aluminum', 'Composites'],
     description: 'Compact and lightweight ER25 electro spindle offering exceptional speed for precision machining of wood, aluminum, and composite materials where detailed finishing is essential.',
     features: [
-      'High-speed ER25 collet system',
+      'High-speed ER32 collet system',
       'Compact footprint for tight spaces',
       'Low inertia rotor design',
       'Efficient cooling for extended operation',
@@ -219,30 +219,30 @@ export const products: Product[] = [
         height: 100
       }
     },
-    imageUrl: getProductImagePath('5', 'ES-5500 ER25', 'main'),
+    imageUrl: getProductImagePath('5', 'AME0300-1005', 'main'),
     additionalImageUrls: [
-      getProductImagePath('5', 'ES-5500 ER25', 1),
-      getProductImagePath('5', 'ES-5500 ER25', 2)
+      getProductImagePath('5', 'AME0300-1005', 1),
+      getProductImagePath('5', 'AME0300-1005', 2)
     ],
     deliveryTime: 'In stock'
   },
   {
     id: '6',
-    name: 'ES-18000 HSK-A63',
-    family: 'Q',
-    toolHolderTypeCategory: 'HSK',
+    name: 'AME0300-1006',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
     line: 'Premium',
-    power: 18.0,
-    minSpeed: 3000,
-    maxSpeed: 18000,
-    nominalSpeed: 24000,
-    torque: 15.0,
+    power: 2.2,
+    minSpeed: 6000,
+    maxSpeed: 12000,
+    nominalSpeed: 6000,
+    torque: 3.5,
     voltage: '220V, 380V',
-    toolHolder: 'HSK-A63',
+    toolHolder: 'ER32',
     applications: ['Stone', 'Aluminum'],
-    description: 'Industrial-grade HSK-A63 electro spindle designed for the most demanding stone and aluminum applications. Exceptional power and torque characteristics for heavy material removal.',
+    description: 'Industrial-grade ER32 electro spindle designed for the most demanding stone and aluminum applications. Exceptional power and torque characteristics for heavy material removal.',
     features: [
-      'HSK-A63 tool interface for maximum rigidity',
+      'ER32 tool interface for maximum rigidity',
       'Heavy-duty bearings for extreme radial loads',
       'Dual cooling system for optimal thermal management',
       'Integrated vibration dampening technology',
@@ -262,28 +262,28 @@ export const products: Product[] = [
         height: 180
       }
     },
-    imageUrl: getProductImagePath('6', 'ES-18000 HSK-A63', 'main'),
+    imageUrl: getProductImagePath('6', 'AME0300-1006', 'main'),
     additionalImageUrls: [
-      getProductImagePath('6', 'ES-18000 HSK-A63', 1),
-      getProductImagePath('6', 'ES-18000 HSK-A63', 2)
+      getProductImagePath('6', 'AME0300-1006', 1),
+      getProductImagePath('6', 'AME0300-1006', 2)
     ],
     deliveryTime: '6-8 weeks'
   },
   {
     id: '7',
-    name: 'ATC-9000 ISO30',
-    family: 'A',
-    toolHolderTypeCategory: 'ISO',
+    name: 'AME0300-1007',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
     line: 'Standard',
-    power: 9.0,
-    minSpeed: 5000,
-    maxSpeed: 24000,
-    nominalSpeed: 18000,
-    torque: 7.2,
+    power: 3.7,
+    minSpeed: 6000,
+    maxSpeed: 18000,
+    nominalSpeed: 12000,
+    torque: 2.95,
     voltage: '220V, 380V',
-    toolHolder: 'ISO30',
+    toolHolder: 'ER32',
     applications: ['Wood', 'Aluminum', 'Composites', 'Glass'],
-    description: 'Advanced automatic tool change spindle with ISO30 interface, designed for high-productivity manufacturing environments. Features rapid tool change capabilities and exceptional precision for automated machining operations.',
+    description: 'Advanced automatic tool change spindle with ER32 interface, designed for high-productivity manufacturing environments. Features rapid tool change capabilities and exceptional precision for automated machining operations.',
     features: [
       'Automatic tool change system',
       'ISO30 tool interface for universal compatibility',
@@ -305,30 +305,30 @@ export const products: Product[] = [
         height: 140
       }
     },
-    imageUrl: getProductImagePath('7', 'ATC-9000 ISO30', 'main'),
+    imageUrl: getProductImagePath('7', 'AME0300-1007', 'main'),
     additionalImageUrls: [
-      getProductImagePath('7', 'ATC-9000 ISO30', 1),
-      getProductImagePath('7', 'ATC-9000 ISO30', 2)
+      getProductImagePath('7', 'AME0300-1007', 1),
+      getProductImagePath('7', 'AME0300-1007', 2)
     ],
     deliveryTime: '3-4 weeks'
   },
   {
     id: '8',
-    name: 'ATC-12000 ISO40',
-    family: 'A',
-    toolHolderTypeCategory: 'ISO',
+    name: 'AME0300-1008',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
     line: 'Premium',
-    power: 12.0,
-    minSpeed: 4000,
-    maxSpeed: 20000,
-    nominalSpeed: 16000,
-    torque: 9.8,
+    power: 3.3,
+    minSpeed: 6000,
+    maxSpeed: 18000,
+    nominalSpeed: 18000,
+    torque: 1.75,
     voltage: '220V, 380V',
-    toolHolder: 'ISO40',
+    toolHolder: 'ER32',
     applications: ['Stone', 'Aluminum', 'Composites'],
     description: 'Premium automatic tool change spindle with ISO40 interface for heavy-duty applications. Engineered for continuous operation in demanding production environments with superior tool holding force.',
     features: [
-      'Heavy-duty ISO40 tool interface',
+      'Heavy-duty ER32 tool interface',
       'Advanced pneumatic tool clamping',
       'Integrated coolant through spindle',
       'Tool breakage detection system',
@@ -348,27 +348,27 @@ export const products: Product[] = [
         height: 160
       }
     },
-    imageUrl: getProductImagePath('8', 'ATC-12000 ISO40', 'main'),
+    imageUrl: getProductImagePath('8', 'AME0300-1008', 'main'),
     additionalImageUrls: [
-      getProductImagePath('8', 'ATC-12000 ISO40', 1),
-      getProductImagePath('8', 'ATC-12000 ISO40', 2),
-      getProductImagePath('8', 'ATC-12000 ISO40', 3)
+      getProductImagePath('8', 'AME0300-1008', 1),
+      getProductImagePath('8', 'AME0300-1008', 2),
+      getProductImagePath('8', 'AME0300-1008', 3)
     ],
     deliveryTime: '4-5 weeks'
   },
   {
     id: '9',
-    name: 'BT-6000 ER25',
-    family: 'B',
+    name: 'AME0300-1009',
+    family: 'M',
     toolHolderTypeCategory: 'ER',
     line: 'Standard',
-    power: 6.0,
-    minSpeed: 8000,
-    maxSpeed: 32000,
-    nominalSpeed: 28000,
-    torque: 4.2,
+    power: 3.7,
+    minSpeed: 6000,
+    maxSpeed: 18000,
+    nominalSpeed: 12000,
+    torque: 2.95,
     voltage: '220V, 380V',
-    toolHolder: 'ER25',
+    toolHolder: 'ER32',
     applications: ['Wood', 'Composites', 'Plastic'],
     description: 'High-speed blade technology spindle designed for precision cutting and trimming operations. Features advanced blade mounting system and optimized cooling for continuous operation.',
     features: [
@@ -392,24 +392,24 @@ export const products: Product[] = [
         height: 105
       }
     },
-    imageUrl: getProductImagePath('9', 'BT-6000 ER25', 'main'),
+    imageUrl: getProductImagePath('9', 'AME0300-1009', 'main'),
     additionalImageUrls: [
-      getProductImagePath('9', 'BT-6000 ER25', 1),
-      getProductImagePath('9', 'BT-6000 ER25', 2)
+      getProductImagePath('9', 'AME0300-1009', 1),
+      getProductImagePath('9', 'AME0300-1009', 2)
     ],
     deliveryTime: '2-3 weeks'
   },
   {
     id: '10',
-    name: 'BT-8000 ER32',
-    family: 'B',
+    name: 'AME0300-1010',
+    family: 'M',
     toolHolderTypeCategory: 'ER',
     line: 'Premium',
-    power: 8.0,
+    power: 5.6,
     minSpeed: 6000,
-    maxSpeed: 30000,
-    nominalSpeed: 26000,
-    torque: 5.8,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
+    torque: 2.97,
     voltage: '220V, 380V',
     toolHolder: 'ER32',
     applications: ['Wood', 'Aluminum', 'Composites'],
@@ -435,30 +435,30 @@ export const products: Product[] = [
         height: 125
       }
     },
-    imageUrl: getProductImagePath('10', 'BT-8000 ER32', 'main'),
+    imageUrl: getProductImagePath('10', 'AME0300-1010', 'main'),
     additionalImageUrls: [
-      getProductImagePath('10', 'BT-8000 ER32', 1),
-      getProductImagePath('10', 'BT-8000 ER32', 2)
+      getProductImagePath('10', 'AME0300-1010', 1),
+      getProductImagePath('10', 'AME0300-1010', 2)
     ],
     deliveryTime: '3-5 weeks'
   },
   {
     id: '11',
-    name: 'BT-10000 HSK-F63',
-    family: 'B',
-    toolHolderTypeCategory: 'HSK',
+    name: 'AME0300-1011',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
     line: 'Premium',
-    power: 10.0,
-    minSpeed: 5000,
-    maxSpeed: 28000,
-    nominalSpeed: 24000,
-    torque: 7.2,
+    power: 2.2,
+    minSpeed: 6000,
+    maxSpeed: 18000,
+    nominalSpeed: 12000,
+    torque: 1.75,
     voltage: '220V, 380V',
-    toolHolder: 'HSK-F63',
+    toolHolder: 'ER32',
     applications: ['Wood', 'Stone', 'Composites'],
     description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
-      'HSK-F63 precision interface',
+      'ER32 precision interface',
       'Heavy-duty blade cutting capability',
       'Industrial-grade construction',
       'Advanced thermal management',
@@ -478,10 +478,397 @@ export const products: Product[] = [
         height: 140
       }
     },
-    imageUrl: getProductImagePath('11', 'BT-10000 HSK-F63', 'main'),
+    imageUrl: getProductImagePath('11', 'AME0300-1011', 'main'),
     additionalImageUrls: [
-      getProductImagePath('11', 'BT-10000 HSK-F63', 1),
-      getProductImagePath('11', 'BT-10000 HSK-F63', 2)
+      getProductImagePath('11', 'AME0300-1011', 1),
+      getProductImagePath('11', 'AME0300-1011', 2)
+    ],
+    deliveryTime: '4-6 weeks'
+  },
+  {
+    id: '12',
+    name: 'AME0300-1012',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Premium',
+    power: 5.6,
+    minSpeed: 6000,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
+    torque: 2.97,
+    voltage: '220V, 380V',
+    toolHolder: 'ER32',
+    applications: ['Wood', 'Stone', 'Composites'],
+    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    features: [
+      'ER32 precision interface',
+      'Heavy-duty blade cutting capability',
+      'Industrial-grade construction',
+      'Advanced thermal management',
+      'Continuous duty operation'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0005 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      weight: 16.8,
+      bodyDiameter: {
+        width: 440,
+        height: 140
+      }
+    },
+    imageUrl: getProductImagePath('12', 'AME0300-1012', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('12', 'AME0300-1012', 1),
+      getProductImagePath('12', 'AME0300-1012', 2)
+    ],
+    deliveryTime: '4-6 weeks'
+  },
+  {
+    id: '13',
+    name: 'AME0200-1001',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Premium',
+    power: 2.2,
+    minSpeed: 6000,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
+    torque: 1.17,
+    voltage: '220V, 380V',
+    toolHolder: 'ER25',
+    applications: ['Wood', 'Stone', 'Composites'],
+    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    features: [
+      'ER25 precision interface',
+      'Heavy-duty blade cutting capability',
+      'Industrial-grade construction',
+      'Advanced thermal management',
+      'Continuous duty operation'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0005 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      weight: 16.8,
+      bodyDiameter: {
+        width: 440,
+        height: 140
+      }
+    },
+    imageUrl: getProductImagePath('13', 'AME0200-1001', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('13', 'AME0200-1001', 1),
+      getProductImagePath('13', 'AME0200-1001', 2)
+    ],
+    deliveryTime: '4-6 weeks'
+  },
+  {
+    id: '14',
+    name: 'AME0200-1002',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Premium',
+    power: 2.7,
+    minSpeed: 6000,
+    maxSpeed: 18000,
+    nominalSpeed: 18000,
+    torque: 1.43,
+    voltage: '220V, 380V',
+    toolHolder: 'ER25',
+    applications: ['Wood', 'Stone', 'Composites'],
+    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    features: [
+      'ER25 precision interface',
+      'Heavy-duty blade cutting capability',
+      'Industrial-grade construction',
+      'Advanced thermal management',
+      'Continuous duty operation'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0005 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      weight: 16.8,
+      bodyDiameter: {
+        width: 440,
+        height: 140
+      }
+    },
+    imageUrl: getProductImagePath('14', 'AME0200-1002', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('14', 'AME0200-1002', 1),
+      getProductImagePath('14', 'AME0200-1002', 2)
+    ],
+    deliveryTime: '4-6 weeks'
+  },
+  {
+    id: '15',
+    name: 'AME0200-1003',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Premium',
+    power: 3.3,
+    minSpeed: 6000,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
+    torque: 1.75,
+    voltage: '220V, 380V',
+    toolHolder: 'ER25',
+    applications: ['Wood', 'Stone', 'Composites'],
+    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    features: [
+      'ER25 precision interface',
+      'Heavy-duty blade cutting capability',
+      'Industrial-grade construction',
+      'Advanced thermal management',
+      'Continuous duty operation'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0005 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      weight: 16.8,
+      bodyDiameter: {
+        width: 440,
+        height: 140
+      }
+    },
+    imageUrl: getProductImagePath('15', 'AME0200-1003', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('15', 'AME0200-1003', 1),
+      getProductImagePath('15', 'AME0200-1003', 2)
+    ],
+    deliveryTime: '4-6 weeks'
+  },
+  {
+    id: '16',
+    name: 'AME0200-1004',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Premium',
+    power: 3.0,
+    minSpeed: 6000,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
+    torque: 1.69,
+    voltage: '220V, 380V',
+    toolHolder: 'ER25',
+    applications: ['Wood', 'Stone', 'Composites'],
+    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    features: [
+      'ER25 precision interface',
+      'Heavy-duty blade cutting capability',
+      'Industrial-grade construction',
+      'Advanced thermal management',
+      'Continuous duty operation'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0005 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      weight: 16.8,
+      bodyDiameter: {
+        width: 440,
+        height: 140
+      }
+    },
+    imageUrl: getProductImagePath('16', 'AME0200-1004', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('16', 'AME0200-1004', 1),
+      getProductImagePath('16', 'AME0200-1004', 2)
+    ],
+    deliveryTime: '4-6 weeks'
+  },
+  {
+    id: '17',
+    name: 'AME0200-1005',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Premium',
+    power: 1.5,
+    minSpeed: 6000,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
+    torque: 0.8,
+    voltage: '220V, 380V',
+    toolHolder: 'ER25',
+    applications: ['Wood', 'Stone', 'Composites'],
+    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    features: [
+      'ER25 precision interface',
+      'Heavy-duty blade cutting capability',
+      'Industrial-grade construction',
+      'Advanced thermal management',
+      'Continuous duty operation'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0005 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      weight: 16.8,
+      bodyDiameter: {
+        width: 440,
+        height: 140
+      }
+    },
+    imageUrl: getProductImagePath('17', 'AME0200-1005', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('17', 'AME0200-1005', 1),
+      getProductImagePath('17', 'AME0200-1005', 2)
+    ],
+    deliveryTime: '4-6 weeks'
+  },
+  {
+    id: '18',
+    name: 'AME0200-1006',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Premium',
+    power: 1.8,
+    minSpeed: 6000,
+    maxSpeed: 24000,
+    nominalSpeed: 12000,
+    torque: 1.43,
+    voltage: '220V, 380V',
+    toolHolder: 'ER25',
+    applications: ['Wood', 'Stone', 'Composites'],
+    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    features: [
+      'ER25 precision interface',
+      'Heavy-duty blade cutting capability',
+      'Industrial-grade construction',
+      'Advanced thermal management',
+      'Continuous duty operation'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0005 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      weight: 16.8,
+      bodyDiameter: {
+        width: 440,
+        height: 140
+      }
+    },
+    imageUrl: getProductImagePath('18', 'AME0200-1006', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('18', 'AME0200-1006', 1),
+      getProductImagePath('18', 'AME0200-1006', 2)
+    ],
+    deliveryTime: '4-6 weeks'
+  },
+  {
+    id: '19',
+    name: 'AME0100-1001',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Premium',
+    power: 0.73,
+    minSpeed: 6000,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
+    torque: 0.39,
+    voltage: '220V, 380V',
+    toolHolder: 'ER20',
+    applications: ['Wood', 'Stone', 'Composites'],
+    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    features: [
+      'ER20 precision interface',
+      'Heavy-duty blade cutting capability',
+      'Industrial-grade construction',
+      'Advanced thermal management',
+      'Continuous duty operation'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0005 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      weight: 16.8,
+      bodyDiameter: {
+        width: 440,
+        height: 140
+      }
+    },
+    imageUrl: getProductImagePath('19', 'AME0100-1001', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('19', 'AME0100-1001', 1),
+      getProductImagePath('19', 'AME0100-1001', 2)
+    ],
+    deliveryTime: '4-6 weeks'
+  },
+  {
+    id: '20',
+    name: 'AME0100-1003',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Premium',
+    power: 1.1,
+    minSpeed: 6000,
+    maxSpeed: 24000,
+    nominalSpeed: 18000,
+    torque: 0.58,
+    voltage: '220V, 380V',
+    toolHolder: 'ER20',
+    applications: ['Wood', 'Stone', 'Composites'],
+    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    features: [
+      'ER20 precision interface',
+      'Heavy-duty blade cutting capability',
+      'Industrial-grade construction',
+      'Advanced thermal management',
+      'Continuous duty operation'
+    ],
+    technicalSpecs: {
+      runout: '< 0.0005 mm',
+      bearingType: 'Ultra-Precision Ceramic Hybrid',
+      coolingSystem: 'Advanced Dual Circuit',
+      lubricationType: 'Oil-Air Lubrication',
+      motorType: 'Synchronous 3-Phase',
+      insulationClass: 'Class H',
+      protectionClass: 'IP67',
+      weight: 16.8,
+      bodyDiameter: {
+        width: 440,
+        height: 140
+      }
+    },
+    imageUrl: getProductImagePath('20', 'AME0100-1003', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('20', 'AME0100-1003', 1),
+      getProductImagePath('20', 'AME0100-1003', 2)
     ],
     deliveryTime: '4-6 weeks'
   }
