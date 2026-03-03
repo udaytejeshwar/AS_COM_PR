@@ -538,8 +538,7 @@ const Header = () => {
       {isDropdownOpen && (
         <div
           className="hidden md:block fixed inset-0 top-[80px] bg-black/20 backdrop-blur-sm z-30 animate-fade-in"
-          onMouseEnter={handleOverlayMouseEnter}
-          onMouseLeave={handleDropdownClose}
+          onMouseEnter={handleDropdownClose}
         />
       )}
 
