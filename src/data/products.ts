@@ -1,5 +1,5 @@
 import { Product } from '../types';
-import { getProductImagePath } from '../config/imagePaths';
+import { getProductImagePath, getProductRoleImagePath } from '../config/imagePaths';
 
 export const products: Product[] = [
   {
@@ -872,7 +872,32 @@ export const products: Product[] = [
     ],
     deliveryTime: '4-6 weeks'
   }
-];
+].map((product) => ({
+  ...product,
+  images: product.images ?? {
+    spindle: {
+      type: 'spindle',
+      url: product.imageUrl,
+      alt: `${product.name} CNC spindle motor - front view`,
+      width: 1200,
+      height: 900,
+    },
+    drawing: {
+      type: 'drawing',
+      url: product.additionalImageUrls?.[0] ?? getProductRoleImagePath(product.id, 'drawing'),
+      alt: `${product.name} spindle technical drawing with dimensions`,
+      width: 1200,
+      height: 900,
+    },
+    graph: {
+      type: 'graph',
+      url: product.additionalImageUrls?.[1] ?? getProductRoleImagePath(product.id, 'graph'),
+      alt: `${product.name} spindle performance graph (power/torque vs RPM)`,
+      width: 1200,
+      height: 900,
+    },
+  },
+}));
 
 export const getProductById = (id: string): Product | undefined => {
   return products.find(product => product.id === id);

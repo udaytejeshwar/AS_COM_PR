@@ -9,6 +9,8 @@
  */
 
 const BASE_URL = 'https://arkspindles.com';
+
+const toAbsoluteImageUrl = (url: string) => (url.startsWith('http') ? url : `${BASE_URL}${url}`);
 const LOGO_URL = `${BASE_URL}/images/logos/ARKRIDGE-LOGO.png`;
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -160,6 +162,11 @@ export interface ProductSchemaInput {
   description: string;
   imageUrl: string;
   additionalImageUrls?: string[];
+  images?: {
+    spindle: { url: string };
+    drawing: { url: string };
+    graph: { url: string };
+  };
   power: number;
   powerS6?: number;
   maxSpeed: number;
@@ -188,10 +195,12 @@ export const buildProductSchema = (product: ProductSchemaInput) => {
     product.family === 'Q' ? 'QTC' :
     product.family === 'A' ? 'ATC' : 'AM';
 
-  const images = [
-    `${BASE_URL}${product.imageUrl}`,
-    ...(product.additionalImageUrls ?? []).map(url => `${BASE_URL}${url}`),
-  ];
+  const images = product.images
+    ? [product.images.spindle.url, product.images.drawing.url, product.images.graph.url].map(toAbsoluteImageUrl)
+    : [
+        toAbsoluteImageUrl(product.imageUrl),
+        ...(product.additionalImageUrls ?? []).map(toAbsoluteImageUrl),
+      ];
 
   return {
     '@context': 'https://schema.org',
@@ -286,7 +295,7 @@ export const buildProductListSchema = (
     position: index + 1,
     url: `${BASE_URL}/products/${item.id}`,
     name: item.name,
-    image: `${BASE_URL}${item.imageUrl}`,
+    image: toAbsoluteImageUrl(item.imageUrl),
     description: item.description,
   })),
 });
