@@ -3,7 +3,7 @@ import { Send } from 'lucide-react';
 import { QuoteFormData } from '../../types';
 import { useLocation } from 'react-router-dom';
 import { getGoogleSheetsUrl } from '../../config/googleSheets';
-import { submitToGoogleSheets, validateFormData, formatForGoogleSheets } from '../../utils/googleSheets';
+import { submitToGoogleSheets, validateFormData } from '../../utils/googleSheets';
 
 interface QuoteFormProps {
   productId?: string;
