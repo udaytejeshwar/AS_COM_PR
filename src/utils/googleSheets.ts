@@ -28,6 +28,21 @@ export interface ContactFormSubmission {
 
 export type FormSubmission = QuoteFormSubmission | ContactFormSubmission;
 
+const isConfiguredWebhookUrl = (url: string): boolean => {
+  const value = (url || '').trim();
+  if (!value) return false;
+
+  const looksLikePlaceholder =
+    value.includes('YOUR_SCRIPT_ID') ||
+    value.includes('YOUR_QUOTE_SCRIPT_ID') ||
+    value.includes('YOUR_CONTACT_SCRIPT_ID') ||
+    value.includes('your-submission-webhook-url') ||
+    value.includes('your-quote-submission-webhook-url') ||
+    value.includes('your-contact-submission-webhook-url');
+
+  return /^https?:\/\//i.test(value) && !looksLikePlaceholder;
+};
+
 /**
  * Submit form data to a webhook endpoint
  * @param data - The form data to submit
@@ -38,8 +53,21 @@ export const submitToGoogleSheets = async (
   data: FormSubmission,
   scriptUrl: string
 ): Promise<void> => {
+  const configured = isConfiguredWebhookUrl(scriptUrl);
+
+  if (!configured) {
+    const message =
+      'Form endpoint is not configured. Set VITE_GOOGLE_SHEETS_URL (and optionally per-form URLs) in .env.';
+
+    if (import.meta.env.DEV) {
+      console.warn(`${message} Skipping network call in development mode.`);
+      return;
+    }
+
+    throw new Error(message);
+  }
   try {
-    const response = await fetch(scriptUrl, {
+    await fetch(scriptUrl, {
       method: 'POST',
       mode: 'no-cors', // Required for Google Apps Script
       headers: {
@@ -53,7 +81,7 @@ export const submitToGoogleSheets = async (
     console.log('Form submitted successfully');
   } catch (error) {
     console.error('Error submitting form data:', error);
-    throw new Error('Failed to submit form data');
+    throw new Error('Failed to submit form data. Check your Google Apps Script URL and deployment access.');
   }
 };
 
