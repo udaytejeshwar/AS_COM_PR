@@ -40,3 +40,17 @@ VITE_EXCEL_SUBMISSION_URL=https://prod-00.westus.logic.azure.com:443/workflows/<
 
 Note: the frontend sends requests with `mode: 'no-cors'`, so browser-level success indicates the
 request was sent, but Power Automate/Excel is the source of truth for final success.
+
+### 4) Google Apps Script checklist (if sheet is not populating)
+
+If the form shows a success state but no row appears in Sheets, verify:
+
+1. You are using the **Web App `/exec` URL** (not the editor URL and not `/dev`).
+2. The deployment access is set to **Anyone** (or "Anyone with the link").
+3. The script is bound to the correct spreadsheet/tab and has edit permission.
+4. After changing script code, you created a **new deployment version**.
+5. The script's `doPost(e)` handler reads either:
+   - `e.parameter.payload` (JSON string), or
+   - the flattened fields (`name`, `email`, `subject`, etc.) sent by the frontend.
+
+Note: Google Apps Script submissions use `no-cors`, so the browser cannot read the actual server response. Confirm writes in the Apps Script Executions log / Sheet itself.
