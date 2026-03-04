@@ -1,19 +1,37 @@
-// Google Sheets configuration
-// Replace these URLs with your actual Google Apps Script web app URLs
+// Submission endpoint configuration
+// For Microsoft 365 + Excel, use a Power Automate HTTP-trigger URL.
+// You can still use Google Apps Script URLs if needed.
 
 export const GOOGLE_SHEETS_CONFIG = {
-  // Replace with your actual Google Apps Script web app URL
-  // You'll get this URL when you deploy your Apps Script as a web app
-  SCRIPT_URL: 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec',
+  // Replace with your submission webhook URL
+  // Example: a Power Automate "When an HTTP request is received" URL
+  SCRIPT_URL: 'https://your-submission-webhook-url',
   
-  // Optional: Different URLs for different form types if you have separate scripts
-  QUOTE_FORM_URL: 'https://script.google.com/macros/s/YOUR_QUOTE_SCRIPT_ID/exec',
-  CONTACT_FORM_URL: 'https://script.google.com/macros/s/YOUR_CONTACT_SCRIPT_ID/exec',
+  // Optional: Different URLs for different form types if you use separate flows
+  QUOTE_FORM_URL: 'https://your-quote-submission-webhook-url',
+  CONTACT_FORM_URL: 'https://your-contact-submission-webhook-url',
 };
 
 // Environment-specific configuration
 export const getGoogleSheetsUrl = (formType: 'quote' | 'contact'): string => {
-  // You can use environment variables if needed
+  // Prefer Microsoft 365/Excel endpoint env vars when present
+  const excelBaseUrl = import.meta.env.VITE_EXCEL_SUBMISSION_URL;
+  const excelQuoteUrl = import.meta.env.VITE_EXCEL_QUOTE_SUBMISSION_URL;
+  const excelContactUrl = import.meta.env.VITE_EXCEL_CONTACT_SUBMISSION_URL;
+
+  if (formType === 'quote' && excelQuoteUrl) {
+    return excelQuoteUrl;
+  }
+
+  if (formType === 'contact' && excelContactUrl) {
+    return excelContactUrl;
+  }
+
+  if (excelBaseUrl) {
+    return excelBaseUrl;
+  }
+
+  // Backward-compatible Google Sheets endpoint env var
   const baseUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL || GOOGLE_SHEETS_CONFIG.SCRIPT_URL;
   
   // Return specific URLs for different form types if you have them

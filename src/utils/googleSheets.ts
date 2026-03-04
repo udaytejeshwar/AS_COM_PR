@@ -1,5 +1,5 @@
-// Google Sheets integration utility functions
-// This file contains helper functions for working with Google Apps Script
+// Form submission utility functions
+// Works with any webhook endpoint (Google Apps Script, Power Automate, etc.)
 
 export interface QuoteFormSubmission {
   type: 'quote';
@@ -29,9 +29,9 @@ export interface ContactFormSubmission {
 export type FormSubmission = QuoteFormSubmission | ContactFormSubmission;
 
 /**
- * Submit form data to Google Sheets via Apps Script
+ * Submit form data to a webhook endpoint
  * @param data - The form data to submit
- * @param scriptUrl - Your Google Apps Script web app URL
+ * @param scriptUrl - Your submission endpoint URL
  * @returns Promise that resolves when submission is complete
  */
 export const submitToGoogleSheets = async (
@@ -48,11 +48,11 @@ export const submitToGoogleSheets = async (
       body: JSON.stringify(data),
     });
 
-    // Note: With no-cors mode, we can't access the response
-    // The request will succeed if it reaches the server
-    console.log('Form submitted successfully to Google Sheets');
+    // Note: With no-cors mode, we can't access the response body/status
+    // The request is considered successful if it reaches the server
+    console.log('Form submitted successfully');
   } catch (error) {
-    console.error('Error submitting to Google Sheets:', error);
+    console.error('Error submitting form data:', error);
     throw new Error('Failed to submit form data');
   }
 };
