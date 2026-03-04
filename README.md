@@ -13,41 +13,31 @@ Google Apps Script Web App that writes rows into a Google Sheet.
 
 ### 1) Add your local environment values
 
+Create a `.env` file in the project root (same folder as `package.json`) and add one of these:
+
 Create a `.env` file in the project root (same folder as `package.json`) and set:
 
-- `VITE_GOOGLE_SHEETS_URL` (single endpoint for both forms)
-- Optional: `VITE_QUOTE_FORM_URL` and `VITE_CONTACT_FORM_URL` for separate endpoints
+If Excel-specific env vars are not set, the app falls back to `VITE_GOOGLE_SHEETS_URL`.
 
 > After editing `.env`, restart your dev server so Vite reloads environment variables.
 
 ### 2) Example `.env` values
 
 ```env
-# Single Google Apps Script Web App URL for both forms
-VITE_GOOGLE_SHEETS_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
+# Single Power Automate endpoint for both forms
+VITE_EXCEL_SUBMISSION_URL=https://prod-00.westus.logic.azure.com:443/workflows/<flow-id>/triggers/manual/paths/invoke?api-version=2016-10-01&sp=<signature>
 
-# Optional: separate endpoints per form
-# VITE_QUOTE_FORM_URL=https://script.google.com/macros/s/YOUR_QUOTE_SCRIPT_ID/exec
-# VITE_CONTACT_FORM_URL=https://script.google.com/macros/s/YOUR_CONTACT_SCRIPT_ID/exec
+# OR use separate flows per form
+# VITE_EXCEL_QUOTE_SUBMISSION_URL=https://prod-00.westus.logic.azure.com:443/workflows/<quote-flow-id>/triggers/manual/paths/invoke?api-version=2016-10-01&sp=<signature>
+# VITE_EXCEL_CONTACT_SUBMISSION_URL=https://prod-00.westus.logic.azure.com:443/workflows/<contact-flow-id>/triggers/manual/paths/invoke?api-version=2016-10-01&sp=<signature>
 ```
 
-### 3) Where to get the Google Sheets URL (step-by-step)
-
-1. Open [script.google.com](https://script.google.com/) and create a new Apps Script project.
-2. Add a `doPost(e)` handler that parses JSON and appends to your Google Sheet.
-3. Go to **Deploy → New deployment → Web app**.
-4. Set access so your app can receive requests from your site (typically "Anyone" for webhook use).
-5. Deploy and copy the generated **Web app URL** ending in `/exec`.
-6. Paste that URL into `.env` as `VITE_GOOGLE_SHEETS_URL`.
-
-### 4) Sanity check steps
+### 3) Sanity check steps
 
 1. Start app (`npm run dev`) and submit one Contact form with marker text like `SANITY-CONTACT-001`.
 2. Submit one Quote form with marker text like `SANITY-QUOTE-001`.
-3. Open your Google Sheet and confirm both rows are added with correct `type` and marker values.
+3. In Power Automate, confirm both runs succeeded.
+4. In Excel Online table, confirm both rows are added and include your marker text.
 
-Note: the frontend submits with `mode: 'no-cors'`, so browser success means the request was sent;
-verify final success in your Google Sheet.
-
-
-For a full step-by-step implementation (including paste-ready Apps Script code), see [Google Sheets Workflow](./GOOGLE_SHEETS_WORKFLOW.md).
+Note: the frontend sends requests with `mode: 'no-cors'`, so browser-level success indicates the
+request was sent, but Power Automate/Excel is the source of truth for final success.
