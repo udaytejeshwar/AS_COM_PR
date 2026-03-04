@@ -5,19 +5,16 @@
 - [Image Management Guide](./IMAGE_MANAGEMENT.md)
 - [ImageKit + SEO Implementation Plan](./IMAGEKIT_SEO_PLAN.md)
 
-## Form submissions (Excel / Microsoft 365)
+## Form submissions (Google Sheets)
 
-This project can submit quote/contact form data to a webhook endpoint. For Microsoft 365, use a
-Power Automate flow with **When an HTTP request is received** trigger and write rows to an
-Excel Online table.
+This project submits quote/contact form data to a webhook endpoint. The recommended setup is a
+Google Apps Script Web App that writes rows into a Google Sheet.
 
 ### 1) Add your local environment values
 
 Create a `.env` file in the project root (same folder as `package.json`) and add one of these:
 
-- `VITE_EXCEL_SUBMISSION_URL` (single endpoint for both forms)
-- `VITE_EXCEL_QUOTE_SUBMISSION_URL` (quote-specific endpoint)
-- `VITE_EXCEL_CONTACT_SUBMISSION_URL` (contact-specific endpoint)
+Create a `.env` file in the project root (same folder as `package.json`) and set:
 
 If Excel-specific env vars are not set, the app falls back to `VITE_GOOGLE_SHEETS_URL`.
 
