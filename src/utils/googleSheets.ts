@@ -43,6 +43,21 @@ const isConfiguredWebhookUrl = (url: string): boolean => {
   return /^https?:\/\//i.test(value) && !looksLikePlaceholder;
 };
 
+const isGoogleAppsScriptUrl = (url: string): boolean =>
+  /script\.google(?:usercontent)?\.com/i.test(url);
+
+const buildGoogleAppsScriptBody = (data: FormSubmission): URLSearchParams => {
+  const params = new URLSearchParams();
+
+  // Include both a JSON payload and flattened fields for compatibility with different Apps Script handlers.
+  params.set('payload', JSON.stringify(data));
+  Object.entries(data).forEach(([key, value]) => {
+    params.set(key, String(value ?? ''));
+  });
+
+  return params;
+};
+
 /**
  * Submit form data to a webhook endpoint
  * @param data - The form data to submit
@@ -66,22 +81,37 @@ export const submitToGoogleSheets = async (
 
     throw new Error(message);
   }
+
+  const googleAppsScriptEndpoint = isGoogleAppsScriptUrl(scriptUrl);
+
+  if (googleAppsScriptEndpoint && !/\/exec(?:\?|$)/.test(scriptUrl)) {
+    throw new Error('Google Apps Script URL must be the deployed Web App /exec endpoint.');
+  }
+
   try {
-    await fetch(scriptUrl, {
+    const response = await fetch(scriptUrl, {
       method: 'POST',
-      mode: 'no-cors', // Required for Google Apps Script
+      mode: googleAppsScriptEndpoint ? 'no-cors' : 'cors',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': googleAppsScriptEndpoint
+          ? 'application/x-www-form-urlencoded;charset=UTF-8'
+          : 'application/json',
       },
-      body: JSON.stringify(data),
+      body: googleAppsScriptEndpoint
+        ? buildGoogleAppsScriptBody(data).toString()
+        : JSON.stringify(data),
     });
 
-    // Note: With no-cors mode, we can't access the response body/status
-    // The request is considered successful if it reaches the server
-    console.log('Form submitted successfully');
+    // For non-no-cors endpoints we can validate the status code.
+    if (!googleAppsScriptEndpoint && !response.ok) {
+      throw new Error(`Submission endpoint returned HTTP ${response.status}`);
+    }
+
+    // Note: With no-cors mode, response is opaque and cannot be inspected.
+    console.log('Form submission request sent');
   } catch (error) {
     console.error('Error submitting form data:', error);
-    throw new Error('Failed to submit form data. Check your Google Apps Script URL and deployment access.');
+    throw new Error('Failed to submit form data. Check your endpoint URL, deployment access, and Apps Script sheet permissions.');
   }
 };
 
