@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Settings } from 'lucide-react';
-import { getProductImagePath, getApplicationImagePath, getLogoPath } from '../../config/imagePaths';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { getProductImagePath, getApplicationImagePath } from '../../config/imagePaths';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
   const [isApplicationsDropdownOpen, setIsApplicationsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHomeIntroTransitioning, setIsHomeIntroTransitioning] = useState(false);
   const dropdownCloseTimeout = useRef<number | null>(null);
   const location = useLocation();
 
@@ -25,12 +26,26 @@ const Header = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (dropdownCloseTimeout.current) {
         clearTimeout(dropdownCloseTimeout.current);
       }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleHomeIntroStateChange = (event: Event) => {
+      const customEvent = event as CustomEvent<{ isHomePage: boolean; isIntroVisit: boolean; isTransitioning?: boolean }>;
+      const shouldUseIntroBehavior = Boolean(customEvent.detail?.isHomePage && customEvent.detail?.isIntroVisit && customEvent.detail?.isTransitioning);
+      setIsHomeIntroTransitioning(shouldUseIntroBehavior);
+    };
+
+    window.addEventListener('homeIntroStateChange', handleHomeIntroStateChange as EventListener);
+    return () => {
+      window.removeEventListener('homeIntroStateChange', handleHomeIntroStateChange as EventListener);
     };
   }, []);
 
@@ -72,6 +87,8 @@ const Header = () => {
     setIsProductsDropdownOpen(false);
     setIsApplicationsDropdownOpen(false);
   };
+
+  const hideHeaderLogoForIntro = isHomeIntroTransitioning && location.pathname === '/';
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) => {
     const baseClasses = 'flex items-center px-3 py-2 transform transition-all duration-200 hover:scale-105';
@@ -184,11 +201,9 @@ const Header = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={closeMenu}>
               <img
-                src={getLogoPath('ARKRIDGE-LOGO.png')}
-                alt="ARK SPINDLES Logo"
-                className={`h-14 w-auto transition-all duration-300 ${
-                  headerIsScrolled ? 'filter invert' : ''
-                }`}
+                src="/images/site/makeInIndia.png"
+                alt="Make in India"
+                className={`w-auto transition-all duration-300 -ml-2 ${hideHeaderLogoForIntro ? 'h-0 opacity-0' : 'h-24 opacity-100'}`}
               />
             </Link>
           </div>
