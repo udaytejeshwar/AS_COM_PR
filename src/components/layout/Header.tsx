@@ -8,7 +8,7 @@ const Header = () => {
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
   const [isApplicationsDropdownOpen, setIsApplicationsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isHomeIntroVisit, setIsHomeIntroVisit] = useState(false);
+  const [isHomeIntroTransitioning, setIsHomeIntroTransitioning] = useState(false);
   const dropdownCloseTimeout = useRef<number | null>(null);
   const location = useLocation();
 
@@ -38,9 +38,9 @@ const Header = () => {
 
   useEffect(() => {
     const handleHomeIntroStateChange = (event: Event) => {
-      const customEvent = event as CustomEvent<{ isHomePage: boolean; isIntroVisit: boolean }>;
-      const shouldUseIntroBehavior = Boolean(customEvent.detail?.isHomePage && customEvent.detail?.isIntroVisit);
-      setIsHomeIntroVisit(shouldUseIntroBehavior);
+      const customEvent = event as CustomEvent<{ isHomePage: boolean; isIntroVisit: boolean; isTransitioning?: boolean }>;
+      const shouldUseIntroBehavior = Boolean(customEvent.detail?.isHomePage && customEvent.detail?.isIntroVisit && customEvent.detail?.isTransitioning);
+      setIsHomeIntroTransitioning(shouldUseIntroBehavior);
     };
 
     window.addEventListener('homeIntroStateChange', handleHomeIntroStateChange as EventListener);
@@ -88,7 +88,7 @@ const Header = () => {
     setIsApplicationsDropdownOpen(false);
   };
 
-  const hideHeaderLogoForIntro = isHomeIntroVisit && location.pathname === '/' && !headerIsScrolled;
+  const hideHeaderLogoForIntro = isHomeIntroTransitioning && location.pathname === '/';
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) => {
     const baseClasses = 'flex items-center px-3 py-2 transform transition-all duration-200 hover:scale-105';
@@ -203,7 +203,7 @@ const Header = () => {
               <img
                 src="/images/site/makeInIndia.png"
                 alt="Make in India"
-                className={`w-auto transition-all duration-300 ${hideHeaderLogoForIntro ? 'h-0 opacity-0' : 'h-12 opacity-100'}`}
+                className={`w-auto transition-all duration-300 -ml-2 ${hideHeaderLogoForIntro ? 'h-0 opacity-0' : 'h-24 opacity-100'}`}
               />
             </Link>
           </div>

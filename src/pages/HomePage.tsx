@@ -15,7 +15,7 @@ let hasSeenHomeIntroInApp = false;
 
 const HomePage = () => {
   const [showButton, setShowButton] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const [isIntroVisit, setIsIntroVisit] = useState(() => !hasSeenHomeIntroInApp);
 
   useSEO(SEO.home);
@@ -35,19 +35,22 @@ const HomePage = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrollY(window.scrollY);
     };
 
-    handleScroll();
+    setScrollY(0);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const introTransitionProgress = Math.min(scrollY / 180, 1);
 
   useEffect(() => {
     window.dispatchEvent(new CustomEvent('homeIntroStateChange', {
       detail: {
         isHomePage: true,
         isIntroVisit,
+        isTransitioning: isIntroVisit && introTransitionProgress < 1,
       },
     }));
 
@@ -56,10 +59,11 @@ const HomePage = () => {
         detail: {
           isHomePage: false,
           isIntroVisit: false,
+          isTransitioning: false,
         },
       }));
     };
-  }, [isIntroVisit]);
+  }, [isIntroVisit, introTransitionProgress]);
 
   return (
     <div className="min-h-screen">
@@ -74,11 +78,13 @@ const HomePage = () => {
           <img
             src="/images/site/makeInIndia.png"
             alt="Make in India"
-            className={`pointer-events-none fixed z-[70] w-auto transition-all duration-700 ease-in-out ${
-              isScrolled
-                ? 'top-4 left-4 h-14 opacity-100'
-                : 'top-[58%] left-1/2 h-24 -translate-x-1/2 opacity-100'
-            }`}
+            className="pointer-events-none fixed z-[70] w-auto opacity-100 transition-[top,left,height,transform] duration-150 ease-linear"
+            style={{
+              top: `calc(${58 - introTransitionProgress * 54}% + ${introTransitionProgress * 8}px)`,
+              left: `calc(50% - ${introTransitionProgress * 49}%)`,
+              height: `${192 - introTransitionProgress * 96}px`,
+              transform: `translateX(-${50 - introTransitionProgress * 50}%)`,
+            }}
           />
         )}
 
