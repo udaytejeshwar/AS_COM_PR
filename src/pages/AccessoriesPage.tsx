@@ -74,24 +74,6 @@ const AccessoriesPage = () => {
                     </div>
                   </div>
                   <p className="text-gray-600 mb-4">{accessory.description}</p>
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Features:</h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      {accessory.features.slice(0, 3).map((feature, index) => (
-                        <li key={index} className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2"></span>{feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2">Specifications:</h4>
-                    <div className="grid grid-cols-2 gap-2 text-sm">
-                      {Object.entries(accessory.specifications).slice(0, 4).map(([key, value]) => (
-                        <div key={key}><span className="text-gray-500">{key}:</span><span className="text-gray-900 ml-1">{value}</span></div>
-                      ))}
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}
