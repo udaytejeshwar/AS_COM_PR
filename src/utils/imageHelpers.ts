@@ -22,7 +22,7 @@ export function getProductImagePath(
 ): string {
   const sanitizedName = sanitizeNameForPath(productName);
   const suffix = variant === 'main' ? 'main' : String(variant).padStart(2, '0');
-  return `${IMAGE_BASE_PATHS.PRODUCTS}/${productId}-${sanitizedName}-${suffix}.jpg`;
+  return `${IMAGE_BASE_PATHS.PRODUCTS}/${productId}-${sanitizedName}-${suffix}.png`;
 }
 
 export function getAccessoryImagePath(
@@ -32,7 +32,7 @@ export function getAccessoryImagePath(
 ): string {
   const sanitizedName = sanitizeNameForPath(accessoryName);
   const suffix = variant === 'main' ? 'main' : String(variant).padStart(2, '0');
-  return `${IMAGE_BASE_PATHS.ACCESSORIES}/${accessoryId}-${sanitizedName}-${suffix}.jpg`;
+  return `${IMAGE_BASE_PATHS.ACCESSORIES}/${accessoryId}-${sanitizedName}-${suffix}.png`;
 }
 
 export function getSiteImagePath(imageName: string): string {
@@ -52,5 +52,5 @@ export function getProductRoleImagePath(
   productId: string,
   role: 'spindle' | 'drawing' | 'graph'
 ): string {
-  return `${IMAGE_BASE_PATHS.PRODUCTS}/${productId}/${role}.jpg`;
+  return `${IMAGE_BASE_PATHS.PRODUCTS}/${productId}/${role}.png`;
 }
