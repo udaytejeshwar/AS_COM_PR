@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowRight, Zap, Shield, Award, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
@@ -11,15 +11,55 @@ import { buildOrganizationSchema, buildWebSiteSchema } from '../config/schemas';
 
 // Built once — stable references so useEffect in StructuredData doesn't re-fire
 const SCHEMAS = [buildOrganizationSchema(), buildWebSiteSchema()];
+let hasSeenHomeIntroInApp = false;
 
 const HomePage = () => {
   const [showButton, setShowButton] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isIntroVisit, setIsIntroVisit] = useState(() => !hasSeenHomeIntroInApp);
 
   useSEO(SEO.home);
 
   const handleTypewriterComplete = () => {
     setTimeout(() => setShowButton(true), 300);
   };
+
+  useEffect(() => {
+    if (!hasSeenHomeIntroInApp) {
+      hasSeenHomeIntroInApp = true;
+      setIsIntroVisit(true);
+    } else {
+      setIsIntroVisit(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent('homeIntroStateChange', {
+      detail: {
+        isHomePage: true,
+        isIntroVisit,
+      },
+    }));
+
+    return () => {
+      window.dispatchEvent(new CustomEvent('homeIntroStateChange', {
+        detail: {
+          isHomePage: false,
+          isIntroVisit: false,
+        },
+      }));
+    };
+  }, [isIntroVisit]);
 
   return (
     <div className="min-h-screen">
@@ -30,6 +70,18 @@ const HomePage = () => {
         className="relative text-white overflow-hidden -mt-16 min-h-screen flex flex-col justify-center"
         style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
       >
+        {isIntroVisit && (
+          <img
+            src="/images/site/makeInIndia.png"
+            alt="Make in India"
+            className={`pointer-events-none fixed z-[70] w-auto transition-all duration-700 ease-in-out ${
+              isScrolled
+                ? 'top-4 left-4 h-14 opacity-100'
+                : 'top-[58%] left-1/2 h-24 -translate-x-1/2 opacity-100'
+            }`}
+          />
+        )}
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center items-center text-center">
           <div className="space-y-8 max-w-4xl">
             <div className="space-y-6">
@@ -44,8 +96,7 @@ const HomePage = () => {
               </div>
             </div>
 
-            <div className={`flex flex-col sm:flex-row items-center justify-center gap-6 transition-all duration-700 transform ${showButton ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}`}>
-              <img src="/images/site/makeInIndia.png" alt="Make in India" className="h-24 w-auto" />
+            <div className={`flex items-center justify-center transition-all duration-700 transform ${showButton ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}`}>
               <Link to="/products" className="inline-flex items-center justify-center px-8 py-4 bg-accent-black-500 text-white font-semibold rounded-lg hover:bg-accent-black-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Explore Products
                 <ArrowRight className="ml-2 w-5 h-5" />
