@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Gauge, Download, ArrowLeft } from 'lucide-react';
+import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Download, ArrowLeft } from 'lucide-react';
 import { getProductById, products } from '../data/products';
 import { Product, ProductImageType } from '../types';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
@@ -139,7 +139,7 @@ const ProductDetailPage = () => {
             <div className="flex justify-between items-start mb-4"><h1 className="text-3xl font-bold text-primary-500">{product.name}</h1><DownloadBrochure /></div>
             <div className="flex items-center flex-wrap gap-2 mb-4">
               <span className="text-sm font-medium bg-primary-500 text-white px-2 py-1 rounded">{product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series</span>
-              <span className="text-sm font-medium bg-accent-blue-500 text-white px-2 py-1 rounded">{product.line}</span>
+              {product.line === 'Premium' && <span className="text-sm font-medium bg-accent-blue-500 text-white px-2 py-1 rounded">{product.line}</span>}
               {product.applications.map(app => (<span key={app} className="text-sm font-medium bg-primary-50 text-primary-500 px-2 py-1 rounded">{app}</span>))}
             </div>
             <p className="text-gray-700 mb-6">{product.description}</p>
@@ -159,7 +159,7 @@ const ProductDetailPage = () => {
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
               <h2 className="text-lg font-semibold text-primary-500 mb-4">Technical Details</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[{ icon: Gauge, label: 'Runout', value: product.technicalSpecs.runout },{ icon: Settings, label: 'Bearing Type', value: product.technicalSpecs.bearingType },{ icon: Thermometer, label: 'Cooling System', value: product.technicalSpecs.coolingSystem },{ icon: Shield, label: 'Protection Class', value: product.technicalSpecs.protectionClass },{ icon: Scale, label: 'Weight', value: `${product.technicalSpecs.weight} kg` },{ icon: Ruler, label: 'Body Diameter', value: `Width: ${product.technicalSpecs.bodyDiameter.width} mm / Height: ${product.technicalSpecs.bodyDiameter.height} mm` }].map(({ icon: Icon, label, value }) => (
+                {[{ icon: Settings, label: 'Insulation Class', value: product.technicalSpecs.insulationClass },{ icon: Thermometer, label: 'Cooling System', value: product.technicalSpecs.coolingSystem },{ icon: Shield, label: 'Protection Class', value: product.technicalSpecs.protectionClass },{ icon: Scale, label: 'Weight', value: `${product.technicalSpecs.weight} kg` },{ icon: Settings, label: 'Duty Cycle', value: product.technicalSpecs.dutyCycle },{ icon: Ruler, label: 'Body Diameter', value: `Width: ${product.technicalSpecs.bodyDiameter.width} mm / Height: ${product.technicalSpecs.bodyDiameter.height} mm / Length: ${product.technicalSpecs.bodyDiameter.length} mm` }].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-start"><Icon className="w-5 h-5 text-primary-500 mt-1 mr-3" /><div><p className="text-sm font-medium text-gray-900">{label}</p><p className="text-sm text-gray-600">{value}</p></div></div>
                 ))}
               </div>

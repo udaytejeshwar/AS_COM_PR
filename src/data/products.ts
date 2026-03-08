@@ -27,7 +27,7 @@ export const products: Product[] = [
       'Low vibration design'
     ],
     technicalSpecs: {
-      runout: '< 0.002 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ceramic Hybrid Angular Contact',
       coolingSystem: 'Liquid Cooling',
       lubricationType: 'Grease Lubrication',
@@ -37,7 +37,8 @@ export const products: Product[] = [
       weight: 14.5,
       bodyDiameter: {
         width: 380,
-        height: 120
+        height: 120,
+        length: 380
       }
     },
     imageUrl: getProductImagePath('1', 'AME0300-1014', 'main'),
@@ -73,7 +74,7 @@ export const products: Product[] = [
       'Balanced for high-speed operation'
     ],
     technicalSpecs: {
-      runout: '< 0.003 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'High-Precision Ceramic Hybrid',
       coolingSystem: 'Dual Circuit Liquid Cooling',
       lubricationType: 'Oil-Air Lubrication',
@@ -83,7 +84,8 @@ export const products: Product[] = [
       weight: 12.6,
       bodyDiameter: {
         width: 420,
-        height: 150
+        height: 150,
+        length: 420
       }
     },
     imageUrl: getProductImagePath('2', 'AME0300-1013', 'main'),
@@ -117,7 +119,7 @@ export const products: Product[] = [
       'High-frequency compatible electronics'
     ],
     technicalSpecs: {
-      runout: '< 0.002 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Angular Contact Ceramic',
       coolingSystem: 'Liquid Cooling',
       lubricationType: 'Grease Lubrication',
@@ -127,7 +129,8 @@ export const products: Product[] = [
       weight: 10.2,
       bodyDiameter: {
         width: 340,
-        height: 110
+        height: 110,
+        length: 340
       }
     },
     imageUrl: getProductImagePath('3', 'AME0300-1024', 'main'),
@@ -163,7 +166,7 @@ export const products: Product[] = [
       'Enhanced sealing against dust and moisture'
     ],
     technicalSpecs: {
-      runout: '< 0.001 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Advanced Dual Circuit',
       lubricationType: 'Oil-Air Lubrication',
@@ -173,7 +176,8 @@ export const products: Product[] = [
       weight: 12.5,
       bodyDiameter: {
         width: 460,
-        height: 160
+        height: 160,
+        length: 460
       }
     },
     imageUrl: getProductImagePath('4', 'AME0300-1011', 'main'),
@@ -207,7 +211,7 @@ export const products: Product[] = [
       'Optimized for high-speed finishing operations'
     ],
     technicalSpecs: {
-      runout: '< 0.002 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ceramic Hybrid Angular Contact',
       coolingSystem: 'Liquid Cooling',
       lubricationType: 'Grease Lubrication',
@@ -217,7 +221,8 @@ export const products: Product[] = [
       weight: 12.5,
       bodyDiameter: {
         width: 320,
-        height: 100
+        height: 100,
+        length: 320
       }
     },
     imageUrl: getProductImagePath('5', 'AME0300-1006', 'main'),
@@ -251,7 +256,7 @@ export const products: Product[] = [
       'Enhanced sealing against harsh environments'
     ],
     technicalSpecs: {
-      runout: '< 0.001 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Advanced Dual Circuit',
       lubricationType: 'Oil-Air Lubrication',
@@ -261,7 +266,8 @@ export const products: Product[] = [
       weight: 22.5,
       bodyDiameter: {
         width: 490,
-        height: 180
+        height: 180,
+        length: 490
       }
     },
     imageUrl: getProductImagePath('6', 'AME0300-1008', 'main'),
@@ -295,7 +301,7 @@ export const products: Product[] = [
       'High-speed operation with minimal vibration'
     ],
     technicalSpecs: {
-      runout: '< 0.003 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'High-Precision Angular Contact',
       coolingSystem: 'Liquid Cooling',
       lubricationType: 'Grease Lubrication',
@@ -305,7 +311,8 @@ export const products: Product[] = [
       weight: 14.5,
       bodyDiameter: {
         width: 420,
-        height: 140
+        height: 140,
+        length: 420
       }
     },
     imageUrl: getProductImagePath('7', 'AME0300-1007', 'main'),
@@ -339,7 +346,7 @@ export const products: Product[] = [
       'Enhanced vibration dampening'
     ],
     technicalSpecs: {
-      runout: '< 0.002 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Advanced Dual Circuit',
       lubricationType: 'Oil-Air Lubrication',
@@ -349,7 +356,8 @@ export const products: Product[] = [
       weight: 14.5,
       bodyDiameter: {
         width: 480,
-        height: 160
+        height: 160,
+        length: 480
       }
     },
     imageUrl: getProductImagePath('8', 'AME0300-1002', 'main'),
@@ -383,7 +391,7 @@ export const products: Product[] = [
       'Low vibration blade technology'
     ],
     technicalSpecs: {
-      runout: '< 0.001 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic',
       coolingSystem: 'Advanced Liquid Cooling',
       lubricationType: 'Oil-Air Lubrication',
@@ -393,7 +401,8 @@ export const products: Product[] = [
       weight: 14.5,
       bodyDiameter: {
         width: 350,
-        height: 105
+        height: 105,
+        length: 350
       }
     },
     imageUrl: getProductImagePath('9', 'AME0300-1009', 'main'),
@@ -427,7 +436,7 @@ export const products: Product[] = [
       'Real-time performance optimization'
     ],
     technicalSpecs: {
-      runout: '< 0.0008 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Dual Circuit Advanced Cooling',
       lubricationType: 'Oil-Air Lubrication',
@@ -437,7 +446,8 @@ export const products: Product[] = [
       weight: 12,
       bodyDiameter: {
         width: 390,
-        height: 125
+        height: 125,
+        length: 390
       }
     },
     imageUrl: getProductImagePath('10', 'AME0300-1003', 'main'),
@@ -471,7 +481,7 @@ export const products: Product[] = [
       'Continuous duty operation'
     ],
     technicalSpecs: {
-      runout: '< 0.0005 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Advanced Dual Circuit',
       lubricationType: 'Oil-Air Lubrication',
@@ -481,7 +491,8 @@ export const products: Product[] = [
       weight: 12.3,
       bodyDiameter: {
         width: 440,
-        height: 140
+        height: 140,
+        length: 440
       }
     },
     imageUrl: getProductImagePath('11', 'AME0300-1005', 'main'),
@@ -515,7 +526,7 @@ export const products: Product[] = [
       'Continuous duty operation'
     ],
     technicalSpecs: {
-      runout: '< 0.0005 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Advanced Dual Circuit',
       lubricationType: 'Oil-Air Lubrication',
@@ -525,7 +536,8 @@ export const products: Product[] = [
       weight: 15.3,
       bodyDiameter: {
         width: 440,
-        height: 140
+        height: 140,
+        length: 440
       }
     },
     imageUrl: getProductImagePath('12', 'AME0300-1010', 'main'),
@@ -559,7 +571,7 @@ export const products: Product[] = [
       'Continuous duty operation'
     ],
     technicalSpecs: {
-      runout: '< 0.0005 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Advanced Dual Circuit',
       lubricationType: 'Oil-Air Lubrication',
@@ -569,7 +581,8 @@ export const products: Product[] = [
       weight: 15.1,
       bodyDiameter: {
         width: 440,
-        height: 140
+        height: 140,
+        length: 440
       }
     },
     imageUrl: getProductImagePath('13', 'AME0300-1012', 'main'),
@@ -603,7 +616,7 @@ export const products: Product[] = [
       'Continuous duty operation'
     ],
     technicalSpecs: {
-      runout: '< 0.0005 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Advanced Dual Circuit',
       lubricationType: 'Oil-Air Lubrication',
@@ -613,7 +626,8 @@ export const products: Product[] = [
       weight: 13.6,
       bodyDiameter: {
         width: 440,
-        height: 140
+        height: 140,
+        length: 440
       }
     },
     imageUrl: getProductImagePath('14', 'AME0300-1001', 'main'),
@@ -647,7 +661,7 @@ export const products: Product[] = [
       'Continuous duty operation'
     ],
     technicalSpecs: {
-      runout: '< 0.0005 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Advanced Dual Circuit',
       lubricationType: 'Oil-Air Lubrication',
@@ -657,7 +671,8 @@ export const products: Product[] = [
       weight: 15.8,
       bodyDiameter: {
         width: 440,
-        height: 140
+        height: 140,
+        length: 440
       }
     },
     imageUrl: getProductImagePath('15', 'AQH0300-1005', 'main'),
@@ -691,7 +706,7 @@ export const products: Product[] = [
       'Continuous duty operation'
     ],
     technicalSpecs: {
-      runout: '< 0.0005 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Advanced Dual Circuit',
       lubricationType: 'Oil-Air Lubrication',
@@ -701,7 +716,8 @@ export const products: Product[] = [
       weight: 16.8,
       bodyDiameter: {
         width: 440,
-        height: 140
+        height: 140,
+        length: 440
       }
     },
     imageUrl: getProductImagePath('16', 'AQH0300-1006', 'main'),
@@ -735,7 +751,7 @@ export const products: Product[] = [
       'Continuous duty operation'
     ],
     technicalSpecs: {
-      runout: '< 0.0005 mm',
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
       coolingSystem: 'Advanced Dual Circuit',
       lubricationType: 'Oil-Air Lubrication',
@@ -745,7 +761,8 @@ export const products: Product[] = [
       weight: 14.8,
       bodyDiameter: {
         width: 440,
-        height: 140
+        height: 140,
+        length: 440
       }
     },
     imageUrl: getProductImagePath('17', 'AQH0300-1011', 'main'),
