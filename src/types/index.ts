@@ -40,7 +40,7 @@ export interface Product {
   description: string;
   features: string[];
   technicalSpecs: {
-    runout: string;
+    dutyCycle: string;
     bearingType: string;
     coolingSystem: string;
     lubricationType: string;
@@ -51,6 +51,7 @@ export interface Product {
     bodyDiameter: {
       width: number; // in mm
       height: number; // in mm
+      length: number; // in mm
     };
   };
   imageUrl: string;
