@@ -8,6 +8,7 @@ import { getProductImagePath, getApplicationImagePath } from '../config/imagePat
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
 import { buildOrganizationSchema, buildWebSiteSchema } from '../config/schemas';
+import { getImagekitUrl } from '../utils/productImages';
 
 // Built once — stable references so useEffect in StructuredData doesn't re-fire
 const SCHEMAS = [buildOrganizationSchema(), buildWebSiteSchema()];
@@ -237,7 +238,7 @@ const HomePage = () => {
                 className="group bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
                 <div className="aspect-square overflow-hidden">
-                  <img src={application.image} alt={`${application.title} spindle application — ARK SPINDLES India`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img src={getImagekitUrl(application.image)} alt={`${application.title} spindle application — ARK SPINDLES India`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="p-6 pb-5">
                   <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-gray-900 transition-colors duration-300">{application.title}</h3>
