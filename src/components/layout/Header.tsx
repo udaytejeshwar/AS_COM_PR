@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { getProductImagePath, getApplicationImagePath } from '../../config/imagePaths';
+import { getImagekitUrl } from '../../utils/productImages';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -600,7 +601,7 @@ const Header = () => {
                         </div>
                         <div className="w-[38%] h-full overflow-hidden">
                           <img
-                            src={item.image}
+                            src={getImagekitUrl(item.image)}
                             alt={item.title}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           />
@@ -642,7 +643,7 @@ const Header = () => {
                         </div>
                         <div className="w-[38%] h-full overflow-hidden">
                           <img
-                            src={item.image}
+                            src={getImagekitUrl(item.image)}
                             alt={item.title}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           />
