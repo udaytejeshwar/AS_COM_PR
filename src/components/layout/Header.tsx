@@ -156,37 +156,37 @@ const Header = () => {
       to: "/products?application=Wood",
       title: "Wood Processing",
       description: "Furniture, cabinetry, and architectural millwork applications",
-      image: getApplicationImagePath('wood-processing.jpg')
+      image: getApplicationImagePath('wood-processing.png')
     },
     {
       to: "/products?application=Stone",
       title: "Stone & Marble",
       description: "Natural and engineered stone cutting and shaping",
-      image: getApplicationImagePath('stone-marble.jpg')
+      image: getApplicationImagePath('stone-marble.png')
     },
     {
       to: "/products?application=Aluminum",
       title: "Aluminum Machining",
       description: "High-speed machining for aerospace and automotive components",
-      image: getApplicationImagePath('aluminum-machining.jpg')
+      image: getApplicationImagePath('aluminum-machining.png')
     },
     {
       to: "/products?application=Composites",
       title: "Composite Materials",
       description: "Advanced composites for aerospace and marine applications",
-      image: getApplicationImagePath('composite-materials.jpg')
+      image: getApplicationImagePath('composite-materials.png')
     },
     {
       to: "/products?application=Plastic",
       title: "Plastic Processing",
       description: "Precision machining of engineering plastics",
-      image: getApplicationImagePath('plastic-processing.jpg')
+      image: getApplicationImagePath('plastic-processing.png')
     },
     {
       to: "/products?application=Glass",
       title: "Glass Engraving",
       description: "High-precision engraving and cutting of glass materials",
-      image: getApplicationImagePath('glass-engraving.jpg')
+      image: getApplicationImagePath('glass-engraving.png')
     }
   ];
 
