@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
 import TypewriterEffect from '../components/shared/TypewriterEffect';
 import StructuredData from '../components/shared/StructuredData';
-import { getProductImagePath, getApplicationImagePath } from '../config/imagePaths';
+import { getApplicationImagePath } from '../config/imagePaths';
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
 import { buildOrganizationSchema, buildWebSiteSchema } from '../config/schemas';
@@ -144,8 +144,8 @@ const HomePage = () => {
           </div>
           <div className="grid lg:grid-cols-2 gap-8">
             {[
-              { family: 'M', title: 'MTC spindles', description: 'Manual tool change spindles offering reliable performance for standard machining operations.', features: ['Manual tool change', 'Robust construction', 'Cost-effective solution', 'Wide speed range'], image: getProductImagePath('1', 'ES-9000 ER32', 'main') },
-              { family: 'Q', title: 'QTC spindles', description: 'Quick tool change spindles for enhanced productivity and reduced downtime.', features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'], image: getProductImagePath('2', 'ES-12000 ER40', 'main') }
+              { family: 'M', title: 'MTC spindles', description: 'Manual tool change spindles offering reliable performance for standard machining operations.', features: ['Manual tool change', 'Robust construction', 'Cost-effective solution', 'Wide speed range'], image: 'https://ik.imagekit.io/arkspindles/images/products/spindles/1-ame0300-1014-main.png' },
+              { family: 'Q', title: 'QTC spindles', description: 'Quick tool change spindles for enhanced productivity and reduced downtime.', features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'], image: 'https://ik.imagekit.io/arkspindles/images/products/spindles/15-aqh0300-1005-main.png' }
               // ,{
               //   family: 'A',
               //   title: 'ATC spindles',

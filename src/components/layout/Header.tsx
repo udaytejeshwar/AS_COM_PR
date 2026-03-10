@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { getProductImagePath, getApplicationImagePath } from '../../config/imagePaths';
+import { getApplicationImagePath } from '../../config/imagePaths';
 import { getImagekitUrl } from '../../utils/productImages';
 
 const Header = () => {
@@ -110,13 +110,13 @@ const Header = () => {
       to: "/products?family=M",
       title: "MTC Spindles",
       description: "Reliable performance for machining operations with manual tool changes",
-      image: getProductImagePath('1', 'ES-9000 ER32', 'main')
+      image: 'https://ik.imagekit.io/arkspindles/images/products/spindles/1-ame0300-1014-main.png'
     },
     {
       to: "/products?family=Q",
       title: "QTC Spindles",
       description: "Enhanced productivity with rapid tool changes for reduced downtime",
-      image: getProductImagePath('2', 'ES-12000 ER40', 'main')
+      image: 'https://ik.imagekit.io/arkspindles/images/products/spindles/15-aqh0300-1005-main.png'
     }
     // ,{
     //   to: "/products?family=A",
