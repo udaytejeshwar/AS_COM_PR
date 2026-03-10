@@ -5,6 +5,7 @@ import { Download } from 'lucide-react';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
+import { getImagekitUrl } from '../utils/productImages';
 
 const AccessoriesPage = () => {
   useSEO(SEO.accessories);
@@ -59,7 +60,7 @@ const AccessoriesPage = () => {
             {filteredAccessories.map((accessory) => (
               <div key={accessory.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="relative h-64 bg-gray-200 overflow-hidden group">
-                  <img src={accessory.imageUrl} alt={`${accessory.name} — spindle accessory India`}
+                  <img src={getImagekitUrl(accessory.imageUrl)} alt={`${accessory.name} — spindle accessory India`}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   <button onClick={() => handleImageDownload(accessory.imageUrl, accessory.name)}
                     className="absolute bottom-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" title="Download Image">
