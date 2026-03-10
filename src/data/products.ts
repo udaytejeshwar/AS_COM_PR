@@ -21,8 +21,7 @@ export const products: Product[] = [
     description: 'High-performance ER25 electro spindle designed for precision woodworking and aluminum machining. Features advanced cooling system and premium bearing technology for extended service life.',
     features: [
       'Precision balanced rotor',
-      'Ceramic hybrid bearings',
-      'Water cooling system',
+      'Precision bearings',
       'Manual tool change compatibility',
       'Low vibration design'
     ],
@@ -68,9 +67,8 @@ export const products: Product[] = [
     description: 'Premium ER32 electro spindle offering exceptional versatility across wood, stone, and aluminum applications. Engineered for high material removal rates while maintaining superior surface finish quality.',
     features: [
       'High-capacity ER25 collet system',
-      'Liquid cooling with enhanced thermal efficiency',
-      'Heavy-duty bearings for increased radial loads',
-      'Integrated temperature monitoring',
+      'Enhanced thermal efficiency',
+      'Precision bearings for increased radial loads',
       'Balanced for high-speed operation'
     ],
     technicalSpecs: {
@@ -114,7 +112,6 @@ export const products: Product[] = [
     features: [
       'ER32 tool interface for superior runout control',
       'Compact design for tight installation spaces',
-      'Liquid cooling system',
       'Low thermal expansion characteristics',
       'High-frequency compatible electronics'
     ],
@@ -161,8 +158,6 @@ export const products: Product[] = [
     features: [
       'ER32 interface for high precision and rigidity',
       'Robust construction for demanding applications',
-      'Advanced cooling system for continuous operation',
-      'Vector control drive compatibility',
       'Enhanced sealing against dust and moisture'
     ],
     technicalSpecs: {
@@ -205,7 +200,6 @@ export const products: Product[] = [
     description: 'Compact and lightweight ER32 electro spindle offering exceptional speed for precision machining of wood, aluminum, and composite materials where detailed finishing is essential.',
     features: [
       'High-speed ER32 collet system',
-      'Compact footprint for tight spaces',
       'Low inertia rotor design',
       'Efficient cooling for extended operation',
       'Optimized for high-speed finishing operations'
@@ -250,8 +244,7 @@ export const products: Product[] = [
     description: 'Industrial-grade ER32 electro spindle designed for the most demanding stone and aluminum applications. Exceptional power and torque characteristics for heavy material removal.',
     features: [
       'ER32 tool interface for maximum rigidity',
-      'Heavy-duty bearings for extreme radial loads',
-      'Dual cooling system for optimal thermal management',
+      'Precision bearings for extreme radial loads',
       'Integrated vibration dampening technology',
       'Enhanced sealing against harsh environments'
     ],
@@ -294,10 +287,8 @@ export const products: Product[] = [
     applications: ['Wood', 'Aluminum', 'Composites'],
     description: 'Advanced automatic tool change spindle with ER32 interface, designed for high-productivity manufacturing environments. Features rapid tool change capabilities and exceptional precision for automated machining operations.',
     features: [
-      'Automatic tool change system',
       'ER32 tool interface for universal compatibility',
-      'Pneumatic tool clamping mechanism',
-      'Integrated tool presence detection',
+      'precision tool clamping mechanism',
       'High-speed operation with minimal vibration'
     ],
     technicalSpecs: {
@@ -340,9 +331,7 @@ export const products: Product[] = [
     description: 'Premium automatic tool change spindle with ISO40 interface for heavy-duty applications. Engineered for continuous operation in demanding production environments with superior tool holding force.',
     features: [
       'Heavy-duty ER32 tool interface',
-      'Advanced pneumatic tool clamping',
       'Integrated coolant through spindle',
-      'Tool breakage detection system',
       'Enhanced vibration dampening'
     ],
     technicalSpecs: {
@@ -384,9 +373,7 @@ export const products: Product[] = [
     applications: ['Wood', 'Composites', 'Aluminum'],
     description: 'High-speed blade technology spindle designed for precision cutting and trimming operations. Features advanced blade mounting system and optimized cooling for continuous operation.',
     features: [
-      'Specialized blade mounting interface',
       'High-speed cutting capability',
-      'Precision blade alignment system',
       'Enhanced cooling for continuous operation',
       'Low vibration blade technology'
     ],
@@ -430,8 +417,6 @@ export const products: Product[] = [
     description: 'Premium blade technology spindle with advanced cutting capabilities for demanding applications. Features intelligent blade monitoring and adaptive speed control.',
     features: [
       'Intelligent blade monitoring system',
-      'Adaptive speed control technology',
-      'Premium blade mounting interface',
       'Advanced vibration dampening',
       'Real-time performance optimization'
     ],
@@ -475,7 +460,6 @@ export const products: Product[] = [
     description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'ER32 precision interface',
-      'Heavy-duty blade cutting capability',
       'Industrial-grade construction',
       'Advanced thermal management',
       'Continuous duty operation'
@@ -520,7 +504,6 @@ export const products: Product[] = [
     description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'ER32 precision interface',
-      'Heavy-duty blade cutting capability',
       'Industrial-grade construction',
       'Advanced thermal management',
       'Continuous duty operation'
@@ -565,7 +548,6 @@ export const products: Product[] = [
     description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'ER32 precision interface',
-      'Heavy-duty blade cutting capability',
       'Industrial-grade construction',
       'Advanced thermal management',
       'Continuous duty operation'
@@ -610,7 +592,6 @@ export const products: Product[] = [
     description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'ER32 precision interface',
-      'Heavy-duty blade cutting capability',
       'Industrial-grade construction',
       'Advanced thermal management',
       'Continuous duty operation'
@@ -655,7 +636,6 @@ export const products: Product[] = [
     description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'HSK-40 precision interface',
-      'Heavy-duty blade cutting capability',
       'Industrial-grade construction',
       'Advanced thermal management',
       'Continuous duty operation'
@@ -700,7 +680,6 @@ export const products: Product[] = [
     description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'HSK-40 precision interface',
-      'Heavy-duty blade cutting capability',
       'Industrial-grade construction',
       'Advanced thermal management',
       'Continuous duty operation'
@@ -745,7 +724,6 @@ export const products: Product[] = [
     description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'HSK precision interface',
-      'Heavy-duty blade cutting capability',
       'Industrial-grade construction',
       'Advanced thermal management',
       'Continuous duty operation'
