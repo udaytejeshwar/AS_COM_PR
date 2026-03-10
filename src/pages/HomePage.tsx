@@ -44,6 +44,7 @@ const HomePage = () => {
   }, []);
 
   const introTransitionProgress = Math.min(scrollY / 180, 1);
+  const shouldShowIntroLogo = isIntroVisit && introTransitionProgress < 1;
 
   useEffect(() => {
     window.dispatchEvent(new CustomEvent('homeIntroStateChange', {
@@ -74,7 +75,7 @@ const HomePage = () => {
         className="relative text-white overflow-hidden -mt-16 min-h-screen flex flex-col justify-center"
         style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
       >
-        {isIntroVisit && (
+        {shouldShowIntroLogo && (
           <img
             src="/images/site/makeInIndia.png"
             alt="Make in India"
@@ -82,7 +83,7 @@ const HomePage = () => {
             style={{
               top: `calc(${58 - introTransitionProgress * 54}% + ${introTransitionProgress * 8}px)`,
               left: `calc(50% - ${introTransitionProgress * 49}%)`,
-              height: `${192 - introTransitionProgress * 96}px`,
+              height: `${96}px`,
               transform: `translateX(-${50 - introTransitionProgress * 50}%)`,
             }}
           />
