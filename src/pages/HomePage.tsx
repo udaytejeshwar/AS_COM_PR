@@ -16,7 +16,6 @@ let hasSeenHomeIntroInApp = false;
 
 const HomePage = () => {
   const [showButton, setShowButton] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const [isIntroVisit, setIsIntroVisit] = useState(() => !hasSeenHomeIntroInApp);
 
   useSEO(SEO.home);
@@ -34,25 +33,14 @@ const HomePage = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    setScrollY(0);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const introTransitionProgress = Math.min(scrollY / 180, 1);
-  const shouldShowIntroLogo = isIntroVisit && introTransitionProgress < 1;
+  const shouldShowIntroLogo = isIntroVisit;
 
   useEffect(() => {
     window.dispatchEvent(new CustomEvent('homeIntroStateChange', {
       detail: {
         isHomePage: true,
         isIntroVisit,
-        isTransitioning: isIntroVisit && introTransitionProgress < 1,
+        isTransitioning: isIntroVisit,
       },
     }));
 
@@ -65,7 +53,7 @@ const HomePage = () => {
         },
       }));
     };
-  }, [isIntroVisit, introTransitionProgress]);
+  }, [isIntroVisit]);
 
   return (
     <div className="min-h-screen">
@@ -76,19 +64,7 @@ const HomePage = () => {
         className="relative text-white overflow-hidden -mt-16 min-h-screen flex flex-col justify-center"
         style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}
       >
-        {shouldShowIntroLogo && (
-          <img
-            src="/images/site/makeInIndia.png"
-            alt="Make in India"
-            className="pointer-events-none fixed z-[70] w-auto opacity-100 transition-[top,left,height,transform] duration-150 ease-linear"
-            style={{
-              top: `calc(${58 - introTransitionProgress * 54}% + ${introTransitionProgress * 8}px)`,
-              left: `calc(50% - ${introTransitionProgress * 49}%)`,
-              height: `${96}px`,
-              transform: `translateX(-${50 - introTransitionProgress * 50}%)`,
-            }}
-          />
-        )}
+
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center items-center text-center">
           <div className="space-y-8 max-w-4xl">
@@ -110,6 +86,16 @@ const HomePage = () => {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </div>
+
+            {shouldShowIntroLogo && (
+              <div className={`flex justify-center transition-all duration-700 ${showButton ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <img
+                  src="/images/site/makeInIndia.png"
+                  alt="Make in India"
+                  className="pointer-events-none h-24 w-auto relative z-10"
+                />
+              </div>
+            )}
           </div>
         </div>
 
@@ -177,7 +163,7 @@ const HomePage = () => {
             ].map((product, index) => (
               <div key={index} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className="aspect-video overflow-hidden">
-                  <img src={product.image} alt={`${product.title} — CNC electro spindle by ARK SPINDLES India`} className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
+                  <img src={getImagekitUrl(product.image)} alt={`${product.title} — CNC electro spindle by ARK SPINDLES India`} className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
                 </div>
                 <div className="p-8">
                   <div className="flex items-center justify-between mb-4">
@@ -226,12 +212,12 @@ const HomePage = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Wood Processing", description: "Furniture, cabinetry, and architectural millwork with superior surface finishes.", image: getApplicationImagePath('wood-processing.jpg'), detailedDescription: ["Hardwood machining (Oak, Maple, Cherry)", "Softwood processing (Pine, Cedar, Fir)", "Engineered wood products (Plywood, MDF, OSB)", "Laminated materials and veneers", "Complex 3D carving and profiling"] },
-              { title: "Stone & Marble", description: "Precision cutting and shaping of natural and engineered stone materials.", image: getApplicationImagePath('stone-marble.jpg'), detailedDescription: ["Natural stone (Granite, Marble, Limestone)", "Engineered quartz and composite stones", "Ceramic and porcelain tiles", "Architectural stone elements", "Countertop fabrication and edge profiling"] },
-              { title: "Aluminum Machining", description: "High-speed machining of aluminum components for aerospace and automotive.", image: getApplicationImagePath('aluminum-machining.jpg'), detailedDescription: ["6061 and 7075 aluminum alloys", "Aerospace component manufacturing", "Automotive parts and heat sinks", "Architectural aluminum profiles", "High-speed milling and drilling operations"] },
-              { title: "Composite Materials", description: "Advanced composites for aerospace, marine, and high-performance applications.", image: getApplicationImagePath('composite-materials.jpg'), detailedDescription: ["Carbon fiber reinforced plastics (CFRP)", "Glass fiber composites (GFRP)", "Honeycomb sandwich structures", "Prepreg and wet-lay materials", "Aerospace and marine applications"] },
-              { title: "Plastic Processing", description: "Precision machining of thermoplastics and engineering plastics for industrial components.", image: getApplicationImagePath('plastic-processing.jpg'), detailedDescription: ["Engineering plastics (PEEK, POM, Nylon)", "Thermoplastics (ABS, PC, PMMA)", "High-performance polymers", "Medical grade plastics", "Precision prototype development"] },
-              { title: "Glass Engraving", description: "High-precision engraving and cutting of glass materials for decorative and functional applications.", image: getApplicationImagePath('glass-engraving.jpg'), detailedDescription: ["Tempered and laminated glass", "Decorative glass engraving", "Optical glass components", "Architectural glass panels", "Precision edge polishing"] },
+              { title: "Wood Processing", description: "Furniture, cabinetry, and architectural millwork with superior surface finishes.", image: getApplicationImagePath('wood-processing.png'), detailedDescription: ["Hardwood machining (Oak, Maple, Cherry)", "Softwood processing (Pine, Cedar, Fir)", "Engineered wood products (Plywood, MDF, OSB)", "Laminated materials and veneers", "Complex 3D carving and profiling"] },
+              { title: "Stone & Marble", description: "Precision cutting and shaping of natural and engineered stone materials.", image: getApplicationImagePath('stone-marble.png'), detailedDescription: ["Natural stone (Granite, Marble, Limestone)", "Engineered quartz and composite stones", "Ceramic and porcelain tiles", "Architectural stone elements", "Countertop fabrication and edge profiling"] },
+              { title: "Aluminum Machining", description: "High-speed machining of aluminum components for aerospace and automotive.", image: getApplicationImagePath('aluminum-machining.png'), detailedDescription: ["6061 and 7075 aluminum alloys", "Aerospace component manufacturing", "Automotive parts and heat sinks", "Architectural aluminum profiles", "High-speed milling and drilling operations"] },
+              { title: "Composite Materials", description: "Advanced composites for aerospace, marine, and high-performance applications.", image: getApplicationImagePath('composite-materials.png'), detailedDescription: ["Carbon fiber reinforced plastics (CFRP)", "Glass fiber composites (GFRP)", "Honeycomb sandwich structures", "Prepreg and wet-lay materials", "Aerospace and marine applications"] },
+              { title: "Plastic Processing", description: "Precision machining of thermoplastics and engineering plastics for industrial components.", image: getApplicationImagePath('plastic-processing.png'), detailedDescription: ["Engineering plastics (PEEK, POM, Nylon)", "Thermoplastics (ABS, PC, PMMA)", "High-performance polymers", "Medical grade plastics", "Precision prototype development"] },
+              { title: "Glass Engraving", description: "High-precision engraving and cutting of glass materials for decorative and functional applications.", image: getApplicationImagePath('glass-engraving.png'), detailedDescription: ["Tempered and laminated glass", "Decorative glass engraving", "Optical glass components", "Architectural glass panels", "Precision edge polishing"] },
             ].map((application, index) => (
               <article
                 key={index}
