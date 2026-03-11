@@ -27,10 +27,10 @@ const AccessoriesPage = () => {
     <div className="animate-fade-in">
       <section className="relative text-white overflow-hidden -mt-16" style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}>
         <div className="container mx-auto px-4 pt-40 pb-24 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex justify-between items-start">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
             <div>
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-light mb-6 leading-tight animate-slide-in">Spindle Accessories</h1>
-              <p className="text-xl mb-8 text-gray-200 max-w-2xl">Enhance your spindle's performance with our range of high-quality accessories and tools.</p>
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-light mb-4 sm:mb-6 leading-tight animate-slide-in">Spindle Accessories</h1>
+              <p className="text-base sm:text-xl mb-6 sm:mb-8 text-gray-200 max-w-2xl">Enhance your spindle's performance with our range of high-quality accessories and tools.</p>
             </div>
             <DownloadBrochure />
           </div>
@@ -56,10 +56,10 @@ const AccessoriesPage = () => {
 
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredAccessories.map((accessory) => (
               <div key={accessory.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="relative h-64 bg-gray-200 overflow-hidden group">
+                <div className="relative h-56 sm:h-64 bg-gray-200 overflow-hidden group">
                   <img src={getImagekitUrl(accessory.imageUrl)} alt={`${accessory.name} — spindle accessory India`}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   <button onClick={() => handleImageDownload(accessory.imageUrl, accessory.name)}

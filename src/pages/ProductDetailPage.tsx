@@ -120,12 +120,12 @@ const ProductDetailPage = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-12">
           <div className="mb-8 lg:mb-0">
             <div className="bg-white rounded-lg overflow-hidden shadow-md mb-4 relative group">
-              <img src={getImagekitUrl(selectedImage.url, 'productMain')} alt={selectedImage.alt} width={selectedImage.width} height={selectedImage.height} className="w-full h-96 object-cover object-center" fetchPriority={selectedRole === 'spindle' ? 'high' : 'auto'} />
+              <img src={getImagekitUrl(selectedImage.url, 'productMain')} alt={selectedImage.alt} width={selectedImage.width} height={selectedImage.height} className="w-full h-64 sm:h-80 lg:h-96 object-cover object-center" fetchPriority={selectedRole === 'spindle' ? 'high' : 'auto'} />
               <button onClick={() => handleImageDownload(selectedImage.url, product.name, selectedRole)} className="absolute bottom-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" title="Download Image">
                 <Download className="w-5 h-5 text-primary-500" />
               </button>
             </div>
-            <div className="grid grid-cols-3 gap-2" role="tablist" aria-label="Product image categories">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="tablist" aria-label="Product image categories">
               {(Object.keys(imageSet) as ProductImageType[]).map((role) => (
                 <button key={role} role="tab" aria-selected={selectedRole === role} onClick={() => setSelectedRole(role)} className={`border-2 rounded-md overflow-hidden transition-all duration-200 ${selectedRole === role ? 'border-accent-blue-500 ring-2 ring-accent-blue-200' : 'border-gray-200 hover:border-gray-300'}`}>
                   <img src={getImagekitUrl(imageSet[role].url, 'thumbnail')} alt={imageSet[role].alt} className="w-full h-20 object-cover" loading="lazy" width={imageSet[role].width} height={imageSet[role].height} />
@@ -136,7 +136,7 @@ const ProductDetailPage = () => {
           </div>
 
           <div>
-            <div className="flex justify-between items-start mb-4"><h1 className="text-3xl font-bold text-primary-500">{product.name}</h1><DownloadBrochure /></div>
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4"><h1 className="text-2xl sm:text-3xl font-bold text-primary-500">{product.name}</h1><DownloadBrochure /></div>
             <div className="flex items-center flex-wrap gap-2 mb-4">
               <span className="text-sm font-medium bg-primary-500 text-white px-2 py-1 rounded">{product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series</span>
               {product.line === 'Premium' && <span className="text-sm font-medium bg-accent-blue-500 text-white px-2 py-1 rounded">{product.line}</span>}
@@ -146,7 +146,7 @@ const ProductDetailPage = () => {
 
             <div className="bg-gray-50 rounded-lg p-6 mb-6">
               <h2 className="text-lg font-semibold text-primary-500 mb-4">Specifications</h2>
-              <div className="grid grid-cols-2 gap-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-4">
                 <div><span className="text-sm text-gray-500">Power</span><p className="font-medium">{product.power} kW (S1)</p>{product.powerS6 && <p className="text-sm text-gray-800 mt-1">{product.powerS6} kW (S6-40%)</p>}</div>
                 <div><span className="text-sm text-gray-500">Torque</span><p className="font-medium">{product.torque} Nm (S1)</p>{product.torqueS6 && <p className="text-sm text-gray-800 mt-1">{product.torqueS6} Nm (S6-40%)</p>}</div>
                 <div><span className="text-sm text-gray-500">Nominal Speed</span><p className="font-medium">{product.nominalSpeed.toLocaleString()} RPM</p></div>
@@ -170,7 +170,7 @@ const ProductDetailPage = () => {
               <ul className="space-y-2">{product.features.map((feature, index) => (<li key={index} className="flex items-start"><Check className="w-5 h-5 text-success-500 flex-shrink-0 mr-2 mt-0.5" /><span>{feature}</span></li>))}</ul>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
               <button onClick={() => navigate(`/quote?productName=${encodeURIComponent(product.name)}`)} className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue-500 transition-colors">Request Quote</button>
               <Link to="/contact" className="inline-flex items-center px-6 py-3 border border-primary-500 text-base font-medium rounded-md text-primary-500 bg-white hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">Technical Support</Link>
             </div>

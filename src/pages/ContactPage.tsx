@@ -54,17 +54,17 @@ const ContactPage = () => {
       <StructuredData schemas={LOCAL_BUSINESS_SCHEMA} />
       <section className="relative text-white overflow-hidden -mt-16" style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}>
         <div className="container mx-auto px-4 pt-40 pb-24 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex justify-between items-start">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
             <div>
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-light mb-6 leading-tight animate-slide-in">Contact Us</h1>
-              <p className="text-xl mb-8 text-gray-200 max-w-2xl">Get in touch with our team for expert support, product inquiries, or technical assistance.</p>
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-light mb-4 sm:mb-6 leading-tight animate-slide-in">Contact Us</h1>
+              <p className="text-base sm:text-xl mb-6 sm:mb-8 text-gray-200 max-w-2xl">Get in touch with our team for expert support, product inquiries, or technical assistance.</p>
             </div>
             <DownloadBrochure />
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-12">
             <div>
@@ -110,7 +110,7 @@ const ContactPage = () => {
             </div>
 
             <div className="mt-12 lg:mt-0">
-              <div className="bg-white rounded-lg shadow-lg p-8">
+              <div className="bg-white rounded-lg shadow-lg p-5 sm:p-8">
                 <h2 className="text-2xl font-bold text-primary-500 mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>

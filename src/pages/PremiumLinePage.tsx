@@ -13,17 +13,17 @@ const PremiumLinePage = () => {
           background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)'
         }}
       >
-        <div className="flex justify-center items-center h-[500px] sm:h-[600px] lg:h-[700px]">
+        <div className="flex justify-center items-center min-h-[460px] sm:h-[600px] lg:h-[700px] px-4">
           <div className="text-center animate-fade-in">
-            <div className="relative border border-white px-8 py-6 mb-8">
-              <h1 className="text-white tracking-[0.3em] text-4xl sm:text-5xl font-light">
+            <div className="relative border border-white px-4 sm:px-8 py-4 sm:py-6 mb-6 sm:mb-8">
+              <h1 className="text-white tracking-[0.12em] sm:tracking-[0.3em] text-2xl sm:text-5xl font-light">
                 T I T A N Series<sup className="text-sm align-top ml-1">®</sup>
               </h1>
               <div className="absolute bottom-0 right-3 text-white/70 text-[0.6rem] sm:text-[0.75rem] font-light tracking-[0.15em]">
               <span className="italic">By</span> ArkSpindles
             </div>
             </div>
-            <p className="text-white/80 text-base font-light tracking-[0.05em] leading-relaxed max-w-2xl mx-auto">
+            <p className="text-white/80 text-sm sm:text-base font-light tracking-[0.03em] sm:tracking-[0.05em] leading-relaxed max-w-2xl mx-auto">
               Where precision meets power, engineering excellence will be redefined.<br />
               Our ultimate expression of spindle technology for demanding applications.
             </p>
@@ -32,20 +32,20 @@ const PremiumLinePage = () => {
       </section>
 
       {/* Premium Advantage with Storytelling and ROI */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+      <section className="py-14 sm:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-4xl font-light text-primary-400 mb-6">
+            <h2 className="text-3xl sm:text-4xl font-light text-primary-400 mb-6">
               Engineered for Peak Performance
             </h2>
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
               The TITAN Premium Line is our most advanced <Link to="/products?line=Premium" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">electrospindle series</Link>, crafted from decades of engineering expertise and refined with cutting-edge technology. Designed to deliver unmatched precision, reliability, and performance, these spindles guarantee you a competitive edge with reduced downtime, longer tool life, and consistent machining quality. Explore our full <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">product catalog</Link> to find the perfect spindle for your application.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-10">
             {/* Feature 1 */}
-            <div className="bg-gray-50 p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <div className="bg-gray-50 p-6 sm:p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
               <div 
   className="mb-6 w-14 h-14 rounded-full flex items-center justify-center text-white" 
   style={{ background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)' }}
@@ -67,7 +67,7 @@ const PremiumLinePage = () => {
             </div>
 
             {/* Feature 2 */}
-            <div className="bg-gray-50 p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <div className="bg-gray-50 p-6 sm:p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
               <div 
   className="mb-6 w-14 h-14 rounded-full flex items-center justify-center text-white" 
   style={{ background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)' }}
@@ -88,7 +88,7 @@ const PremiumLinePage = () => {
             </div>
 
             {/* Feature 3 */}
-            <div className="bg-gray-50 p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <div className="bg-gray-50 p-6 sm:p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
               <div 
   className="mb-6 w-14 h-14 rounded-full flex items-center justify-center text-white" 
   style={{ background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)' }}
@@ -200,7 +200,7 @@ const PremiumLinePage = () => {
 
       {/* CTA Section */}
       <section 
-        className="py-16 text-white"
+        className="py-14 sm:py-16 text-white"
         style={{
           background: 'radial-gradient(circle, #e16a6a 0%, #000000 100%)'
         }}
@@ -213,7 +213,7 @@ const PremiumLinePage = () => {
                 Contact our specialists to discuss how our Premium Line can enhance your manufacturing capabilities.
               </p>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
               <Link
                 to="/products?line=Premium"
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors duration-200"
