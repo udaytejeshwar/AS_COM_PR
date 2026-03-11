@@ -69,11 +69,11 @@ const HomePage = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center items-center text-center">
           <div className="space-y-8 max-w-4xl">
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-6xl font-light leading-tight tracking-[0.3em] uppercase text-center">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-light leading-tight tracking-[0.12em] sm:tracking-[0.2em] lg:tracking-[0.3em] uppercase text-center">
                 <span className="inline-block">ARK SPINDLES</span>
                 <sup className="text-sm align-top ml-1">®</sup>
               </h1>
-              <div className="text-center mb-16">
+              <div className="text-center mb-10 sm:mb-16">
                 <p className="text-base text-white-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
                   Advanced electro-spindle technology for demanding <Link to="/products" className="text-white hover:text-white-800 underline decoration-1 underline-offset-2">CNC applications</Link>.
                 </p>
@@ -81,7 +81,7 @@ const HomePage = () => {
             </div>
 
             <div className={`flex items-center justify-center transition-all duration-700 transform ${showButton ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}`}>
-              <Link to="/products" className="inline-flex items-center justify-center px-8 py-4 bg-accent-black-500 text-white font-semibold rounded-lg hover:bg-accent-black-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <Link to="/products" className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-accent-black-500 text-white font-semibold rounded-lg hover:bg-accent-black-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Explore Products
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
@@ -92,20 +92,20 @@ const HomePage = () => {
                 <img
                   src="/images/site/makeInIndia.png"
                   alt="Make in India"
-                  className="pointer-events-none h-24 w-auto relative z-10"
+                  className="pointer-events-none h-16 sm:h-24 w-auto relative z-10"
                 />
               </div>
             )}
           </div>
         </div>
 
-        <div className="absolute bottom-[6.5rem] w-full text-center">
+        <div className="absolute bottom-20 sm:bottom-[6.5rem] w-full text-center px-4">
           <TypewriterEffect text="Indian Manufacturing Prowess - Through Every Revolution" speed={80} onComplete={handleTypewriterComplete} />
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
+      <section className="py-14 sm:py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -136,7 +136,7 @@ const HomePage = () => {
       {/* Product Families Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Precision Platforms</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Tailored spindle systems engineered for distinct materials, methods, and performance demands — from <Link to="/products?application=Wood" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">high-speed contouring in wood</Link> to heavy-duty milling in <Link to="/products?application=Stone" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">stone</Link> and <Link to="/products?application=Aluminum" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">aluminum</Link>.
@@ -189,9 +189,9 @@ const HomePage = () => {
       </section>
 
       {/* Spindle Matcher */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
+      <section className="py-14 sm:py-20" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Find a Replacement for your Existing Spindle</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Use our intelligent matching tool to find compatible <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">spindle replacements</Link> based on your current specifications.
@@ -204,7 +204,7 @@ const HomePage = () => {
       {/* Applications Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Applications & Industries</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Our <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">precision spindles</Link> excel across diverse materials and industries, delivering consistent results in demanding applications.
@@ -231,7 +231,7 @@ const HomePage = () => {
                   <p className="text-gray-700 leading-relaxed">{application.description}</p>
                 </div>
 
-                <div className="px-6 pb-6 border-t border-gray-100 bg-gray-50/80 max-h-0 opacity-0 translate-y-2 transition-all duration-300 ease-out group-hover:max-h-72 group-hover:opacity-100 group-hover:translate-y-0">
+                <div className="px-6 pb-6 border-t border-gray-100 bg-gray-50/80 max-h-72 opacity-100 translate-y-0 transition-all duration-300 ease-out md:max-h-0 md:opacity-0 md:translate-y-2 md:group-hover:max-h-72 md:group-hover:opacity-100 md:group-hover:translate-y-0">
                   <h4 className="text-sm font-semibold text-primary-500 mt-4 mb-3 tracking-wide">Specialized Applications</h4>
                   <ul className="text-sm text-gray-600 space-y-2">
                     {application.detailedDescription.map((detail, i) => (
@@ -249,8 +249,8 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
+      <section className="py-14 sm:py-20" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center animate-fade-in">
           <div>
             <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Need a Custom Project?</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">

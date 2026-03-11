@@ -25,10 +25,10 @@ const AboutPage = () => {
       >
         <div className="container mx-auto px-4 pt-40 pb-24 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-4xl lg:text-5xl font-light font sans tracking-[0.2em] mb-6 leading-tight animate-slide-in">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light font sans tracking-[0.08em] sm:tracking-[0.15em] lg:tracking-[0.2em] mb-4 sm:mb-6 leading-tight animate-slide-in">
               ARK SPINDLES
             </h1>
-            <p className="text-xl mb-8 text-gray-200 max-w-2xl">
+            <p className="text-base sm:text-xl mb-6 sm:mb-8 text-gray-200 max-w-2xl">
               Precision. Made in India. Engineered for the World.
             </p>
           </div>
@@ -54,7 +54,7 @@ const AboutPage = () => {
               <p className="text-gray-600 mb-6">
                 We're building for today's applications with tomorrow's tech — where precision, efficiency, and localized innovation will define the winners of global manufacturing. Explore our <Link to="/premium" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">premium line</Link> to see our latest innovations.
               </p>
-              <div className="grid grid-cols-2 gap-6 mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary-500 mb-2">100%</div>
                   <div className="text-gray-600">Engineered in India</div>
@@ -175,7 +175,7 @@ const AboutPage = () => {
                 Whether you're building a machine or an entire factory line, Ark Spindles is ready to support your growth with reliable, precise, and scalable spindle systems.
               </p>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
               <Link
                 to="/products"
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"

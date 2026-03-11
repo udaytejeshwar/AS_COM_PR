@@ -106,9 +106,9 @@ const ProductsPage = () => {
 
       <section className="relative text-white overflow-hidden -mt-16" style={{ background: 'radial-gradient(circle, #4d5d6d 0%, #000000 100%)' }}>
         <div className="container mx-auto px-4 pt-40 pb-24 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-start">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-bold mb-4">Electro Spindles</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">Electro Spindles</h1>
               <p className="text-primary-100 max-w-3xl">Explore our comprehensive range of high-performance electro spindles designed for various materials and applications.</p>
             </div>
             <DownloadBrochure />
@@ -129,7 +129,7 @@ const ProductsPage = () => {
             <button onClick={() => setShowFilters(!showFilters)} className="lg:hidden inline-flex items-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
               <Filter className="mr-2 h-5 w-5 text-gray-400" />{showFilters ? 'Hide Filters' : 'Show Filters'}
             </button>
-            <div className="hidden sm:flex items-center text-sm text-gray-500">
+            <div className="hidden md:flex items-center text-sm text-gray-500">
               <span>{filteredProducts.length} products found</span>
             </div>
           </div>
@@ -159,7 +159,7 @@ const ProductsPage = () => {
                 </button>
               </div>
             ) : (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProducts.map((product) => (<ProductCard key={product.id} product={product} />))}
               </div>
             )}
