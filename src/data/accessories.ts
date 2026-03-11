@@ -25,9 +25,9 @@ export const accessories: Accessory[] = [
   },
   {
     id: 'er32-set',
-    name: 'ER32 Collet Set',
+    name: 'ER Collet Set',
     category: 'Tool Holders',
-    description: 'Premium quality ER32 collet set covering the most common tool diameters. Manufactured to high precision standards for excellent concentricity.',
+    description: 'Premium quality ER collet set covering the most common tool diameters. Manufactured to high precision standards for excellent concentricity.',
     features: [
       'Complete set of 13 collets',
       'Size range: 2-20mm',
@@ -47,7 +47,7 @@ export const accessories: Accessory[] = [
   },
   {
     id: 'vfd-7500',
-    name: 'VFD-7500 Drive Controller',
+    name: 'VFD Drive Controller',
     category: 'VFD',
     description: 'Advanced variable frequency drive designed specifically for high-speed spindle control. Features precise speed control and comprehensive protection functions.',
     features: [
