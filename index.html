@@ -5,6 +5,27 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script>
+      // GitHub Pages SPA fallback: decode redirected route from /?/...
+      (function (locationData) {
+        if (locationData.search[1] === '/') {
+          var decodedRoute = locationData.search
+            .slice(1)
+            .split('&')
+            .map(function (segment) {
+              return segment.replace(/~and~/g, '&');
+            })
+            .join('?');
+
+          window.history.replaceState(
+            null,
+            '',
+            locationData.pathname.slice(0, -1) + decodedRoute + locationData.hash
+          );
+        }
+      })(window.location);
+    </script>
+
     <!-- Base title & description — overridden per-page by useSEO hook -->
     <title>ARK SPINDLES | Electro Spindle Manufacturer India</title>
     <meta name="description" content="ARK SPINDLES manufactures precision CNC electro spindles in Hyderabad, India. High-performance spindles for wood, stone, aluminum, composites, and glass. Made in India, engineered for the world." />
