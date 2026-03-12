@@ -198,13 +198,13 @@ const Header = () => {
         }`}
       >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-[11px]">
           <div className="flex items-center">
             <Link to="/" className="flex items-center" onClick={closeMenu}>
               <img
                 src="/images/site/makeInIndia.png"
                 alt="Make in India"
-                className={`w-auto transition-all duration-300 -ml-2 ${hideHeaderLogoForIntro ? 'h-0 opacity-0' : 'h-24 opacity-100'}`}
+                className={`w-auto transition-all duration-300 -ml-2 ${hideHeaderLogoForIntro ? 'h-0 opacity-0' : 'h-[67px] opacity-100'}`}
               />
             </Link>
           </div>
@@ -299,10 +299,10 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className={`md:hidden shadow-lg animate-fade-in fixed inset-x-0 top-[80px] z-50 ${
+        <div className={`md:hidden shadow-lg animate-fade-in fixed inset-x-0 top-[56px] z-50 ${
           headerIsScrolled ? 'bg-white' : 'bg-black/90 backdrop-blur-sm'
         }`}>
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 max-h-[calc(100vh-88px)] overflow-y-auto">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 max-h-[calc(100vh-62px)] overflow-y-auto">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -553,7 +553,7 @@ const Header = () => {
       {/* Backdrop */}
       {isDropdownOpen && (
         <div
-          className="hidden md:block fixed inset-0 top-[80px] bg-black/20 backdrop-blur-sm z-30 animate-fade-in"
+          className="hidden md:block fixed inset-0 top-[56px] bg-black/20 backdrop-blur-sm z-30 animate-fade-in"
           onMouseEnter={handleDropdownClose}
         />
       )}
@@ -561,7 +561,7 @@ const Header = () => {
       {/* Contained Dropdown Menu */}
       {isDropdownOpen && (
         <div
-          className="hidden md:block fixed left-1/2 -translate-x-1/2 top-[80px] z-40 animate-fade-in"
+          className="hidden md:block fixed left-1/2 -translate-x-1/2 top-[56px] z-40 animate-fade-in"
           onMouseEnter={handleOverlayMouseEnter}
           onMouseLeave={handleDropdownClose}
         >
