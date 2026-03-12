@@ -42,7 +42,7 @@ const AboutPage = () => {
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
             <div className="mb-10 lg:mb-0">
               <img 
-                src={getImagekitUrl(getSiteImagePath('factory-facility.jpg'))}
+                src={getImagekitUrl(getSiteImagePath('factory-facility.png'))}
                 alt="ARK SPINDLES manufacturing facility in Hyderabad, India"
                 className="rounded-lg shadow-lg"
               />
@@ -157,7 +157,7 @@ const AboutPage = () => {
             </div>
             <div className="mt-10 lg:mt-0">
               <img 
-                src={getImagekitUrl(getSiteImagePath('global-operations.jpg'))}
+                src={getImagekitUrl(getSiteImagePath('global-operations.png'))}
                 alt="ARK SPINDLES global operations and export markets"
                 className="rounded-lg shadow-lg"
               />
