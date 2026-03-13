@@ -53,7 +53,7 @@ const AboutPage = () => {
                 ARK SPINDLES was founded with a clear ambition: to build India's most respected <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">precision engineered electrospindles</Link>, that power the future of industrial automation.
               </p>
               <p className="text-gray-600 mb-6">
-                We're building for today's applications with tomorrow's tech — where precision, efficiency, and localized innovation will define the winners of global manufacturing. Explore our <Link to="/premium" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">premium line</Link> to see our latest innovations.
+                We're building for today's applications with tomorrow's tech — where precision, efficiency, and localized innovation will define the winners of global manufacturing.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-8">
                 <div className="text-center">
