@@ -5,8 +5,10 @@
     <title>Redirecting...</title>
     <script>
       // GitHub Pages SPA fallback: redirect unknown paths to index with encoded route.
-      // Keep the repository/app name segment (e.g., /arkspindles).
-      var pathSegmentsToKeep = 1;
+      // Custom domain deploy at root: do not preserve any path segment.
+      // Preserving one segment causes recursive redirects like /about/?/about...,
+      // which keeps re-encoding query separators into ~and~.
+      var pathSegmentsToKeep = 0;
       var locationData = window.location;
       var basePath = locationData.pathname
         .split('/')
