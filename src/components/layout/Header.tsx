@@ -200,12 +200,19 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-[11px]">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center" onClick={closeMenu}>
+            <Link to="/" className="flex items-center gap-2 sm:gap-3" onClick={closeMenu}>
               <img
                 src="/images/site/makeInIndia.png"
                 alt="Make in India"
                 className={`w-auto transition-all duration-300 -ml-2 ${hideHeaderLogoForIntro ? 'h-0 opacity-0' : 'h-[67px] opacity-100'}`}
               />
+              <span
+                className={`text-base sm:text-lg md:text-xl font-light font-sans tracking-[0.2em] transition-all duration-300 whitespace-nowrap ${
+                  headerIsScrolled || isDropdownOpen ? 'text-gray-800' : 'text-white'
+                }`}
+              >
+                ARK SPINDLES
+              </span>
             </Link>
           </div>
 
