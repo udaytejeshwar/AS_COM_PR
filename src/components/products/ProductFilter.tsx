@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Filter } from 'lucide-react';
 import { Application, FilterOptions, ProductFamily, ToolHolder, ToolHolderTypeCategory } from '../../types';
+import { products } from '../../data/products';
 
 interface ProductFilterProps {
   filters: FilterOptions;
@@ -18,6 +19,24 @@ const ProductFilter = ({
   torqueRange 
 }: ProductFilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const toolHoldersByType = useMemo(() => {
+    const holders = {
+      ER: new Set<ToolHolder>(),
+      HSK: new Set<ToolHolder>(),
+      ISO: new Set<ToolHolder>(),
+    };
+
+    products.forEach((product) => {
+      holders[product.toolHolderTypeCategory].add(product.toolHolder);
+    });
+
+    return {
+      ER: Array.from(holders.ER).sort(),
+      HSK: Array.from(holders.HSK).sort(),
+      ISO: Array.from(holders.ISO).sort(),
+    };
+  }, []);
 
   const updateFilter = <K extends keyof FilterOptions>(key: K, value: FilterOptions[K]) => {
     onFilterChange({ ...filters, [key]: value });
@@ -99,7 +118,7 @@ const ProductFilter = ({
               <button
                 key={type}
                 type="button"
-                onClick={() => updateFilter('toolHolderTypeCategory', type)}
+                onClick={() => onFilterChange({ ...filters, toolHolderTypeCategory: type, toolHolder: 'All' })}
                 className={`px-3 py-1 text-sm rounded-full border ${
                   filters.toolHolderTypeCategory === type
                     ? 'bg-primary-500 text-white border-primary-500'
@@ -131,7 +150,7 @@ const ProductFilter = ({
                 All
               </button>
               {filters.toolHolderTypeCategory === 'ER' && (
-                ['ER20', 'ER25', 'ER32', 'ER40'].map((holder) => (
+                toolHoldersByType.ER.map((holder) => (
                   <button
                     key={holder}
                     type="button"
@@ -147,7 +166,7 @@ const ProductFilter = ({
                 ))
               )}
               {filters.toolHolderTypeCategory === 'HSK' && (
-                ['HSK-E50', 'HSK-F63', 'HSK-A63'].map((holder) => (
+                toolHoldersByType.HSK.map((holder) => (
                   <button
                     key={holder}
                     type="button"
@@ -163,7 +182,7 @@ const ProductFilter = ({
                 ))
               )}
               {filters.toolHolderTypeCategory === 'ISO' && (
-                ['ISO30', 'ISO40'].map((holder) => (
+                toolHoldersByType.ISO.map((holder) => (
                   <button
                     key={holder}
                     type="button"
