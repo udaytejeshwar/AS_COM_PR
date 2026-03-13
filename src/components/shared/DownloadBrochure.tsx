@@ -2,9 +2,8 @@ import { FileDown } from 'lucide-react';
 
 const DownloadBrochure = () => {
   const handleDownload = () => {
-    // In a real application, this would be a real PDF URL
-    const pdfUrl = "https://example.com/spindle-catalog-2025.pdf";
-    window.open(pdfUrl, '_blank');
+    const pdfUrl = 'https://ik.imagekit.io/arkspindles/docs/ArkspindlesCatalogue.PDF?download=true';
+    window.open(pdfUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
