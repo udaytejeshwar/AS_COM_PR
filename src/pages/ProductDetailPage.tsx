@@ -165,6 +165,7 @@ const ProductDetailPage = () => {
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4"><h1 className="text-2xl sm:text-3xl font-bold text-primary-500">{product.name}</h1><DownloadBrochure /></div>
             <div className="flex items-center flex-wrap gap-2 mb-4">
               <span className="text-sm font-medium bg-primary-500 text-white px-2 py-1 rounded">{product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series</span>
+              <span className="text-sm font-medium bg-white text-primary-600 border border-primary-100 px-2 py-1 rounded">{product.toolHolder}</span>
               {product.line === 'Premium' && <span className="text-sm font-medium bg-accent-blue-500 text-white px-2 py-1 rounded">{product.line}</span>}
               {product.applications.map(app => (<span key={app} className="text-sm font-medium bg-primary-50 text-primary-500 px-2 py-1 rounded">{app}</span>))}
             </div>
