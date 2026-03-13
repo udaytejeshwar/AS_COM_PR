@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Download, ArrowLeft } from 'lucide-react';
+import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Download, ArrowLeft, X } from 'lucide-react';
 import { getProductById, products } from '../data/products';
 import { Product, ProductImageType } from '../types';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
@@ -23,6 +23,7 @@ const ProductDetailPage = () => {
   const [loading, setLoading] = useState(true);
   const [selectedRole, setSelectedRole] = useState<ProductImageType>('spindle');
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
 
   const seoData = product
     ? buildProductSEO(product)
@@ -67,6 +68,24 @@ const ProductDetailPage = () => {
     }
     setLoading(false);
   }, [id, navigate]);
+
+  useEffect(() => {
+    if (!isImageModalOpen) return;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsImageModalOpen(false);
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isImageModalOpen]);
 
   if (loading) {
     return (
@@ -120,7 +139,14 @@ const ProductDetailPage = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-12">
           <div className="mb-8 lg:mb-0">
             <div className="bg-white rounded-lg overflow-hidden shadow-md mb-4 relative group">
-              <img src={getImagekitUrl(selectedImage.url, 'productMain')} alt={selectedImage.alt} width={selectedImage.width} height={selectedImage.height} className="w-full h-64 sm:h-80 lg:h-96 object-cover object-center" fetchPriority={selectedRole === 'spindle' ? 'high' : 'auto'} />
+              <button
+                type="button"
+                onClick={() => setIsImageModalOpen(true)}
+                className="w-full text-left"
+                aria-label="Open full size product image"
+              >
+                <img src={getImagekitUrl(selectedImage.url, 'productMain')} alt={selectedImage.alt} width={selectedImage.width} height={selectedImage.height} className="w-full h-64 sm:h-80 lg:h-96 object-cover object-center cursor-zoom-in" fetchPriority={selectedRole === 'spindle' ? 'high' : 'auto'} />
+              </button>
               <button onClick={() => handleImageDownload(selectedImage.url, product.name, selectedRole)} className="absolute bottom-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" title="Download Image">
                 <Download className="w-5 h-5 text-primary-500" />
               </button>
@@ -190,6 +216,34 @@ const ProductDetailPage = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      )}
+
+      {isImageModalOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/70 px-4 py-6 sm:p-8 flex items-center justify-center"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${product.name} image preview`}
+          onClick={() => setIsImageModalOpen(false)}
+        >
+          <div className="relative max-w-5xl w-full" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setIsImageModalOpen(false)}
+              className="absolute -top-3 -right-3 sm:top-3 sm:right-3 bg-white text-gray-700 hover:text-primary-500 p-2 rounded-full shadow-md"
+              aria-label="Close image preview"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <img
+              src={getImagekitUrl(selectedImage.url, 'productMain')}
+              alt={selectedImage.alt}
+              width={selectedImage.width}
+              height={selectedImage.height}
+              className="w-full max-h-[85vh] object-contain rounded-lg bg-white"
+            />
           </div>
         </div>
       )}
