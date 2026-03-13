@@ -163,8 +163,8 @@ const CookiePolicyModal = ({ isOpen, onClose }: CookiePolicyModalProps) => {
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg text-gray-700">
                   <p className="font-semibold">ARK SPINDLES</p>
-                  <p>1234 Industrial Avenue</p>
-                  <p>Tech Park, Milan, Italy</p>
+                  <p>Plot 28, Gachibowli</p>
+                  <p>Hyderabad 500032, India</p>
                   <p className="mt-2">Email: privacy@arkspindles.com</p>
                   <p>Phone: +1 (234) 567-890</p>
                 </div>

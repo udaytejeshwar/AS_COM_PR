@@ -121,8 +121,8 @@ const TermsAndConditionsModal = ({ isOpen, onClose }: TermsAndConditionsModalPro
               </p>
               <div className="text-gray-700 mb-4">
                 <p>ARK SPINDLES</p>
-                <p>1234 Industrial Avenue</p>
-                <p>Tech Park, Milan, Italy</p>
+                <p>Plot 28, Gachibowli</p>
+                <p>Hyderabad 500032, India</p>
                 <p>Email: legal@arkspindles.com</p>
                 <p>Phone: +1 (234) 567-890</p>
               </div>
