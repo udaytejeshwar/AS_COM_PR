@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Send } from 'lucide-react';
 import { QuoteFormData } from '../../types';
 import { useLocation } from 'react-router-dom';
 import { getGoogleSheetsUrl } from '../../config/googleSheets';
 import { submitToGoogleSheets, validateFormData } from '../../utils/googleSheets';
+import { products } from '../../data/products';
 
 interface QuoteFormProps {
   productId?: string;
@@ -11,22 +12,61 @@ interface QuoteFormProps {
 }
 
 const QuoteForm = ({ productId, productName }: QuoteFormProps) => {
+  const location = useLocation();
+  const params = useMemo(() => new URLSearchParams(location.search), [location.search]);
+  const productIdFromURL = params.get('product') || '';
+  const productNameFromURL = params.get('productName') || '';
+
+  const initialProduct = useMemo(() => {
+    if (productId) {
+      const matchedProduct = products.find((item) => item.id === productId);
+      return {
+        productId,
+        productName: matchedProduct?.name || productName || '',
+      };
+    }
+
+    if (productIdFromURL) {
+      const matchedProduct = products.find((item) => item.id === productIdFromURL);
+      return {
+        productId: productIdFromURL,
+        productName: matchedProduct?.name || productNameFromURL || '',
+      };
+    }
+
+    if (productNameFromURL) {
+      return {
+        productId: '',
+        productName: productNameFromURL,
+      };
+    }
+
+    return {
+      productId: '',
+      productName: productName || '',
+    };
+  }, [productId, productIdFromURL, productName, productNameFromURL]);
+
   const [formData, setFormData] = useState<QuoteFormData>({
     firstName: '',
     lastName: '',
     company: '',
     email: '',
     phone: '',
-    productId: productId || '',
+    productId: initialProduct.productId,
     quantity: 1,
     application: '',
     message: '',
-    productName: productName || '',
+    productName: initialProduct.productName,
   });
 
-  const location = useLocation();
-const params = new URLSearchParams(location.search);
-const productNameFromURL = params.get('productName') || '';
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      productId: initialProduct.productId,
+      productName: initialProduct.productName,
+    }));
+  }, [initialProduct.productId, initialProduct.productName]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -61,11 +101,11 @@ const productNameFromURL = params.get('productName') || '';
         company: '',
         email: '',
         phone: '',
-        productId: productId || '',
+        productId: initialProduct.productId,
         quantity: 1,
         application: '',
         message: '',
-        productName: productName || '',
+        productName: initialProduct.productName,
       });
     } catch (error) {
       console.error('Error submitting quote form:', error);
@@ -82,9 +122,9 @@ const productNameFromURL = params.get('productName') || '';
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {productName && (
+      {(productName || productNameFromURL) && (
         <div className="bg-primary-50 p-4 rounded-lg">
-          <p className="text-primary-700 font-medium">Requesting quote for: {productName}</p>
+          <p className="text-primary-700 font-medium">Requesting quote for: {initialProduct.productName}</p>
         </div>
       )}
 
@@ -167,15 +207,28 @@ const productNameFromURL = params.get('productName') || '';
           <label htmlFor="productName" className="block text-sm font-medium text-gray-700">
             Product Name
           </label>
-          <input
-            type="text"
+          <select
             id="productName"
             name="productName"
-            value={productNameFromURL}
-            onChange={handleChange}
-            placeholder="Enter the product you want quote for"
+            value={formData.productName}
+            onChange={(e) => {
+              const selectedName = e.target.value;
+              const selectedProduct = products.find((item) => item.name === selectedName);
+              setFormData((prev) => ({
+                ...prev,
+                productName: selectedName,
+                productId: selectedProduct?.id || '',
+              }));
+            }}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-500 focus:ring-accent-blue-500"
-          />
+          >
+            <option value="">Select a product</option>
+            {products.map((productOption) => (
+              <option key={productOption.id} value={productOption.name}>
+                {productOption.name}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div>

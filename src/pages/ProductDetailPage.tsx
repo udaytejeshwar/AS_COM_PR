@@ -197,7 +197,7 @@ const ProductDetailPage = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
-              <button onClick={() => navigate(`/quote?productName=${encodeURIComponent(product.name)}`)} className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue-500 transition-colors">Request Quote</button>
+              <button onClick={() => navigate(`/quote?product=${encodeURIComponent(product.id)}`)} className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue-500 transition-colors">Request Quote</button>
               <Link to="/contact" className="inline-flex items-center px-6 py-3 border border-primary-500 text-base font-medium rounded-md text-primary-500 bg-white hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">Technical Support</Link>
             </div>
           </div>
