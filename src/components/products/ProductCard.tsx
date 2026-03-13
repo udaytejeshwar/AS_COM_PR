@@ -21,8 +21,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
           height={spindleImage.height}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         />
-        <div className="absolute top-2 left-2 bg-primary-500 text-white text-xs px-2 py-1 rounded">
-          {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series
+        <div className="absolute top-2 left-2 flex items-center gap-2">
+          <span className="bg-primary-500 text-white text-xs px-2 py-1 rounded">
+            {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series
+          </span>
+          <span className="bg-white/95 text-primary-600 text-xs px-2 py-1 rounded border border-primary-100">
+            {product.toolHolder}
+          </span>
         </div>
       </div>
 
