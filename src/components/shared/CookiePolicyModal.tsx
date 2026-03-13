@@ -165,8 +165,8 @@ const CookiePolicyModal = ({ isOpen, onClose }: CookiePolicyModalProps) => {
                   <p className="font-semibold">ARK SPINDLES</p>
                   <p>Plot 28, Gachibowli</p>
                   <p>Hyderabad 500032, India</p>
-                  <p className="mt-2">Email: privacy@arkspindles.com</p>
-                  <p>Phone: +1 (234) 567-890</p>
+                  <p className="mt-2">Email: info@arkspindles.com</p>
+                  <p>Phone: +91 (630) 918-5996</p>
                 </div>
               </div>
             </div>
