@@ -26,7 +26,7 @@ export const accessories: Accessory[] = [
   {
     id: 'er32-set',
     name: 'ER Collet Set',
-    category: 'Tool Holders',
+    category: 'Collets',
     description: 'Premium quality ER collet set covering the most common tool diameters. Manufactured to high precision standards for excellent concentricity.',
     features: [
       'Complete set of 13 collets',
