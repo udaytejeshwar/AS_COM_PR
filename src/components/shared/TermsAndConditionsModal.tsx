@@ -123,8 +123,8 @@ const TermsAndConditionsModal = ({ isOpen, onClose }: TermsAndConditionsModalPro
                 <p>ARK SPINDLES</p>
                 <p>Plot 28, Gachibowli</p>
                 <p>Hyderabad 500032, India</p>
-                <p>Email: legal@arkspindles.com</p>
-                <p>Phone: +1 (234) 567-890</p>
+                <p>Email: info@arkspindles.com</p>
+                <p>Phone: +91 (630) 918-5996</p>
               </div>
             </div>
           </div>
