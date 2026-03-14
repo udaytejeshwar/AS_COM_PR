@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import { Product } from '../../types';
 import { getImagekitUrl, getPrimaryProductImage } from '../../utils/productImages';
+import { getApplicationTagClass } from '../../utils/applicationTagStyles';
 
 interface ProductCardProps {
   product: Product;
@@ -38,7 +39,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           {product.applications.map((app) => (
             <span
               key={app}
-              className="text-xs px-2 py-1 rounded bg-primary-50 text-primary-500"
+              className={`text-xs px-2 py-1 rounded font-medium ${getApplicationTagClass(app)}`}
             >
               {app}
             </span>
