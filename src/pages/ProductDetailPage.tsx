@@ -117,22 +117,18 @@ const ProductDetailPage = () => {
     <div className="animate-fade-in pt-4">
       {schemas.length > 0 && <StructuredData schemas={schemas} />}
       <div className="bg-gray-50 border-b">
-        <div className="container mx-auto px-4 py-3">
-          <button onClick={() => navigate(-1)} className="inline-flex items-center text-sm text-gray-600 hover:text-primary-500 transition-colors duration-200">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Back to Products
-          </button>
-        </div>
-      </div>
-
-      <div className="bg-gray-50 border-b">
-        <div className="container mx-auto px-4 py-3">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <nav className="flex" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2">
+            <ol className="flex items-center space-x-2 min-w-0">
               <li><Link to="/" className="text-sm text-gray-500 hover:text-gray-700">Home</Link></li>
               <li className="flex items-center"><ChevronRight className="w-4 h-4 text-gray-400" /><Link to="/products" className="ml-2 text-sm text-gray-500 hover:text-gray-700">Products</Link></li>
-              <li className="flex items-center"><ChevronRight className="w-4 h-4 text-gray-400" /><span className="ml-2 text-sm font-medium text-gray-900" aria-current="page">{product.name}</span></li>
+              <li className="flex items-center min-w-0"><ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" /><span className="ml-2 text-sm font-medium text-gray-900 truncate" aria-current="page">{product.name}</span></li>
             </ol>
           </nav>
+
+          <button onClick={() => navigate(-1)} className="inline-flex items-center text-sm text-gray-600 hover:text-primary-500 transition-colors duration-200 whitespace-nowrap">
+            <ArrowLeft className="w-4 h-4 mr-2" /> Back to Products
+          </button>
         </div>
       </div>
 
@@ -160,10 +156,21 @@ const ProductDetailPage = () => {
                 </button>
               ))}
             </div>
+
+            <div className="mt-8">
+              <h2 className="text-lg font-semibold text-primary-500 mb-4">Key Features</h2>
+              <ul className="space-y-2">{product.features.map((feature, index) => (<li key={index} className="flex items-start"><Check className="w-5 h-5 text-success-500 flex-shrink-0 mr-2 mt-0.5" /><span>{feature}</span></li>))}</ul>
+            </div>
           </div>
 
           <div>
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4"><h1 className="text-2xl sm:text-3xl font-bold text-primary-500">{product.name}</h1><DownloadBrochure /></div>
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
+              <h1 className="text-2xl sm:text-3xl font-bold text-primary-500">{product.name}</h1>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <DownloadBrochure />
+                <button onClick={() => navigate(`/quote?product=${encodeURIComponent(product.id)}`)} className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue-500 transition-colors">Request Quote</button>
+              </div>
+            </div>
             <div className="flex items-center flex-wrap gap-2 mb-4">
               <span className="text-sm font-medium bg-primary-500 text-white px-2 py-1 rounded">{product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series</span>
               <span className="text-sm font-medium bg-white text-primary-600 border border-primary-100 px-2 py-1 rounded">{product.toolHolder}</span>
@@ -193,13 +200,7 @@ const ProductDetailPage = () => {
               </div>
             </div>
 
-            <div className="mb-8">
-              <h2 className="text-lg font-semibold text-primary-500 mb-4">Key Features</h2>
-              <ul className="space-y-2">{product.features.map((feature, index) => (<li key={index} className="flex items-start"><Check className="w-5 h-5 text-success-500 flex-shrink-0 mr-2 mt-0.5" /><span>{feature}</span></li>))}</ul>
-            </div>
-
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
-              <button onClick={() => navigate(`/quote?product=${encodeURIComponent(product.id)}`)} className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue-500 transition-colors">Request Quote</button>
               <Link to="/contact" className="inline-flex items-center px-6 py-3 border border-primary-500 text-base font-medium rounded-md text-primary-500 bg-white hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">Technical Support</Link>
             </div>
           </div>
