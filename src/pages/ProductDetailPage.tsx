@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Download, ArrowLeft, X } from 'lucide-react';
 import { getProductById, products } from '../data/products';
+import { accessories } from '../data/accessories';
 import { Product, ProductImageType } from '../types';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
 import StructuredData from '../components/shared/StructuredData';
@@ -25,6 +26,21 @@ const ProductDetailPage = () => {
   const [selectedRole, setSelectedRole] = useState<ProductImageType>('spindle');
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+
+  const recommendedAccessories = useMemo(() => {
+    if (!product) return [];
+
+    const matchedAccessories = accessories.filter((accessory) => {
+      if (accessory.category === 'Cooling') return true;
+      if (accessory.category === 'VFD' && (product.power >= 3 || product.voltage.includes('380'))) return true;
+      if ((accessory.category === 'Collets' || accessory.category === 'Tools') && product.toolHolder.startsWith('ER')) return true;
+      if (accessory.category === 'Tool Holders' && (product.toolHolder.startsWith('HSK') || product.toolHolder.startsWith('ISO'))) return true;
+
+      return false;
+    });
+
+    return matchedAccessories.slice(0, 3);
+  }, [product]);
 
   const seoData = product
     ? buildProductSEO(product)
@@ -216,6 +232,38 @@ const ProductDetailPage = () => {
                 <div key={rp.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
                   <div className="h-48 bg-gray-200 overflow-hidden"><img src={getImagekitUrl(getProductImageSet(rp).spindle.url, 'card')} alt={getProductImageSet(rp).spindle.alt} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" /></div>
                   <div className="p-4"><h3 className="font-semibold text-primary-500 mb-2">{rp.name}</h3><p className="text-sm text-gray-600 mb-4 line-clamp-2">{rp.description}</p><Link to={`/products/${rp.id}`} className="text-sm font-medium text-accent-blue-500 hover:text-accent-blue-700 inline-flex items-center">View Details <ChevronRight className="ml-1 w-4 h-4" /></Link></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {recommendedAccessories.length > 0 && (
+        <div className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+              <h2 className="text-2xl font-bold text-primary-500">Recommended Accessories</h2>
+              <Link to="/accessories" className="text-sm font-medium text-accent-blue-500 hover:text-accent-blue-700 inline-flex items-center">
+                View All Accessories <ChevronRight className="ml-1 w-4 h-4" />
+              </Link>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recommendedAccessories.map((accessory) => (
+                <div key={accessory.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl">
+                  <div className="h-48 bg-gray-200 overflow-hidden">
+                    <img
+                      src={getImagekitUrl(accessory.imageUrl, 'card')}
+                      alt={`${accessory.name} accessory`}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-primary-500 mb-2">{accessory.name}</h3>
+                    <span className="inline-block bg-primary-50 text-primary-500 px-2 py-1 rounded-full text-xs font-medium mb-3">{accessory.category}</span>
+                    <p className="text-sm text-gray-600 line-clamp-2">{accessory.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
