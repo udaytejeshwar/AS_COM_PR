@@ -11,6 +11,7 @@ import { buildProductSEO } from '../config/seo';
 import { buildProductSchema, buildBreadcrumbSchema } from '../config/schemas';
 import { getImagekitUrl, getProductImageSet } from '../utils/productImages';
 import { getApplicationTagClass } from '../utils/applicationTagStyles';
+import { seriesTagClass, toolHolderTagClass } from '../utils/productTagStyles';
 
 const IMAGE_ROLE_LABEL: Record<ProductImageType, string> = {
   spindle: 'Spindle',
@@ -188,8 +189,8 @@ const ProductDetailPage = () => {
               </div>
             </div>
             <div className="flex items-center flex-wrap gap-2 mb-4">
-              <span className="text-sm font-medium bg-primary-500 text-white px-2 py-1 rounded">{product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series</span>
-              <span className="text-sm font-medium bg-white text-primary-600 border border-primary-100 px-2 py-1 rounded">{product.toolHolder}</span>
+              <span className={`text-sm font-medium px-2 py-1 rounded ${seriesTagClass}`}>{product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series</span>
+              <span className={`text-sm font-medium px-2 py-1 rounded ${toolHolderTagClass}`}>{product.toolHolder}</span>
               {product.line === 'Premium' && <span className="text-sm font-medium bg-accent-blue-500 text-white px-2 py-1 rounded">{product.line}</span>}
               {product.applications.map(app => (<span key={app} className={`text-sm font-medium px-2 py-1 rounded ${getApplicationTagClass(app)}`}>{app}</span>))}
             </div>
