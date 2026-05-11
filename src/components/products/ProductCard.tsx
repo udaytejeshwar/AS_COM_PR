@@ -3,6 +3,7 @@ import { ChevronRight } from 'lucide-react';
 import { Product } from '../../types';
 import { getImagekitUrl, getPrimaryProductImage } from '../../utils/productImages';
 import { getApplicationTagClass } from '../../utils/applicationTagStyles';
+import { seriesTagClass, toolHolderTagClass } from '../../utils/productTagStyles';
 
 interface ProductCardProps {
   product: Product;
@@ -23,10 +24,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         />
         <div className="absolute top-2 left-2 flex items-center gap-2">
-          <span className="bg-primary-500 text-white text-xs px-2 py-1 rounded">
+          <span className={`text-xs px-2 py-1 rounded ${seriesTagClass}`}>
             {product.family === 'M' ? 'AM' : product.family === 'Q' ? 'AQ' : product.family === 'A' ? 'AA' : 'AM'} Series
           </span>
-          <span className="bg-white/95 text-primary-600 text-xs px-2 py-1 rounded border border-primary-100">
+          <span className={`text-xs px-2 py-1 rounded ${toolHolderTagClass}`}>
             {product.toolHolder}
           </span>
         </div>
