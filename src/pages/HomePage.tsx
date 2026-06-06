@@ -71,7 +71,7 @@ const HomePage = () => {
             <div className="space-y-6">
               <h1 className="text-3xl sm:text-4xl lg:text-6xl font-light leading-tight tracking-[0.12em] sm:tracking-[0.2em] lg:tracking-[0.3em] uppercase text-center">
                 <span className="inline-block">ARK SPINDLES</span>
-                <sup className="text-sm align-top ml-1">®</sup>
+                <sup className="text-sm align-top ml-1">™</sup>
               </h1>
               <div className="text-center mb-10 sm:mb-16">
                 <p className="text-base text-white-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
