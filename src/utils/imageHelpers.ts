@@ -6,6 +6,15 @@ export const IMAGE_BASE_PATHS = {
   LOGOS: '/images/logos',
 } as const;
 
+const IMAGEKIT_ASSET_VERSION = (import.meta.env.VITE_IMAGEKIT_ASSET_VERSION || '').trim();
+
+export function appendImageAssetVersion(url: string, version = IMAGEKIT_ASSET_VERSION): string {
+  if (!version) return url;
+
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}v=${encodeURIComponent(version)}`;
+}
+
 export function sanitizeNameForPath(name: string): string {
   return name
     .toLowerCase()
