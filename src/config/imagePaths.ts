@@ -1,5 +1,6 @@
 export {
   IMAGE_BASE_PATHS,
+  appendImageAssetVersion,
   sanitizeNameForPath,
   getProductImagePath,
   getAccessoryImagePath,

@@ -7,6 +7,14 @@ const ROOT = resolve(__dirname, '..');
 
 const BASE_URL = 'https://arkspindles.com';
 const TODAY = new Date().toISOString().split('T')[0];
+const IMAGE_ASSET_VERSION = (process.env.VITE_IMAGEKIT_ASSET_VERSION || '').trim();
+
+const appendImageAssetVersion = (url) => {
+  if (!IMAGE_ASSET_VERSION) return url;
+
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}v=${encodeURIComponent(IMAGE_ASSET_VERSION)}`;
+};
 
 const STATIC_ROUTES = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
@@ -41,7 +49,7 @@ const getImageTags = (productId) => [
   `/images/products/spindles/${productId}/spindle.jpg`,
   `/images/products/spindles/${productId}/drawing.jpg`,
   `/images/products/spindles/${productId}/graph.jpg`,
-].map((path) => `\n    <image:image><image:loc>${BASE_URL}${path}</image:loc></image:image>`).join('');
+].map((path) => `\n    <image:image><image:loc>${appendImageAssetVersion(`${BASE_URL}${path}`)}</image:loc></image:image>`).join('');
 
 const PRODUCT_ROUTES = readProductIds().map((id) => ({
   path: `/products/${id}`,
@@ -62,7 +70,7 @@ const urlEntries = allRoutes
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:image="http://www.google.com/schemaps/sitemap-image/1.1"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
     http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">

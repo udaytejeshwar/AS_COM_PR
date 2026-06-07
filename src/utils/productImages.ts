@@ -1,5 +1,5 @@
 import { Product, ProductImageAsset, ProductImageType } from '../types';
-import { getProductRoleImagePath } from '../config/imagePaths';
+import { appendImageAssetVersion, getProductRoleImagePath } from '../config/imagePaths';
 
 const IMAGEKIT_URL_ENDPOINT = (import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT || '').replace(/\/$/, '');
 
@@ -25,11 +25,11 @@ const toAbsoluteImageUrl = (url: string) => {
 
 export const getImagekitUrl = (url: string, preset?: ImagekitPreset) => {
   const normalized = toAbsoluteImageUrl(url);
-  if (!IMAGEKIT_URL_ENDPOINT || !preset) return normalized;
+  if (!IMAGEKIT_URL_ENDPOINT || !preset) return appendImageAssetVersion(normalized);
 
   const transforms = IMAGEKIT_PRESETS[preset].join(',');
   const separator = normalized.includes('?') ? '&' : '?';
-  return `${normalized}${separator}${transforms}`;
+  return appendImageAssetVersion(`${normalized}${separator}${transforms}`);
 };
 
 export const getProductImageSet = (product: Product): Record<ProductImageType, ProductImageAsset> => {
