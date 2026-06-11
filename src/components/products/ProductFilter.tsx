@@ -1,24 +1,27 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Filter } from 'lucide-react';
-import { Application, FilterOptions, ProductFamily, ToolHolder, ToolHolderTypeCategory } from '../../types';
+import { FilterOptions, ToolHolder } from '../../types';
 import { products } from '../../data/products';
 
 interface ProductFilterProps {
   filters: FilterOptions;
   onFilterChange: (newFilters: FilterOptions) => void;
-  powerRange: [number, number];
-  speedRange: [number, number];
-  torqueRange: [number, number];
 }
+
+const buildNumericOptions = (values: number[]) => (
+  Array.from(new Set(values)).sort((a, b) => a - b)
+);
 
 const ProductFilter = ({ 
   filters, 
-  onFilterChange, 
-  powerRange, 
-  speedRange, 
-  torqueRange 
+  onFilterChange,
 }: ProductFilterProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const powerOptions = useMemo(() => buildNumericOptions(products.map((product) => product.power)), []);
+  const minSpeedOptions = useMemo(() => buildNumericOptions(products.map((product) => product.minSpeed)), []);
+  const maxSpeedOptions = useMemo(() => buildNumericOptions(products.map((product) => product.maxSpeed)), []);
+  const torqueOptions = useMemo(() => buildNumericOptions(products.map((product) => product.torque)), []);
 
   const toolHoldersByType = useMemo(() => {
     const holders = {
@@ -236,7 +239,7 @@ const ProductFilter = ({
                 className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-300 focus:ring focus:ring-accent-blue-200 focus:ring-opacity-50 text-sm"
               >
                 <option value="">Any</option>
-                {Array.from({ length: Math.floor(powerRange[1] - powerRange[0]) + 1 }, (_, i) => powerRange[0] + i).map(power => (
+                {powerOptions.map(power => (
                   <option key={power} value={power}>{power}</option>
                 ))}
               </select>
@@ -249,7 +252,7 @@ const ProductFilter = ({
                 className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-300 focus:ring focus:ring-accent-blue-200 focus:ring-opacity-50 text-sm"
               >
                 <option value="">Any</option>
-                {Array.from({ length: Math.floor(powerRange[1] - powerRange[0]) + 1 }, (_, i) => powerRange[0] + i).map(power => (
+                {powerOptions.map(power => (
                   <option key={power} value={power}>{power}</option>
                 ))}
               </select>
@@ -270,7 +273,7 @@ const ProductFilter = ({
                 className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-300 focus:ring focus:ring-accent-blue-200 focus:ring-opacity-50 text-sm"
               >
                 <option value="">Any</option>
-                {[3000, 4000, 5000, 6000, 8000, 10000].map(speed => (
+                {minSpeedOptions.map(speed => (
                   <option key={speed} value={speed}>{speed.toLocaleString()}</option>
                 ))}
               </select>
@@ -283,7 +286,7 @@ const ProductFilter = ({
                 className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-300 focus:ring focus:ring-accent-blue-200 focus:ring-opacity-50 text-sm"
               >
                 <option value="">Any</option>
-                {[18000, 20000, 22000, 24000, 28000, 30000].map(speed => (
+                {maxSpeedOptions.map(speed => (
                   <option key={speed} value={speed}>{speed.toLocaleString()}</option>
                 ))}
               </select>
@@ -304,7 +307,7 @@ const ProductFilter = ({
                 className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-300 focus:ring focus:ring-accent-blue-200 focus:ring-opacity-50 text-sm"
               >
                 <option value="">Any</option>
-                {[3, 5, 6, 8, 10, 12].map(torque => (
+                {torqueOptions.map(torque => (
                   <option key={torque} value={torque}>{torque}</option>
                 ))}
               </select>
@@ -317,7 +320,7 @@ const ProductFilter = ({
                 className="block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-blue-300 focus:ring focus:ring-accent-blue-200 focus:ring-opacity-50 text-sm"
               >
                 <option value="">Any</option>
-                {[6, 8, 10, 12, 15, 20].map(torque => (
+                {torqueOptions.map(torque => (
                   <option key={torque} value={torque}>{torque}</option>
                 ))}
               </select>

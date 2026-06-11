@@ -1,11 +1,11 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, Filter } from 'lucide-react';
 import ProductCard from '../components/products/ProductCard';
 import ProductFilter from '../components/products/ProductFilter';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
 import StructuredData from '../components/shared/StructuredData';
-import { products, getFilterLimits } from '../data/products';
+import { products } from '../data/products';
 import { FilterOptions, Product, Application, ProductFamily, ToolHolder, ToolHolderTypeCategory } from '../types';
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
@@ -50,11 +50,6 @@ const ProductsPage = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   useSEO(SEO.products);
-
-  const limits = getFilterLimits();
-  const powerRange: [number, number] = [limits.minPower, limits.maxPower];
-  const speedRange: [number, number] = [limits.minSpeed, limits.maxSpeed];
-  const torqueRange: [number, number] = [limits.minTorque, limits.maxTorque];
 
   const [filters, setFilters] = useState<FilterOptions>(() => getFiltersFromSearchParams(searchParams));
 
@@ -140,12 +135,12 @@ const ProductsPage = () => {
         <div className="lg:grid lg:grid-cols-4 lg:gap-8">
           <div className="hidden lg:block lg:col-span-1">
             <div className="sticky top-20 z-10">
-              <ProductFilter filters={filters} onFilterChange={setFilters} powerRange={powerRange} speedRange={speedRange} torqueRange={torqueRange} />
+              <ProductFilter filters={filters} onFilterChange={setFilters} />
             </div>
           </div>
           {showFilters && (
             <div className="lg:hidden mb-6">
-              <ProductFilter filters={filters} onFilterChange={setFilters} powerRange={powerRange} speedRange={speedRange} torqueRange={torqueRange} />
+              <ProductFilter filters={filters} onFilterChange={setFilters} />
             </div>
           )}
           <div className="lg:col-span-3">
