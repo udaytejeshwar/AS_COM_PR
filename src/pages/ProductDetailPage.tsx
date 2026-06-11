@@ -19,6 +19,8 @@ const IMAGE_ROLE_LABEL: Record<ProductImageType, string> = {
   graph: 'Performance Graph',
 };
 
+const PRODUCT_IMAGE_ROLES: ProductImageType[] = ['spindle', 'drawing'];
+
 const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -165,8 +167,8 @@ const ProductDetailPage = () => {
                 <Download className="w-5 h-5 text-primary-500" />
               </button>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2" role="tablist" aria-label="Product image categories">
-              {(Object.keys(imageSet) as ProductImageType[]).map((role) => (
+            <div className="grid grid-cols-2 gap-2" role="tablist" aria-label="Product image categories">
+              {PRODUCT_IMAGE_ROLES.map((role) => (
                 <button key={role} role="tab" aria-selected={selectedRole === role} onClick={() => setSelectedRole(role)} className={`border-2 rounded-md overflow-hidden transition-all duration-200 ${selectedRole === role ? 'border-accent-blue-500 ring-2 ring-accent-blue-200' : 'border-gray-200 hover:border-gray-300'}`}>
                   <img src={getImagekitUrl(imageSet[role].url, 'thumbnail')} alt={imageSet[role].alt} className="w-full h-20 object-cover" loading="lazy" width={imageSet[role].width} height={imageSet[role].height} />
                   <span className="block text-xs py-1 px-2 bg-white text-gray-700">{IMAGE_ROLE_LABEL[role]}</span>
