@@ -64,7 +64,7 @@ export const products: Product[] = [
     voltage: '220V, 380V',
     toolHolder: 'ER25',
     applications: ['Wood', 'Composites', 'Aluminum'],
-    description: 'Premium ER32 electro spindle offering exceptional versatility across wood, stone, and aluminum applications. Engineered for high material removal rates while maintaining superior surface finish quality.',
+    description: 'Premium ER25 electro spindle offering exceptional versatility across wood, stone, and aluminum applications. Engineered for high material removal rates while maintaining superior surface finish quality.',
     features: [
       'High-capacity ER25 collet system',
       'Enhanced thermal efficiency',
@@ -457,7 +457,7 @@ export const products: Product[] = [
     voltage: '220V, 380V',
     toolHolder: 'ER32',
     applications: ['Wood', 'Aluminum', 'Composites'],
-    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    description: 'Industrial-grade technology spindle for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'ER32 precision interface',
       'Industrial-grade construction',
@@ -501,7 +501,7 @@ export const products: Product[] = [
     voltage: '220V, 380V',
     toolHolder: 'ER32',
     applications: ['Wood', 'Stone', 'Composites'],
-    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    description: 'Industrial-grade technology spindle heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'ER32 precision interface',
       'Industrial-grade construction',
@@ -545,7 +545,7 @@ export const products: Product[] = [
     voltage: '220V, 380V',
     toolHolder: 'ER32',
     applications: ['Wood', 'Stone', 'Composites'],
-    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    description: 'Industrial-grade technology spindle for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'ER32 precision interface',
       'Industrial-grade construction',
@@ -589,7 +589,7 @@ export const products: Product[] = [
     voltage: '220V, 380V',
     toolHolder: 'ER32',
     applications: ['Wood', 'Stone', 'Composites'],
-    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    description: 'Industrial-grade technology spindle for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'ER32 precision interface',
       'Industrial-grade construction',
@@ -633,7 +633,7 @@ export const products: Product[] = [
     voltage: '220V, 380V',
     toolHolder: 'HSK-40',
     applications: ['Wood', 'Stone', 'Composites'],
-    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    description: 'Industrial-grade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'HSK-40 precision interface',
       'Industrial-grade construction',
@@ -677,7 +677,7 @@ export const products: Product[] = [
     voltage: '220V, 380V',
     toolHolder: 'HSK-40',
     applications: ['Wood', 'Stone', 'Composites'],
-    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    description: 'Industrial-grade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'HSK-40 precision interface',
       'Industrial-grade construction',
@@ -721,7 +721,7 @@ export const products: Product[] = [
     voltage: '220V, 380V',
     toolHolder: 'HSK-40',
     applications: ['Wood', 'Stone', 'Composites'],
-    description: 'Industrial-grade blade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
+    description: 'Industrial-grade technology spindle with HSK interface for heavy-duty cutting applications. Engineered for maximum precision and durability in demanding production environments.',
     features: [
       'HSK precision interface',
       'Industrial-grade construction',
