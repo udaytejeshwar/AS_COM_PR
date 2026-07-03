@@ -18,7 +18,7 @@ export const products: Product[] = [
     voltage: '220V, 380V',
     toolHolder: 'ER25',
     applications: ['Wood', 'Aluminum', 'Composites'],
-    description: 'High-performance ER25 electro spindle designed for precision woodworking and Aluminum machining. Features advanced cooling system and premium bearing technology for extended service life.',
+    description: 'High-performance ER25 electro spindle designed for precision woodworking and aluminum machining. Features advanced cooling system and premium bearing technology for extended service life.',
     features: [
       'Precision balanced rotor',
       'Precision bearings',
