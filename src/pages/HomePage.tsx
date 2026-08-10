@@ -252,7 +252,7 @@ const HomePage = () => {
       <section className="py-14 sm:py-20" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center animate-fade-in">
           <div>
-            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Need a Custom Project?</h2>
+            <h2 className="text-3xl lg:text-4xl font-extralight text-gray-900 mb-4 font-sans tracking-[0.1em]">Need a Custom Spindle?</h2>
             <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans tracking-[0.05em]">
               Tailored <Link to="/products" className="text-primary-600 hover:text-primary-700 underline decoration-1 underline-offset-2">spindle systems</Link> engineered for distinct materials, methods, and performance demands. Each platform reflects a systems-level approach to machining excellence.
             </p>
