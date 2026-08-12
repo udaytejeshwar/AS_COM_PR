@@ -28,7 +28,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ceramic Hybrid Angular Contact',
-      coolingSystem: 'Liquid Cooling',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Grease Lubrication',
       motorType: 'Asynchronous 3-Phase',
       insulationClass: 'Class F',
@@ -74,7 +74,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'High-Precision Ceramic Hybrid',
-      coolingSystem: 'Dual Circuit Liquid Cooling',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Asynchronous 3-Phase',
       insulationClass: 'Class F',
@@ -118,7 +118,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Angular Contact Ceramic',
-      coolingSystem: 'Liquid Cooling',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Grease Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class F',
@@ -163,7 +163,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
-      coolingSystem: 'Advanced Dual Circuit',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class F',
@@ -207,7 +207,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ceramic Hybrid Angular Contact',
-      coolingSystem: 'Liquid Cooling',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Grease Lubrication',
       motorType: 'Asynchronous 3-Phase',
       insulationClass: 'Class F',
@@ -251,7 +251,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
-      coolingSystem: 'Advanced Dual Circuit',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class H',
@@ -294,7 +294,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'High-Precision Angular Contact',
-      coolingSystem: 'Liquid Cooling',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Grease Lubrication',
       motorType: 'Asynchronous 3-Phase',
       insulationClass: 'Class F',
@@ -337,7 +337,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
-      coolingSystem: 'Advanced Dual Circuit',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class F',
@@ -467,7 +467,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
-      coolingSystem: 'Advanced Dual Circuit',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class F',
@@ -511,7 +511,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
-      coolingSystem: 'Advanced Dual Circuit',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class H',
@@ -555,7 +555,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
-      coolingSystem: 'Advanced Dual Circuit',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class F',
@@ -599,7 +599,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
-      coolingSystem: 'Advanced Dual Circuit',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class F',
@@ -643,7 +643,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
-      coolingSystem: 'Advanced Dual Circuit',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class F',
@@ -687,7 +687,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
-      coolingSystem: 'Advanced Dual Circuit',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class F',
@@ -731,7 +731,7 @@ export const products: Product[] = [
     technicalSpecs: {
       dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
       bearingType: 'Ultra-Precision Ceramic Hybrid',
-      coolingSystem: 'Advanced Dual Circuit',
+      coolingSystem: 'Air Cooled',
       lubricationType: 'Oil-Air Lubrication',
       motorType: 'Synchronous 3-Phase',
       insulationClass: 'Class H',
