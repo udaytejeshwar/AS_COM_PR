@@ -213,7 +213,7 @@ const ProductDetailPage = () => {
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
               <h2 className="text-lg font-semibold text-primary-500 mb-4">Technical Details</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[{ icon: Settings, label: 'Insulation Class', value: product.technicalSpecs.insulationClass },{ icon: Thermometer, label: 'Cooling System', value: product.technicalSpecs.coolingSystem },{ icon: Shield, label: 'Protection Class', value: product.technicalSpecs.protectionClass },{ icon: Scale, label: 'Weight', value: `${product.technicalSpecs.weight} kg` },{ icon: Settings, label: 'Duty Cycle', value: product.technicalSpecs.dutyCycle },{ icon: Ruler, label: 'Body Diameter', value: `Width: ${product.technicalSpecs.bodyDiameter.width} mm / Height: ${product.technicalSpecs.bodyDiameter.height} mm / Length: ${product.technicalSpecs.bodyDiameter.length} mm` }].map(({ icon: Icon, label, value }) => (
+                {[{ icon: Settings, label: 'Insulation Class', value: product.technicalSpecs.insulationClass },{ icon: Thermometer, label: 'Cooling System', value: product.technicalSpecs.coolingSystem },{ icon: Shield, label: 'Protection Class', value: product.technicalSpecs.protectionClass },{ icon: Scale, label: 'Weight', value: `${product.technicalSpecs.weight} kg` },{ icon: Settings, label: 'Duty Cycle', value: product.technicalSpecs.dutyCycle }].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-start"><Icon className="w-5 h-5 text-primary-500 mt-1 mr-3" /><div><p className="text-sm font-medium text-gray-900">{label}</p><p className="text-sm text-gray-600">{value}</p></div></div>
                 ))}
               </div>
