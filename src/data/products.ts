@@ -750,6 +750,98 @@ export const products: Product[] = [
       getProductImagePath('17', 'AQH0300-1011', 3)
     ],
     deliveryTime: '4-6 weeks'
+  },
+  {
+    id: '18',
+    name: 'AME0100-1001',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Standard',
+    power: 0.73,
+    // powerS6: 6.3,
+    minSpeed: 12000,
+    maxSpeed: 18000,
+    nominalSpeed: 24000,
+    torque: 0.39,
+    // torqueS6: 4.8,
+    voltage: '220V, 380V',
+    toolHolder: 'ER20',
+    applications: ['Wood', 'Aluminum', 'Composites'],
+    description: 'High-performance ER20 electro spindle designed for precision woodworking and aluminum machining. Features advanced cooling system and premium bearing technology for extended service life.',
+    features: [
+      'Precision balanced rotor',
+      'Precision bearings',
+      'Manual tool change compatibility',
+      'Low vibration design'
+    ],
+    technicalSpecs: {
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
+      bearingType: 'Ceramic Hybrid Angular Contact',
+      coolingSystem: 'Air Cooled',
+      lubricationType: 'Grease Lubrication',
+      motorType: 'Asynchronous 3-Phase',
+      insulationClass: 'Class F',
+      protectionClass: 'IP54',
+      weight: 3.5,
+      bodyDiameter: {
+        width: 380,
+        height: 120,
+        length: 380
+      }
+    },
+    imageUrl: getProductImagePath('1', 'AME0100-1001', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('1', 'AME0100-1001', 1),
+      getProductImagePath('1', 'AME0100-1001', 2),
+      getProductImagePath('1', 'AME0100-1001', 3)
+    ],
+    deliveryTime: '2-3 weeks'
+  },
+  {
+    id: '19',
+    name: 'AME0100-1004',
+    family: 'M',
+    toolHolderTypeCategory: 'ER',
+    line: 'Standard',
+    power: 2.2,
+    // powerS6: 6.3,
+    minSpeed: 12000,
+    maxSpeed: 18000,
+    nominalSpeed: 24000,
+    torque: 1.75,
+    // torqueS6: 4.8,
+    voltage: '220V, 380V',
+    toolHolder: 'ER20',
+    applications: ['Wood', 'Aluminum', 'Composites'],
+    description: 'High-performance ER20 electro spindle designed for precision woodworking and aluminum machining. Features advanced cooling system and premium bearing technology for extended service life.',
+    features: [
+      'Precision balanced rotor',
+      'Precision bearings',
+      'Manual tool change compatibility',
+      'Low vibration design'
+    ],
+    technicalSpecs: {
+      dutyCycle: 'S1 (Continuous) / S6-40% (Intermittent)',
+      bearingType: 'Ceramic Hybrid Angular Contact',
+      coolingSystem: 'Air Cooled',
+      lubricationType: 'Grease Lubrication',
+      motorType: 'Asynchronous 3-Phase',
+      insulationClass: 'Class F',
+      protectionClass: 'IP54',
+      weight: 3.5,
+      bodyDiameter: {
+        width: 380,
+        height: 120,
+        length: 380
+      }
+    },
+    imageUrl: getProductImagePath('1', 'AME0100-1004', 'main'),
+    additionalImageUrls: [
+      getProductImagePath('1', 'AME0100-1004', 1),
+      getProductImagePath('1', 'AME0100-1004', 2),
+      getProductImagePath('1', 'AME0100-1004', 3)
+    ],
+    deliveryTime: '2-3 weeks'
   }
 ].map((product) => ({
   ...product,
