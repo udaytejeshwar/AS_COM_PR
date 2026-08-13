@@ -791,9 +791,9 @@ export const products: Product[] = [
     },
     imageUrl: getProductImagePath('1', 'AME0100-1001', 'main'),
     additionalImageUrls: [
-      getProductImagePath('1', 'AME0100-1001', 1),
-      getProductImagePath('1', 'AME0100-1001', 2),
-      getProductImagePath('1', 'AME0100-1001', 3)
+      getProductImagePath('18', 'AME0100-1001', 1),
+      getProductImagePath('18', 'AME0100-1001', 2),
+      getProductImagePath('18', 'AME0100-1001', 3)
     ],
     deliveryTime: '2-3 weeks'
   },
@@ -837,9 +837,9 @@ export const products: Product[] = [
     },
     imageUrl: getProductImagePath('1', 'AME0100-1004', 'main'),
     additionalImageUrls: [
-      getProductImagePath('1', 'AME0100-1004', 1),
-      getProductImagePath('1', 'AME0100-1004', 2),
-      getProductImagePath('1', 'AME0100-1004', 3)
+      getProductImagePath('19', 'AME0100-1004', 1),
+      getProductImagePath('19', 'AME0100-1004', 2),
+      getProductImagePath('19', 'AME0100-1004', 3)
     ],
     deliveryTime: '2-3 weeks'
   }
