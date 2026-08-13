@@ -789,7 +789,7 @@ export const products: Product[] = [
         length: 380
       }
     },
-    imageUrl: getProductImagePath('1', 'AME0100-1001', 'main'),
+    imageUrl: getProductImagePath('18', 'AME0100-1001', 'main'),
     additionalImageUrls: [
       getProductImagePath('18', 'AME0100-1001', 1),
       getProductImagePath('18', 'AME0100-1001', 2),
@@ -835,7 +835,7 @@ export const products: Product[] = [
         length: 380
       }
     },
-    imageUrl: getProductImagePath('1', 'AME0100-1004', 'main'),
+    imageUrl: getProductImagePath('19', 'AME0100-1004', 'main'),
     additionalImageUrls: [
       getProductImagePath('19', 'AME0100-1004', 1),
       getProductImagePath('19', 'AME0100-1004', 2),
