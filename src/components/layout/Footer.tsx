@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Settings, Mail, Phone, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react';
 import PrivacyPolicyModal from '../shared/PrivacyPolicyModal';
 import TermsAndConditionsModal from '../shared/TermsAndConditionsModal';
 

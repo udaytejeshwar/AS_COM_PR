@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Download, ArrowLeft, X } from 'lucide-react';
+import { ChevronLeft, Check, ChevronRight, Settings, Thermometer, Shield, Scale, Download, ArrowLeft, X } from 'lucide-react';
 import { getProductById, products } from '../data/products';
 import { accessories } from '../data/accessories';
 import { Product, ProductImageType } from '../types';
@@ -49,7 +49,7 @@ const ProductDetailPage = () => {
     ? buildProductSEO(product)
     : { title: 'CNC Electro Spindle | ARK SPINDLES India', description: 'Precision CNC electro spindle by ARK SPINDLES, manufactured in Hyderabad, India.', keywords: 'electro spindle India, CNC spindle', canonicalUrl: `/products/${id ?? ''}` };
 
-  useSEO(seoData);
+  useSEO({ ...seoData, noIndex: !product });
 
   const schemas = useMemo(() => {
     if (!product) return [];
@@ -68,7 +68,7 @@ const ProductDetailPage = () => {
 
   const handleImageDownload = (imageUrl: string, productName: string, role: ProductImageType) => {
     const link = document.createElement('a');
-    link.href = imageUrl;
+    link.href = getImagekitUrl(imageUrl);
     link.download = `${productName.toLowerCase().replace(/\s+/g, '-')}-${role}.jpg`;
     document.body.appendChild(link);
     link.click();

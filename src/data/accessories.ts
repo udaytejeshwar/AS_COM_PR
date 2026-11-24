@@ -89,7 +89,3 @@ export const accessories: Accessory[] = [
     compatibleWith: ['ER']
   }
 ];
-
-export const getAccessoryById = (id: string): Accessory | undefined => {
-  return accessories.find(accessory => accessory.id === id);
-};

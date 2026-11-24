@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { getApplicationImagePath } from '../../config/imagePaths';
+import { applications } from '../../data/applications';
 import { getImagekitUrl } from '../../utils/productImages';
 
 const Header = () => {
@@ -14,7 +14,7 @@ const Header = () => {
   const location = useLocation();
 
   // Check if we're on a product detail page
-  const isProductDetailPage = /^\/products\/[^\/]+$/.test(location.pathname);
+  const isProductDetailPage = /^\/products\/[^/]+$/.test(location.pathname);
 
   // Force scrolled state on product detail pages for visibility
   const headerIsScrolled = isScrolled || isProductDetailPage || isProductsDropdownOpen || isApplicationsDropdownOpen;
@@ -118,77 +118,12 @@ const Header = () => {
       description: "Enhanced productivity with rapid tool changes for reduced downtime",
       image: 'https://ik.imagekit.io/arkspindles/images/products/spindles/15-aqh0300-1005-main.png'
     }
-    // ,{
-    //   to: "/products?family=A",
-    //   title: "ATC Spindles",
-    //   description: "Maximum efficiency for automated production environments",
-    //   image: getProductImagePath('7', 'ATC-9000 ISO30', 'main')
-    // },
-    // {
-    //   to: "/products?family=B",
-    //   title: "Blade Tech Spindles",
-    //   description: "Advanced blade technology for precision cutting applications",
-    //   image: getProductImagePath('9', 'BT-6000 ER25', 'main')
-    // },
-    // {
-    //   to: "/products?toolHolderTypeCategory=ER",
-    //   title: "ER Spindles",
-    //   description: "Versatile collet system for wide range of tool diameters",
-    //   image: getProductImagePath('1', 'ES-9000 ER32', 1)
-    // },
-    // {
-    //   to: "/products?toolHolderTypeCategory=HSK",
-    //   title: "HSK Spindles",
-    //   description: "High-precision interface for superior runout control",
-    //   image: getProductImagePath('3', 'ES-7500 HSK-F63', 'main')
-    // },
-    // {
-    //   to: "/products?toolHolderTypeCategory=ISO",
-    //   title: "ISO Spindles",
-    //   description: "Universal compatibility with standard ISO tool interfaces",
-    //   image: getProductImagePath('7', 'ATC-9000 ISO30', 1)
-    // }
   ];
 
   // Application dropdown items with descriptions
-  const applicationItems = [
-    {
-      to: "/products?application=Wood",
-      title: "Wood Processing",
-      description: "Furniture, cabinetry, and architectural millwork applications",
-      image: getApplicationImagePath('wood-processing.png')
-    },
-    {
-      to: "/products?application=Stone",
-      title: "Stone & Marble",
-      description: "Natural and engineered stone cutting and shaping",
-      image: getApplicationImagePath('stone-marble.png')
-    },
-    {
-      to: "/products?application=Aluminum",
-      title: "Aluminum Machining",
-      description: "High-speed machining for aerospace and automotive components",
-      image: getApplicationImagePath('aluminum-machining.png')
-    },
-    {
-      to: "/products?application=Composites",
-      title: "Composite Materials",
-      description: "Advanced composites for aerospace and marine applications",
-      image: getApplicationImagePath('composite-materials.png')
-    },
-    {
-      to: "/products?application=Plastic",
-      title: "Plastic Processing",
-      description: "Precision machining of engineering plastics",
-      image: getApplicationImagePath('plastic-processing.png')
-    },
-    {
-      to: "/products?application=Glass",
-      title: "Glass Engraving",
-      description: "High-precision engraving and cutting of glass materials",
-      image: getApplicationImagePath('glass-engraving.png')
-    }
-  ];
+  const applicationItems = applications.map(({ to, title, navDescription, image }) => ({
+    to, title, description: navDescription, image,
+  }));
 
   return (
     <>

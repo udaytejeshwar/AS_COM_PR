@@ -1,19 +1,21 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from './components/layout/Layout';
 import HomePage from './pages/HomePage';
-import ProductsPage from './pages/ProductsPage';
-import ProductDetailPage from './pages/ProductDetailPage';
-import PremiumLinePage from './pages/PremiumLinePage';
-import AccessoriesPage from './pages/AccessoriesPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import QuotePage from './pages/QuotePage';
-import NotFoundPage from './pages/NotFoundPage';
+const ProductsPage = lazy(() => import('./pages/ProductsPage'));
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
+const PremiumLinePage = lazy(() => import('./pages/PremiumLinePage'));
+const AccessoriesPage = lazy(() => import('./pages/AccessoriesPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const QuotePage = lazy(() => import('./pages/QuotePage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function App() {
   return (
     <Layout>
+      <Suspense fallback={<div className="min-h-screen" role="status" aria-label="Loading page" />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
@@ -25,6 +27,7 @@ function App() {
         <Route path="/quote" element={<QuotePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      </Suspense>
     </Layout>
   );
 }

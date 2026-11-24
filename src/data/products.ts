@@ -1,7 +1,8 @@
 import { Product } from '../types';
-import { getProductImagePath, getProductRoleImagePath } from '../config/imagePaths';
+import { getProductImagePath } from '../config/imagePaths';
+import { getProductImageSet } from '../utils/productImages';
 
-export const products: Product[] = [
+const productCatalogue: Product[] = [
   {
     id: '1',
     name: 'AME0300-1014',
@@ -843,53 +844,13 @@ export const products: Product[] = [
     ],
     deliveryTime: '2-3 weeks'
   }
-].map((product) => ({
+];
+
+export const products: Product[] = productCatalogue.map((product) => ({
   ...product,
-  images: product.images ?? {
-    spindle: {
-      type: 'spindle',
-      url: product.imageUrl,
-      alt: `${product.name} CNC spindle motor - front view`,
-      width: 1200,
-      height: 900,
-    },
-    drawing: {
-      type: 'drawing',
-      url: product.additionalImageUrls?.[0] ?? getProductRoleImagePath(product.id, 'drawing'),
-      alt: `${product.name} spindle technical drawing with dimensions`,
-      width: 1200,
-      height: 900,
-    },
-    graph: {
-      type: 'graph',
-      url: product.additionalImageUrls?.[1] ?? getProductRoleImagePath(product.id, 'graph'),
-      alt: `${product.name} spindle performance graph (power/torque vs RPM)`,
-      width: 1200,
-      height: 900,
-    },
-  },
+  images: getProductImageSet(product),
 }));
 
 export const getProductById = (id: string): Product | undefined => {
   return products.find(product => product.id === id);
-};
-
-export const getFilterLimits = () => {
-  return products.reduce((limits, product) => {
-    return {
-      minPower: Math.min(limits.minPower, product.power),
-      maxPower: Math.max(limits.maxPower, product.power),
-      nominalSpeed: Math.min(limits.nominalSpeed, product.nominalSpeed),
-      maxSpeed: Math.max(limits.maxSpeed, product.maxSpeed),
-      minTorque: Math.min(limits.minTorque, product.torque),
-      maxTorque: Math.max(limits.maxTorque, product.torque),
-    };
-  }, {
-    minPower: Infinity,
-    maxPower: -Infinity,
-    nominalSpeed: Infinity,
-    maxSpeed: -Infinity,
-    minTorque: Infinity,
-    maxTorque: -Infinity,
-  });
 };

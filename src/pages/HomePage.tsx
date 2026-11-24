@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
 import TypewriterEffect from '../components/shared/TypewriterEffect';
 import StructuredData from '../components/shared/StructuredData';
-import { getApplicationImagePath } from '../config/imagePaths';
+import { applications } from '../data/applications';
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
 import { buildOrganizationSchema, buildWebSiteSchema } from '../config/schemas';
@@ -146,20 +146,6 @@ const HomePage = () => {
             {[
               { family: 'M', title: 'MTC spindles', description: 'Manual tool change spindles offering reliable performance for standard machining operations.', features: ['Manual tool change', 'Robust construction', 'Cost-effective solution', 'Wide speed range'], image: 'https://ik.imagekit.io/arkspindles/images/products/spindles/1-ame0300-1014-main.png' },
               { family: 'Q', title: 'QTC spindles', description: 'Quick tool change spindles for enhanced productivity and reduced downtime.', features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'], image: 'https://ik.imagekit.io/arkspindles/images/products/spindles/15-aqh0300-1005-main.png' }
-              // ,{
-              //   family: 'A',
-              //   title: 'ATC spindles',
-              //   description: 'Automatic tool change spindles for maximum efficiency in automated production environments.',
-              //   features: ['Automatic tool change', 'Maximum efficiency', 'Automated operation', 'Premium performance'],
-              //   image: getProductImagePath('7', 'ATC-9000 ISO30', 'main')
-              // },
-              // {
-              //   family: 'B',
-              //   title: 'Blade Tech spindles',
-              //   description: 'Advanced blade technology spindles for precision cutting and specialized applications.',
-              //   features: ['Blade mounting interface', 'High-speed cutting', 'Precision alignment', 'Advanced cooling'],
-              //   image: getProductImagePath('9', 'BT-6000 ER25', 'main')
-              // }
             ].map((product, index) => (
               <div key={index} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className="aspect-video overflow-hidden">
@@ -211,14 +197,7 @@ const HomePage = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "Wood Processing", description: "Furniture, cabinetry, and architectural millwork with superior surface finishes.", image: getApplicationImagePath('wood-processing.png'), detailedDescription: ["Hardwood machining (Oak, Maple, Cherry)", "Softwood processing (Pine, Cedar, Fir)", "Engineered wood products (Plywood, MDF, OSB)", "Laminated materials and veneers", "Complex 3D carving and profiling"] },
-              { title: "Stone & Marble", description: "Precision cutting and shaping of natural and engineered stone materials.", image: getApplicationImagePath('stone-marble.png'), detailedDescription: ["Natural stone (Granite, Marble, Limestone)", "Engineered quartz and composite stones", "Ceramic and porcelain tiles", "Architectural stone elements", "Countertop fabrication and edge profiling"] },
-              { title: "Aluminum Machining", description: "High-speed machining of aluminum components for aerospace and automotive.", image: getApplicationImagePath('aluminum-machining.png'), detailedDescription: ["6061 and 7075 aluminum alloys", "Aerospace component manufacturing", "Automotive parts and heat sinks", "Architectural aluminum profiles", "High-speed milling and drilling operations"] },
-              { title: "Composite Materials", description: "Advanced composites for aerospace, marine, and high-performance applications.", image: getApplicationImagePath('composite-materials.png'), detailedDescription: ["Carbon fiber reinforced plastics (CFRP)", "Glass fiber composites (GFRP)", "Honeycomb sandwich structures", "Prepreg and wet-lay materials", "Aerospace and marine applications"] },
-              { title: "Plastic Processing", description: "Precision machining of thermoplastics and engineering plastics for industrial components.", image: getApplicationImagePath('plastic-processing.png'), detailedDescription: ["Engineering plastics (PEEK, POM, Nylon)", "Thermoplastics (ABS, PC, PMMA)", "High-performance polymers", "Medical grade plastics", "Precision prototype development"] },
-              { title: "Glass Engraving", description: "High-precision engraving and cutting of glass materials for decorative and functional applications.", image: getApplicationImagePath('glass-engraving.png'), detailedDescription: ["Tempered and laminated glass", "Decorative glass engraving", "Optical glass components", "Architectural glass panels", "Precision edge polishing"] },
-            ].map((application, index) => (
+            {applications.map((application, index) => (
               <article
                 key={index}
                 className="group bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"

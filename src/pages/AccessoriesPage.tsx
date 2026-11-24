@@ -16,7 +16,7 @@ const AccessoriesPage = () => {
 
   const handleImageDownload = (imageUrl: string, name: string) => {
     const link = document.createElement('a');
-    link.href = imageUrl;
+    link.href = getImagekitUrl(imageUrl);
     link.download = `${name.toLowerCase().replace(/\s+/g, '-')}.jpg`;
     document.body.appendChild(link);
     link.click();

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, Filter } from 'lucide-react';
 import ProductCard from '../components/products/ProductCard';
@@ -6,7 +6,7 @@ import ProductFilter from '../components/products/ProductFilter';
 import DownloadBrochure from '../components/shared/DownloadBrochure';
 import StructuredData from '../components/shared/StructuredData';
 import { products } from '../data/products';
-import { FilterOptions, Product, Application, ProductFamily, ToolHolder, ToolHolderTypeCategory } from '../types';
+import { FilterOptions, Application, ProductFamily, ToolHolder, ToolHolderTypeCategory } from '../types';
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
 import { buildProductListSchema } from '../config/schemas';
@@ -17,82 +17,81 @@ const PRODUCT_LIST_SCHEMA = buildProductListSchema(
   products.map(p => ({ id: p.id, name: p.name, description: p.description, imageUrl: getPrimaryProductImage(p).url }))
 );
 
-const getFiltersFromSearchParams = (searchParams: URLSearchParams): FilterOptions => {
-  const familyParam = searchParams.get('family');
-  const toolHolderTypeCategoryParam = searchParams.get('toolHolderTypeCategory');
-  const applicationParam = searchParams.get('application');
-  const toolHolderParam = searchParams.get('toolHolder') as ToolHolder | null;
-  const lineParam = searchParams.get('line');
+const readNumber = (params: URLSearchParams, key: string): number | null => {
+  const raw = params.get(key);
+  if (raw === null || raw.trim() === '') return null;
+  const value = Number(raw);
+  return Number.isFinite(value) && value >= 0 ? value : null;
+};
+
+const getFiltersFromSearchParams = (params: URLSearchParams): FilterOptions => {
+  const family = params.get('family');
+  const category = params.get('toolHolderTypeCategory');
+  const application = params.get('application');
+  const holder = params.get('toolHolder');
+  const line = params.get('line');
 
   return {
-    //Use the below 3 lines when you need to include ATC and blade along with aother applications
-    // family: (familyParam && ['M', 'Q', 'A', 'B'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
-    // toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK', 'ISO'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
-    // application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'].includes(applicationParam)) ? applicationParam as Application : 'All',
-    family: (familyParam && ['M', 'Q'].includes(familyParam)) ? familyParam as ProductFamily : 'All',
-    toolHolderTypeCategory: (toolHolderTypeCategoryParam && ['ER', 'HSK'].includes(toolHolderTypeCategoryParam)) ? toolHolderTypeCategoryParam as ToolHolderTypeCategory : 'All',
-    application: (applicationParam && ['Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'].includes(applicationParam)) ? applicationParam as Application : 'All',
-    toolHolder: toolHolderParam || 'All',
-    line: (lineParam && ['Standard', 'Premium'].includes(lineParam)) ? lineParam as 'Standard' | 'Premium' : 'All',
-    minPower: searchParams.get('minPower') ? Number(searchParams.get('minPower')) : null,
-    maxPower: searchParams.get('maxPower') ? Number(searchParams.get('maxPower')) : null,
-    minSpeed: searchParams.get('minSpeed') ? Number(searchParams.get('minSpeed')) : null,
-    maxSpeed: searchParams.get('maxSpeed') ? Number(searchParams.get('maxSpeed')) : null,
-    minTorque: searchParams.get('minTorque') ? Number(searchParams.get('minTorque')) : null,
-    maxTorque: searchParams.get('maxTorque') ? Number(searchParams.get('maxTorque')) : null,
+    family: products.some(p => p.family === family) ? family as ProductFamily : 'All',
+    toolHolderTypeCategory: products.some(p => p.toolHolderTypeCategory === category) ? category as ToolHolderTypeCategory : 'All',
+    application: application && ['Wood', 'Stone', 'Aluminum', 'Composites', 'Plastic', 'Glass'].includes(application) ? application as Application : 'All',
+    toolHolder: products.some(p => p.toolHolder === holder) ? holder as ToolHolder : 'All',
+    line: line === 'Standard' || line === 'Premium' ? line : 'All',
+    minPower: readNumber(params, 'minPower'),
+    maxPower: readNumber(params, 'maxPower'),
+    minSpeed: readNumber(params, 'minSpeed'),
+    maxSpeed: readNumber(params, 'maxSpeed'),
+    minTorque: readNumber(params, 'minTorque'),
+    maxTorque: readNumber(params, 'maxTorque'),
   };
 };
 
 const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
+  const searchTerm = searchParams.get('search') ?? '';
   const [showFilters, setShowFilters] = useState(false);
 
   useSEO(SEO.products);
 
-  const [filters, setFilters] = useState<FilterOptions>(() => getFiltersFromSearchParams(searchParams));
+  const filters = useMemo(() => getFiltersFromSearchParams(searchParams), [searchParams]);
 
-  useEffect(() => {
-    const nextFilters = getFiltersFromSearchParams(searchParams);
-    setFilters(prev => JSON.stringify(prev) === JSON.stringify(nextFilters) ? prev : nextFilters);
-  }, [searchParams]);
+  const setSearchTerm = (value: string) => {
+    setSearchParams(previous => {
+      const next = new URLSearchParams(previous);
+      if (value) next.set('search', value);
+      else next.delete('search');
+      return next;
+    }, { replace: true });
+  };
 
-  useEffect(() => {
-    const newParams = new URLSearchParams();
-    if (filters.family !== 'All') newParams.set('family', filters.family);
-    if (filters.toolHolderTypeCategory !== 'All') newParams.set('toolHolderTypeCategory', filters.toolHolderTypeCategory);
-    if (filters.application !== 'All') newParams.set('application', filters.application);
-    if (filters.toolHolder !== 'All') newParams.set('toolHolder', filters.toolHolder);
-    if (filters.line !== 'All') newParams.set('line', filters.line);
-    if (filters.minPower !== null) newParams.set('minPower', filters.minPower.toString());
-    if (filters.maxPower !== null) newParams.set('maxPower', filters.maxPower.toString());
-    if (filters.minSpeed !== null) newParams.set('minSpeed', filters.minSpeed.toString());
-    if (filters.maxSpeed !== null) newParams.set('maxSpeed', filters.maxSpeed.toString());
-    if (filters.minTorque !== null) newParams.set('minTorque', filters.minTorque.toString());
-    if (filters.maxTorque !== null) newParams.set('maxTorque', filters.maxTorque.toString());
-    if (newParams.toString() !== searchParams.toString()) {
-      setSearchParams(newParams, { replace: true });
-    }
-  }, [filters, searchParams, setSearchParams]);
+  const setFilters = (nextFilters: FilterOptions) => {
+    setSearchParams(previous => {
+      const next = new URLSearchParams(previous);
+      Object.entries(nextFilters).forEach(([key, value]) => {
+        if (value === null || value === 'All') next.delete(key);
+        else next.set(key, String(value));
+      });
+      return next;
+    }, { replace: true });
+  };
 
-  useEffect(() => {
-    let result = [...products];
-    if (searchTerm) {
-      const s = searchTerm.toLowerCase();
-      result = result.filter(p => p.name.toLowerCase().includes(s) || p.description.toLowerCase().includes(s));
-    }
-    if (filters.family !== 'All') result = result.filter(p => p.family === filters.family);
-    if (filters.toolHolderTypeCategory !== 'All') result = result.filter(p => p.toolHolderTypeCategory === filters.toolHolderTypeCategory);
-    if (filters.toolHolder !== 'All') result = result.filter(p => p.toolHolder === filters.toolHolder);
-    if (filters.application !== 'All') result = result.filter(p => p.applications.includes(filters.application as Application));
-    if (filters.minPower !== null) result = result.filter(p => p.power >= filters.minPower!);
-    if (filters.maxPower !== null) result = result.filter(p => p.power <= filters.maxPower!);
-    if (filters.minSpeed !== null) result = result.filter(p => p.minSpeed >= filters.minSpeed!);
-    if (filters.maxSpeed !== null) result = result.filter(p => p.maxSpeed <= filters.maxSpeed!);
-    if (filters.minTorque !== null) result = result.filter(p => p.torque >= filters.minTorque!);
-    if (filters.maxTorque !== null) result = result.filter(p => p.torque <= filters.maxTorque!);
-    setFilteredProducts(result);
+  const filteredProducts = useMemo(() => {
+    const search = searchTerm.trim().toLowerCase();
+    return products.filter(p => {
+      if (search && !p.name.toLowerCase().includes(search) && !p.description.toLowerCase().includes(search)) return false;
+      if (filters.family !== 'All' && p.family !== filters.family) return false;
+      if (filters.toolHolderTypeCategory !== 'All' && p.toolHolderTypeCategory !== filters.toolHolderTypeCategory) return false;
+      if (filters.toolHolder !== 'All' && p.toolHolder !== filters.toolHolder) return false;
+      if (filters.application !== 'All' && !p.applications.includes(filters.application)) return false;
+      if (filters.line !== 'All' && p.line !== filters.line) return false;
+      if (filters.minPower !== null && p.power < filters.minPower) return false;
+      if (filters.maxPower !== null && p.power > filters.maxPower) return false;
+      if (filters.minSpeed !== null && p.minSpeed < filters.minSpeed) return false;
+      if (filters.maxSpeed !== null && p.maxSpeed > filters.maxSpeed) return false;
+      if (filters.minTorque !== null && p.torque < filters.minTorque) return false;
+      if (filters.maxTorque !== null && p.torque > filters.maxTorque) return false;
+      return true;
+    });
   }, [searchTerm, filters]);
 
   return (
@@ -148,7 +147,7 @@ const ProductsPage = () => {
               <div className="bg-white rounded-lg shadow-md p-8 text-center">
                 <h3 className="text-lg font-medium text-gray-900 mb-2">No products found</h3>
                 <p className="text-gray-500 mb-4">Try adjusting your search or filter criteria.</p>
-                <button onClick={() => { setSearchTerm(''); setFilters({ family: 'All', toolHolderTypeCategory: 'All', line: 'All', minPower: null, maxPower: null, minSpeed: null, maxSpeed: null, minTorque: null, maxTorque: null, toolHolder: 'All', application: 'All' }); }}
+                <button onClick={() => { setSearchParams(new URLSearchParams(), { replace: true }); }}
                   className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600">
                   Reset All Filters
                 </button>
