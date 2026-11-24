@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { getApplicationImagePath } from '../../config/imagePaths';
+import { applications } from '../../data/applications';
 import { getImagekitUrl } from '../../utils/productImages';
 
 const Header = () => {
@@ -121,44 +121,9 @@ const Header = () => {
   ];
 
   // Application dropdown items with descriptions
-  const applicationItems = [
-    {
-      to: "/products?application=Wood",
-      title: "Wood Processing",
-      description: "Furniture, cabinetry, and architectural millwork applications",
-      image: getApplicationImagePath('wood-processing.png')
-    },
-    {
-      to: "/products?application=Stone",
-      title: "Stone & Marble",
-      description: "Natural and engineered stone cutting and shaping",
-      image: getApplicationImagePath('stone-marble.png')
-    },
-    {
-      to: "/products?application=Aluminum",
-      title: "Aluminum Machining",
-      description: "High-speed machining for aerospace and automotive components",
-      image: getApplicationImagePath('aluminum-machining.png')
-    },
-    {
-      to: "/products?application=Composites",
-      title: "Composite Materials",
-      description: "Advanced composites for aerospace and marine applications",
-      image: getApplicationImagePath('composite-materials.png')
-    },
-    {
-      to: "/products?application=Plastic",
-      title: "Plastic Processing",
-      description: "Precision machining of engineering plastics",
-      image: getApplicationImagePath('plastic-processing.png')
-    },
-    {
-      to: "/products?application=Glass",
-      title: "Glass Engraving",
-      description: "High-precision engraving and cutting of glass materials",
-      image: getApplicationImagePath('glass-engraving.png')
-    }
-  ];
+  const applicationItems = applications.map(({ to, title, navDescription, image }) => ({
+    to, title, description: navDescription, image,
+  }));
 
   return (
     <>
