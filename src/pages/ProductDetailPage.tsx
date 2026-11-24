@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ChevronLeft, Check, ChevronRight, Ruler, Settings, Thermometer, Shield, Scale, Download, ArrowLeft, X } from 'lucide-react';
+import { ChevronLeft, Check, ChevronRight, Settings, Thermometer, Shield, Scale, Download, ArrowLeft, X } from 'lucide-react';
 import { getProductById, products } from '../data/products';
 import { accessories } from '../data/accessories';
 import { Product, ProductImageType } from '../types';
