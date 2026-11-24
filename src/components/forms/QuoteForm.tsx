@@ -281,7 +281,7 @@ const QuoteForm = ({ productId, productName }: QuoteFormProps) => {
 
       {submitStatus === 'success' && (
         <div className="bg-success-50 text-success-700 p-4 rounded-lg">
-          Thank you for your request. Our team will contact you shortly.
+          Thank you. Your quote request has been submitted. If you do not receive a reply, email sales@arkspindles.com.
         </div>
       )}
 
