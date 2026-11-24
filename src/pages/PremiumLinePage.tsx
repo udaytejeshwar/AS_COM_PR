@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Shield, Zap, BarChart, Microscope, Award, Star } from 'lucide-react';
 import { getSiteImagePath } from '../config/imagePaths';
+import { getImagekitUrl } from '../utils/productImages';
+import useSEO from '../hooks/useSEO';
+import { SEO } from '../config/seo';
 
 const PremiumLinePage = () => {
+  useSEO(SEO.premium);
   return (
     <div className="animate-fade-in">
 
@@ -158,7 +162,7 @@ const PremiumLinePage = () => {
 
       <div className="mt-12 lg:mt-0">
         <img
-          src={getSiteImagePath('premium-research-development.jpg')}
+          src={getImagekitUrl(getSiteImagePath('premium-research-development.jpg'))}
           alt="Research and Development"
           className="rounded-lg shadow-lg"
         />
