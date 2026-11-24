@@ -34,7 +34,7 @@ test('catalogue search, filters and reset', async ({ page }) => {
   await expect(page.getByText('AME0300-1014', { exact: true }).first()).toBeVisible();
   await search.fill('no-such-spindle-xyz');
   await expect(page.getByText('No products found')).toBeVisible();
-  await page.getByText('No products found', { exact: true }).locator('..').getByRole('button', { name: 'Reset All Filters', exact: true }).click();
+  await page.getByRole('button', { name: 'Reset All Filters', exact: true }).last().click();
   await expect(search).toHaveValue('');
   await page.goto('/products?toolHolder=HSK-40');
   await expect(page.getByText('AQH0300-1005', { exact: true }).first()).toBeVisible();
