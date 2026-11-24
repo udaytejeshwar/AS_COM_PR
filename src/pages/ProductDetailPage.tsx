@@ -49,7 +49,7 @@ const ProductDetailPage = () => {
     ? buildProductSEO(product)
     : { title: 'CNC Electro Spindle | ARK SPINDLES India', description: 'Precision CNC electro spindle by ARK SPINDLES, manufactured in Hyderabad, India.', keywords: 'electro spindle India, CNC spindle', canonicalUrl: `/products/${id ?? ''}` };
 
-  useSEO(seoData);
+  useSEO({ ...seoData, noIndex: !product });
 
   const schemas = useMemo(() => {
     if (!product) return [];
@@ -68,7 +68,7 @@ const ProductDetailPage = () => {
 
   const handleImageDownload = (imageUrl: string, productName: string, role: ProductImageType) => {
     const link = document.createElement('a');
-    link.href = imageUrl;
+    link.href = getImagekitUrl(imageUrl);
     link.download = `${productName.toLowerCase().replace(/\s+/g, '-')}-${role}.jpg`;
     document.body.appendChild(link);
     link.click();
