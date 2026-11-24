@@ -108,7 +108,6 @@ export const submitToGoogleSheets = async (
     }
 
     // Note: With no-cors mode, response is opaque and cannot be inspected.
-    console.log('Form submission request sent');
   } catch (error) {
     console.error('Error submitting form data:', error);
     throw new Error('Failed to submit form data. Check your endpoint URL, deployment access, and Apps Script sheet permissions.');
@@ -145,7 +144,7 @@ export const validateFormData = (data: FormSubmission): boolean => {
  * @param data - The form data to format
  * @returns Formatted data object
  */
-export const formatForGoogleSheets = (data: FormSubmission): Record<string, any> => {
+export const formatForGoogleSheets = (data: FormSubmission): Record<string, string | number> => {
   const baseData = {
     timestamp: data.timestamp,
     type: data.type,
