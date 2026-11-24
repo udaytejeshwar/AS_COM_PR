@@ -1,3 +1,5 @@
+import { getImagekitUrl } from '../utils/productImages';
+
 /**
  * Schema.org JSON-LD builder functions.
  *
@@ -10,7 +12,7 @@
 
 const BASE_URL = 'https://arkspindles.com';
 
-const toAbsoluteImageUrl = (url: string) => (url.startsWith('http') ? url : `${BASE_URL}${url}`);
+const toAbsoluteImageUrl = (url: string) => new URL(getImagekitUrl(url), BASE_URL).href;
 const LOGO_URL = `${BASE_URL}/ARKRIDGE-LOGO.png`;
 
 // ─────────────────────────────────────────────────────────────────────────────
