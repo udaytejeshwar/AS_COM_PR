@@ -11,7 +11,7 @@ interface SEOProps {
 }
 
 const BASE_URL = 'https://arkspindles.com';
-const DEFAULT_OG_IMAGE = `${BASE_URL}/images/logos/ARKRIDGE-LOGO.png`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/ARKRIDGE-LOGO.png`;
 const DEFAULT_TITLE = 'ARK SPINDLES | Electro Spindle Manufacturer India';
 
 /**
