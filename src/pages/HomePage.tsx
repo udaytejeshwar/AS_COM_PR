@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SpindleMatcher from '../components/tools/SpindleMatcher';
 import TypewriterEffect from '../components/shared/TypewriterEffect';
 import StructuredData from '../components/shared/StructuredData';
-import { getApplicationImagePath } from '../config/imagePaths';
+import { applications } from '../data/applications';
 import useSEO from '../hooks/useSEO';
 import { SEO } from '../config/seo';
 import { buildOrganizationSchema, buildWebSiteSchema } from '../config/schemas';
@@ -197,14 +197,7 @@ const HomePage = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "Wood Processing", description: "Furniture, cabinetry, and architectural millwork with superior surface finishes.", image: getApplicationImagePath('wood-processing.png'), detailedDescription: ["Hardwood machining (Oak, Maple, Cherry)", "Softwood processing (Pine, Cedar, Fir)", "Engineered wood products (Plywood, MDF, OSB)", "Laminated materials and veneers", "Complex 3D carving and profiling"] },
-              { title: "Stone & Marble", description: "Precision cutting and shaping of natural and engineered stone materials.", image: getApplicationImagePath('stone-marble.png'), detailedDescription: ["Natural stone (Granite, Marble, Limestone)", "Engineered quartz and composite stones", "Ceramic and porcelain tiles", "Architectural stone elements", "Countertop fabrication and edge profiling"] },
-              { title: "Aluminum Machining", description: "High-speed machining of aluminum components for aerospace and automotive.", image: getApplicationImagePath('aluminum-machining.png'), detailedDescription: ["6061 and 7075 aluminum alloys", "Aerospace component manufacturing", "Automotive parts and heat sinks", "Architectural aluminum profiles", "High-speed milling and drilling operations"] },
-              { title: "Composite Materials", description: "Advanced composites for aerospace, marine, and high-performance applications.", image: getApplicationImagePath('composite-materials.png'), detailedDescription: ["Carbon fiber reinforced plastics (CFRP)", "Glass fiber composites (GFRP)", "Honeycomb sandwich structures", "Prepreg and wet-lay materials", "Aerospace and marine applications"] },
-              { title: "Plastic Processing", description: "Precision machining of thermoplastics and engineering plastics for industrial components.", image: getApplicationImagePath('plastic-processing.png'), detailedDescription: ["Engineering plastics (PEEK, POM, Nylon)", "Thermoplastics (ABS, PC, PMMA)", "High-performance polymers", "Medical grade plastics", "Precision prototype development"] },
-              { title: "Glass Engraving", description: "High-precision engraving and cutting of glass materials for decorative and functional applications.", image: getApplicationImagePath('glass-engraving.png'), detailedDescription: ["Tempered and laminated glass", "Decorative glass engraving", "Optical glass components", "Architectural glass panels", "Precision edge polishing"] },
-            ].map((application, index) => (
+            {applications.map((application, index) => (
               <article
                 key={index}
                 className="group bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
