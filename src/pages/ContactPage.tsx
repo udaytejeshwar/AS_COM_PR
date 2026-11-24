@@ -140,7 +140,7 @@ const ContactPage = () => {
                   </div>
 
                   {submitStatus === 'success' && (
-                    <div className="bg-success-50 text-success-700 p-4 rounded-lg">Your message has been sent successfully. We'll get back to you soon.</div>
+                    <div className="bg-success-50 text-success-700 p-4 rounded-lg">Your message request has been submitted. If you do not receive a reply, email sales@arkspindles.com.</div>
                   )}
                   {submitStatus === 'error' && (
                     <div className="bg-error-50 text-error-700 p-4 rounded-lg">There was an error sending your message. Please try again.</div>
