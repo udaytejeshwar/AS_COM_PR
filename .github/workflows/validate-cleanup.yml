@@ -16,8 +16,8 @@ jobs:
   validate:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: '20'
           cache: npm
@@ -35,7 +35,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npx playwright test
       - name: Checkout original baseline
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: main
           path: baseline-main
@@ -62,7 +62,7 @@ jobs:
             curl -fsS "http://127.0.0.1:$port/" > /dev/null
           done
           node scripts/compare-visuals.mjs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           name: browser-test-report
@@ -71,7 +71,7 @@ jobs:
             test-results/
             visual-comparison/
           retention-days: 7
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: success()
         with:
           name: website-preview-test-only
