@@ -1,7 +1,7 @@
 import { Product } from '../types';
 import { getProductImagePath, getProductRoleImagePath } from '../config/imagePaths';
 
-export const products: Product[] = [
+const productCatalogue: Product[] = [
   {
     id: '1',
     name: 'AME0300-1014',
@@ -843,7 +843,9 @@ export const products: Product[] = [
     ],
     deliveryTime: '2-3 weeks'
   }
-].map((product) => ({
+];
+
+export const products: Product[] = productCatalogue.map((product) => ({
   ...product,
   images: product.images ?? {
     spindle: {
