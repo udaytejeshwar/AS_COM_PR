@@ -14,7 +14,7 @@ const Header = () => {
   const location = useLocation();
 
   // Check if we're on a product detail page
-  const isProductDetailPage = /^\/products\/[^\/]+$/.test(location.pathname);
+  const isProductDetailPage = /^\/products\/[^/]+$/.test(location.pathname);
 
   // Force scrolled state on product detail pages for visibility
   const headerIsScrolled = isScrolled || isProductDetailPage || isProductsDropdownOpen || isApplicationsDropdownOpen;
