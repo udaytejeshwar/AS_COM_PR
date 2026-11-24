@@ -34,6 +34,34 @@ jobs:
         run: npm install --no-save --package-lock=false @playwright/test@1.51.1
       - run: npx playwright install --with-deps chromium
       - run: npx playwright test
+      - name: Checkout original baseline
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: baseline-main
+          persist-credentials: false
+      - name: Build original baseline
+        working-directory: baseline-main
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+        env:
+          VITE_GOOGLE_SHEETS_URL: https://script.google.com/macros/s/TEST_ONLY/exec
+          VITE_EXCEL_SUBMISSION_URL: ''
+          VITE_QUOTE_FORM_URL: https://script.google.com/macros/s/TEST_ONLY/exec
+          VITE_CONTACT_FORM_URL: https://script.google.com/macros/s/TEST_ONLY/exec
+      - name: Compare original and cleanup screenshots
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 --strictPort > /tmp/cleanup-preview.log 2>&1 &
+          (cd baseline-main && npm run preview -- --host 127.0.0.1 --port 4174 --strictPort) > /tmp/baseline-preview.log 2>&1 &
+          for port in 4173 4174; do
+            for attempt in $(seq 1 30); do
+              if curl -fsS "http://127.0.0.1:$port/" > /dev/null; then break; fi
+              sleep 1
+            done
+            curl -fsS "http://127.0.0.1:$port/" > /dev/null
+          done
+          node scripts/compare-visuals.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -41,6 +69,7 @@ jobs:
           path: |
             playwright-report/
             test-results/
+            visual-comparison/
           retention-days: 7
       - uses: actions/upload-artifact@v4
         if: success()
