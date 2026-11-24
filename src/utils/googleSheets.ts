@@ -1,5 +1,5 @@
 // Form submission utility functions
-// Works with any webhook endpoint (Google Apps Script, Power Automate, etc.)
+// Supports Google Apps Script and other compatible HTTPS webhook endpoints.
 
 export interface QuoteFormSubmission {
   type: 'quote';
@@ -40,11 +40,17 @@ const isConfiguredWebhookUrl = (url: string): boolean => {
     value.includes('your-quote-submission-webhook-url') ||
     value.includes('your-contact-submission-webhook-url');
 
-  return /^https?:\/\//i.test(value) && !looksLikePlaceholder;
+  if (looksLikePlaceholder) return false;
+  try {
+    const endpoint = new URL(value);
+    return endpoint.protocol === 'https:' || (endpoint.protocol === 'http:' && ['localhost', '127.0.0.1'].includes(endpoint.hostname));
+  } catch {
+    return false;
+  }
 };
 
 const isGoogleAppsScriptUrl = (url: string): boolean =>
-  /script\.google(?:usercontent)?\.com/i.test(url);
+  ['script.google.com', 'script.googleusercontent.com'].includes(new URL(url).hostname);
 
 const buildGoogleAppsScriptBody = (data: FormSubmission): URLSearchParams => {
   const params = new URLSearchParams();
@@ -68,23 +74,19 @@ export const submitToGoogleSheets = async (
   data: FormSubmission,
   scriptUrl: string
 ): Promise<void> => {
+  scriptUrl = scriptUrl.trim();
   const configured = isConfiguredWebhookUrl(scriptUrl);
 
   if (!configured) {
     const message =
       'Form endpoint is not configured. Set VITE_GOOGLE_SHEETS_URL (and optionally per-form URLs) in .env.';
 
-    if (import.meta.env.DEV) {
-      console.warn(`${message} Skipping network call in development mode.`);
-      return;
-    }
-
     throw new Error(message);
   }
 
   const googleAppsScriptEndpoint = isGoogleAppsScriptUrl(scriptUrl);
 
-  if (googleAppsScriptEndpoint && !/\/exec(?:\?|$)/.test(scriptUrl)) {
+  if (googleAppsScriptEndpoint && !new URL(scriptUrl).pathname.endsWith('/exec')) {
     throw new Error('Google Apps Script URL must be the deployed Web App /exec endpoint.');
   }
 
@@ -120,21 +122,14 @@ export const submitToGoogleSheets = async (
  * @returns boolean indicating if data is valid
  */
 export const validateFormData = (data: FormSubmission): boolean => {
+  const hasText = (value: string) => value.trim().length > 0;
+  const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim());
+  if (!validEmail) return false;
+
   if (data.type === 'quote') {
-    return !!(
-      data.firstName &&
-      data.lastName &&
-      data.company &&
-      data.email &&
-      data.application
-    );
-  } else if (data.type === 'contact') {
-    return !!(
-      data.name &&
-      data.email &&
-      data.subject &&
-      data.message
-    );
+    return [data.firstName, data.lastName, data.company, data.application].every(hasText) &&
+      Number.isInteger(data.quantity) && data.quantity >= 1;
   }
-  return false;
+
+  return [data.name, data.subject, data.message].every(hasText);
 };
