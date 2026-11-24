@@ -16,7 +16,7 @@ const TypewriterEffect = ({ text, speed = 80, onComplete }: TypewriterEffectProp
     if (!hasStarted) {
       setHasStarted(true);
     }
-  }, []);
+  }, [hasStarted]);
 
   useEffect(() => {
     if (!hasStarted || currentIndex >= text.length) {
