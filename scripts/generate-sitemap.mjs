@@ -1,87 +1,51 @@
-import { writeFileSync, mkdirSync, readFileSync } from 'fs';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createServer } from 'vite';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '..');
-
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE_URL = 'https://arkspindles.com';
-const TODAY = new Date().toISOString().split('T')[0];
-const IMAGE_ASSET_VERSION = (process.env.VITE_IMAGEKIT_ASSET_VERSION || '').trim();
+const escapeXml = (value) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&apos;');
 
-const appendImageAssetVersion = (url) => {
-  if (!IMAGE_ASSET_VERSION) return url;
+// Read the same catalogue and image resolver used by the website, including Vite's environment configuration.
+const server = await createServer({
+  root: ROOT,
+  configFile: false,
+  mode: 'production',
+  appType: 'custom',
+  server: { middlewareMode: true, hmr: false },
+});
 
-  const separator = url.includes('?') ? '&' : '?';
-  return `${url}${separator}v=${encodeURIComponent(IMAGE_ASSET_VERSION)}`;
-};
+try {
+  const { products } = await server.ssrLoadModule('/src/data/products.ts');
+  const { getImagekitUrl, getProductImageSet } = await server.ssrLoadModule('/src/utils/productImages.ts');
+  const staticRoutes = ['/', '/products', '/accessories', '/about', '/contact', '/quote', '/premium'];
+  const routes = [
+    ...staticRoutes.map(path => ({ path, images: [] })),
+    ...products.map(product => ({
+      path: '/products/' + product.id,
+      images: Object.values(getProductImageSet(product)).map(image =>
+        new URL(getImagekitUrl(image.url), BASE_URL).href
+      ),
+    })),
+  ];
 
-const STATIC_ROUTES = [
-  { path: '/', changefreq: 'weekly', priority: '1.0' },
-  { path: '/products', changefreq: 'weekly', priority: '0.9' },
-  { path: '/accessories', changefreq: 'monthly', priority: '0.7' },
-  { path: '/about', changefreq: 'monthly', priority: '0.6' },
-  { path: '/contact', changefreq: 'monthly', priority: '0.6' },
-  { path: '/quote', changefreq: 'monthly', priority: '0.5' },
-  { path: '/premium', changefreq: 'monthly', priority: '0.7' },
-];
+  // Filter URLs canonicalize to /products, so they are intentionally not listed separately.
+  const entries = routes.map(({ path, images }) => [
+    '  <url>',
+    '    <loc>' + escapeXml(new URL(path, BASE_URL).href) + '</loc>',
+    ...images.map(url => '    <image:image><image:loc>' + escapeXml(url) + '</image:loc></image:image>'),
+    '  </url>',
+  ].join('\n')).join('\n');
 
-const FILTERED_ROUTES = [
-  { path: '/products?family=M', changefreq: 'weekly', priority: '0.8' },
-  { path: '/products?family=Q', changefreq: 'weekly', priority: '0.8' },
-  { path: '/products?toolHolderTypeCategory=ER', changefreq: 'weekly', priority: '0.7' },
-  { path: '/products?toolHolderTypeCategory=HSK', changefreq: 'weekly', priority: '0.7' },
-  { path: '/products?application=Wood', changefreq: 'weekly', priority: '0.8' },
-  { path: '/products?application=Stone', changefreq: 'weekly', priority: '0.8' },
-  { path: '/products?application=Aluminum', changefreq: 'weekly', priority: '0.8' },
-  { path: '/products?application=Composites', changefreq: 'weekly', priority: '0.7' },
-  { path: '/products?application=Plastic', changefreq: 'weekly', priority: '0.7' },
-  { path: '/products?application=Glass', changefreq: 'weekly', priority: '0.7' },
-];
+  const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' +
+    entries + '\n</urlset>\n';
 
-const readProductIds = () => {
-  const productFile = readFileSync(resolve(ROOT, 'src/data/products.ts'), 'utf-8');
-  const matches = [...productFile.matchAll(/\bid:\s*'([^']+)'/g)];
-  return [...new Set(matches.map((match) => match[1]))];
-};
-
-const getImageTags = (productId) => [
-  `/images/products/spindles/${productId}/spindle.jpg`,
-  `/images/products/spindles/${productId}/drawing.jpg`,
-  `/images/products/spindles/${productId}/graph.jpg`,
-].map((path) => `\n    <image:image><image:loc>${appendImageAssetVersion(`${BASE_URL}${path}`)}</image:loc></image:image>`).join('');
-
-const PRODUCT_ROUTES = readProductIds().map((id) => ({
-  path: `/products/${id}`,
-  changefreq: 'monthly',
-  priority: '0.8',
-  images: getImageTags(id),
-}));
-
-const allRoutes = [...STATIC_ROUTES, ...FILTERED_ROUTES, ...PRODUCT_ROUTES];
-
-const urlEntries = allRoutes
-  .map(({ path, changefreq, priority, images = '' }) => {
-    const encodedPath = path.replace(/&/g, '&amp;');
-    return `  <url>\n    <loc>${BASE_URL}${encodedPath}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>${images}\n  </url>`;
-  })
-  .join('\n');
-
-const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:image="http://www.google.com/schemaps/sitemap-image/1.1"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-${urlEntries}
-
-</urlset>`;
-
-const outDir = resolve(ROOT, 'public');
-mkdirSync(outDir, { recursive: true });
-const outPath = resolve(outDir, 'sitemap.xml');
-writeFileSync(outPath, xml, 'utf-8');
-
-console.log(`✅ sitemap.xml generated with ${allRoutes.length} URLs → ${outPath}`);
+  const outDir = resolve(ROOT, 'public');
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(resolve(outDir, 'sitemap.xml'), xml, 'utf-8');
+  console.log('Generated sitemap.xml with ' + routes.length + ' canonical URLs');
+} finally {
+  await server.close();
+}
