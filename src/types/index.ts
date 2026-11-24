@@ -68,7 +68,7 @@ export interface Accessory {
   features: string[];
   specifications: Record<string, string>;
   imageUrl: string;
-  compatibleWith?: ProductFamily[];
+  compatibleWith?: ToolHolderTypeCategory[];
 }
 
 export interface FilterOptions {
