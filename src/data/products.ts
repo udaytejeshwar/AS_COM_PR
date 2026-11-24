@@ -854,23 +854,3 @@ export const products: Product[] = productCatalogue.map((product) => ({
 export const getProductById = (id: string): Product | undefined => {
   return products.find(product => product.id === id);
 };
-
-export const getFilterLimits = () => {
-  return products.reduce((limits, product) => {
-    return {
-      minPower: Math.min(limits.minPower, product.power),
-      maxPower: Math.max(limits.maxPower, product.power),
-      nominalSpeed: Math.min(limits.nominalSpeed, product.nominalSpeed),
-      maxSpeed: Math.max(limits.maxSpeed, product.maxSpeed),
-      minTorque: Math.min(limits.minTorque, product.torque),
-      maxTorque: Math.max(limits.maxTorque, product.torque),
-    };
-  }, {
-    minPower: Infinity,
-    maxPower: -Infinity,
-    nominalSpeed: Infinity,
-    maxSpeed: -Infinity,
-    minTorque: Infinity,
-    maxTorque: -Infinity,
-  });
-};
