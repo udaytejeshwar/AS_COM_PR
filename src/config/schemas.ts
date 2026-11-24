@@ -11,7 +11,7 @@
 const BASE_URL = 'https://arkspindles.com';
 
 const toAbsoluteImageUrl = (url: string) => (url.startsWith('http') ? url : `${BASE_URL}${url}`);
-const LOGO_URL = `${BASE_URL}/images/logos/ARKRIDGE-LOGO.png`;
+const LOGO_URL = `${BASE_URL}/ARKRIDGE-LOGO.png`;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Shared address used by LocalBusiness schemas
@@ -180,7 +180,6 @@ export interface ProductSchemaInput {
   line: string;
   voltage: string;
   technicalSpecs: {
-    runout: string;
     bearingType: string;
     coolingSystem: string;
     protectionClass: string;
@@ -230,7 +229,6 @@ export const buildProductSchema = (product: ProductSchemaInput) => {
       ...(product.torqueS6 ? [{ '@type': 'PropertyValue', name: 'Torque (S6-40%)', value: `${product.torqueS6} Nm` }] : []),
       { '@type': 'PropertyValue', name: 'Tool Holder', value: product.toolHolder },
       { '@type': 'PropertyValue', name: 'Voltage', value: product.voltage },
-      { '@type': 'PropertyValue', name: 'Runout', value: product.technicalSpecs.runout },
       { '@type': 'PropertyValue', name: 'Bearing Type', value: product.technicalSpecs.bearingType },
       { '@type': 'PropertyValue', name: 'Cooling System', value: product.technicalSpecs.coolingSystem },
       { '@type': 'PropertyValue', name: 'Protection Class', value: product.technicalSpecs.protectionClass },
