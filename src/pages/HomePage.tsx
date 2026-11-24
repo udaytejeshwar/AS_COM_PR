@@ -146,20 +146,6 @@ const HomePage = () => {
             {[
               { family: 'M', title: 'MTC spindles', description: 'Manual tool change spindles offering reliable performance for standard machining operations.', features: ['Manual tool change', 'Robust construction', 'Cost-effective solution', 'Wide speed range'], image: 'https://ik.imagekit.io/arkspindles/images/products/spindles/1-ame0300-1014-main.png' },
               { family: 'Q', title: 'QTC spindles', description: 'Quick tool change spindles for enhanced productivity and reduced downtime.', features: ['Quick tool change', 'High precision', 'Increased productivity', 'Advanced cooling'], image: 'https://ik.imagekit.io/arkspindles/images/products/spindles/15-aqh0300-1005-main.png' }
-              // ,{
-              //   family: 'A',
-              //   title: 'ATC spindles',
-              //   description: 'Automatic tool change spindles for maximum efficiency in automated production environments.',
-              //   features: ['Automatic tool change', 'Maximum efficiency', 'Automated operation', 'Premium performance'],
-              //   image: getProductImagePath('7', 'ATC-9000 ISO30', 'main')
-              // },
-              // {
-              //   family: 'B',
-              //   title: 'Blade Tech spindles',
-              //   description: 'Advanced blade technology spindles for precision cutting and specialized applications.',
-              //   features: ['Blade mounting interface', 'High-speed cutting', 'Precision alignment', 'Advanced cooling'],
-              //   image: getProductImagePath('9', 'BT-6000 ER25', 'main')
-              // }
             ].map((product, index) => (
               <div key={index} className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className="aspect-video overflow-hidden">
