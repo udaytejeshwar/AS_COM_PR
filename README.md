@@ -8,6 +8,7 @@ Run `npm ci`, then `npm run dev`. Use `npm run build` for a production build and
 
 - [Image Management Guide](./IMAGE_MANAGEMENT.md)
 - [ImageKit + SEO Implementation Plan](./IMAGEKIT_SEO_PLAN.md)
+- [Google Sheets Workflow (Apps Script + setup)](./GOOGLE_SHEETS_WORKFLOW.md)
 
 ## Form submissions (Google Sheets)
 
